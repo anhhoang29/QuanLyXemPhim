@@ -73,7 +73,6 @@ namespace QuanLyXemPhim
             this.btnSeller.TabIndex = 2;
             this.btnSeller.Text = "Nhân Viên";
             this.btnSeller.UseVisualStyleBackColor = false;
-            this.btnSeller.Click += new System.EventHandler(this.btnSeller_Click);
             // 
             // btnAdmin
             // 
@@ -85,7 +84,6 @@ namespace QuanLyXemPhim
             this.btnAdmin.TabIndex = 1;
             this.btnAdmin.Text = "Quản Lý";
             this.btnAdmin.UseVisualStyleBackColor = false;
-            this.btnAdmin.Click += new System.EventHandler(this.btnLogIn_Click);
             // 
             // lblAccountInfo
             // 
@@ -105,7 +103,6 @@ namespace QuanLyXemPhim
             this.btnChangePassword.TabIndex = 3;
             this.btnChangePassword.Text = "Reset Password";
             this.btnChangePassword.UseVisualStyleBackColor = true;
-            this.btnChangePassword.Click += new System.EventHandler(this.btnAccountSetting_Click);
             // 
             // frmDashboard
             // 

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BUS;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -18,7 +19,16 @@ namespace QuanLyXemPhim
         }
         private void btnLogIn_Click(object sender, EventArgs e)
         {
-            
+            string userName = txtUsername.Text;
+            string password = txtPassword.Text;
+            if (TaiKhoanBUS.Instance.handleLogin(userName,password) != null)
+            {
+                MessageBox.Show("Dang nhap thanh cong", "Thông báo", MessageBoxButtons.OKCancel);
+            }
+            else
+            {
+                MessageBox.Show("Dang nhap that bai", "Thông báo", MessageBoxButtons.OKCancel);
+            }
         }
         private void frmLogin_FormClosing(object sender, FormClosingEventArgs e)
         {
