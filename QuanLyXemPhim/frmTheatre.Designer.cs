@@ -351,12 +351,13 @@ namespace QuanLyXemPhim
             // chkCustomer
             // 
             this.chkCustomer.AutoSize = true;
-            this.chkCustomer.Location = new System.Drawing.Point(6, 29);
+            this.chkCustomer.Location = new System.Drawing.Point(6, 24);
             this.chkCustomer.Name = "chkCustomer";
             this.chkCustomer.Size = new System.Drawing.Size(250, 29);
             this.chkCustomer.TabIndex = 0;
             this.chkCustomer.Text = "Khách Hàng Thành Viên";
             this.chkCustomer.UseVisualStyleBackColor = true;
+            this.chkCustomer.CheckedChanged += new System.EventHandler(this.chkCustomer_CheckedChanged);
             this.chkCustomer.Click += new System.EventHandler(this.chkCustomer_Click);
             // 
             // grpLoaiVe

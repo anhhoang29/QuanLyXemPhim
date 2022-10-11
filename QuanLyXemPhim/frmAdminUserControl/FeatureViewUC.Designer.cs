@@ -60,7 +60,7 @@ namespace QuanLyXemPhim.frmAdminUserControl
             // SidePanel
             // 
             this.SidePanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(178)))), ((int)(((byte)(8)))), ((int)(((byte)(55)))));
-            this.SidePanel.Location = new System.Drawing.Point(0, 140);
+            this.SidePanel.Location = new System.Drawing.Point(0, 138);
             this.SidePanel.Margin = new System.Windows.Forms.Padding(4);
             this.SidePanel.Name = "SidePanel";
             this.SidePanel.Size = new System.Drawing.Size(13, 66);

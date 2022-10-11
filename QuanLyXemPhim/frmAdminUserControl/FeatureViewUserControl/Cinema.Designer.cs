@@ -34,6 +34,8 @@ namespace QuanLyXemPhim.frmAdminUserControl.FeatureViewUserControl
             this.btnUpdateCinema = new System.Windows.Forms.Button();
             this.btnDeleteCinema = new System.Windows.Forms.Button();
             this.btnInsertCinema = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.dtgvCinema = new System.Windows.Forms.DataGridView();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel15 = new System.Windows.Forms.Panel();
             this.txtSeatsPerRow = new System.Windows.Forms.TextBox();
@@ -53,9 +55,9 @@ namespace QuanLyXemPhim.frmAdminUserControl.FeatureViewUserControl
             this.panel32 = new System.Windows.Forms.Panel();
             this.txtCinemaID = new System.Windows.Forms.TextBox();
             this.lblCinemaID = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.dtgvCinema = new System.Windows.Forms.DataGridView();
             this.panel33.SuspendLayout();
+            this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgvCinema)).BeginInit();
             this.panel2.SuspendLayout();
             this.panel15.SuspendLayout();
             this.panel12.SuspendLayout();
@@ -63,8 +65,6 @@ namespace QuanLyXemPhim.frmAdminUserControl.FeatureViewUserControl
             this.panel8.SuspendLayout();
             this.panel31.SuspendLayout();
             this.panel32.SuspendLayout();
-            this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dtgvCinema)).BeginInit();
             this.SuspendLayout();
             // 
             // panel33
@@ -77,8 +77,8 @@ namespace QuanLyXemPhim.frmAdminUserControl.FeatureViewUserControl
             this.panel33.Location = new System.Drawing.Point(0, 0);
             this.panel33.Margin = new System.Windows.Forms.Padding(4);
             this.panel33.Name = "panel33";
-            this.panel33.Size = new System.Drawing.Size(1451, 64);
-            this.panel33.TabIndex = 10;
+            this.panel33.Size = new System.Drawing.Size(1271, 64);
+            this.panel33.TabIndex = 20;
             // 
             // btnShowCinema
             // 
@@ -89,7 +89,6 @@ namespace QuanLyXemPhim.frmAdminUserControl.FeatureViewUserControl
             this.btnShowCinema.TabIndex = 3;
             this.btnShowCinema.Text = "Xem";
             this.btnShowCinema.UseVisualStyleBackColor = true;
-            this.btnShowCinema.Click += new System.EventHandler(this.btnDeleteCinema_Click);
             // 
             // btnUpdateCinema
             // 
@@ -100,7 +99,6 @@ namespace QuanLyXemPhim.frmAdminUserControl.FeatureViewUserControl
             this.btnUpdateCinema.TabIndex = 2;
             this.btnUpdateCinema.Text = "Sửa";
             this.btnUpdateCinema.UseVisualStyleBackColor = true;
-            this.btnUpdateCinema.Click += new System.EventHandler(this.btnUpdateCinema_Click);
             // 
             // btnDeleteCinema
             // 
@@ -111,7 +109,6 @@ namespace QuanLyXemPhim.frmAdminUserControl.FeatureViewUserControl
             this.btnDeleteCinema.TabIndex = 1;
             this.btnDeleteCinema.Text = "Xóa";
             this.btnDeleteCinema.UseVisualStyleBackColor = true;
-            this.btnDeleteCinema.Click += new System.EventHandler(this.btnDeleteCinema_Click);
             // 
             // btnInsertCinema
             // 
@@ -122,7 +119,32 @@ namespace QuanLyXemPhim.frmAdminUserControl.FeatureViewUserControl
             this.btnInsertCinema.TabIndex = 0;
             this.btnInsertCinema.Text = "Thêm";
             this.btnInsertCinema.UseVisualStyleBackColor = true;
-            this.btnInsertCinema.Click += new System.EventHandler(this.btnInsertCinema_Click);
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.dtgvCinema);
+            this.panel1.Controls.Add(this.panel2);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1271, 639);
+            this.panel1.TabIndex = 21;
+            // 
+            // dtgvCinema
+            // 
+            this.dtgvCinema.AllowUserToAddRows = false;
+            this.dtgvCinema.AllowUserToDeleteRows = false;
+            this.dtgvCinema.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dtgvCinema.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtgvCinema.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dtgvCinema.Location = new System.Drawing.Point(0, 0);
+            this.dtgvCinema.Margin = new System.Windows.Forms.Padding(4);
+            this.dtgvCinema.Name = "dtgvCinema";
+            this.dtgvCinema.ReadOnly = true;
+            this.dtgvCinema.RowHeadersWidth = 51;
+            this.dtgvCinema.Size = new System.Drawing.Size(805, 639);
+            this.dtgvCinema.TabIndex = 1;
             // 
             // panel2
             // 
@@ -133,10 +155,10 @@ namespace QuanLyXemPhim.frmAdminUserControl.FeatureViewUserControl
             this.panel2.Controls.Add(this.panel31);
             this.panel2.Controls.Add(this.panel32);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel2.Location = new System.Drawing.Point(1007, 0);
+            this.panel2.Location = new System.Drawing.Point(805, 0);
             this.panel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(444, 574);
+            this.panel2.Size = new System.Drawing.Size(466, 639);
             this.panel2.TabIndex = 0;
             // 
             // panel15
@@ -301,7 +323,6 @@ namespace QuanLyXemPhim.frmAdminUserControl.FeatureViewUserControl
             this.txtCinemaID.Name = "txtCinemaID";
             this.txtCinemaID.Size = new System.Drawing.Size(216, 22);
             this.txtCinemaID.TabIndex = 1;
-            this.txtCinemaID.TextChanged += new System.EventHandler(this.txtCinemaID_TextChanged);
             // 
             // lblCinemaID
             // 
@@ -314,42 +335,18 @@ namespace QuanLyXemPhim.frmAdminUserControl.FeatureViewUserControl
             this.lblCinemaID.TabIndex = 0;
             this.lblCinemaID.Text = "Mã phòng:";
             // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.dtgvCinema);
-            this.panel1.Controls.Add(this.panel2);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(0, 64);
-            this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1451, 574);
-            this.panel1.TabIndex = 11;
-            // 
-            // dtgvCinema
-            // 
-            this.dtgvCinema.AllowUserToAddRows = false;
-            this.dtgvCinema.AllowUserToDeleteRows = false;
-            this.dtgvCinema.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dtgvCinema.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtgvCinema.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dtgvCinema.Location = new System.Drawing.Point(0, 0);
-            this.dtgvCinema.Margin = new System.Windows.Forms.Padding(4);
-            this.dtgvCinema.Name = "dtgvCinema";
-            this.dtgvCinema.ReadOnly = true;
-            this.dtgvCinema.RowHeadersWidth = 51;
-            this.dtgvCinema.Size = new System.Drawing.Size(1007, 574);
-            this.dtgvCinema.TabIndex = 1;
-            // 
             // Cinema
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel33);
+            this.Controls.Add(this.panel1);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Cinema";
-            this.Size = new System.Drawing.Size(1451, 638);
+            this.Size = new System.Drawing.Size(1271, 639);
             this.panel33.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dtgvCinema)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel15.ResumeLayout(false);
             this.panel15.PerformLayout();
@@ -363,8 +360,6 @@ namespace QuanLyXemPhim.frmAdminUserControl.FeatureViewUserControl
             this.panel31.PerformLayout();
             this.panel32.ResumeLayout(false);
             this.panel32.PerformLayout();
-            this.panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dtgvCinema)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -376,6 +371,8 @@ namespace QuanLyXemPhim.frmAdminUserControl.FeatureViewUserControl
         private System.Windows.Forms.Button btnUpdateCinema;
         private System.Windows.Forms.Button btnDeleteCinema;
         private System.Windows.Forms.Button btnInsertCinema;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.DataGridView dtgvCinema;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel15;
         private System.Windows.Forms.TextBox txtSeatsPerRow;
@@ -395,7 +392,5 @@ namespace QuanLyXemPhim.frmAdminUserControl.FeatureViewUserControl
         private System.Windows.Forms.Panel panel32;
         private System.Windows.Forms.TextBox txtCinemaID;
         private System.Windows.Forms.Label lblCinemaID;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.DataGridView dtgvCinema;
     }
 }

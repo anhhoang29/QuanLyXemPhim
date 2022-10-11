@@ -48,5 +48,10 @@ namespace QuanLyXemPhim
 
         }
 
+        private void chkCustomer_CheckedChanged(object sender, EventArgs e)
+        {
+            frmCustomer frmCustomer = new frmCustomer();
+            frmCustomer.ShowDialog();
+        }
     }
 }

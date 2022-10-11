@@ -23,10 +23,8 @@ namespace QuanLyXemPhim
 
         private void btn_register_Click(object sender, EventArgs e)
         {
-            this.Hide();
             frmRegister frm = new frmRegister();
             frm.ShowDialog();
-            this.Show();
         }
 
     }
