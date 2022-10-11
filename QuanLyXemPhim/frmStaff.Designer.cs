@@ -49,6 +49,7 @@ namespace QuanLyXemPhim
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.btn_ChonVe = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -94,6 +95,7 @@ namespace QuanLyXemPhim
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.Color.DimGray;
+            this.groupBox1.Controls.Add(this.btn_ChonVe);
             this.groupBox1.Controls.Add(this.dtpThoiGian);
             this.groupBox1.Controls.Add(this.cboFilmName);
             this.groupBox1.Controls.Add(this.cboFormatFilm);
@@ -245,6 +247,16 @@ namespace QuanLyXemPhim
             this.timer1.Interval = 30000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // btn_ChonVe
+            // 
+            this.btn_ChonVe.Location = new System.Drawing.Point(174, 446);
+            this.btn_ChonVe.Name = "btn_ChonVe";
+            this.btn_ChonVe.Size = new System.Drawing.Size(140, 48);
+            this.btn_ChonVe.TabIndex = 1;
+            this.btn_ChonVe.Text = "Chọn vé";
+            this.btn_ChonVe.UseVisualStyleBackColor = true;
+            this.btn_ChonVe.Click += new System.EventHandler(this.btn_ChonVe_Click);
+            // 
             // frmStaff
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
@@ -291,5 +303,6 @@ namespace QuanLyXemPhim
         private System.Windows.Forms.ColumnHeader columnHeader5;
 
         private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Button btn_ChonVe;
     }
 }

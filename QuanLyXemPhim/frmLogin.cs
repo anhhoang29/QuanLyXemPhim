@@ -1,4 +1,6 @@
 ﻿using BUS;
+using DTO;
+using QuanLyXemPhim.frmAdminUserControl;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -21,13 +23,17 @@ namespace QuanLyXemPhim
         {
             string userName = txtUsername.Text;
             string password = txtPassword.Text;
-            if (TaiKhoanBUS.Instance.handleLogin(userName,password) != null)
+            TaiKhoan taiKhoan = TaiKhoanBUS.Instance.handleLogin(userName, password);
+            if (taiKhoan != null)
             {
-                MessageBox.Show("Dang nhap thanh cong", "Thông báo", MessageBoxButtons.OKCancel);
+                frmDashboard dashboard = new frmDashboard(taiKhoan);
+                dashboard.ShowDialog();
+                txtUsername.Clear();
+                txtPassword.Clear();
             }
             else
             {
-                MessageBox.Show("Dang nhap that bai", "Thông báo", MessageBoxButtons.OKCancel);
+                MessageBox.Show("Đăng nhập thất bại", "Thông báo", MessageBoxButtons.OKCancel);
             }
         }
         private void frmLogin_FormClosing(object sender, FormClosingEventArgs e)

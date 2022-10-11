@@ -130,6 +130,12 @@
     <Compile Include="frmCustomer.Designer.cs">
       <DependentUpon>frmCustomer.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmDashboard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDashboard.Designer.cs">
+      <DependentUpon>frmDashboard.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmRegister.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -141,12 +147,6 @@
     </Compile>
     <Compile Include="frmStaff.Designer.cs">
       <DependentUpon>frmStaff.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frmDashboard.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmDashboard.Designer.cs">
-      <DependentUpon>frmDashboard.cs</DependentUpon>
     </Compile>
     <Compile Include="frmLogin.cs">
       <SubType>Form</SubType>
@@ -180,11 +180,17 @@
     <EmbeddedResource Include="frmAdminUserControl\FeatureViewUserControl\FormatMovieUC.resx">
       <DependentUpon>FormatMovieUC.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmAdminUserControl\FeatureViewUserControl\GenreUC.resx">
+      <DependentUpon>GenreUC.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmAdminUserControl\FeatureViewUserControl\MovieUC.resx">
       <DependentUpon>MovieUC.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmAdminUserControl\FeatureViewUserControl\ShowTimesUC.resx">
       <DependentUpon>ShowTimesUC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmAdminUserControl\FeatureViewUserControl\TicketsUC.resx">
+      <DependentUpon>TicketsUC.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmCustomer.resx">
       <DependentUpon>frmCustomer.cs</DependentUpon>

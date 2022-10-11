@@ -29,21 +29,16 @@ namespace QuanLyXemPhim.frmAdminUserControl.FeatureViewUserControl
         /// </summary>
         private void InitializeComponent()
         {
-            this.panel47 = new System.Windows.Forms.Panel();
-            this.btnShowMovie = new System.Windows.Forms.Button();
-            this.btnUpdateMovie = new System.Windows.Forms.Button();
-            this.btnDeleteMovie = new System.Windows.Forms.Button();
-            this.btnAddMovie = new System.Windows.Forms.Button();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.dtgvMovie = new System.Windows.Forms.DataGridView();
-            this.panel2 = new System.Windows.Forms.Panel();
             this.btnUpLoadPictureFilm = new System.Windows.Forms.Button();
+            this.picFilm = new System.Windows.Forms.PictureBox();
             this.clbMovieGenre = new System.Windows.Forms.CheckedListBox();
             this.dtmMovieEnd = new System.Windows.Forms.DateTimePicker();
             this.dtmMovieStart = new System.Windows.Forms.DateTimePicker();
             this.txtMovieYearLimit = new System.Windows.Forms.TextBox();
             this.txtMovieActor = new System.Windows.Forms.TextBox();
             this.txtMovieCountry = new System.Windows.Forms.TextBox();
+            this.dtgvMovie = new System.Windows.Forms.DataGridView();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.txtMovieLength = new System.Windows.Forms.TextBox();
             this.lblMovieEndDate = new System.Windows.Forms.Label();
             this.lblMovieStartDate = new System.Windows.Forms.Label();
@@ -58,128 +53,18 @@ namespace QuanLyXemPhim.frmAdminUserControl.FeatureViewUserControl
             this.lblMovieName = new System.Windows.Forms.Label();
             this.txtMovieID = new System.Windows.Forms.TextBox();
             this.lblMovieID = new System.Windows.Forms.Label();
-            this.picFilm = new System.Windows.Forms.PictureBox();
-            this.panel47.SuspendLayout();
-            this.panel1.SuspendLayout();
+            this.btnShowMovie = new System.Windows.Forms.Button();
+            this.btnUpdateMovie = new System.Windows.Forms.Button();
+            this.btnDeleteMovie = new System.Windows.Forms.Button();
+            this.btnAddMovie = new System.Windows.Forms.Button();
+            this.panel47 = new System.Windows.Forms.Panel();
+            this.panel1 = new System.Windows.Forms.Panel();
+            ((System.ComponentModel.ISupportInitialize)(this.picFilm)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvMovie)).BeginInit();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picFilm)).BeginInit();
+            this.panel47.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // panel47
-            // 
-            this.panel47.Controls.Add(this.btnShowMovie);
-            this.panel47.Controls.Add(this.btnUpdateMovie);
-            this.panel47.Controls.Add(this.btnDeleteMovie);
-            this.panel47.Controls.Add(this.btnAddMovie);
-            this.panel47.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel47.Location = new System.Drawing.Point(0, 278);
-            this.panel47.Margin = new System.Windows.Forms.Padding(4);
-            this.panel47.Name = "panel47";
-            this.panel47.Size = new System.Drawing.Size(1548, 64);
-            this.panel47.TabIndex = 10;
-            // 
-            // btnShowMovie
-            // 
-            this.btnShowMovie.Location = new System.Drawing.Point(328, 4);
-            this.btnShowMovie.Margin = new System.Windows.Forms.Padding(4);
-            this.btnShowMovie.Name = "btnShowMovie";
-            this.btnShowMovie.Size = new System.Drawing.Size(100, 57);
-            this.btnShowMovie.TabIndex = 3;
-            this.btnShowMovie.Text = "Xem";
-            this.btnShowMovie.UseVisualStyleBackColor = true;
-            this.btnShowMovie.Click += new System.EventHandler(this.btnShowMovie_Click);
-            // 
-            // btnUpdateMovie
-            // 
-            this.btnUpdateMovie.Location = new System.Drawing.Point(220, 4);
-            this.btnUpdateMovie.Margin = new System.Windows.Forms.Padding(4);
-            this.btnUpdateMovie.Name = "btnUpdateMovie";
-            this.btnUpdateMovie.Size = new System.Drawing.Size(100, 57);
-            this.btnUpdateMovie.TabIndex = 2;
-            this.btnUpdateMovie.Text = "Sửa";
-            this.btnUpdateMovie.UseVisualStyleBackColor = true;
-            this.btnUpdateMovie.Click += new System.EventHandler(this.btnUpdateMovie_Click);
-            // 
-            // btnDeleteMovie
-            // 
-            this.btnDeleteMovie.Location = new System.Drawing.Point(112, 4);
-            this.btnDeleteMovie.Margin = new System.Windows.Forms.Padding(4);
-            this.btnDeleteMovie.Name = "btnDeleteMovie";
-            this.btnDeleteMovie.Size = new System.Drawing.Size(100, 57);
-            this.btnDeleteMovie.TabIndex = 1;
-            this.btnDeleteMovie.Text = "Xóa";
-            this.btnDeleteMovie.UseVisualStyleBackColor = true;
-            this.btnDeleteMovie.Click += new System.EventHandler(this.btnDeleteMovie_Click);
-            // 
-            // btnAddMovie
-            // 
-            this.btnAddMovie.Location = new System.Drawing.Point(4, 4);
-            this.btnAddMovie.Margin = new System.Windows.Forms.Padding(4);
-            this.btnAddMovie.Name = "btnAddMovie";
-            this.btnAddMovie.Size = new System.Drawing.Size(100, 57);
-            this.btnAddMovie.TabIndex = 0;
-            this.btnAddMovie.Text = "Thêm";
-            this.btnAddMovie.UseVisualStyleBackColor = true;
-            this.btnAddMovie.Click += new System.EventHandler(this.btnAddMovie_Click);
-            // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.dtgvMovie);
-            this.panel1.Controls.Add(this.panel47);
-            this.panel1.Controls.Add(this.panel2);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1548, 638);
-            this.panel1.TabIndex = 11;
-            // 
-            // dtgvMovie
-            // 
-            this.dtgvMovie.AllowUserToAddRows = false;
-            this.dtgvMovie.AllowUserToDeleteRows = false;
-            this.dtgvMovie.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dtgvMovie.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtgvMovie.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dtgvMovie.Location = new System.Drawing.Point(0, 342);
-            this.dtgvMovie.Margin = new System.Windows.Forms.Padding(4);
-            this.dtgvMovie.Name = "dtgvMovie";
-            this.dtgvMovie.ReadOnly = true;
-            this.dtgvMovie.RowHeadersWidth = 51;
-            this.dtgvMovie.Size = new System.Drawing.Size(1548, 296);
-            this.dtgvMovie.TabIndex = 1;
-            // 
-            // panel2
-            // 
-            this.panel2.Controls.Add(this.btnUpLoadPictureFilm);
-            this.panel2.Controls.Add(this.picFilm);
-            this.panel2.Controls.Add(this.clbMovieGenre);
-            this.panel2.Controls.Add(this.dtmMovieEnd);
-            this.panel2.Controls.Add(this.dtmMovieStart);
-            this.panel2.Controls.Add(this.txtMovieYearLimit);
-            this.panel2.Controls.Add(this.txtMovieActor);
-            this.panel2.Controls.Add(this.txtMovieCountry);
-            this.panel2.Controls.Add(this.txtMovieLength);
-            this.panel2.Controls.Add(this.lblMovieEndDate);
-            this.panel2.Controls.Add(this.lblMovieStartDate);
-            this.panel2.Controls.Add(this.lblMovieLength);
-            this.panel2.Controls.Add(this.txtMovieDesc);
-            this.panel2.Controls.Add(this.lblMovieYearLimit);
-            this.panel2.Controls.Add(this.lblMovieGenre);
-            this.panel2.Controls.Add(this.lblMovieActor);
-            this.panel2.Controls.Add(this.lblMovieCountry);
-            this.panel2.Controls.Add(this.lblMovieDesc);
-            this.panel2.Controls.Add(this.txtMovieName);
-            this.panel2.Controls.Add(this.lblMovieName);
-            this.panel2.Controls.Add(this.txtMovieID);
-            this.panel2.Controls.Add(this.lblMovieID);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel2.Location = new System.Drawing.Point(0, 0);
-            this.panel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1548, 278);
-            this.panel2.TabIndex = 0;
             // 
             // btnUpLoadPictureFilm
             // 
@@ -190,7 +75,17 @@ namespace QuanLyXemPhim.frmAdminUserControl.FeatureViewUserControl
             this.btnUpLoadPictureFilm.TabIndex = 56;
             this.btnUpLoadPictureFilm.Text = "Chọn hình ảnh";
             this.btnUpLoadPictureFilm.UseVisualStyleBackColor = true;
-            this.btnUpLoadPictureFilm.Click += new System.EventHandler(this.btnUpLoadPictureFilm_Click);
+            // 
+            // picFilm
+            // 
+            this.picFilm.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.picFilm.Location = new System.Drawing.Point(943, 2);
+            this.picFilm.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.picFilm.Name = "picFilm";
+            this.picFilm.Size = new System.Drawing.Size(186, 217);
+            this.picFilm.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picFilm.TabIndex = 55;
+            this.picFilm.TabStop = false;
             // 
             // clbMovieGenre
             // 
@@ -228,7 +123,6 @@ namespace QuanLyXemPhim.frmAdminUserControl.FeatureViewUserControl
             this.txtMovieYearLimit.Name = "txtMovieYearLimit";
             this.txtMovieYearLimit.Size = new System.Drawing.Size(201, 22);
             this.txtMovieYearLimit.TabIndex = 50;
-            this.txtMovieYearLimit.TextChanged += new System.EventHandler(this.txtMovieYearLimit_TextChanged);
             // 
             // txtMovieActor
             // 
@@ -245,6 +139,52 @@ namespace QuanLyXemPhim.frmAdminUserControl.FeatureViewUserControl
             this.txtMovieCountry.Name = "txtMovieCountry";
             this.txtMovieCountry.Size = new System.Drawing.Size(201, 22);
             this.txtMovieCountry.TabIndex = 48;
+            // 
+            // dtgvMovie
+            // 
+            this.dtgvMovie.AllowUserToAddRows = false;
+            this.dtgvMovie.AllowUserToDeleteRows = false;
+            this.dtgvMovie.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dtgvMovie.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtgvMovie.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dtgvMovie.Location = new System.Drawing.Point(0, 342);
+            this.dtgvMovie.Margin = new System.Windows.Forms.Padding(4);
+            this.dtgvMovie.Name = "dtgvMovie";
+            this.dtgvMovie.ReadOnly = true;
+            this.dtgvMovie.RowHeadersWidth = 51;
+            this.dtgvMovie.Size = new System.Drawing.Size(1271, 297);
+            this.dtgvMovie.TabIndex = 1;
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.btnUpLoadPictureFilm);
+            this.panel2.Controls.Add(this.picFilm);
+            this.panel2.Controls.Add(this.clbMovieGenre);
+            this.panel2.Controls.Add(this.dtmMovieEnd);
+            this.panel2.Controls.Add(this.dtmMovieStart);
+            this.panel2.Controls.Add(this.txtMovieYearLimit);
+            this.panel2.Controls.Add(this.txtMovieActor);
+            this.panel2.Controls.Add(this.txtMovieCountry);
+            this.panel2.Controls.Add(this.txtMovieLength);
+            this.panel2.Controls.Add(this.lblMovieEndDate);
+            this.panel2.Controls.Add(this.lblMovieStartDate);
+            this.panel2.Controls.Add(this.lblMovieLength);
+            this.panel2.Controls.Add(this.txtMovieDesc);
+            this.panel2.Controls.Add(this.lblMovieYearLimit);
+            this.panel2.Controls.Add(this.lblMovieGenre);
+            this.panel2.Controls.Add(this.lblMovieActor);
+            this.panel2.Controls.Add(this.lblMovieCountry);
+            this.panel2.Controls.Add(this.lblMovieDesc);
+            this.panel2.Controls.Add(this.txtMovieName);
+            this.panel2.Controls.Add(this.lblMovieName);
+            this.panel2.Controls.Add(this.txtMovieID);
+            this.panel2.Controls.Add(this.lblMovieID);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel2.Location = new System.Drawing.Point(0, 0);
+            this.panel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(1271, 278);
+            this.panel2.TabIndex = 0;
             // 
             // txtMovieLength
             // 
@@ -368,7 +308,6 @@ namespace QuanLyXemPhim.frmAdminUserControl.FeatureViewUserControl
             this.txtMovieID.Name = "txtMovieID";
             this.txtMovieID.Size = new System.Drawing.Size(201, 22);
             this.txtMovieID.TabIndex = 45;
-            this.txtMovieID.TextChanged += new System.EventHandler(this.txtMovieID_TextChanged);
             // 
             // lblMovieID
             // 
@@ -380,16 +319,70 @@ namespace QuanLyXemPhim.frmAdminUserControl.FeatureViewUserControl
             this.lblMovieID.TabIndex = 43;
             this.lblMovieID.Text = "Mã phim:";
             // 
-            // picFilm
+            // btnShowMovie
             // 
-            this.picFilm.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.picFilm.Location = new System.Drawing.Point(943, 2);
-            this.picFilm.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.picFilm.Name = "picFilm";
-            this.picFilm.Size = new System.Drawing.Size(186, 217);
-            this.picFilm.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.picFilm.TabIndex = 55;
-            this.picFilm.TabStop = false;
+            this.btnShowMovie.Location = new System.Drawing.Point(328, 4);
+            this.btnShowMovie.Margin = new System.Windows.Forms.Padding(4);
+            this.btnShowMovie.Name = "btnShowMovie";
+            this.btnShowMovie.Size = new System.Drawing.Size(100, 57);
+            this.btnShowMovie.TabIndex = 3;
+            this.btnShowMovie.Text = "Xem";
+            this.btnShowMovie.UseVisualStyleBackColor = true;
+            // 
+            // btnUpdateMovie
+            // 
+            this.btnUpdateMovie.Location = new System.Drawing.Point(220, 4);
+            this.btnUpdateMovie.Margin = new System.Windows.Forms.Padding(4);
+            this.btnUpdateMovie.Name = "btnUpdateMovie";
+            this.btnUpdateMovie.Size = new System.Drawing.Size(100, 57);
+            this.btnUpdateMovie.TabIndex = 2;
+            this.btnUpdateMovie.Text = "Sửa";
+            this.btnUpdateMovie.UseVisualStyleBackColor = true;
+            // 
+            // btnDeleteMovie
+            // 
+            this.btnDeleteMovie.Location = new System.Drawing.Point(112, 4);
+            this.btnDeleteMovie.Margin = new System.Windows.Forms.Padding(4);
+            this.btnDeleteMovie.Name = "btnDeleteMovie";
+            this.btnDeleteMovie.Size = new System.Drawing.Size(100, 57);
+            this.btnDeleteMovie.TabIndex = 1;
+            this.btnDeleteMovie.Text = "Xóa";
+            this.btnDeleteMovie.UseVisualStyleBackColor = true;
+            // 
+            // btnAddMovie
+            // 
+            this.btnAddMovie.Location = new System.Drawing.Point(4, 4);
+            this.btnAddMovie.Margin = new System.Windows.Forms.Padding(4);
+            this.btnAddMovie.Name = "btnAddMovie";
+            this.btnAddMovie.Size = new System.Drawing.Size(100, 57);
+            this.btnAddMovie.TabIndex = 0;
+            this.btnAddMovie.Text = "Thêm";
+            this.btnAddMovie.UseVisualStyleBackColor = true;
+            // 
+            // panel47
+            // 
+            this.panel47.Controls.Add(this.btnShowMovie);
+            this.panel47.Controls.Add(this.btnUpdateMovie);
+            this.panel47.Controls.Add(this.btnDeleteMovie);
+            this.panel47.Controls.Add(this.btnAddMovie);
+            this.panel47.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel47.Location = new System.Drawing.Point(0, 278);
+            this.panel47.Margin = new System.Windows.Forms.Padding(4);
+            this.panel47.Name = "panel47";
+            this.panel47.Size = new System.Drawing.Size(1271, 64);
+            this.panel47.TabIndex = 10;
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.dtgvMovie);
+            this.panel1.Controls.Add(this.panel47);
+            this.panel1.Controls.Add(this.panel2);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1271, 639);
+            this.panel1.TabIndex = 12;
             // 
             // MovieUC
             // 
@@ -398,26 +391,19 @@ namespace QuanLyXemPhim.frmAdminUserControl.FeatureViewUserControl
             this.Controls.Add(this.panel1);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "MovieUC";
-            this.Size = new System.Drawing.Size(1548, 638);
-            this.panel47.ResumeLayout(false);
-            this.panel1.ResumeLayout(false);
+            this.Size = new System.Drawing.Size(1271, 639);
+            ((System.ComponentModel.ISupportInitialize)(this.picFilm)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvMovie)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picFilm)).EndInit();
+            this.panel47.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Panel panel47;
-        private System.Windows.Forms.Button btnShowMovie;
-        private System.Windows.Forms.Button btnUpdateMovie;
-        private System.Windows.Forms.Button btnDeleteMovie;
-        private System.Windows.Forms.Button btnAddMovie;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button btnUpLoadPictureFilm;
         private System.Windows.Forms.PictureBox picFilm;
         private System.Windows.Forms.CheckedListBox clbMovieGenre;
@@ -426,6 +412,8 @@ namespace QuanLyXemPhim.frmAdminUserControl.FeatureViewUserControl
         private System.Windows.Forms.TextBox txtMovieYearLimit;
         private System.Windows.Forms.TextBox txtMovieActor;
         private System.Windows.Forms.TextBox txtMovieCountry;
+        private System.Windows.Forms.DataGridView dtgvMovie;
+        private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.TextBox txtMovieLength;
         private System.Windows.Forms.Label lblMovieEndDate;
         private System.Windows.Forms.Label lblMovieStartDate;
@@ -440,6 +428,11 @@ namespace QuanLyXemPhim.frmAdminUserControl.FeatureViewUserControl
         private System.Windows.Forms.Label lblMovieName;
         private System.Windows.Forms.TextBox txtMovieID;
         private System.Windows.Forms.Label lblMovieID;
-        private System.Windows.Forms.DataGridView dtgvMovie;
+        private System.Windows.Forms.Button btnShowMovie;
+        private System.Windows.Forms.Button btnUpdateMovie;
+        private System.Windows.Forms.Button btnDeleteMovie;
+        private System.Windows.Forms.Button btnAddMovie;
+        private System.Windows.Forms.Panel panel47;
+        private System.Windows.Forms.Panel panel1;
     }
 }

@@ -56,5 +56,11 @@ namespace QuanLyXemPhim
         {
 
         }
+
+        private void btn_ChonVe_Click(object sender, EventArgs e)
+        {
+            frmTheatre frmTheatre = new frmTheatre();
+            frmTheatre.ShowDialog();
+        }
     }
 }

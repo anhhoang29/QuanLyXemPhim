@@ -16,5 +16,10 @@ namespace QuanLyXemPhim
         {
             InitializeComponent();
         }
+
+        private void Re_Thoat_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

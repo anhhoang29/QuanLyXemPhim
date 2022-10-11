@@ -133,8 +133,9 @@ namespace QuanLyXemPhim
             this.Re_Thoat.TabIndex = 9;
             this.Re_Thoat.Text = "Thoát";
             this.Re_Thoat.UseVisualStyleBackColor = true;
+            this.Re_Thoat.Click += new System.EventHandler(this.Re_Thoat_Click);
             // 
-            // Register
+            // frmRegister
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -150,7 +151,8 @@ namespace QuanLyXemPhim
             this.Controls.Add(this.label3);
             this.Controls.Add(this.resSdt);
             this.Controls.Add(this.resUsername);
-            this.Name = "Register";
+            this.Name = "frmRegister";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Đăng Ký Thành Viên";
             this.ResumeLayout(false);
             this.PerformLayout();
