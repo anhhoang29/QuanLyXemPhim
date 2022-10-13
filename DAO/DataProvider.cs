@@ -21,7 +21,8 @@ namespace DAO
 
         }
 
-        private const string connectionStr = @"Data Source=DESKTOP-SHGHBSM\SQLEXPRESS;Initial Catalog=QuanLyXemPhim;Integrated Security=true";
+        //private const string connectionStr = @"Data Source=DESKTOP-SHGHBSM\SQLEXPRESS;Initial Catalog=QuanLyXemPhim;Integrated Security=true"
+        private const string connectionStr = @"Data Source=LAPTOP-16UP1LFV\SQLEXPRESS;Initial Catalog=QuanLyXemPhim;Integrated Security=true";
 
         public DataTable ExecuteQuery(string query, object[] parameter = null)
         {
