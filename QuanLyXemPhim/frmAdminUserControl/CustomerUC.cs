@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using DAO;
+using BUS;
 
 namespace QuanLyXemPhim.frmAdminUserControl
 {
@@ -22,66 +23,41 @@ namespace QuanLyXemPhim.frmAdminUserControl
 
         void LoadCustomer()
         {
-            dtgvCustomer.DataSource = customerList;
-            LoadCustomerList();
-            AddCustomerBinding();
-        }
 
-        void LoadCustomerList()
-        {
-        }
-        private void btnShowCustomer_Click(object sender, EventArgs e)
-        {
-            LoadCustomerList();
-        }
-
-        void AddCustomerBinding()
-        {
+            DataTable dt = CustomerBUS.Instance.getListCustomer();
+            if (dt == null)
+            {
+                MessageBox.Show("Error when load data");
+            }
+            else
+            {
+                dtgvCustomer.DataSource = dt;
+            }
            
         }
+  
+        
+        private void btnAddCustomer_Click_1(object sender, EventArgs e)
+        {
+            String name = txtCusName.Text;
+            int birth = Int32.Parse(txtCusBirth.Text);
+            String phoneNumber = txtCusPhone.Text;
+            int point = (int)nudPoint.Value;
+            String address = txtAddress.Text;
 
-        void InsertCustomer(string id, string hoTen, DateTime ngaySinh, string diaChi, string sdt, int cmnd)
-        {
-            
-        }
-        private void btnAddCustomer_Click(object sender, EventArgs e)
-        {
-            
-        }
-
-        void UpdateCustomer(string id, string hoTen, DateTime ngaySinh, string diaChi, string sdt, int cmnd, int point)
-        {
-
-        }
-        private void btnUpdateCustomer_Click(object sender, EventArgs e)
-        {
-            
-        }
-
-        void DeleteCustomer(string id)
-        {
-            
-        }
-        private void btnDeleteCustomer_Click(object sender, EventArgs e)
-        {
-            string cusID = txtCusID.Text;
-            DeleteCustomer(cusID);
-            LoadCustomerList();
-        }
-
-        private void btnSearchCus_Click(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void txtSearchCus_KeyDown(object sender, KeyEventArgs e)
-        {
-            
-        }
-
-        private void NgheNghiep_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
+            if (CustomerBUS.Instance.addCustomer(name, birth, phoneNumber, point, address))
+            {
+                LoadCustomer();
+                txtCusName.Clear();
+                txtAddress.Clear();
+                txtCusBirth.Clear();
+                txtCusPhone.Clear();
+                nudPoint.Refresh();
+            }
+            else
+            {
+                MessageBox.Show("Có lỗi xảy ra");
+            }
         }
     }
 }

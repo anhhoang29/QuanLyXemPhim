@@ -21,9 +21,9 @@ namespace DAO
 
         }
 
-        //private const string connectionStr = @"Data Source=DESKTOP-SHGHBSM\SQLEXPRESS;Initial Catalog=QuanLyXemPhim;Integrated Security=true"
-        private const string connectionStr = @"Data Source=LAPTOP-16UP1LFV\SQLEXPRESS;Initial Catalog=QuanLyXemPhim;Integrated Security=true";
 
+        public const string connectionStr = @"Data Source=DUY\SQLEXPRESS;Initial Catalog=QuanLyXemPhim;Integrated Security=true";
+        //public static string connectionString = @"Data Source=DUY\SQLEXPRESS;Initial Catalog=QuanLyXemPhim;Integrated Security=true";
         public DataTable ExecuteQuery(string query, object[] parameter = null)
         {
             DataTable data = new DataTable();
@@ -102,5 +102,63 @@ namespace DAO
             }
             return data;
         }
+
+        public DataTable UserExecuteReader(string query, object[] parameters = null)
+        {
+            DataTable dataResult = new DataTable();
+            using (var conn = new SqlConnection(connectionStr))
+            {
+                conn.Open();
+                using (var cmd = new SqlCommand(query, conn))
+                {
+                    if (parameters != null)
+                    {
+                        string[] listPara = query.Split(' ');
+                        int i = 0;
+                        foreach (string item in listPara)
+                        {
+                            if (item.Contains('@'))
+                            {
+                                cmd.Parameters.AddWithValue(item, parameters[i]);
+                                i++;
+                            }
+                        }
+                    }
+
+                    SqlDataReader reader = cmd.ExecuteReader();
+                    dataResult.Load(reader);
+                    return dataResult;
+                }
+            }
+        }
+
+        public void UserExecuteNonQuery(String query, object[] parameters = null)
+        {
+            using (var conn = new SqlConnection(connectionStr))
+            {
+                conn.Open();
+                using (var cmd = new SqlCommand(query, conn))
+                {
+                    //cmd.CommandType = CommandType.StoredProcedure;
+                    if (parameters != null)
+                    {
+                        string[] listPara = query.Split(' ');
+                        int i = 0;
+                        foreach (string item in listPara)
+                        {
+                            if (item.Contains('@'))
+                            {
+                                Console.WriteLine(item, parameters[i]);
+                                cmd.Parameters.AddWithValue(item, parameters[i]);
+                                i++;
+                            }
+                        }
+                    }
+                    cmd.ExecuteNonQuery();
+
+                }
+            }
+        }
+
     }
 }
