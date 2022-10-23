@@ -40,33 +40,34 @@ namespace DAO
                 return false;
             }
                 
+        }
 
-           /* String query = "dbo.USP_AddCustomer";
-            using (var conn = new SqlConnection(DataProvider.connectionStr))
+        public bool deleteCustomerDAO (int CustomerID)
+        {
+            String query = "dbo.USP_deleteCustomer @CustomerId";
+            try
             {
-                conn.Open();
-                using (var cmd = new SqlCommand(query, conn))
-                {
-                    cmd.CommandType = CommandType.StoredProcedure;
+                DataProvider.Instance.UserExecuteNonQuery(query, new object[] { CustomerID });
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
 
-                    cmd.Parameters.AddWithValue("@TenKhachHang", name);
-                    cmd.Parameters.AddWithValue("@DiaChi", address);
-                    cmd.Parameters.AddWithValue("@NamSinh", birth);
-                    cmd.Parameters.AddWithValue("@Diem", point);
-                    cmd.Parameters.AddWithValue("@SoDienThoai", phoneNumber);
-
-                    try
-                    {
-                        cmd.ExecuteNonQuery();
-                        return true;
-                    }
-                    catch
-                    {
-                        return false;
-                    }
-                }
-            }*/
-
+        public bool updateCustomerDAO(int id, String name, String address, int birth, String phone, int point)
+        {
+            String query = "USP_updateCustomer @CusId , @name , @address , @birth , @phone , @point ";
+            try
+            {
+                DataProvider.Instance.UserExecuteNonQuery(query, new object[] {id, name, address, birth, phone, point });
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
         }
     }
 }

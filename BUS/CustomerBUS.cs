@@ -33,5 +33,22 @@ namespace BUS
                 return false;
             }
         }
+
+        public bool deleteCustomer(int CusId)
+        {
+            if (CustomerDAO.Instance.deleteCustomerDAO(CusId))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public bool updateCustomerBUS (int id, String name, String address, int birth, String phone, int point)
+        {
+            return CustomerDAO.Instance.updateCustomerDAO(id, name, address, birth, phone, point);
+        }
     }
 }

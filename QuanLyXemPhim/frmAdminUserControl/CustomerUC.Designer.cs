@@ -33,6 +33,8 @@ namespace QuanLyXemPhim.frmAdminUserControl
             this.btnUpdateCustomer = new System.Windows.Forms.Button();
             this.btnAddCustomer = new System.Windows.Forms.Button();
             this.grpCustomer = new System.Windows.Forms.GroupBox();
+            this.lblCusId = new System.Windows.Forms.Label();
+            this.txtCusId = new System.Windows.Forms.TextBox();
             this.txtAddress = new System.Windows.Forms.TextBox();
             this.lblAddress = new System.Windows.Forms.Label();
             this.nudPoint = new System.Windows.Forms.NumericUpDown();
@@ -43,7 +45,6 @@ namespace QuanLyXemPhim.frmAdminUserControl
             this.lblCusPoint = new System.Windows.Forms.Label();
             this.txtCusBirth = new System.Windows.Forms.TextBox();
             this.lblCusName = new System.Windows.Forms.Label();
-            this.btnShowCustomer = new System.Windows.Forms.Button();
             this.dtgvCustomer = new System.Windows.Forms.DataGridView();
             this.MaKH = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TenKhachHang = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -57,27 +58,29 @@ namespace QuanLyXemPhim.frmAdminUserControl
             // 
             // btnDeleteCustomer
             // 
-            this.btnDeleteCustomer.Location = new System.Drawing.Point(820, 180);
+            this.btnDeleteCustomer.Location = new System.Drawing.Point(485, 182);
             this.btnDeleteCustomer.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnDeleteCustomer.Name = "btnDeleteCustomer";
             this.btnDeleteCustomer.Size = new System.Drawing.Size(91, 32);
             this.btnDeleteCustomer.TabIndex = 17;
             this.btnDeleteCustomer.Text = "Xóa";
             this.btnDeleteCustomer.UseVisualStyleBackColor = true;
+            this.btnDeleteCustomer.Click += new System.EventHandler(this.btnDeleteCustomer_Click);
             // 
             // btnUpdateCustomer
             // 
-            this.btnUpdateCustomer.Location = new System.Drawing.Point(699, 180);
+            this.btnUpdateCustomer.Location = new System.Drawing.Point(348, 182);
             this.btnUpdateCustomer.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnUpdateCustomer.Name = "btnUpdateCustomer";
             this.btnUpdateCustomer.Size = new System.Drawing.Size(91, 32);
             this.btnUpdateCustomer.TabIndex = 18;
             this.btnUpdateCustomer.Text = "Sửa";
             this.btnUpdateCustomer.UseVisualStyleBackColor = true;
+            this.btnUpdateCustomer.Click += new System.EventHandler(this.btnUpdateCustomer_Click);
             // 
             // btnAddCustomer
             // 
-            this.btnAddCustomer.Location = new System.Drawing.Point(573, 180);
+            this.btnAddCustomer.Location = new System.Drawing.Point(208, 182);
             this.btnAddCustomer.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnAddCustomer.Name = "btnAddCustomer";
             this.btnAddCustomer.Size = new System.Drawing.Size(91, 32);
@@ -89,6 +92,8 @@ namespace QuanLyXemPhim.frmAdminUserControl
             // grpCustomer
             // 
             this.grpCustomer.BackColor = System.Drawing.Color.Transparent;
+            this.grpCustomer.Controls.Add(this.lblCusId);
+            this.grpCustomer.Controls.Add(this.txtCusId);
             this.grpCustomer.Controls.Add(this.txtAddress);
             this.grpCustomer.Controls.Add(this.lblAddress);
             this.grpCustomer.Controls.Add(this.nudPoint);
@@ -108,6 +113,26 @@ namespace QuanLyXemPhim.frmAdminUserControl
             this.grpCustomer.TabIndex = 16;
             this.grpCustomer.TabStop = false;
             this.grpCustomer.Text = "Thông tin khách hàng";
+            // 
+            // lblCusId
+            // 
+            this.lblCusId.AutoSize = true;
+            this.lblCusId.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCusId.Location = new System.Drawing.Point(767, 85);
+            this.lblCusId.Name = "lblCusId";
+            this.lblCusId.Size = new System.Drawing.Size(79, 23);
+            this.lblCusId.TabIndex = 9;
+            this.lblCusId.Text = "Mã KH:";
+            // 
+            // txtCusId
+            // 
+            this.txtCusId.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCusId.Location = new System.Drawing.Point(890, 81);
+            this.txtCusId.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtCusId.Name = "txtCusId";
+            this.txtCusId.ReadOnly = true;
+            this.txtCusId.Size = new System.Drawing.Size(75, 30);
+            this.txtCusId.TabIndex = 8;
             // 
             // txtAddress
             // 
@@ -210,16 +235,6 @@ namespace QuanLyXemPhim.frmAdminUserControl
             this.lblCusName.TabIndex = 4;
             this.lblCusName.Text = "Họ tên:";
             // 
-            // btnShowCustomer
-            // 
-            this.btnShowCustomer.Location = new System.Drawing.Point(211, 180);
-            this.btnShowCustomer.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnShowCustomer.Name = "btnShowCustomer";
-            this.btnShowCustomer.Size = new System.Drawing.Size(91, 32);
-            this.btnShowCustomer.TabIndex = 15;
-            this.btnShowCustomer.Text = "Xem";
-            this.btnShowCustomer.UseVisualStyleBackColor = true;
-            // 
             // dtgvCustomer
             // 
             this.dtgvCustomer.AllowUserToAddRows = false;
@@ -240,6 +255,8 @@ namespace QuanLyXemPhim.frmAdminUserControl
             this.dtgvCustomer.RowTemplate.Height = 24;
             this.dtgvCustomer.Size = new System.Drawing.Size(971, 372);
             this.dtgvCustomer.TabIndex = 14;
+            this.dtgvCustomer.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgvCustomer_CellContentClick);
+            this.dtgvCustomer.SelectionChanged += new System.EventHandler(this.dtgvCustomer_SelectionChanged);
             // 
             // MaKH
             // 
@@ -289,7 +306,6 @@ namespace QuanLyXemPhim.frmAdminUserControl
             this.Controls.Add(this.btnUpdateCustomer);
             this.Controls.Add(this.btnAddCustomer);
             this.Controls.Add(this.grpCustomer);
-            this.Controls.Add(this.btnShowCustomer);
             this.Controls.Add(this.dtgvCustomer);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "CustomerUC";
@@ -315,7 +331,6 @@ namespace QuanLyXemPhim.frmAdminUserControl
 		private System.Windows.Forms.Label lblCusPoint;
 		private System.Windows.Forms.TextBox txtCusBirth;
 		private System.Windows.Forms.Label lblCusName;
-		private System.Windows.Forms.Button btnShowCustomer;
 		private System.Windows.Forms.DataGridView dtgvCustomer;
         private System.Windows.Forms.DataGridViewTextBoxColumn MaKH;
         private System.Windows.Forms.DataGridViewTextBoxColumn TenKhachHang;
@@ -324,5 +339,7 @@ namespace QuanLyXemPhim.frmAdminUserControl
         private System.Windows.Forms.DataGridViewTextBoxColumn SoDienThoai;
         private System.Windows.Forms.Label lblAddress;
         private System.Windows.Forms.TextBox txtAddress;
+        private System.Windows.Forms.Label lblCusId;
+        private System.Windows.Forms.TextBox txtCusId;
     }
 }
