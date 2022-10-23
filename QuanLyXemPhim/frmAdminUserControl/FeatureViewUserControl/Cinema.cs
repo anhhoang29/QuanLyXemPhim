@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BUS;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -16,20 +17,24 @@ namespace QuanLyXemPhim.frmAdminUserControl.FeatureViewUserControl
         public Cinema()
         {
             InitializeComponent();
+            dtgvCinema.DataSource = cinemaList;
             LoadCinema();
         }
 
         void LoadCinema()
         {
-            
+            PhongChieuBUS.Instance.hienThiPhongChieu(cinemaList);
+            AddCinemaBinding();
         }
-        void LoadCinemaList()
-        {
-            
-        }
+
         void AddCinemaBinding()
         {
-            
+            txtCinemaID.DataBindings.Add(new Binding("Text", dtgvCinema.DataSource, "MaPhong", true, DataSourceUpdateMode.Never));
+            txtCinemaName.DataBindings.Add(new Binding("Text", dtgvCinema.DataSource, "TenPhong", true, DataSourceUpdateMode.Never));
+            txtCinemaSeats.DataBindings.Add(new Binding("Text", dtgvCinema.DataSource, "SoChoNgoi", true, DataSourceUpdateMode.Never));
+            txtCinemaStatus.DataBindings.Add(new Binding("Text", dtgvCinema.DataSource, "TinhTrang", true, DataSourceUpdateMode.Never));
+            txtNumberOfRows.DataBindings.Add(new Binding("Text", dtgvCinema.DataSource, "SoHangGhe", true, DataSourceUpdateMode.Never));
+            txtSeatsPerRow.DataBindings.Add(new Binding("Text", dtgvCinema.DataSource, "SoGheMotHang", true, DataSourceUpdateMode.Never));
         }
         void LoadScreenTypeIntoComboBox(ComboBox cbo)
         {
@@ -41,31 +46,35 @@ namespace QuanLyXemPhim.frmAdminUserControl.FeatureViewUserControl
             
         }
 
-        void InsertCinema(string id, string name, string idMH, int seats, int status, int numberOfRows, int seatsPerRow)
+        private void btnInsertCinema_Click_1(object sender, EventArgs e)
         {
-           
-        }
-        private void btnInsertCinema_Click(object sender, EventArgs e)
-        {
-            
-        }
-
-        void UpdateCinema(string id, string name, string idMH, int seats, int status, int numberOfRows, int seatsPerRow)
-        {
-            
-        }
-        private void btnUpdateCinema_Click(object sender, EventArgs e)
-        {
-            
+            string MaPhong = dtgvCinema.SelectedCells[0].OwningRow.Cells["MaPhong"].Value.ToString();
+            string TenPhong = txtCinemaName.Text;
+            int SoChoNgoi = Convert.ToInt32(txtCinemaSeats.Text);
+            int TinhTrang = Convert.ToInt32(txtCinemaStatus.Text);
+            int SoHangGhe = Convert.ToInt32(txtNumberOfRows.Text);
+            int SoGheMotHang = Convert.ToInt32(txtNumberOfRows.Text);
+            PhongChieuBUS.Instance.themPhongChieu(MaPhong, TenPhong, SoChoNgoi, TinhTrang, SoHangGhe, SoGheMotHang);
+            PhongChieuBUS.Instance.hienThiPhongChieu(cinemaList);
         }
 
-        void DeleteCinema(string id)
-        {
-           
-        }
         private void btnDeleteCinema_Click(object sender, EventArgs e)
         {
-            
+            string MaPhong = dtgvCinema.SelectedCells[0].OwningRow.Cells["MaPhong"].Value.ToString();
+            PhongChieuBUS.Instance.xoaPhongChieu(MaPhong);
+            PhongChieuBUS.Instance.hienThiPhongChieu(cinemaList);
+        }
+
+        private void btnUpdateCinema_Click(object sender, EventArgs e)
+        {
+            string MaPhong = dtgvCinema.SelectedCells[0].OwningRow.Cells["MaPhong"].Value.ToString();
+            string TenPhong = txtCinemaName.Text;
+            int SoChoNgoi = Convert.ToInt32(txtCinemaSeats.Text);
+            int TinhTrang = Convert.ToInt32(txtCinemaStatus.Text);
+            int SoHangGhe = Convert.ToInt32(txtNumberOfRows.Text);
+            int SoGheMotHang = Convert.ToInt32(txtNumberOfRows.Text);
+            PhongChieuBUS.Instance.capNhatPhongChieu(MaPhong, TenPhong, SoChoNgoi, TinhTrang, SoHangGhe, SoGheMotHang);
+            PhongChieuBUS.Instance.hienThiPhongChieu(cinemaList);
         }
     }
 }
