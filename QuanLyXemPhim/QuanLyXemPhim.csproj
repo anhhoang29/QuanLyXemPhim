@@ -192,6 +192,9 @@
     <EmbeddedResource Include="frmAdminUserControl\FeatureViewUserControl\TicketsUC.resx">
       <DependentUpon>TicketsUC.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmAdminUserControl\StaffUC.resx">
+      <DependentUpon>StaffUC.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmCustomer.resx">
       <DependentUpon>frmCustomer.cs</DependentUpon>
     </EmbeddedResource>

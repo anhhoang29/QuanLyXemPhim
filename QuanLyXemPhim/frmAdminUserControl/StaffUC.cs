@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using BUS;
 
 namespace QuanLyXemPhim.frmAdminUserControl
 {
@@ -21,65 +22,44 @@ namespace QuanLyXemPhim.frmAdminUserControl
         }
         void LoadStaff()
         {
-            dtgvStaff.DataSource = staffList;
-            LoadStaffList();
-            AddStaffBinding();
+            DataTable dt = StaffBUS.Instance.getListStaff();
+            if (dt == null)
+            {
+                MessageBox.Show("Error when load data");
+            }
+            else
+            {
+                dtgvStaff.DataSource = dt;
+            }
         }
-
-        void LoadStaffList()
-        {
-           
-        }
-
-        private void btnShowStaff_Click(object sender, EventArgs e)
-        {
-            LoadStaffList();
-        }
-        void AddStaffBinding()
-        {
-            
-        }
-
-
-        //Thêm Staff
-        void AddStaff(string id, string hoTen, DateTime ngaySinh, string diaChi, string sdt, int cmnd)
-        {
-           
-        }
+      
         private void btnAddStaff_Click(object sender, EventArgs e)
         {
            
         }
 
-        //Sửa Staff
-        void UpdateStaff(string id, string hoTen, DateTime ngaySinh, string diaChi, string sdt, int cmnd)
-        {
-            
-        }
+        
         private void btnUpdateStaff_Click(object sender, EventArgs e)
         {
             
         }
 
-        //Xóa Staff
-        void DeleteStaff(string id)
-        {
-            
-        }
         private void btnDeleteStaff_Click(object sender, EventArgs e)
         {
            
         }
 
-        //Tìm kiếm Staff
-        private void btnSearchStaff_Click(object sender, EventArgs e)
+        private void dtgvStaff_SelectionChanged(object sender, EventArgs e)
         {
-           
-        }
-
-        private void txtSearchStaff_KeyDown(object sender, KeyEventArgs e)
-        {
-
+            foreach (DataGridViewRow row in dtgvStaff.SelectedRows)
+            {
+              txtStaffId.Text = row.Cells[0].Value.ToString();
+              txtStaffName.Text = row.Cells[1].Value.ToString();
+              txtStaffBirth.Text = row.Cells[2].Value.ToString();
+              txtStaffAddress.Text = row.Cells[3].Value.ToString();
+              txtStaffPhone.Text = row.Cells[4].Value.ToString();
+              txtStaffINumber.Text = row.Cells[5].Value.ToString();
+            }
         }
     }
 }
