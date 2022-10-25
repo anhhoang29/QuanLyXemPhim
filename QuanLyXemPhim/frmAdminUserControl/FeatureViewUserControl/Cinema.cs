@@ -48,7 +48,7 @@ namespace QuanLyXemPhim.frmAdminUserControl.FeatureViewUserControl
 
         private void btnInsertCinema_Click_1(object sender, EventArgs e)
         {
-            string MaPhong = dtgvCinema.SelectedCells[0].OwningRow.Cells["MaPhong"].Value.ToString();
+            string MaPhong = txtCinemaID.Text;
             string TenPhong = txtCinemaName.Text;
             int SoChoNgoi = Convert.ToInt32(txtCinemaSeats.Text);
             int TinhTrang = Convert.ToInt32(txtCinemaStatus.Text);

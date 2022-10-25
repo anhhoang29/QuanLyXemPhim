@@ -41,7 +41,7 @@ namespace QuanLyXemPhim.frmAdminUserControl.FeatureViewUserControl
 
         private void btnInsertGenre_Click_1(object sender, EventArgs e)
         {
-            string MaLoaiPhim = dtgvGenre.SelectedCells[0].OwningRow.Cells["MaLoaiPhim"].Value.ToString();
+            string MaLoaiPhim = txtGenreID.Text;
             string TenTheLoai = txtGenreName.Text;
             TheLoaiBUS.Instance.themTheLoai(MaLoaiPhim, TenTheLoai);
             TheLoaiBUS.Instance.hienThiTheLoaiPhim(genreList);
