@@ -51,6 +51,7 @@ namespace QuanLyXemPhim.frmAdminUserControl
             this.DiaChi = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NamSinh = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SoDienThoai = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DiemTichLuy = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.grpCustomer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudPoint)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvCustomer)).BeginInit();
@@ -246,7 +247,8 @@ namespace QuanLyXemPhim.frmAdminUserControl
             this.TenKhachHang,
             this.DiaChi,
             this.NamSinh,
-            this.SoDienThoai});
+            this.SoDienThoai,
+            this.DiemTichLuy});
             this.dtgvCustomer.Location = new System.Drawing.Point(208, 218);
             this.dtgvCustomer.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dtgvCustomer.Name = "dtgvCustomer";
@@ -298,6 +300,14 @@ namespace QuanLyXemPhim.frmAdminUserControl
             this.SoDienThoai.Name = "SoDienThoai";
             this.SoDienThoai.ReadOnly = true;
             // 
+            // DiemTichLuy
+            // 
+            this.DiemTichLuy.DataPropertyName = "DiemTichLuy";
+            this.DiemTichLuy.HeaderText = "Điểm tích lũy";
+            this.DiemTichLuy.MinimumWidth = 6;
+            this.DiemTichLuy.Name = "DiemTichLuy";
+            this.DiemTichLuy.ReadOnly = true;
+            // 
             // CustomerUC
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -332,14 +342,15 @@ namespace QuanLyXemPhim.frmAdminUserControl
 		private System.Windows.Forms.TextBox txtCusBirth;
 		private System.Windows.Forms.Label lblCusName;
 		private System.Windows.Forms.DataGridView dtgvCustomer;
+        private System.Windows.Forms.Label lblAddress;
+        private System.Windows.Forms.TextBox txtAddress;
+        private System.Windows.Forms.Label lblCusId;
+        private System.Windows.Forms.TextBox txtCusId;
         private System.Windows.Forms.DataGridViewTextBoxColumn MaKH;
         private System.Windows.Forms.DataGridViewTextBoxColumn TenKhachHang;
         private System.Windows.Forms.DataGridViewTextBoxColumn DiaChi;
         private System.Windows.Forms.DataGridViewTextBoxColumn NamSinh;
         private System.Windows.Forms.DataGridViewTextBoxColumn SoDienThoai;
-        private System.Windows.Forms.Label lblAddress;
-        private System.Windows.Forms.TextBox txtAddress;
-        private System.Windows.Forms.Label lblCusId;
-        private System.Windows.Forms.TextBox txtCusId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DiemTichLuy;
     }
 }

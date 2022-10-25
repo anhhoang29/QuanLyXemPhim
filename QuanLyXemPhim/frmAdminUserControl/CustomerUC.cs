@@ -52,7 +52,6 @@ namespace QuanLyXemPhim.frmAdminUserControl
             int point = (int)nudPoint.Value;
             String address = txtAddress.Text;
 
-
             if (CustomerBUS.Instance.addCustomer(name, birth, phoneNumber, point, address))
             {
                 LoadCustomer();
@@ -84,7 +83,7 @@ namespace QuanLyXemPhim.frmAdminUserControl
                 txtAddress.Text = row.Cells[2].Value.ToString();
                 txtCusBirth.Text = row.Cells[3].Value.ToString();
                 txtCusPhone.Text = row.Cells[4].Value.ToString();
-                nudPoint.Value = 20;
+                nudPoint.Value = (int)row.Cells[5].Value;
             }
            
         }
