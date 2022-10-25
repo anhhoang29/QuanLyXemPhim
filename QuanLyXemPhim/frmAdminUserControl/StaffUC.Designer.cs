@@ -40,7 +40,6 @@ namespace QuanLyXemPhim.frmAdminUserControl
             this.lblStaffPhone = new System.Windows.Forms.Label();
             this.btnDeleteStaff = new System.Windows.Forms.Button();
             this.btnUpdateStaff = new System.Windows.Forms.Button();
-            this.txtStaffBirth = new System.Windows.Forms.TextBox();
             this.lblStaffAddress = new System.Windows.Forms.Label();
             this.txtStaffINumber = new System.Windows.Forms.TextBox();
             this.grpStaff = new System.Windows.Forms.GroupBox();
@@ -52,6 +51,7 @@ namespace QuanLyXemPhim.frmAdminUserControl
             this.DiaChi = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SDT = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CMND = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txtStaffBirth = new System.Windows.Forms.TextBox();
             this.grpStaff.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvStaff)).BeginInit();
             this.SuspendLayout();
@@ -59,7 +59,7 @@ namespace QuanLyXemPhim.frmAdminUserControl
             // txtStaffName
             // 
             this.txtStaffName.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtStaffName.Location = new System.Drawing.Point(149, 71);
+            this.txtStaffName.Location = new System.Drawing.Point(149, 68);
             this.txtStaffName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtStaffName.Name = "txtStaffName";
             this.txtStaffName.Size = new System.Drawing.Size(191, 30);
@@ -165,15 +165,6 @@ namespace QuanLyXemPhim.frmAdminUserControl
             this.btnUpdateStaff.UseVisualStyleBackColor = true;
             this.btnUpdateStaff.Click += new System.EventHandler(this.btnUpdateStaff_Click);
             // 
-            // txtStaffBirth
-            // 
-            this.txtStaffBirth.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtStaffBirth.Location = new System.Drawing.Point(149, 106);
-            this.txtStaffBirth.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtStaffBirth.Name = "txtStaffBirth";
-            this.txtStaffBirth.Size = new System.Drawing.Size(191, 30);
-            this.txtStaffBirth.TabIndex = 2;
-            // 
             // lblStaffAddress
             // 
             this.lblStaffAddress.AutoSize = true;
@@ -196,6 +187,7 @@ namespace QuanLyXemPhim.frmAdminUserControl
             // grpStaff
             // 
             this.grpStaff.BackColor = System.Drawing.Color.Transparent;
+            this.grpStaff.Controls.Add(this.txtStaffBirth);
             this.grpStaff.Controls.Add(this.lblStaffID);
             this.grpStaff.Controls.Add(this.txtStaffId);
             this.grpStaff.Controls.Add(this.txtStaffAddress);
@@ -204,7 +196,6 @@ namespace QuanLyXemPhim.frmAdminUserControl
             this.grpStaff.Controls.Add(this.lblStaffBirth);
             this.grpStaff.Controls.Add(this.txtStaffPhone);
             this.grpStaff.Controls.Add(this.lblStaffPhone);
-            this.grpStaff.Controls.Add(this.txtStaffBirth);
             this.grpStaff.Controls.Add(this.lblStaffAddress);
             this.grpStaff.Controls.Add(this.txtStaffINumber);
             this.grpStaff.Controls.Add(this.lblStaffName);
@@ -242,7 +233,7 @@ namespace QuanLyXemPhim.frmAdminUserControl
             this.SDT,
             this.CMND});
             this.dtgvStaff.Location = new System.Drawing.Point(228, 207);
-            this.dtgvStaff.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dtgvStaff.Margin = new System.Windows.Forms.Padding(4);
             this.dtgvStaff.Name = "dtgvStaff";
             this.dtgvStaff.ReadOnly = true;
             this.dtgvStaff.RowHeadersWidth = 51;
@@ -298,6 +289,15 @@ namespace QuanLyXemPhim.frmAdminUserControl
             this.CMND.Name = "CMND";
             this.CMND.ReadOnly = true;
             // 
+            // txtStaffBirth
+            // 
+            this.txtStaffBirth.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtStaffBirth.Location = new System.Drawing.Point(149, 106);
+            this.txtStaffBirth.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtStaffBirth.Name = "txtStaffBirth";
+            this.txtStaffBirth.Size = new System.Drawing.Size(191, 30);
+            this.txtStaffBirth.TabIndex = 5;
+            // 
             // StaffUC
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -330,7 +330,6 @@ namespace QuanLyXemPhim.frmAdminUserControl
 		private System.Windows.Forms.Label lblStaffPhone;
 		private System.Windows.Forms.Button btnDeleteStaff;
 		private System.Windows.Forms.Button btnUpdateStaff;
-		private System.Windows.Forms.TextBox txtStaffBirth;
 		private System.Windows.Forms.Label lblStaffAddress;
 		private System.Windows.Forms.TextBox txtStaffINumber;
 		private System.Windows.Forms.GroupBox grpStaff;
@@ -342,5 +341,6 @@ namespace QuanLyXemPhim.frmAdminUserControl
         private System.Windows.Forms.DataGridViewTextBoxColumn DiaChi;
         private System.Windows.Forms.DataGridViewTextBoxColumn SDT;
         private System.Windows.Forms.DataGridViewTextBoxColumn CMND;
+        private System.Windows.Forms.TextBox txtStaffBirth;
     }
 }

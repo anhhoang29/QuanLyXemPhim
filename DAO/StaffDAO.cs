@@ -45,5 +45,48 @@ namespace DAO
             }
         }
 
+        public bool addStaffDAO (String id, String name, DateTime birth, String address,  String phone, int identity)
+        {
+            String query = "USP_AddStaff @idNV , @HoTen , @NgaySinh , @DiaChi , @SDT , @CMND ";
+            try
+            {
+                DataProvider.Instance.UserExecuteNonQuery(query, new object[] { id, name, birth, address, phone, identity });
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+            
+        }
+
+        public bool deleteStaffDAO (String staffId)
+        {
+            String query = "dbo.USP_deleteStaff @StaffId";
+            try
+            {
+                DataProvider.Instance.UserExecuteNonQuery(query, new object[] { staffId });
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+        public bool updateStaffDAO(String id, String name, DateTime birth, String address, String phone, int number)
+        {
+            String query = "dbo.USP_UpdateStaff @id , @name , @birth , @address , @phone , @identity ";
+            try
+            {
+                DataProvider.Instance.UserExecuteNonQuery(query, new object[] { id, name, birth, address, phone, number });
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
     }
 }
