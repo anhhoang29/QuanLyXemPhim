@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BUS;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -16,82 +17,94 @@ namespace QuanLyXemPhim.frmAdminUserControl.FeatureViewUserControl
         public ShowTimesUC()
         {
             InitializeComponent();
-            LoadShowtime();
-        }
-
-        void LoadShowtime()
-        {
             dtgvShowtime.DataSource = showtimeList;
-            LoadShowtimeList();
-            LoadFormatMovieIntoComboBox();
-            AddShowtimeBinding();
+            LoadCaChieu();
         }
-        void LoadShowtimeList()
+        void LoadCaChieu()
         {
-            
-        }
-        private void btnShowShowtime_Click(object sender, EventArgs e)
-        {
-            LoadShowtimeList();
+            CaChieuBUS.Instance.hienThiCaChieu(showtimeList);
+            AddGenreBinding();
         }
 
-        //Binding
-        void AddShowtimeBinding()
+        void AddGenreBinding()
         {
-       
-        }
-        void LoadFormatMovieIntoComboBox()
-        {
-          
-        }
-        private void cboFormatID_Showtime_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            
-        }
-        private void txtShowtimeID_TextChanged(object sender, EventArgs e)
-        {
-            
+            txtShowtimeID.DataBindings.Add(new Binding("Text", dtgvShowtime.DataSource, "MaCaChieu", true, DataSourceUpdateMode.Never));
+            //txtMovieName_Showtime.DataBindings.Add(new Binding("Text", dtgvShowtime.DataSource, "TenTheLoai", true, DataSourceUpdateMode.Never));
         }
 
-        //Insert
-        void InsertShowtime(string id, string cinemaID, string formatMovieID, DateTime time, float ticketPrice)
-        {
-           
-        }
-        private void btnInsertShowtime_Click(object sender, EventArgs e)
-        {
-            
-        }
+        //void LoadShowtime()
+        //{
+        //    dtgvShowtime.DataSource = showtimeList;
+        //    LoadShowtimeList();
+        //    LoadFormatMovieIntoComboBox();
+        //    AddShowtimeBinding();
+        //}
+        //void LoadShowtimeList()
+        //{
 
-        //Update
-        void UpdateShowtime(string id, string cinemaID, string formatMovieID, DateTime time, float ticketPrice)
-        {
-           
-        }
-        private void btnUpdateShowtime_Click(object sender, EventArgs e)
-        {
-            
-        }
+        //}
+        //private void btnShowShowtime_Click(object sender, EventArgs e)
+        //{
+        //    LoadShowtimeList();
+        //}
 
-        //Delete
-        void DeleteShowtime(string id)
-        {
-           
-        }
-        private void btnDeleteShowtime_Click(object sender, EventArgs e)
-        {
-           
-        }
+        ////Binding
+        //void AddShowtimeBinding()
+        //{
 
-        //Search
-        private void btnSearchShowtime_Click(object sender, EventArgs e)
-        {
-           
-        }
+        //}
+        //void LoadFormatMovieIntoComboBox()
+        //{
 
-        private void txtSearchShowtime_KeyDown(object sender, KeyEventArgs e)
-        {
-           
-        }
+        //}
+        //private void cboFormatID_Showtime_SelectedIndexChanged(object sender, EventArgs e)
+        //{
+
+        //}
+        //private void txtShowtimeID_TextChanged(object sender, EventArgs e)
+        //{
+
+        //}
+
+        ////Insert
+        //void InsertShowtime(string id, string cinemaID, string formatMovieID, DateTime time, float ticketPrice)
+        //{
+
+        //}
+        //private void btnInsertShowtime_Click(object sender, EventArgs e)
+        //{
+
+        //}
+
+        ////Update
+        //void UpdateShowtime(string id, string cinemaID, string formatMovieID, DateTime time, float ticketPrice)
+        //{
+
+        //}
+        //private void btnUpdateShowtime_Click(object sender, EventArgs e)
+        //{
+
+        //}
+
+        ////Delete
+        //void DeleteShowtime(string id)
+        //{
+
+        //}
+        //private void btnDeleteShowtime_Click(object sender, EventArgs e)
+        //{
+
+        //}
+
+        ////Search
+        //private void btnSearchShowtime_Click(object sender, EventArgs e)
+        //{
+
+        //}
+
+        //private void txtSearchShowtime_KeyDown(object sender, KeyEventArgs e)
+        //{
+
+        //}
     }
 }
