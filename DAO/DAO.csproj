@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CaChieuDAO.cs" />
     <Compile Include="DataProvider.cs" />
     <Compile Include="PhongChieuDAO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

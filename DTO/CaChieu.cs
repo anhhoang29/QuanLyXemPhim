@@ -14,7 +14,7 @@ namespace DTO
         private DateTime thoiGianKetThuc;
         private string maPhong;
         private string maPhim;
-        private int giaVe;
+        private float giaVe;
         private int trangThai;
 
         public string MaCaChieu { get => maCaChieu; set => maCaChieu = value; }
@@ -22,8 +22,8 @@ namespace DTO
         public DateTime ThoiGianKetThuc { get => thoiGianKetThuc; set => thoiGianKetThuc = value; }
         public string MaPhong { get => maPhong; set => maPhong = value; }
         public string MaPhim { get => maPhim; set => maPhim = value; }
-        public int GiaVe { get => giaVe; set => giaVe = value; }
         public int TrangThai { get => trangThai; set => trangThai = value; }
+        public float GiaVe { get => giaVe; set => giaVe = value; }
 
         public CaChieu() { }
 
@@ -34,7 +34,10 @@ namespace DTO
             ThoiGianKetThuc = (DateTime)row["ThoiGianKetThuc"];
             MaPhong = row["MaPhong"].ToString();
             MaPhim = row["MaPhim"].ToString();
-            GiaVe = (int)row["GiaVe"];
+            if (row["GiaVe"].ToString() == "")
+                this.GiaVe = 0;
+            else
+                this.GiaVe = float.Parse(row["GiaVe"].ToString());
             TrangThai = (int)row["TrangThai"];
         }
     }
