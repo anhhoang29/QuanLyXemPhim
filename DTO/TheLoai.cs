@@ -9,17 +9,18 @@ namespace DTO
 {
     public class TheLoai
     {
-        private string maTheLoai;
+        private string maLoaiPhim;
         private string tenTheLoai;
 
-        public string MaTheLoai { get => maTheLoai; set => maTheLoai = value; }
+
+        public string MaLoaiPhim { get => maLoaiPhim; set => maLoaiPhim = value; }
         public string TenTheLoai { get => tenTheLoai; set => tenTheLoai = value; }
 
         public TheLoai() { }
 
         public TheLoai(DataRow row)
         {
-            MaTheLoai = row["MaLoaiPhim"].ToString();
+            MaLoaiPhim = row["MaLoaiPhim"].ToString();
             TenTheLoai = row["TenTheLoai"].ToString();
         }
     }
