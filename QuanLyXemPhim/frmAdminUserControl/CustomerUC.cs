@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using DAO;
+using BUS;
 
 namespace QuanLyXemPhim.frmAdminUserControl
 {
@@ -22,66 +23,130 @@ namespace QuanLyXemPhim.frmAdminUserControl
 
         void LoadCustomer()
         {
-            dtgvCustomer.DataSource = customerList;
-            LoadCustomerList();
-            AddCustomerBinding();
+
+            DataTable dt = CustomerBUS.Instance.getListCustomer();
+            if (dt == null)
+            {
+                MessageBox.Show("Error when load data");
+            }
+            else
+            {
+                dtgvCustomer.DataSource = dt;
+            }
+           
+        }
+  
+        
+        private void btnAddCustomer_Click_1(object sender, EventArgs e)
+        {
+
+            if (txtCusName.Text == "" || txtCusBirth.Text == "" || txtCusPhone.Text=="" || txtAddress.Text == "")
+            {
+                MessageBox.Show("Vui lòng nhập đầy đủ thông tin", "Thông báo", MessageBoxButtons.OKCancel);
+                return;
+            }
+            
+            String name = txtCusName.Text;
+            int birth = Int32.Parse(txtCusBirth.Text);
+            String phoneNumber = txtCusPhone.Text;
+            int point = (int)nudPoint.Value;
+            String address = txtAddress.Text;
+
+            if (CustomerBUS.Instance.addCustomer(name, birth, phoneNumber, point, address))
+            {
+                LoadCustomer();
+                clearCustomerInfoPanel();
+            }
+            else
+            {
+                MessageBox.Show("Có lỗi xảy ra");
+            }
         }
 
-        void LoadCustomerList()
-        {
-        }
-        private void btnShowCustomer_Click(object sender, EventArgs e)
-        {
-            LoadCustomerList();
-        }
 
-        void AddCustomerBinding()
+        private void clearCustomerInfoPanel()
         {
+            txtCusName.Clear();
+            txtAddress.Clear();
+            txtCusBirth.Clear();
+            txtCusPhone.Clear();
+            nudPoint.ResetText();
+            txtCusId.Clear();
+        }
+        private void dtgvCustomer_SelectionChanged(object sender, EventArgs e)
+        {
+            
+            foreach(DataGridViewRow row in dtgvCustomer.SelectedRows)
+            {                 
+                txtCusId.Text = row.Cells[0].Value.ToString();
+                txtCusName.Text = row.Cells[1].Value.ToString();
+                txtAddress.Text = row.Cells[2].Value.ToString();
+                txtCusBirth.Text = row.Cells[3].Value.ToString();
+                txtCusPhone.Text = row.Cells[4].Value.ToString();
+                nudPoint.Value = (int)row.Cells[5].Value;
+            }
            
         }
 
-        void InsertCustomer(string id, string hoTen, DateTime ngaySinh, string diaChi, string sdt, int cmnd)
-        {
-            
-        }
-        private void btnAddCustomer_Click(object sender, EventArgs e)
-        {
-            
-        }
-
-        void UpdateCustomer(string id, string hoTen, DateTime ngaySinh, string diaChi, string sdt, int cmnd, int point)
-        {
-
-        }
-        private void btnUpdateCustomer_Click(object sender, EventArgs e)
-        {
-            
-        }
-
-        void DeleteCustomer(string id)
-        {
-            
-        }
         private void btnDeleteCustomer_Click(object sender, EventArgs e)
         {
-            string cusID = txtCusID.Text;
-            DeleteCustomer(cusID);
-            LoadCustomerList();
+            String MaKH = txtCusId.Text;
+            if (MaKH == "")
+            {
+                MessageBox.Show("Chọn người cần xóa", "Thông báo", MessageBoxButtons.OKCancel);
+            }
+            else
+            {
+                DialogResult confirm = MessageBox.Show("Bạn muốn xóa khách hàng này?", "Thông báo", MessageBoxButtons.YesNo);
+                if (confirm == DialogResult.Yes)
+                {
+                    if (CustomerBUS.Instance.deleteCustomer(Int32.Parse(MaKH)))
+                    {
+                        LoadCustomer();
+                        clearCustomerInfoPanel();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Xóa thất bại", "Thông báo", MessageBoxButtons.OKCancel);
+                    }
+                }
+                else
+                {
+                    clearCustomerInfoPanel();
+                }
+            }
+                
         }
 
-        private void btnSearchCus_Click(object sender, EventArgs e)
+        private void dtgvCustomer_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+
+        }
+
+        private void btnUpdateCustomer_Click(object sender, EventArgs e)
+        {
+            if (txtCusName.Text == "" || txtCusBirth.Text == "" || txtCusPhone.Text == "" || txtAddress.Text == "")
+            {
+                MessageBox.Show("Vui lòng cung cấp đầy đủ thông tin", "Thông báo", MessageBoxButtons.OKCancel);
+                return;
+            }
+
+            int id = Int32.Parse(txtCusId.Text);
+            String name = txtCusName.Text;
+            String address = txtAddress.Text;
+            int birth = Int32.Parse(txtCusBirth.Text);
+            String phoneNumber = txtCusPhone.Text;
+            int point = (int)nudPoint.Value;
+
+            if (CustomerBUS.Instance.updateCustomerBUS(id,name, address, birth, phoneNumber, point))
+            {
+                LoadCustomer();
+            }
+            else
+            {
+                MessageBox.Show("Cập nhật thất bại", "Thông báo", MessageBoxButtons.OKCancel);
+            }
             
-        }
-
-        private void txtSearchCus_KeyDown(object sender, KeyEventArgs e)
-        {
-            
-        }
-
-        private void NgheNghiep_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }
