@@ -17,7 +17,6 @@ namespace DTO
         private DateTime ngayKetThuc;
         private string quocGia;
         private string daoDien;
-        private int namSX;
         private int gioiHanTuoi;
 
         public string MaPhim { get => maPhim; set => maPhim = value; }
@@ -28,7 +27,6 @@ namespace DTO
         public DateTime NgayKetThuc { get => ngayKetThuc; set => ngayKetThuc = value; }
         public string QuocGia { get => quocGia; set => quocGia = value; }
         public string DaoDien { get => daoDien; set => daoDien = value; }
-        public int NamSX { get => namSX; set => namSX = value; }
         public int GioiHanTuoi { get => gioiHanTuoi; set => gioiHanTuoi = value; }
 
         public Phim() { }
@@ -43,7 +41,6 @@ namespace DTO
             NgayKetThuc = (DateTime)row["NgayKetThuc"];
             QuocGia = row["QuocGia"].ToString();
             DaoDien = row["DaoDien"].ToString();
-            NamSX = (int)row["NamSX"];
             GioiHanTuoi = (int)row["GioiHanTuoi"];
         }
     }
