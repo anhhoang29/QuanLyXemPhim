@@ -24,7 +24,19 @@ namespace QuanLyXemPhim.frmAdminUserControl.FeatureViewUserControl
 
         private void btnAddMovie_Click_1(object sender, EventArgs e)
         {
+            string MaPhim = txtMovieID.Text;
+            string TenPhim = txtMovieName.Text;
+            string MoTa = txtMovieDesc.Text;
+            double ThoiLuong = Convert.ToDouble(txtMovieLength.Text);
+            DateTime NgayBatDau = dtmMovieStart.Value;
+            DateTime NgayKetThuc = dtmMovieEnd.Value;
+            string QuocGia = txtMovieCountry.Text;
+            string DienVien = txtMovieActor.Text;
+            int GioiHanTuoi = Convert.ToInt32(txtMovieYearLimit.Text);
 
+            PhimBUS.Instance.themDanhSachPhim(MaPhim, TenPhim, MoTa, ThoiLuong, NgayBatDau, NgayKetThuc,
+                QuocGia, DienVien, GioiHanTuoi);
+            PhimBUS.Instance.hienThiPhim(movieList);
         }
 
         public void bindingMovie()
@@ -61,6 +73,15 @@ namespace QuanLyXemPhim.frmAdminUserControl.FeatureViewUserControl
             PhimBUS.Instance.suaDanhSachPhim(MaPhim, TenPhim, MoTa, ThoiLuong, NgayBatDau, NgayKetThuc,
                 QuocGia, DienVien, GioiHanTuoi);
             PhimBUS.Instance.hienThiPhim(movieList);
+        }
+
+        private void btnDeleteMovie_Click(object sender, EventArgs e)
+        {
+            string MaPhim = dtgvMovie.SelectedCells[0].OwningRow.Cells["MaPhim"].Value.ToString();
+            
+            PhimBUS.Instance.xoaDanhSachPhim(MaPhim);
+            PhimBUS.Instance.hienThiPhim(movieList);
+
         }
     }
 }

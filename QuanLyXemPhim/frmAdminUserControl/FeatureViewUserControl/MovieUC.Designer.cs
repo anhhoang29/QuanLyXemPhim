@@ -333,13 +333,14 @@ namespace QuanLyXemPhim.frmAdminUserControl.FeatureViewUserControl
             // 
             // btnDeleteMovie
             // 
-            this.btnDeleteMovie.Location = new System.Drawing.Point(126, 5);
+            this.btnDeleteMovie.Location = new System.Drawing.Point(126, 7);
             this.btnDeleteMovie.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnDeleteMovie.Name = "btnDeleteMovie";
-            this.btnDeleteMovie.Size = new System.Drawing.Size(112, 71);
+            this.btnDeleteMovie.Size = new System.Drawing.Size(112, 69);
             this.btnDeleteMovie.TabIndex = 1;
             this.btnDeleteMovie.Text = "Xóa";
             this.btnDeleteMovie.UseVisualStyleBackColor = true;
+            this.btnDeleteMovie.Click += new System.EventHandler(this.btnDeleteMovie_Click);
             // 
             // btnAddMovie
             // 

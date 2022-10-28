@@ -42,5 +42,44 @@ namespace BUS
                 MessageBox.Show("Error", "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
             }
         }
+        public void themDanhSachPhim(string MaPhim, string TenPhim, string MoTa, double ThoiLuong,
+    DateTime NgayBatDau, DateTime NgayKetThuc, string QuocGia, string DienVien, int GioiHanTuoi)
+        {
+            try
+            {
+                if (PhimDAO.Instance.themDanhSachPhim(MaPhim, TenPhim, MoTa, ThoiLuong, NgayBatDau,
+                    NgayKetThuc, QuocGia, DienVien, GioiHanTuoi) > 0)
+                {
+                    MessageBox.Show("Thêm thành công", "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("Thêm thất bại", "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+                }
+            }
+            catch
+            {
+                MessageBox.Show("Error", "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
+            }
+        }
+        public void xoaDanhSachPhim(string MaPhim)
+        {
+            try
+            {
+                if (PhimDAO.Instance.xoaDanhSachPhim(MaPhim) > 0)
+                {
+                    MessageBox.Show("Xóa thành công", "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("Xóa thất bại", "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+                }
+            }
+            catch
+            {
+                MessageBox.Show("Error", "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
+            }
+        }
+
     }
 }

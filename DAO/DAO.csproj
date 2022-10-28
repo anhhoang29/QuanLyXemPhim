@@ -44,6 +44,7 @@
     <Compile Include="CustomerDAO.cs" />
     <Compile Include="CaChieuDAO.cs" />
     <Compile Include="DataProvider.cs" />
+    <Compile Include="PhanLoaiPhimDAO.cs" />
     <Compile Include="PhimDAO.cs" />
     <Compile Include="PhongChieuDAO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
