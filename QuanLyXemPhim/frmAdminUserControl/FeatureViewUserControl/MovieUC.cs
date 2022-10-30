@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BUS;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -17,81 +18,69 @@ namespace QuanLyXemPhim.frmAdminUserControl.FeatureViewUserControl
         public MovieUC()
         {
             InitializeComponent();
-            LoadMovie();
-        }
-
-        void LoadMovie()
-        {
             dtgvMovie.DataSource = movieList;
-            LoadMovieList();
-            AddMovieBinding();
-        }
-        void LoadMovieList()
-        {
-            
-        }
-        private void btnShowMovie_Click(object sender, EventArgs e)
-        {
-            LoadMovieList();
-        }
-        void AddMovieBinding()
-        {
-          
-        }
-        void LoadGenreIntoCheckedList(CheckedListBox checkedList)
-        {
-            
-        }
-        private void txtMovieID_TextChanged(object sender, EventArgs e)
-        //Use to binding the CheckedListBox Genre of Movie and picture of Movie
-        {
-            
+            hienThiDanhSachPhim();
         }
 
-        void InsertMovie(string id, string name, string desc, float length, DateTime startDate, DateTime endDate, string productor, string director, int year, byte[] image)
+        private void btnAddMovie_Click_1(object sender, EventArgs e)
         {
-            
-        }
-        void InsertMovie_Genre(string movieID, CheckedListBox checkedListBox)
-        //Insert into table 'PhanLoaiPhim'
-        {
-            
+            string MaPhim = txtMovieID.Text;
+            string TenPhim = txtMovieName.Text;
+            string MoTa = txtMovieDesc.Text;
+            double ThoiLuong = Convert.ToDouble(txtMovieLength.Text);
+            DateTime NgayBatDau = dtmMovieStart.Value;
+            DateTime NgayKetThuc = dtmMovieEnd.Value;
+            string QuocGia = txtMovieCountry.Text;
+            string DienVien = txtMovieActor.Text;
+            int GioiHanTuoi = Convert.ToInt32(txtMovieYearLimit.Text);
+
+            PhimBUS.Instance.themDanhSachPhim(MaPhim, TenPhim, MoTa, ThoiLuong, NgayBatDau, NgayKetThuc,
+                QuocGia, DienVien, GioiHanTuoi);
+            PhimBUS.Instance.hienThiPhim(movieList);
         }
 
-        private void btnUpLoadPictureFilm_Click(object sender, EventArgs e)
+        public void bindingMovie()
         {
-            
+            txtMovieID.DataBindings.Add(new Binding("Text", dtgvMovie.DataSource, "MaPhim", true, DataSourceUpdateMode.Never));
+            txtMovieName.DataBindings.Add(new Binding("Text", dtgvMovie.DataSource, "TenPhim", true, DataSourceUpdateMode.Never));
+            txtMovieDesc.DataBindings.Add(new Binding("Text", dtgvMovie.DataSource, "MoTa", true, DataSourceUpdateMode.Never));
+            txtMovieLength.DataBindings.Add(new Binding("Text", dtgvMovie.DataSource, "ThoiLuong", true, DataSourceUpdateMode.Never));
+            dtmMovieStart.DataBindings.Add(new Binding("Text", dtgvMovie.DataSource, "NgayKhoiChieu", true, DataSourceUpdateMode.Never));
+            dtmMovieEnd.DataBindings.Add(new Binding("Text", dtgvMovie.DataSource, "NgayKetThuc", true, DataSourceUpdateMode.Never));
+            txtMovieCountry.DataBindings.Add(new Binding("Text", dtgvMovie.DataSource, "QuocGia", true, DataSourceUpdateMode.Never));
+            txtMovieActor.DataBindings.Add(new Binding("Text", dtgvMovie.DataSource, "DaoDien", true, DataSourceUpdateMode.Never));
+            txtMovieYearLimit.DataBindings.Add(new Binding("Text", dtgvMovie.DataSource, "GioiHanTuoi", true, DataSourceUpdateMode.Never));
+        }
+        
+        public void hienThiDanhSachPhim()
+        {
+            PhimBUS.Instance.hienThiPhim(movieList);
+            bindingMovie();
         }
 
-        private void btnAddMovie_Click(object sender, EventArgs e)
-        {
-            
-        }
-
-        void UpdateMovie(string id, string name, string desc, float length, DateTime startDate, DateTime endDate, string productor, string director, int year, byte[] image)
-        {
-            
-        }
-        void UpdateMovie_Genre(string movieID, CheckedListBox checkedListBox)
-        {
-            
-        }
         private void btnUpdateMovie_Click(object sender, EventArgs e)
         {
-            
+            string MaPhim = dtgvMovie.SelectedCells[0].OwningRow.Cells["MaPhim"].Value.ToString();
+            string TenPhim = txtMovieName.Text;
+            string MoTa = txtMovieDesc.Text;
+            double ThoiLuong = Convert.ToDouble(txtMovieLength.Text);
+            DateTime NgayBatDau = dtmMovieStart.Value;
+            DateTime NgayKetThuc = dtmMovieEnd.Value;
+            string QuocGia = txtMovieCountry.Text;
+            string DienVien = txtMovieActor.Text;
+            int GioiHanTuoi = Convert.ToInt32(txtMovieYearLimit.Text);
+
+            PhimBUS.Instance.suaDanhSachPhim(MaPhim, TenPhim, MoTa, ThoiLuong, NgayBatDau, NgayKetThuc,
+                QuocGia, DienVien, GioiHanTuoi);
+            PhimBUS.Instance.hienThiPhim(movieList);
         }
 
-        void DeleteMovie(string id)
-        {
-           
-        }
         private void btnDeleteMovie_Click(object sender, EventArgs e)
         {
+            string MaPhim = dtgvMovie.SelectedCells[0].OwningRow.Cells["MaPhim"].Value.ToString();
             
-        }
-
-        private void txtMovieYearLimit_TextChanged(object sender, EventArgs e)
-        {
+            PhimBUS.Instance.xoaDanhSachPhim(MaPhim);
+            PhimBUS.Instance.hienThiPhim(movieList);
 
         }
     }

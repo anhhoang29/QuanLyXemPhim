@@ -31,6 +31,15 @@ namespace DAO
 
             return caChieus;
         }
+
+        public int xoaCaChieu(string MaPhim)
+        {
+            try
+            {
+                string query = @"USP_Delete_Phim @MaPhim ";
+                int kq = DataProvider.Instance.ExecuteNonQuery(query, new object[] { MaPhim });
+              }
+              }
         public DataTable GetCaChieu()
         {
             return DataProvider.Instance.ExecuteQuery("EXEC USP_GetCaChieu");
@@ -61,6 +70,7 @@ namespace DAO
                 return 0;
             }
         }
+
         public int suaCaChieu(string MaCaChieu, DateTime ThoiGianChieu, DateTime ThoiGianKetThuc, string MaPhong, string MaPhim, float GiaVe)
         {
             try
