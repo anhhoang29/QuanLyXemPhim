@@ -31,15 +31,6 @@ namespace DAO
 
             return caChieus;
         }
-
-        public int xoaCaChieu(string MaPhim)
-        {
-            try
-            {
-                string query = @"USP_Delete_Phim @MaPhim ";
-                int kq = DataProvider.Instance.ExecuteNonQuery(query, new object[] { MaPhim });
-              }
-              }
         public DataTable GetCaChieu()
         {
             return DataProvider.Instance.ExecuteQuery("EXEC USP_GetCaChieu");
