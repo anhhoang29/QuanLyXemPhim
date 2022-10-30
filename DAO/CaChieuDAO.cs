@@ -31,5 +31,53 @@ namespace DAO
 
             return caChieus;
         }
+        public DataTable GetCaChieu()
+        {
+            return DataProvider.Instance.ExecuteQuery("EXEC USP_GetCaChieu");
+        }
+        public int themCaChieu(string MaCaChieu, DateTime ThoiGianChieu, DateTime ThoiGianKetThuc, string MaPhong, string MaPhim, float GiaVe)
+        {
+            try
+            {
+                string query = @"USP_Add_Ca_Chieu @MaCaChieu , @ThoiGianChieu , @ThoiGianKetThuc , @MaPhong , @MaPhim , @GiaVe ";
+                int kq = DataProvider.Instance.ExecuteNonQuery(query, new object[] { MaCaChieu, ThoiGianChieu, ThoiGianKetThuc, MaPhong, MaPhim, GiaVe });
+                return kq;
+            }
+            catch
+            {
+                return 0;
+            }
+        }
+        public int xoaCaChieu(string MaCaChieu)
+        {
+            try
+            {
+                string query = @"USP_Delete_Ca_Chieu @MaCaChieu ";
+                int kq = DataProvider.Instance.ExecuteNonQuery(query, new object[] { MaCaChieu });
+                return kq;
+            }
+            catch
+            {
+                return 0;
+            }
+        }
+        public int suaCaChieu(string MaCaChieu, DateTime ThoiGianChieu, DateTime ThoiGianKetThuc, string MaPhong, string MaPhim, float GiaVe)
+        {
+            try
+            {
+                string query = @"USP_Update_Ca_Chieu @MaCaChieu , @ThoiGianChieu , @ThoiGianKetThuc , @MaPhong , @MaPhim , @GiaVe ";
+                int kq = DataProvider.Instance.ExecuteNonQuery(query, new object[] { MaCaChieu, ThoiGianChieu, ThoiGianKetThuc, MaPhong, MaPhim, GiaVe });
+                return kq;
+            }
+            catch
+            {
+                return 0;
+            }
+        }
+        public static int updateTinhTrangCaChieu(string MaCaChieu, int TinhTrang)
+        {
+            string query = "USP_updateTinhTrangCaChieu @MaCaChieu , @TinhTrang";
+            return DataProvider.Instance.ExecuteNonQuery(query, new object[] { MaCaChieu, TinhTrang });
+        }
     }
 }

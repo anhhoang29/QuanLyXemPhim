@@ -21,9 +21,11 @@ namespace DAO
 
         }
 
-
-        public const string connectionStr = @"Data Source=DUY\SQLEXPRESS;Initial Catalog=QuanLyXemPhim;Integrated Security=true";
-        public static string connectionString = @"Data Source=DUY\SQLEXPRESS;Initial Catalog=QuanLyXemPhim;Integrated Security=true";
+        //private const string connectionStr = @"Data Source=DESKTOP-SHGHBSM\SQLEXPRESS;Initial Catalog=QuanLyXemPhim;Integrated Security=true"
+        private const string connectionStr = @"Data Source=LAPTOP-16UP1LFV\SQLEXPRESS;Initial Catalog=QuanLyXemPhim;Integrated Security=true";
+        public static string connectionString = @"Data Source=LAPTOP-16UP1LFV\SQLEXPRESS;Initial Catalog=QuanLyXemPhim;Integrated Security=true";
+        //public const string connectionStr = @"Data Source=DUY\SQLEXPRESS;Initial Catalog=QuanLyXemPhim;Integrated Security=true";
+        //public static string connectionString = @"Data Source=DUY\SQLEXPRESS;Initial Catalog=QuanLyXemPhim;Integrated Security=true";
         public DataTable ExecuteQuery(string query, object[] parameter = null)
         {
             DataTable data = new DataTable();

@@ -50,9 +50,12 @@ namespace QuanLyXemPhim.frmAdminUserControl
 
         private void btnShowTimesUC_Click(object sender, EventArgs e)
         {
-            ShowTimesUC showTimesUC = new ShowTimesUC();
+            SidePanel.Height = btnShowTimesUC.Height;
+            SidePanel.Top = btnShowTimesUC.Top;
             pnData.Controls.Clear();
-            pnData.Controls.Add(showTimesUC);
+            ShowTimesUC showTimesUc = new ShowTimesUC();
+            showTimesUc.Dock = DockStyle.Fill;
+            pnData.Controls.Add(showTimesUc);
         }
 
         private void btnTicketsUC_Click(object sender, EventArgs e)

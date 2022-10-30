@@ -21,5 +21,63 @@ namespace BUS
         {
             source.DataSource = CaChieuDAO.Instance.hienThiCaChieu();
         }
+        public void GetCaChieu(BindingSource source)
+        {
+            source.DataSource = CaChieuDAO.Instance.GetCaChieu();
+        }
+        public void themCaChieu(string MaCaChieu, DateTime ThoiGianChieu, DateTime ThoiGianKetThuc, string MaPhong, string MaPhim, float GiaVe)
+        {
+            try
+            {
+                if (CaChieuDAO.Instance.themCaChieu(MaCaChieu, ThoiGianChieu, ThoiGianKetThuc, MaPhong, MaPhim, GiaVe) > 0)
+                {
+                    MessageBox.Show("Thêm thành công", "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("Thêm thất bại", "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+                }
+            }
+            catch
+            {
+                MessageBox.Show("Error", "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
+            }
+        }
+        public void xoaCaChieu(string MaCaChieu)
+        {
+            try
+            {
+                if (CaChieuDAO.Instance.xoaCaChieu(MaCaChieu) > 0)
+                {
+                    MessageBox.Show("Xóa thành công", "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("Xóa thất bại", "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+                }
+            }
+            catch
+            {
+                MessageBox.Show("Error", "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
+            }
+        }
+        public void suaCaChieu(string MaCaChieu, DateTime ThoiGianChieu, DateTime ThoiGianKetThuc, string MaPhong, string MaPhim, float GiaVe)
+        {
+            try
+            {
+                if (CaChieuDAO.Instance.suaCaChieu(MaCaChieu, ThoiGianChieu, ThoiGianKetThuc, MaPhong, MaPhim, GiaVe) > 0)
+                {
+                    MessageBox.Show("Sửa thành công", "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("Sửa thất bại", "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+                }
+            }
+            catch
+            {
+                MessageBox.Show("Error", "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
+            }
+        }
     }
 }

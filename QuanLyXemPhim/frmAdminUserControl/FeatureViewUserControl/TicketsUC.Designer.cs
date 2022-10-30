@@ -50,6 +50,7 @@ namespace QuanLyXemPhim.frmAdminUserControl.FeatureViewUserControl
             // 
             // lsvAllListShowTimes
             // 
+            this.lsvAllListShowTimes.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lsvAllListShowTimes.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader1,
             this.columnHeader2,
@@ -58,16 +59,18 @@ namespace QuanLyXemPhim.frmAdminUserControl.FeatureViewUserControl
             this.lsvAllListShowTimes.FullRowSelect = true;
             this.lsvAllListShowTimes.GridLines = true;
             this.lsvAllListShowTimes.HideSelection = false;
-            this.lsvAllListShowTimes.Location = new System.Drawing.Point(3, 4);
+            this.lsvAllListShowTimes.Location = new System.Drawing.Point(652, 64);
             this.lsvAllListShowTimes.Name = "lsvAllListShowTimes";
-            this.lsvAllListShowTimes.Size = new System.Drawing.Size(622, 629);
+            this.lsvAllListShowTimes.Size = new System.Drawing.Size(591, 565);
             this.lsvAllListShowTimes.TabIndex = 9;
             this.lsvAllListShowTimes.UseCompatibleStateImageBehavior = false;
             this.lsvAllListShowTimes.View = System.Windows.Forms.View.Details;
+            this.lsvAllListShowTimes.SelectedIndexChanged += new System.EventHandler(this.lsvAllListShowTimes_SelectedIndexChanged);
+            this.lsvAllListShowTimes.Click += new System.EventHandler(this.lsvAllListShowTimes_Click);
             // 
             // columnHeader1
             // 
-            this.columnHeader1.Text = "Tên Phòng Chiếu";
+            this.columnHeader1.Text = "Mã Phòng Chiếu";
             this.columnHeader1.Width = 120;
             // 
             // columnHeader2
@@ -87,16 +90,14 @@ namespace QuanLyXemPhim.frmAdminUserControl.FeatureViewUserControl
             // 
             // dtgvTicket
             // 
-            this.dtgvTicket.AllowUserToAddRows = false;
             this.dtgvTicket.AllowUserToDeleteRows = false;
             this.dtgvTicket.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dtgvTicket.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtgvTicket.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dtgvTicket.Location = new System.Drawing.Point(0, 64);
             this.dtgvTicket.Margin = new System.Windows.Forms.Padding(4);
             this.dtgvTicket.Name = "dtgvTicket";
             this.dtgvTicket.RowHeadersWidth = 51;
-            this.dtgvTicket.Size = new System.Drawing.Size(643, 575);
+            this.dtgvTicket.Size = new System.Drawing.Size(644, 575);
             this.dtgvTicket.TabIndex = 18;
             // 
             // panel61
@@ -107,11 +108,10 @@ namespace QuanLyXemPhim.frmAdminUserControl.FeatureViewUserControl
             this.panel61.Controls.Add(this.btnAllListShowTimes);
             this.panel61.Controls.Add(this.btnShowShowTimeNotCreateTickets);
             this.panel61.Controls.Add(this.btnDeleteTicketsByShowTime);
-            this.panel61.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel61.Location = new System.Drawing.Point(0, 0);
             this.panel61.Margin = new System.Windows.Forms.Padding(4);
             this.panel61.Name = "panel61";
-            this.panel61.Size = new System.Drawing.Size(643, 64);
+            this.panel61.Size = new System.Drawing.Size(975, 64);
             this.panel61.TabIndex = 16;
             // 
             // btnShowAllTicketsByShowTime
@@ -123,6 +123,7 @@ namespace QuanLyXemPhim.frmAdminUserControl.FeatureViewUserControl
             this.btnShowAllTicketsByShowTime.TabIndex = 5;
             this.btnShowAllTicketsByShowTime.Text = "Xem Tất Cả Các Vé Theo Lịch Chiếu";
             this.btnShowAllTicketsByShowTime.UseVisualStyleBackColor = true;
+            this.btnShowAllTicketsByShowTime.Click += new System.EventHandler(this.btnShowAllTicketsByShowTime_Click_1);
             // 
             // btnShowAllTicketsBoughtByShowTime
             // 
@@ -143,6 +144,7 @@ namespace QuanLyXemPhim.frmAdminUserControl.FeatureViewUserControl
             this.btnAddTicketsByShowTime.TabIndex = 0;
             this.btnAddTicketsByShowTime.Text = "Tự Động Thêm Vé Theo Lịch Chiếu\r\n";
             this.btnAddTicketsByShowTime.UseVisualStyleBackColor = true;
+            this.btnAddTicketsByShowTime.Click += new System.EventHandler(this.btnAddTicketsByShowTime_Click);
             // 
             // btnAllListShowTimes
             // 
@@ -173,14 +175,15 @@ namespace QuanLyXemPhim.frmAdminUserControl.FeatureViewUserControl
             this.btnDeleteTicketsByShowTime.TabIndex = 1;
             this.btnDeleteTicketsByShowTime.Text = "Xóa Vé Theo Lịch Chiếu";
             this.btnDeleteTicketsByShowTime.UseVisualStyleBackColor = true;
+            this.btnDeleteTicketsByShowTime.Click += new System.EventHandler(this.btnDeleteTicketsByShowTime_Click);
             // 
             // panel1
             // 
             this.panel1.Controls.Add(this.lsvAllListShowTimes);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel1.Location = new System.Drawing.Point(643, 0);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(628, 639);
+            this.panel1.Size = new System.Drawing.Size(1271, 639);
             this.panel1.TabIndex = 17;
             // 
             // TicketsUC
