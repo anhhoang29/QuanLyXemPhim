@@ -17,6 +17,7 @@ namespace DAO
             private set { PhimDAO.instance = value; }
         }
 
+
         public List<Phim> hienThiPhim()
         {
             try
@@ -96,5 +97,19 @@ namespace DAO
         //        return 0;
         //    }
         //}
+
+        // Lấy tên Phim 
+        public static List<Phim> GetPhim()
+        {
+            List<Phim> MovieList = new List<Phim>();
+            DataTable data = DataProvider.Instance.ExecuteQuery(@"USP_Show_Phim");
+            foreach (DataRow item in data.Rows)
+            {
+                Phim MovieName = new Phim(item);
+                MovieList.Add(MovieName);
+            }
+            return MovieList;
+        }
+
     }
 }

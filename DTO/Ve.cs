@@ -13,17 +13,17 @@ namespace DTO
         private int loaiVe;
         private string maCaChieu;
         private string maGheNgoi;
-        private int maKhachHang;
+        private string maKhachHang;
         private int trangThai;
-        private int tienBanVe;
+        private float tienBanVe;
 
         public int Id { get => id; set => id = value; }
         public int LoaiVe { get => loaiVe; set => loaiVe = value; }
         public string MaCaChieu { get => maCaChieu; set => maCaChieu = value; }
         public string MaGheNgoi { get => maGheNgoi; set => maGheNgoi = value; }
-        public int MaKhachHang { get => maKhachHang; set => maKhachHang = value; }
+        public string MaKhachHang { get => maKhachHang; set => maKhachHang = value; }
         public int TrangThai { get => trangThai; set => trangThai = value; }
-        public int TienBanVe { get => tienBanVe; set => tienBanVe = value; }
+        public float TienBanVe { get => tienBanVe; set => tienBanVe = value; }
 
         public Ve() { }
 
@@ -33,9 +33,12 @@ namespace DTO
             LoaiVe = (int)row["LoaiVe"];
             MaCaChieu = row["MaCaChieu"].ToString();
             MaGheNgoi = row["MaGheNgoi"].ToString();
-            MaKhachHang = (int)row["MaKhachHang"];
+            MaKhachHang = row["MaKhachHang"].ToString();
             TrangThai = (int)row["TrangThai"];
-            TienBanVe = (int)row["TienBanVe"];
+            if (row["TienBanVe"].ToString() == "")
+                this.TienBanVe = 0;
+            else
+                this.TienBanVe = float.Parse(row["TienBanVe"].ToString()); ;
         }
     }
 }
