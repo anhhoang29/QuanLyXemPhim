@@ -17,12 +17,12 @@ namespace DAO
             get { if (instance == null) instance = new VeDAO(); return VeDAO.instance; }
             private set { VeDAO.instance = value; }
         }
-        public static int themVeByCaChieu(string MaCaChieu, string MaGheNgoi)
+        public int themVeByCaChieu(string MaCaChieu, string MaGheNgoi)
         {
             string query = "USP_themVeByCaChieu @MaCaChieu , @MaGheNgoi";
             return DataProvider.Instance.ExecuteNonQuery(query, new object[] { MaCaChieu, MaGheNgoi });
         }
-        public static List<Ve> hienthiVe(string maCaChieu)
+        public List<Ve> hienthiVe(string maCaChieu)
         {
             List<Ve> listTicket = new List<Ve>();
             string query = @"select * from Ve where MaCaChieu = '" + maCaChieu + "'";
@@ -34,7 +34,7 @@ namespace DAO
             }
             return listTicket;
         }
-        public static int xoaVeByCaChieu(string MaCaChieu)
+        public int xoaVeByCaChieu(string MaCaChieu)
         {
             string query = "USP_Xoa_Ve_By_Ca_Chieu @MaCaChieu";
             return DataProvider.Instance.ExecuteNonQuery(query, new object[] { MaCaChieu });

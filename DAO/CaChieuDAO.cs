@@ -5,6 +5,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace DAO
 {
@@ -31,6 +32,7 @@ namespace DAO
 
             return caChieus;
         }
+
         public DataTable GetCaChieu()
         {
             return DataProvider.Instance.ExecuteQuery("EXEC USP_GetCaChieu");

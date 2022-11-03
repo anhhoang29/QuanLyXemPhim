@@ -82,9 +82,10 @@ namespace QuanLyXemPhim.frmAdminUserControl.FeatureViewUserControl
                 for (int j = 1; j <= Column; j++)
                 {
                     string seatName = nameRow.ToString() + j;
-                    result += VeDAO.themVeByCaChieu(caChieu.MaCaChieu, seatName);
+                    result += VeDAO.Instance.themVeByCaChieu(caChieu.MaCaChieu, seatName);
                 }
             }
+
             if (result == Row * Column)
             {
                 int ret = CaChieuDAO.updateTinhTrangCaChieu(caChieu.MaCaChieu, 1);
@@ -97,7 +98,7 @@ namespace QuanLyXemPhim.frmAdminUserControl.FeatureViewUserControl
         }
         void hienThiVebyCaChieu(string maCaChieu)
         {
-            List<Ve> listTicket = VeDAO.hienthiVe(maCaChieu);
+            List<Ve> listTicket = VeDAO.Instance.hienthiVe(maCaChieu);
             dtgvTicket.DataSource = listTicket;
 
         }
@@ -148,7 +149,7 @@ namespace QuanLyXemPhim.frmAdminUserControl.FeatureViewUserControl
             PhongChieu cinema = PhongChieuDAO.GetPhongChieuByName();
             int Row = cinema.SoHangGhe;
             int Column = cinema.SoGheMotHang;
-            int result = VeDAO.xoaVeByCaChieu(caChieu.MaCaChieu);
+            int result = VeDAO.Instance.xoaVeByCaChieu(caChieu.MaCaChieu);
             if (result == Row * Column)
             {
                 int ret = CaChieuDAO.updateTinhTrangCaChieu(caChieu.MaCaChieu, 0);

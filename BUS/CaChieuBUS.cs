@@ -1,6 +1,8 @@
 ﻿using DAO;
+using DTO;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,6 +22,11 @@ namespace BUS
         public void hienThiCaChieu(BindingSource source)
         {
             source.DataSource = CaChieuDAO.Instance.hienThiCaChieu();
+        }
+
+        public void hienThiThongTinChiTietLichChieu(int index, string tenPhim, ListView lv)
+        {
+           
         }
         public void GetCaChieu(BindingSource source)
         {
