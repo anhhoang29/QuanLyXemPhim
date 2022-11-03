@@ -27,5 +27,20 @@ namespace DAO
             }
             return listcachieu;
         }
+
+        public List<CaChieu_Phim> hienThiDanhSachCaChieuTheoTenPhim(string tenPhim)
+        {
+            List<CaChieu_Phim> caChieus = new List<CaChieu_Phim>();
+            string query = @"SELECT * FROM dbo.FUNC_layCaChieuTheoTenPhim( @TenPhim )";
+            DataTable table = DataProvider.Instance.ExecuteQuery(query, new object[] { tenPhim });
+
+            foreach (DataRow row in table.Rows)
+            {
+                CaChieu_Phim caChieu = new CaChieu_Phim(row);
+                caChieus.Add(caChieu);
+            }
+
+            return caChieus;
+        }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using DAO;
+using DTO;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,6 +21,24 @@ namespace BUS
         public void hienThiPhim(BindingSource source)
         {
             source.DataSource = PhimDAO.Instance.hienThiPhim();
+        }
+
+        public void hienThiPhimTheoNgay (ComboBox cbb,DateTime date)
+        {
+            List<Phim> danhSachPhim = PhimDAO.Instance.hienThiPhimTheoNgay(date);
+            List<string> danhSachTenPhim = new List<string>();
+
+            // Fix lỗi hiện nhiều tên phim trùng nhau
+            foreach (Phim tenPhim in danhSachPhim)
+            {
+                if(!danhSachTenPhim.Contains(tenPhim.TenPhim))
+                {
+                    danhSachTenPhim.Add(tenPhim.TenPhim);
+                }
+            }
+
+            cbb.DataSource = null;
+            cbb.DataSource = danhSachTenPhim;
         }
 
         public void suaDanhSachPhim(string MaPhim, string TenPhim, string MoTa, double ThoiLuong,

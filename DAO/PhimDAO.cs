@@ -39,6 +39,27 @@ namespace DAO
             }
         }
 
+        public List<Phim> hienThiPhimTheoNgay(DateTime date)
+        {
+            try
+            {
+                string query = @"SELECT * FROM dbo.FUNC_layPhimTheoNgayChieu( @NgayChieu )";
+                List<Phim> danhSachPhim = new List<Phim>();
+                DataTable table = DataProvider.Instance.ExecuteQuery(query, new object[] {date});
+
+                foreach (DataRow row in table.Rows)
+                {
+                    Phim phim = new Phim(row);
+                    danhSachPhim.Add(phim);
+                }
+                return danhSachPhim;
+            }
+            catch
+            {
+                return null;
+            }
+        }
+
         public int suaDanhSachPhim(string MaPhim, string TenPhim, string MoTa, double ThoiLuong,
             DateTime NgayBatDau, DateTime NgayKetThuc, string QuocGia, string DienVien, int GioiHanTuoi)
         {

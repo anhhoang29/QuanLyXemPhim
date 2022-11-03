@@ -1,4 +1,6 @@
-﻿using System;
+﻿using BUS;
+using DTO;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,46 +14,57 @@ namespace QuanLyXemPhim
 {
     public partial class frmTheatre : Form
     {
-        public frmTheatre()
+        private string maCaChieu;
+        public frmTheatre(string maCaChieu)
         {
             InitializeComponent();
+            this.maCaChieu = maCaChieu;
+            hienThiDanhSachChoNgoiTheoMaCaChieu(this.maCaChieu);
         }
-        private void rdoStudent_Click(object sender, EventArgs e)
-        {
-        }
-        private void rdoAdult_Click(object sender, EventArgs e)
-        {
-
-        }
-        private void rdoChild_Click(object sender, EventArgs e)
-        {
-        }
-        private void frmTheatre_Load(object sender, EventArgs e)
-        {
-       
-        }
-        private void chkCustomer_Click(object sender, EventArgs e)
-        {
-
-        }
-        private void btnPayment_Click(object sender, EventArgs e)
-        {
-
-        }
-        private void btnFreeTicket_Click(object sender, EventArgs e)
-        {
-
-        }
-        private void btnCancel_Click(object sender, EventArgs e)
-        {
-            this.Close();
-
-        }
-
+        
         private void chkCustomer_CheckedChanged(object sender, EventArgs e)
         {
             frmCustomer frmCustomer = new frmCustomer();
             frmCustomer.ShowDialog();
+        }
+
+        public void hienThiDanhSachChoNgoiTheoMaCaChieu(string maCaChieu)
+        {
+            int count = 0;
+            List<Ve> danhSachVe = VeBUS.Instance.hienthiVe(maCaChieu);
+            
+            if(danhSachVe != null)
+            {
+                foreach (Ve ve in danhSachVe)
+                {
+                    int col = count % 10;
+                    int row = (count / 10) + 65;
+                    Button btn = new Button() { Width = 80, Height = 30 };
+                    btn.Text = Convert.ToChar(row).ToString() + " - " + col.ToString();
+                    btn.Font = new Font("Arial", (float)10.5);
+                    btn.Click += btn_Click;
+                    btn.Tag = ve;
+
+                    if (ve.TrangThai == 0)
+                    {
+                        btn.BackColor = Color.LightGoldenrodYellow;
+                    }
+                    else
+                    {
+                        btn.BackColor = Color.Gray;
+                        btn.ForeColor = Color.White;
+                    }
+
+                    flpSeat.Controls.Add(btn);
+                    count++;
+                }
+            }
+        }
+
+        private void btn_Click(object sender, EventArgs e)
+        {
+            string id = ((sender as Button).Tag as Ve).Id.ToString();
+            MessageBox.Show("Id: " + id);
         }
     }
 }
