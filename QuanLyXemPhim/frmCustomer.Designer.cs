@@ -33,18 +33,18 @@ namespace QuanLyXemPhim
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.pnThanhVien = new System.Windows.Forms.Panel();
-            this.txtCustomerName = new System.Windows.Forms.TextBox();
             this.txtCustomerID = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
             this.btn_register = new System.Windows.Forms.Button();
+            this.txtCustomerName = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.pnThanhVien.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnCofirm
             // 
             this.btnCofirm.AutoSize = true;
-            this.btnCofirm.Location = new System.Drawing.Point(16, 87);
+            this.btnCofirm.Location = new System.Drawing.Point(104, 90);
             this.btnCofirm.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.btnCofirm.Name = "btnCofirm";
             this.btnCofirm.Size = new System.Drawing.Size(120, 35);
@@ -82,14 +82,6 @@ namespace QuanLyXemPhim
             this.pnThanhVien.Size = new System.Drawing.Size(477, 80);
             this.pnThanhVien.TabIndex = 1;
             // 
-            // txtCustomerName
-            // 
-            this.txtCustomerName.Location = new System.Drawing.Point(160, 45);
-            this.txtCustomerName.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.txtCustomerName.Name = "txtCustomerName";
-            this.txtCustomerName.Size = new System.Drawing.Size(302, 30);
-            this.txtCustomerName.TabIndex = 2;
-            // 
             // txtCustomerID
             // 
             this.txtCustomerID.Location = new System.Drawing.Point(160, 6);
@@ -108,6 +100,24 @@ namespace QuanLyXemPhim
             this.label4.TabIndex = 1;
             this.label4.Text = "Số Điện Thoại:";
             // 
+            // btn_register
+            // 
+            this.btn_register.Location = new System.Drawing.Point(262, 90);
+            this.btn_register.Name = "btn_register";
+            this.btn_register.Size = new System.Drawing.Size(113, 35);
+            this.btn_register.TabIndex = 14;
+            this.btn_register.Text = "Đăng Ký";
+            this.btn_register.UseVisualStyleBackColor = true;
+            this.btn_register.Click += new System.EventHandler(this.btn_register_Click);
+            // 
+            // txtCustomerName
+            // 
+            this.txtCustomerName.Location = new System.Drawing.Point(160, 45);
+            this.txtCustomerName.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.txtCustomerName.Name = "txtCustomerName";
+            this.txtCustomerName.Size = new System.Drawing.Size(302, 30);
+            this.txtCustomerName.TabIndex = 2;
+            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -117,16 +127,6 @@ namespace QuanLyXemPhim
             this.label3.Size = new System.Drawing.Size(83, 25);
             this.label3.TabIndex = 0;
             this.label3.Text = "Họ Tên:";
-            // 
-            // btn_register
-            // 
-            this.btn_register.Location = new System.Drawing.Point(160, 87);
-            this.btn_register.Name = "btn_register";
-            this.btn_register.Size = new System.Drawing.Size(113, 35);
-            this.btn_register.TabIndex = 14;
-            this.btn_register.Text = "Đăng Ký";
-            this.btn_register.UseVisualStyleBackColor = true;
-            this.btn_register.Click += new System.EventHandler(this.btn_register_Click);
             // 
             // frmCustomer
             // 
@@ -158,9 +158,9 @@ namespace QuanLyXemPhim
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel pnThanhVien;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label3;
-        public System.Windows.Forms.TextBox txtCustomerName;
         public System.Windows.Forms.TextBox txtCustomerID;
         private System.Windows.Forms.Button btn_register;
+        public System.Windows.Forms.TextBox txtCustomerName;
+        private System.Windows.Forms.Label label3;
     }
 }

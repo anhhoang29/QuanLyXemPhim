@@ -17,6 +17,8 @@ CREATE TABLE NhanVien
 )
 GO
 
+
+select * from CaChieu
 CREATE TABLE TaiKhoan
 (
 	UserName NVARCHAR(100) NOT NULL,
@@ -109,6 +111,9 @@ CREATE TABLE KhachHang(
 	DiemTichLuy INT DEFAULT 0
 )
 GO
+
+ALTER TABLE KhachHang ALTER COLUMN CMND INT
+ALTER TABLE KhachHang ALTER COLUMN NamSinh INT
 
 CREATE TABLE Ve
 (
@@ -265,6 +270,9 @@ BEGIN
 END
 GO
 
+
+select * from CaChieu
+select * from Phim
 --STORE show staff
 
 CREATE PROC USP_Show_Staff 
@@ -273,6 +281,9 @@ BEGIN
 	SELECT * FROM NhanVien
 END
 GO
+
+select * from VE
+select * from ChoNgoi
 
 ------STORE Account
 --STORE add account
@@ -797,4 +808,33 @@ AS
 		SELECT cc.MaCaChieu, p.TenPhim, cc.ThoiGianChieu, cc.MaPhong, cc.TrangThai
 		FROM CaChieu as cc, Phim as p WHERE p.TenPhim = @TenPhim  AND cc.MaPhim = p.MaPhim AND cc.TrangThai = 0
 	);
-GO
+
+--- transaction update trạng thái vé
+CREATE PROC USP_UpdateStatusTicket @MaVe int
+AS
+BEGIN TRANSACTION
+	UPDATE VE SET TrangThai = 1 WHERE VE.id = @MaVe;
+	IF(@@ERROR > 0)  
+	BEGIN  
+		ROLLBACK TRANSACTION  
+	END  
+	ELSE  
+	BEGIN  
+		COMMIT TRANSACTION  
+	END  
+
+-- lấy giá vé của một vé dựa vào id function
+CREATE FUNCTION FUNC_GetTicketPrice (@Id int)
+RETURNS money as
+	BEGIN
+		DECLARE @Price money
+		SELECT @Price=TienBanVe FROM Ve WHERE Ve.id = @Id
+		RETURN @Price
+	END 
+	
+
+
+
+
+
+
