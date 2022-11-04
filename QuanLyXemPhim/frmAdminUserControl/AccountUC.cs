@@ -21,7 +21,6 @@ namespace QuanLyXemPhim.frmAdminUserControl
             dtgvAccount.DataSource = accountList;
             LoadAccount();
         }
-
         void LoadAccount()
         {
             TaiKhoanBUS.Instance.hienThiTaiKhoan(accountList);
@@ -42,27 +41,6 @@ namespace QuanLyXemPhim.frmAdminUserControl
             nudAccountType.DataBindings.Add(new Binding("Text", dtgvAccount.DataSource, "LoaiTK", true, DataSourceUpdateMode.Never));
             txt_idNV.DataBindings.Add(new Binding("Text", dtgvAccount.DataSource, "idNV", true, DataSourceUpdateMode.Never));
         }
-        void AddAccountBinding()
-        {
-            
-        }
-        void LoadStaffIntoComboBox(ComboBox cbo)
-        {
-            
-        }
-        private void txtUsername_TextChanged(object sender, EventArgs e)
-        {
-           
-        }
-        private void cboStaffID_Account_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            
-        }
-
-        void InsertAccount(string username, int accountType, string idStaff)
-        {
-            
-        }
         private void btnInsertAccount_Click(object sender, EventArgs e)
         {
             string UserName = txtUsername.Text;
@@ -75,11 +53,6 @@ namespace QuanLyXemPhim.frmAdminUserControl
             TaiKhoanBUS.Instance.themDanhSachTaiKhoan(UserName, Pass, LoaiTK, idNV);
             TaiKhoanBUS.Instance.hienThiTaiKhoan(accountList);
         }
-
-        void UpdateAccount(string username, int accountType)
-        {
-            
-        }
         private void btnUpdateAccount_Click(object sender, EventArgs e)
         {
             string UserName = txtUsername.Text;
@@ -90,39 +63,12 @@ namespace QuanLyXemPhim.frmAdminUserControl
             TaiKhoanBUS.Instance.hienThiTaiKhoan(accountList);
         }
 
-        void DeleteAccount(string username)
-        {
-            
-        }
+        
         private void btnDeleteAccount_Click(object sender, EventArgs e)
         {
             string idNV = dtgvAccount.SelectedCells[0].OwningRow.Cells["idNV"].Value.ToString();
             TaiKhoanBUS.Instance.xoaDanhSachTaiKhoan(idNV);
             TaiKhoanBUS.Instance.hienThiTaiKhoan(accountList);
-        }
-
-        void ResetPassword(string username)
-        {
-           
-        }
-        private void btnResetPass_Click(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void btnSearchAccount_Click(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void txtSearchAccount_KeyDown(object sender, KeyEventArgs e)
-        {
-            
-        }
-
-        private void grpAccount_Enter(object sender, EventArgs e)
-        {
-
         }
 
         private void Show_MK_CheckedChanged(object sender, EventArgs e)
@@ -137,24 +83,6 @@ namespace QuanLyXemPhim.frmAdminUserControl
             }
         }
 
-        private void lblStaffName_Account_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lblStaffID_Account_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lblStaffID_Account_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txt_idNV_TextChanged(object sender, EventArgs e)
-        {
-
-        }
+        
     }
 }

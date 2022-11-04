@@ -74,7 +74,7 @@ namespace DAO
         {
             try
             {
-                string query = @"USP_Delete_Account @idNV ";                
+                string query = @"USP_Delete_Account @idNV ";
                 int kq = DataProvider.Instance.ExecuteNonQuery(query, new object[] { idNV });
                 return kq;
             }
@@ -83,5 +83,7 @@ namespace DAO
                 return 0;
             }
         }
+        
+
     }
 }

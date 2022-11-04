@@ -17,6 +17,7 @@ namespace DAO
             private set { PhimDAO.instance = value; }
         }
 
+
         public List<Phim> hienThiPhim()
         {
             try
@@ -38,9 +39,25 @@ namespace DAO
             }
         }
 
-        public int themDanhSachTaiKhoan(string userName, string pass, int loaiTK, string idNV)
+        public List<Phim> hienThiPhimTheoNgay(DateTime date)
         {
-            throw new NotImplementedException();
+            try
+            {
+                string query = @"SELECT * FROM dbo.FUNC_layPhimTheoNgayChieu( @NgayChieu )";
+                List<Phim> danhSachPhim = new List<Phim>();
+                DataTable table = DataProvider.Instance.ExecuteQuery(query, new object[] {date});
+
+                foreach (DataRow row in table.Rows)
+                {
+                    Phim phim = new Phim(row);
+                    danhSachPhim.Add(phim);
+                }
+                return danhSachPhim;
+            }
+            catch
+            {
+                return null;
+            }
         }
 
         public int suaDanhSachPhim(string MaPhim, string TenPhim, string MoTa, double ThoiLuong,
@@ -88,18 +105,19 @@ namespace DAO
                 return 0;
             }
         }
-        //public int xoaTheLoai(string MaLoaiPhim)
-        //{
-        //    try
-        //    {
-        //        string query = @"USP_Delete_The_Loai_Phim @MaLoaiPhim ";
-        //        int kq = DataProvider.Instance.ExecuteNonQuery(query, new object[] { MaLoaiPhim });
-        //        return kq;
-        //    }
-        //    catch
-        //    {
-        //        return 0;
-        //    }
-        //}
+
+        // Lấy tên Phim 
+        public static List<Phim> GetPhim()
+        {
+            List<Phim> MovieList = new List<Phim>();
+            DataTable data = DataProvider.Instance.ExecuteQuery(@"USP_Show_Phim");
+            foreach (DataRow item in data.Rows)
+            {
+                Phim MovieName = new Phim(item);
+                MovieList.Add(MovieName);
+            }
+            return MovieList;
+        }
+
     }
 }

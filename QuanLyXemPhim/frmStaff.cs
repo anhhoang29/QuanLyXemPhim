@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using BUS;
 using DAO;
 
 namespace QuanLyXemPhim
@@ -16,13 +17,14 @@ namespace QuanLyXemPhim
         public frmStaff()
         {
             InitializeComponent();
+            loadDataToComboboxNameMovie();
+            //loadDataToComboboxShowTime();
         }
-        private void LoadMovie()
-        {
-
-        }
+  
         private void dtpThoiGian_ValueChanged(object sender, EventArgs e)
         {
+            loadDataToComboboxNameMovie();
+            //loadDataToComboboxShowTime();
         }
         private void timer1_Tick(object sender, EventArgs e)
         {
@@ -31,36 +33,32 @@ namespace QuanLyXemPhim
         }
         private void frmStaff_Load(object sender, EventArgs e)
         {
-            LoadMovie();
             timer1.Start();
         }
-        private void lvLichChieu_Click(object sender, EventArgs e)
-        {
-            if (lvLichChieu.SelectedItems.Count > 0)
-            {
-                frmTheatre frm = new frmTheatre();
-                this.Hide();
-                frm.ShowDialog();
-                this.OnLoad(null);
-                this.Show();
-            }
-        }
-        private void cboFormatFilm_SelectedIndexChanged(object sender, EventArgs e)
-        {
-        }
+
         private void cboFilmName_SelectedIndexChanged(object sender, EventArgs e)
         {
-        }
-
-        private void labelX_Click(object sender, EventArgs e)
-        {
-
+            loadDataToComboboxShowTime();
         }
 
         private void btn_ChonVe_Click(object sender, EventArgs e)
         {
-            frmTheatre frmTheatre = new frmTheatre();
+            string maCaChieu = dtv_CaChieu.SelectedCells[0].OwningRow.Cells["MaCaChieu"].Value.ToString();
+            frmTheatre frmTheatre = new frmTheatre(maCaChieu);
             frmTheatre.ShowDialog();
+        }
+        // Hiện thị danh sách các phim thỏa điều kiện ngày được người dùng chọn từ Datetimepicker
+        public void loadDataToComboboxNameMovie()
+        {
+            DateTime date = dtpThoiGian.Value;
+            PhimBUS.Instance.hienThiPhimTheoNgay(cboFilmName, date);
+        }
+
+
+        public void loadDataToComboboxShowTime()
+        {
+            string tenPhim = cboFilmName.Text;
+            CaChieu_PhimBUS.Instance.hienThiDanhSachCaChieuTheoTenPhim(dtv_CaChieu,tenPhim);
         }
     }
 }

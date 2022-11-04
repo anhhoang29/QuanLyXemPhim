@@ -30,14 +30,11 @@ namespace QuanLyXemPhim.frmAdminUserControl
 		private void InitializeComponent()
 		{
             this.components = new System.ComponentModel.Container();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.txtSearchAccount = new System.Windows.Forms.TextBox();
-            this.btnSearchAccount = new System.Windows.Forms.Button();
-            this.btnResetPass = new System.Windows.Forms.Button();
             this.btnDeleteAccount = new System.Windows.Forms.Button();
             this.btnUpdateAccount = new System.Windows.Forms.Button();
             this.btnInsertAccount = new System.Windows.Forms.Button();
             this.grpAccount = new System.Windows.Forms.GroupBox();
+            this.Show_MK = new System.Windows.Forms.CheckBox();
             this.txt_Pass = new System.Windows.Forms.TextBox();
             this.txt_idNV = new System.Windows.Forms.TextBox();
             this.nudAccountType = new System.Windows.Forms.NumericUpDown();
@@ -46,56 +43,12 @@ namespace QuanLyXemPhim.frmAdminUserControl
             this.lblStaffName_Account = new System.Windows.Forms.Label();
             this.lblAccountType = new System.Windows.Forms.Label();
             this.lblStaffID_Account = new System.Windows.Forms.Label();
-            this.Show_MK = new System.Windows.Forms.CheckBox();
             this.dtgvAccount = new System.Windows.Forms.DataGridView();
             this.toolTipAccountType = new System.Windows.Forms.ToolTip(this.components);
-            this.groupBox1.SuspendLayout();
             this.grpAccount.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudAccountType)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvAccount)).BeginInit();
             this.SuspendLayout();
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.txtSearchAccount);
-            this.groupBox1.Controls.Add(this.btnSearchAccount);
-            this.groupBox1.Font = new System.Drawing.Font("Times New Roman", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(1052, 169);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(236, 85);
-            this.groupBox1.TabIndex = 28;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Tìm theo tên";
-            // 
-            // txtSearchAccount
-            // 
-            this.txtSearchAccount.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSearchAccount.Location = new System.Drawing.Point(33, 31);
-            this.txtSearchAccount.Name = "txtSearchAccount";
-            this.txtSearchAccount.Size = new System.Drawing.Size(148, 35);
-            this.txtSearchAccount.TabIndex = 18;
-            this.txtSearchAccount.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtSearchAccount_KeyDown);
-            // 
-            // btnSearchAccount
-            // 
-            this.btnSearchAccount.BackgroundImage = global::QuanLyXemPhim.Properties.Resources.search_icon;
-            this.btnSearchAccount.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnSearchAccount.Location = new System.Drawing.Point(189, 31);
-            this.btnSearchAccount.Name = "btnSearchAccount";
-            this.btnSearchAccount.Size = new System.Drawing.Size(30, 32);
-            this.btnSearchAccount.TabIndex = 19;
-            this.btnSearchAccount.UseVisualStyleBackColor = true;
-            this.btnSearchAccount.Click += new System.EventHandler(this.btnSearchAccount_Click);
-            // 
-            // btnResetPass
-            // 
-            this.btnResetPass.Location = new System.Drawing.Point(1006, 3);
-            this.btnResetPass.Name = "btnResetPass";
-            this.btnResetPass.Size = new System.Drawing.Size(132, 69);
-            this.btnResetPass.TabIndex = 24;
-            this.btnResetPass.Text = "Reset mật khẩu";
-            this.btnResetPass.UseVisualStyleBackColor = true;
-            this.btnResetPass.Click += new System.EventHandler(this.btnResetPass_Click);
             // 
             // btnDeleteAccount
             // 
@@ -146,7 +99,19 @@ namespace QuanLyXemPhim.frmAdminUserControl
             this.grpAccount.TabIndex = 22;
             this.grpAccount.TabStop = false;
             this.grpAccount.Text = "Thông tin tài khoản";
-            this.grpAccount.Enter += new System.EventHandler(this.grpAccount_Enter);
+            // 
+            // Show_MK
+            // 
+            this.Show_MK.AutoSize = true;
+            this.Show_MK.Font = new System.Drawing.Font("Times New Roman", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Show_MK.Location = new System.Drawing.Point(509, 166);
+            this.Show_MK.Name = "Show_MK";
+            this.Show_MK.Size = new System.Drawing.Size(112, 25);
+            this.Show_MK.TabIndex = 7;
+            this.Show_MK.Text = "Mật Khẩu";
+            this.Show_MK.UseMnemonic = false;
+            this.Show_MK.UseVisualStyleBackColor = true;
+            this.Show_MK.CheckedChanged += new System.EventHandler(this.Show_MK_CheckedChanged);
             // 
             // txt_Pass
             // 
@@ -165,7 +130,6 @@ namespace QuanLyXemPhim.frmAdminUserControl
             this.txt_idNV.Name = "txt_idNV";
             this.txt_idNV.Size = new System.Drawing.Size(164, 35);
             this.txt_idNV.TabIndex = 7;
-            this.txt_idNV.TextChanged += new System.EventHandler(this.txt_idNV_TextChanged);
             // 
             // nudAccountType
             // 
@@ -208,7 +172,6 @@ namespace QuanLyXemPhim.frmAdminUserControl
             this.txtUsername.Name = "txtUsername";
             this.txtUsername.Size = new System.Drawing.Size(164, 35);
             this.txtUsername.TabIndex = 2;
-            this.txtUsername.TextChanged += new System.EventHandler(this.txtUsername_TextChanged);
             // 
             // lblStaffName_Account
             // 
@@ -219,7 +182,6 @@ namespace QuanLyXemPhim.frmAdminUserControl
             this.lblStaffName_Account.Size = new System.Drawing.Size(118, 26);
             this.lblStaffName_Account.TabIndex = 4;
             this.lblStaffName_Account.Text = "Password:\r\n";
-            this.lblStaffName_Account.Click += new System.EventHandler(this.lblStaffName_Account_Click);
             // 
             // lblAccountType
             // 
@@ -240,20 +202,6 @@ namespace QuanLyXemPhim.frmAdminUserControl
             this.lblStaffID_Account.Size = new System.Drawing.Size(93, 26);
             this.lblStaffID_Account.TabIndex = 4;
             this.lblStaffID_Account.Text = "Mã NV:";
-            this.lblStaffID_Account.Click += new System.EventHandler(this.lblStaffID_Account_Click_1);
-            // 
-            // Show_MK
-            // 
-            this.Show_MK.AutoSize = true;
-            this.Show_MK.Font = new System.Drawing.Font("Times New Roman", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Show_MK.Location = new System.Drawing.Point(509, 166);
-            this.Show_MK.Name = "Show_MK";
-            this.Show_MK.Size = new System.Drawing.Size(112, 25);
-            this.Show_MK.TabIndex = 7;
-            this.Show_MK.Text = "Mật Khẩu";
-            this.Show_MK.UseMnemonic = false;
-            this.Show_MK.UseVisualStyleBackColor = true;
-            this.Show_MK.CheckedChanged += new System.EventHandler(this.Show_MK_CheckedChanged);
             // 
             // dtgvAccount
             // 
@@ -273,8 +221,6 @@ namespace QuanLyXemPhim.frmAdminUserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.btnResetPass);
             this.Controls.Add(this.btnDeleteAccount);
             this.Controls.Add(this.btnUpdateAccount);
             this.Controls.Add(this.btnInsertAccount);
@@ -282,8 +228,6 @@ namespace QuanLyXemPhim.frmAdminUserControl
             this.Controls.Add(this.dtgvAccount);
             this.Name = "AccountUC";
             this.Size = new System.Drawing.Size(1575, 812);
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
             this.grpAccount.ResumeLayout(false);
             this.grpAccount.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudAccountType)).EndInit();
@@ -293,11 +237,6 @@ namespace QuanLyXemPhim.frmAdminUserControl
 		}
 
 		#endregion
-
-		private System.Windows.Forms.GroupBox groupBox1;
-		private System.Windows.Forms.TextBox txtSearchAccount;
-		private System.Windows.Forms.Button btnSearchAccount;
-		private System.Windows.Forms.Button btnResetPass;
 		private System.Windows.Forms.Button btnDeleteAccount;
 		private System.Windows.Forms.Button btnUpdateAccount;
 		private System.Windows.Forms.Button btnInsertAccount;

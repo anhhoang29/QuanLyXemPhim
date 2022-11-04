@@ -90,7 +90,7 @@ namespace QuanLyXemPhim.frmAdminUserControl.FeatureViewUserControl
             // 
             this.clbMovieGenre.CheckOnClick = true;
             this.clbMovieGenre.FormattingEnabled = true;
-            this.clbMovieGenre.Location = new System.Drawing.Point(17, 189);
+            this.clbMovieGenre.Location = new System.Drawing.Point(18, 188);
             this.clbMovieGenre.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.clbMovieGenre.MultiColumn = true;
             this.clbMovieGenre.Name = "clbMovieGenre";

@@ -38,6 +38,7 @@ namespace QuanLyXemPhim
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
             this.lblTime = new System.Windows.Forms.Label();
             this.lblInformation = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
@@ -70,6 +71,7 @@ namespace QuanLyXemPhim
             this.label9 = new System.Windows.Forms.Label();
             this.lblDiscount = new System.Windows.Forms.Label();
             this.picFilm = new System.Windows.Forms.PictureBox();
+            this.label10 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -88,9 +90,9 @@ namespace QuanLyXemPhim
             this.flpSeat.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.flpSeat.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
             this.flpSeat.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.flpSeat.Location = new System.Drawing.Point(69, 154);
+            this.flpSeat.Location = new System.Drawing.Point(31, 154);
             this.flpSeat.Name = "flpSeat";
-            this.flpSeat.Size = new System.Drawing.Size(800, 400);
+            this.flpSeat.Size = new System.Drawing.Size(881, 400);
             this.flpSeat.TabIndex = 0;
             // 
             // panel1
@@ -168,6 +170,7 @@ namespace QuanLyXemPhim
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.Color.Black;
+            this.panel4.Controls.Add(this.panel3);
             this.panel4.Controls.Add(this.lblTime);
             this.panel4.Controls.Add(this.lblInformation);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
@@ -175,6 +178,13 @@ namespace QuanLyXemPhim
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(1176, 72);
             this.panel4.TabIndex = 5;
+            // 
+            // panel3
+            // 
+            this.panel3.Location = new System.Drawing.Point(973, 69);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(200, 51);
+            this.panel3.TabIndex = 8;
             // 
             // lblTime
             // 
@@ -295,7 +305,6 @@ namespace QuanLyXemPhim
             this.btnFreeTicket.TabIndex = 22;
             this.btnFreeTicket.Text = "Đổi Vé";
             this.btnFreeTicket.UseVisualStyleBackColor = false;
-            this.btnFreeTicket.Click += new System.EventHandler(this.btnFreeTicket_Click);
             // 
             // lblPlusPoint
             // 
@@ -358,7 +367,6 @@ namespace QuanLyXemPhim
             this.chkCustomer.Text = "Khách Hàng Thành Viên";
             this.chkCustomer.UseVisualStyleBackColor = true;
             this.chkCustomer.CheckedChanged += new System.EventHandler(this.chkCustomer_CheckedChanged);
-            this.chkCustomer.Click += new System.EventHandler(this.chkCustomer_Click);
             // 
             // grpLoaiVe
             // 
@@ -396,7 +404,6 @@ namespace QuanLyXemPhim
             this.rdoStudent.TabStop = true;
             this.rdoStudent.Text = "Sinh Viên";
             this.rdoStudent.UseVisualStyleBackColor = true;
-            this.rdoStudent.Click += new System.EventHandler(this.rdoStudent_Click);
             // 
             // lblTicketPrice
             // 
@@ -421,7 +428,6 @@ namespace QuanLyXemPhim
             this.rdoAdult.TabStop = true;
             this.rdoAdult.Text = "Người Lớn";
             this.rdoAdult.UseVisualStyleBackColor = true;
-            this.rdoAdult.Click += new System.EventHandler(this.rdoAdult_Click);
             // 
             // rdoChild
             // 
@@ -433,7 +439,6 @@ namespace QuanLyXemPhim
             this.rdoChild.TabStop = true;
             this.rdoChild.Text = "Trẻ Em (Dưới 12 tuổi)";
             this.rdoChild.UseVisualStyleBackColor = true;
-            this.rdoChild.Click += new System.EventHandler(this.rdoChild_Click);
             // 
             // panel6
             // 
@@ -464,7 +469,6 @@ namespace QuanLyXemPhim
             this.btnCancel.TabIndex = 12;
             this.btnCancel.Text = "Hủy";
             this.btnCancel.UseVisualStyleBackColor = false;
-            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // lblTotal
             // 
@@ -489,7 +493,6 @@ namespace QuanLyXemPhim
             this.btnPayment.TabIndex = 11;
             this.btnPayment.Text = "Thanh Toán";
             this.btnPayment.UseVisualStyleBackColor = false;
-            this.btnPayment.Click += new System.EventHandler(this.btnPayment_Click);
             // 
             // label5
             // 
@@ -557,12 +560,23 @@ namespace QuanLyXemPhim
             this.picFilm.TabIndex = 7;
             this.picFilm.TabStop = false;
             // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(948, 100);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(186, 36);
+            this.label10.TabIndex = 8;
+            this.label10.Text = "<= LỐI VÀO";
+            // 
             // frmTheatre
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1176, 786);
+            this.Controls.Add(this.label10);
             this.Controls.Add(this.picFilm);
             this.Controls.Add(this.panel5);
             this.Controls.Add(this.panel4);
@@ -576,7 +590,6 @@ namespace QuanLyXemPhim
             this.Name = "frmTheatre";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Bán Vé";
-            this.Load += new System.EventHandler(this.frmTheatre_Load);
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
@@ -595,6 +608,7 @@ namespace QuanLyXemPhim
             this.panel6.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picFilm)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -641,5 +655,7 @@ namespace QuanLyXemPhim
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.NumericUpDown numericFreeTickets;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Label label10;
     }
 }

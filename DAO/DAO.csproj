@@ -33,6 +33,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -41,6 +42,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CaChieu_PhimDAO.cs" />
+    <Compile Include="PhimDAO.cs" />
     <Compile Include="CustomerDAO.cs" />
     <Compile Include="CaChieuDAO.cs" />
     <Compile Include="DataProvider.cs" />
@@ -51,6 +54,7 @@
     <Compile Include="StaffDAO.cs" />
     <Compile Include="TaiKhoanDAO.cs" />
     <Compile Include="TheLoaiDAO.cs" />
+    <Compile Include="VeDAO.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DTO\DTO.csproj">

@@ -57,8 +57,9 @@ namespace QuanLyXemPhim.frmAdminUserControl.FeatureViewUserControl
             this.panel1.Controls.Add(this.dtgvGenre);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1271, 639);
+            this.panel1.Size = new System.Drawing.Size(1430, 799);
             this.panel1.TabIndex = 14;
             // 
             // panel2
@@ -66,37 +67,38 @@ namespace QuanLyXemPhim.frmAdminUserControl.FeatureViewUserControl
             this.panel2.Controls.Add(this.panel38);
             this.panel2.Controls.Add(this.panel39);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel2.Location = new System.Drawing.Point(708, 64);
+            this.panel2.Location = new System.Drawing.Point(797, 80);
+            this.panel2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(563, 575);
+            this.panel2.Size = new System.Drawing.Size(633, 719);
             this.panel2.TabIndex = 25;
             // 
             // panel38
             // 
             this.panel38.Controls.Add(this.txtGenreName);
             this.panel38.Controls.Add(this.lblGenreName);
-            this.panel38.Location = new System.Drawing.Point(4, 69);
-            this.panel38.Margin = new System.Windows.Forms.Padding(4);
+            this.panel38.Location = new System.Drawing.Point(4, 86);
+            this.panel38.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panel38.Name = "panel38";
-            this.panel38.Size = new System.Drawing.Size(526, 54);
+            this.panel38.Size = new System.Drawing.Size(592, 68);
             this.panel38.TabIndex = 4;
             // 
             // txtGenreName
             // 
-            this.txtGenreName.Location = new System.Drawing.Point(167, 10);
-            this.txtGenreName.Margin = new System.Windows.Forms.Padding(4);
+            this.txtGenreName.Location = new System.Drawing.Point(188, 12);
+            this.txtGenreName.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtGenreName.Name = "txtGenreName";
-            this.txtGenreName.Size = new System.Drawing.Size(329, 22);
+            this.txtGenreName.Size = new System.Drawing.Size(370, 26);
             this.txtGenreName.TabIndex = 1;
             // 
             // lblGenreName
             // 
             this.lblGenreName.AutoSize = true;
             this.lblGenreName.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.lblGenreName.Location = new System.Drawing.Point(4, 11);
+            this.lblGenreName.Location = new System.Drawing.Point(4, 14);
             this.lblGenreName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblGenreName.Name = "lblGenreName";
-            this.lblGenreName.Size = new System.Drawing.Size(134, 24);
+            this.lblGenreName.Size = new System.Drawing.Size(162, 29);
             this.lblGenreName.TabIndex = 0;
             this.lblGenreName.Text = "Tên thể loại :";
             // 
@@ -104,28 +106,28 @@ namespace QuanLyXemPhim.frmAdminUserControl.FeatureViewUserControl
             // 
             this.panel39.Controls.Add(this.txtGenreID);
             this.panel39.Controls.Add(this.lblGenreID);
-            this.panel39.Location = new System.Drawing.Point(4, 8);
-            this.panel39.Margin = new System.Windows.Forms.Padding(4);
+            this.panel39.Location = new System.Drawing.Point(4, 10);
+            this.panel39.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panel39.Name = "panel39";
-            this.panel39.Size = new System.Drawing.Size(526, 54);
+            this.panel39.Size = new System.Drawing.Size(592, 68);
             this.panel39.TabIndex = 3;
             // 
             // txtGenreID
             // 
-            this.txtGenreID.Location = new System.Drawing.Point(167, 10);
-            this.txtGenreID.Margin = new System.Windows.Forms.Padding(4);
+            this.txtGenreID.Location = new System.Drawing.Point(188, 12);
+            this.txtGenreID.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtGenreID.Name = "txtGenreID";
-            this.txtGenreID.Size = new System.Drawing.Size(329, 22);
+            this.txtGenreID.Size = new System.Drawing.Size(370, 26);
             this.txtGenreID.TabIndex = 1;
             // 
             // lblGenreID
             // 
             this.lblGenreID.AutoSize = true;
             this.lblGenreID.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.lblGenreID.Location = new System.Drawing.Point(4, 11);
+            this.lblGenreID.Location = new System.Drawing.Point(4, 14);
             this.lblGenreID.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblGenreID.Name = "lblGenreID";
-            this.lblGenreID.Size = new System.Drawing.Size(126, 24);
+            this.lblGenreID.Size = new System.Drawing.Size(153, 29);
             this.lblGenreID.TabIndex = 0;
             this.lblGenreID.Text = "Mã thể loại :";
             // 
@@ -136,17 +138,17 @@ namespace QuanLyXemPhim.frmAdminUserControl.FeatureViewUserControl
             this.panel40.Controls.Add(this.btnInsertGenre);
             this.panel40.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel40.Location = new System.Drawing.Point(0, 0);
-            this.panel40.Margin = new System.Windows.Forms.Padding(4);
+            this.panel40.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panel40.Name = "panel40";
-            this.panel40.Size = new System.Drawing.Size(1271, 64);
+            this.panel40.Size = new System.Drawing.Size(1430, 80);
             this.panel40.TabIndex = 26;
             // 
             // btnUpdateGenre
             // 
-            this.btnUpdateGenre.Location = new System.Drawing.Point(220, 4);
-            this.btnUpdateGenre.Margin = new System.Windows.Forms.Padding(4);
+            this.btnUpdateGenre.Location = new System.Drawing.Point(248, 5);
+            this.btnUpdateGenre.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnUpdateGenre.Name = "btnUpdateGenre";
-            this.btnUpdateGenre.Size = new System.Drawing.Size(100, 57);
+            this.btnUpdateGenre.Size = new System.Drawing.Size(112, 71);
             this.btnUpdateGenre.TabIndex = 2;
             this.btnUpdateGenre.Text = "Sửa";
             this.btnUpdateGenre.UseVisualStyleBackColor = true;
@@ -154,10 +156,10 @@ namespace QuanLyXemPhim.frmAdminUserControl.FeatureViewUserControl
             // 
             // btnDeleteGenre
             // 
-            this.btnDeleteGenre.Location = new System.Drawing.Point(112, 4);
-            this.btnDeleteGenre.Margin = new System.Windows.Forms.Padding(4);
+            this.btnDeleteGenre.Location = new System.Drawing.Point(126, 5);
+            this.btnDeleteGenre.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnDeleteGenre.Name = "btnDeleteGenre";
-            this.btnDeleteGenre.Size = new System.Drawing.Size(100, 57);
+            this.btnDeleteGenre.Size = new System.Drawing.Size(112, 71);
             this.btnDeleteGenre.TabIndex = 1;
             this.btnDeleteGenre.Text = "Xóa";
             this.btnDeleteGenre.UseVisualStyleBackColor = true;
@@ -165,10 +167,10 @@ namespace QuanLyXemPhim.frmAdminUserControl.FeatureViewUserControl
             // 
             // btnInsertGenre
             // 
-            this.btnInsertGenre.Location = new System.Drawing.Point(4, 4);
-            this.btnInsertGenre.Margin = new System.Windows.Forms.Padding(4);
+            this.btnInsertGenre.Location = new System.Drawing.Point(4, 5);
+            this.btnInsertGenre.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnInsertGenre.Name = "btnInsertGenre";
-            this.btnInsertGenre.Size = new System.Drawing.Size(100, 57);
+            this.btnInsertGenre.Size = new System.Drawing.Size(112, 71);
             this.btnInsertGenre.TabIndex = 0;
             this.btnInsertGenre.Text = "Thêm";
             this.btnInsertGenre.UseVisualStyleBackColor = true;
@@ -182,21 +184,22 @@ namespace QuanLyXemPhim.frmAdminUserControl.FeatureViewUserControl
             this.dtgvGenre.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dtgvGenre.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllHeaders;
             this.dtgvGenre.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtgvGenre.Location = new System.Drawing.Point(0, 69);
-            this.dtgvGenre.Margin = new System.Windows.Forms.Padding(4);
+            this.dtgvGenre.Location = new System.Drawing.Point(4, 90);
+            this.dtgvGenre.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dtgvGenre.Name = "dtgvGenre";
             this.dtgvGenre.ReadOnly = true;
             this.dtgvGenre.RowHeadersWidth = 51;
-            this.dtgvGenre.Size = new System.Drawing.Size(701, 570);
+            this.dtgvGenre.Size = new System.Drawing.Size(789, 712);
             this.dtgvGenre.TabIndex = 1;
             // 
             // GenreUC
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.panel1);
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "GenreUC";
-            this.Size = new System.Drawing.Size(1271, 639);
+            this.Size = new System.Drawing.Size(1430, 799);
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel38.ResumeLayout(false);
