@@ -38,6 +38,11 @@ namespace DAO
             }
         }
 
+        public int themDanhSachTaiKhoan(string userName, string pass, int loaiTK, string idNV)
+        {
+            throw new NotImplementedException();
+        }
+
         public int suaDanhSachPhim(string MaPhim, string TenPhim, string MoTa, double ThoiLuong,
             DateTime NgayBatDau, DateTime NgayKetThuc, string QuocGia, string DienVien, int GioiHanTuoi)
         {

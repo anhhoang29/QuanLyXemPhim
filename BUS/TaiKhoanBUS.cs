@@ -6,6 +6,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace BUS
 {
@@ -17,9 +18,68 @@ namespace BUS
             get { if (instance == null) instance = new TaiKhoanBUS(); return TaiKhoanBUS.instance; }
             private set { TaiKhoanBUS.instance = value; }
         }
+        public void hienThiTaiKhoan(BindingSource source)
+        {
+            source.DataSource = TaiKhoanDAO.Instance.hienThiTaiKhoan();
+        }
+
         public TaiKhoan handleLogin(string userName, string password)
         {
             return TaiKhoanDAO.Instance.handleLogin(userName, password);
+        }
+        public void themDanhSachTaiKhoan(string UserName, string Pass, int LoaiTK, string idNV)
+        {
+            try
+            {
+                if (TaiKhoanDAO.Instance.themDanhSachTaiKhoan(UserName, Pass, LoaiTK, idNV) > 0)
+                {
+                    MessageBox.Show("Thêm thành công", "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("Thêm thất bại", "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+                }
+            }
+            catch
+            {
+                MessageBox.Show("Error", "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
+            }
+        }
+        public void suaDanhSachTaiKhoan(string UserName, string Pass, int LoaiTK, string idNV)
+        {
+            try
+            {
+                if (TaiKhoanDAO.Instance.suaDanhSachTaiKhoan(UserName, Pass, LoaiTK, idNV) > 0)
+                {
+                    MessageBox.Show("Sửa thành công", "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("Sửa thất bại", "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+                }
+            }
+            catch
+            {
+                MessageBox.Show("Error", "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
+            }
+        }
+        public void xoaDanhSachTaiKhoan(string idNV)
+        {
+            try
+            {
+                if (TaiKhoanDAO.Instance.xoaDanhSachTaiKhoan(idNV) > 0)
+                {
+                    MessageBox.Show("Xóa thành công", "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("Xóa thất bại", "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+                }
+            }
+            catch
+            {
+                MessageBox.Show("Error", "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
+            }
         }
     }
 }
