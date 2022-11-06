@@ -41,7 +41,7 @@ namespace QuanLyXemPhim.frmAdminUserControl
             txtStaffAddress.Clear();
             txtStaffINumber.Clear();
             txtStaffPhone.Clear();
-            txtStaffBirth.Clear();
+            dtpNgaySinh.Refresh();
 
         } 
       
@@ -59,7 +59,7 @@ namespace QuanLyXemPhim.frmAdminUserControl
                 String name = txtStaffName.Text;
                 String address = txtStaffAddress.Text;
 
-                DateTime birth = DateTime.Parse(txtStaffBirth.Text);
+                DateTime birth = dtpNgaySinh.Value;
 
                 String phone = txtStaffPhone.Text;
                 int identity = Int32.Parse(txtStaffINumber.Text);
@@ -98,7 +98,7 @@ namespace QuanLyXemPhim.frmAdminUserControl
             {
                 String id = txtStaffId.Text;
                 String name = txtStaffName.Text;
-                DateTime birth = DateTime.ParseExact(txtStaffBirth.Text, "d", null);
+                DateTime birth = dtpNgaySinh.Value;
                 String address = txtStaffAddress.Text;
                 String phone = txtStaffPhone.Text;
                 int number = Int32.Parse(txtStaffINumber.Text);
@@ -144,7 +144,7 @@ namespace QuanLyXemPhim.frmAdminUserControl
             {
               txtStaffId.Text = row.Cells[0].Value.ToString();
               txtStaffName.Text = row.Cells[1].Value.ToString();
-              txtStaffBirth.Text = row.Cells[2].Value.ToString();
+              dtpNgaySinh.Value = (DateTime)row.Cells[2].Value;
               txtStaffAddress.Text = row.Cells[3].Value.ToString();
               txtStaffPhone.Text = row.Cells[4].Value.ToString();
               txtStaffINumber.Text = row.Cells[5].Value.ToString();

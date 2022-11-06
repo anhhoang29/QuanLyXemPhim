@@ -70,7 +70,7 @@ namespace QuanLyXemPhim.frmAdminUserControl
             txtAddress.Clear();
             txtCusBirth.Clear();
             txtCusPhone.Clear();
-            nudPoint.ResetText();
+            nudPoint.Value = 0;
             txtCusId.Clear();
         }
         private void dtgvCustomer_SelectionChanged(object sender, EventArgs e)

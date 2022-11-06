@@ -18,7 +18,6 @@ CREATE TABLE NhanVien
 GO
 
 
-select * from CaChieu
 CREATE TABLE TaiKhoan
 (
 	UserName NVARCHAR(100) NOT NULL,
@@ -102,18 +101,16 @@ GO
 
 -- Tạo bảng khách hàng ---
 CREATE TABLE KhachHang(
-	MaKH INT PRIMARY KEY IDENTITY(1,1),
+	MaKH INT PRIMARY KEY IDENTITY(1,1) NOT NULL,
 	TenKhachHang NVARCHAR(50) NOT NULL,
 	Diachi NVARCHAR(100),
 	NamSinh INT,
 	SoDienThoai VARCHAR (50) UNIQUE,
-	CMND INT UNIQUE,
 	DiemTichLuy INT DEFAULT 0
 )
 GO
 
-ALTER TABLE KhachHang ALTER COLUMN CMND INT
-ALTER TABLE KhachHang ALTER COLUMN NamSinh INT
+
 
 CREATE TABLE Ve
 (
@@ -143,6 +140,8 @@ CREATE TABLE ChoNgoi(
 GO
 
 
+select * from NhanVien
+
 --================================================CHÈN DỮ LIỆU VÀO CÁC BẢNG==================================================
 -- insert nhân viên---
 INSERT NhanVien (idNV, HoTen, NgaySinh, DiaChi, SDT, CMND) VALUES (N'NV01','Admin', CAST(N'2002-10-29' AS Date),N'Admin',NULL,123456789)
@@ -154,6 +153,8 @@ INSERT NhanVien (idNV, HoTen, NgaySinh, DiaChi, SDT, CMND) VALUES (N'NV05',N'Vũ
 --- insert tài khoản---
 INSERT TaiKhoan (UserName, Pass,LoaiTK, idNV) VALUES (N'admin',N'admin',1,N'NV01')
 INSERT TaiKhoan (UserName, Pass,LoaiTK, idNV) VALUES (N'NV02',N'123456',2,N'NV02')
+
+select * from TaiKhoan
 
 --- insert thể loại phim
 INSERT TheLoai(MaLoaiPhim,TenTheLoai) VALUES (N'T01', N'Hành Động')
@@ -211,10 +212,10 @@ INSERT CaChieu ( MaCaChieu, ThoiGianChieu, ThoiGianKetThuc,MaPhong,MaPhim,GiaVe,
 VALUES ('MCC0005',CAST(N'2022-11-22T08:50:00.000' AS DateTime),CAST(N'2022-11-27T08:50:00.000' AS DateTime),'R01','P0003', 90.000,0)
 
 --- insert khách hàng
-INSERT KhachHang (TenKhachHang, Diachi, NamSinh, SoDienThoai, CMND,DiemTichLuy)
-VALUES (N'Đỗ Dương Thái Tuấn',N'Thủ Đức',2002,'0912999988',752020123,0)
-INSERT KhachHang (TenKhachHang, Diachi, NamSinh, SoDienThoai, CMND,DiemTichLuy)
-VALUES (N'Trần Chí Mỹ',N'Thủ Đức',2002,'0912922988',752020122,0)
+INSERT KhachHang (TenKhachHang, Diachi, NamSinh, SoDienThoai,DiemTichLuy)
+VALUES (N'Đỗ Dương Thái Tuấn',N'Thủ Đức',2002,'0912999988',0)
+INSERT KhachHang (TenKhachHang, Diachi, NamSinh, SoDienThoai,DiemTichLuy)
+VALUES (N'Trần Chí Mỹ',N'Thủ Đức',2002,'0912922988',0)
 
 -- insert cho ngoi
 INSERT ChoNgoi (Hang,So,MaPhong,MaKhachHang) VALUES ('A',1,'R01',2)
@@ -564,35 +565,7 @@ END
 GO
 
 
--------STORE Khách hàng
---STORE add khách hàng
-CREATE PROC USP_Add_Khach_Hang @MaKH INT, @TenKhachHang NVARCHAR(50), @DiaChi NVARCHAR(50), @NamSinh INT,
-@SoDienThoai VARCHAR(50), @CMND INT, @DiemTichLuy INT
-AS
-BEGIN
-	INSERT INTO KhachHang(MaKH, TenKhachHang, Diachi, NamSinh, SoDienThoai, CMND, DiemTichLuy)
-	VALUES(@MaKH,  @TenKhachHang, @DiaChi, @NamSinh, @SoDienThoai, @CMND, @DiemTichLuy)
-END
-GO
 
---STORE update khách hàng
-CREATE PROC USP_Update_Khach_Hang @MaKH INT, @TenKhachHang NVARCHAR(50), @DiaChi NVARCHAR(50), @NamSinh INT,
-@SoDienThoai VARCHAR(50), @CMND INT, @DiemTichLuy INT
-AS
-BEGIN
-	UPDATE KhachHang SET TenKhachHang = @TenKhachHang, Diachi = @DiaChi, NamSinh = @NamSinh, SoDienThoai = @SoDienThoai, CMND = @CMND, DiemTichLuy = @DiemTichLuy
-	WHERE MaKH = @MaKH
-END
-GO
-
-
---STORE show khách hàng
-CREATE PROC USP_Show_Khach_Hang
-AS
-BEGIN
-	SELECT * FROM KhachHang
-END
-GO
 
 
 
@@ -675,30 +648,34 @@ Go
 
 
 
----STORE CUSTOMER
+
+-- KHÁCH HÀNG
+
 --STORE lấy ra danh sách tất cả khách hàng
-CREATE PROCEDURE SP_GetALLCustomer
+CREATE PROCEDURE SP_layTatCaKhachHang
 AS
 	SELECT MaKH, TenKhachHang, Diachi, NamSinh, SoDienThoai, DiemTichLuy FROM KhachHang;
 GO
 
 
--- add new Customer and reload
-CREATE PROCEDURE USP_AddCustomer @TenKhachHang nvarchar(50), @DiaChi nvarchar(100), @NamSinh int, @SoDienThoai varchar(50), @Diem int
+-- Thêm khách hàng
+CREATE PROCEDURE USP_themKhachHang @TenKhachHang nvarchar(50), @DiaChi nvarchar(100), @NamSinh int, @SoDienThoai varchar(50), @Diem int
 AS
 	INSERT INTO KhachHang(TenKhachHang, DiaChi, NamSinh, SoDienThoai, DiemTichLuy) 
 	VALUES(@TenKhachHang, @DiaChi, @NamSinh, @SoDienThoai, @Diem)
-GO	
+GO
 
 
--- delete a customer by id
-CREATE PROCEDURE USP_DeleteCustomer @CusID INT
+
+
+-- xóa khách hàng bởi id
+CREATE PROCEDURE USP_xoaKhachHang @CusID INT
 AS
 	DELETE FROM KhachHang WHERE MaKH = @CusID
 GO
 
--- update customer infor
-CREATE PROCEDURE USP_UpdateCustomer @CusId INT, @name nvarchar(50), @address nvarchar(100), @birth int, @phone varchar(50), @point int
+-- cập nhật thông tin khách hàng
+àCREATE PROCEDURE USP_capNhatKhachHang @CusId INT, @name nvarchar(50), @address nvarchar(100), @birth int, @phone varchar(50), @point int
 AS 
 	UPDATE KhachHang SET TenKhachHang = @name, Diachi = @address, NamSinh = @birth, SoDienThoai = @phone, DiemTichLuy = @point
 	WHERE MaKH = @CusId
@@ -707,15 +684,21 @@ GO
 
 
 
-------STORE Staff
--- store delete staff
-CREATE PROCEDURE USP_DeleteStaff @StaffID varchar(50)
+-- NHÂN VIÊN
+-- lấy tất cả các nhân viên 
+CREATE FUNCTION FUNC_layTatCaNhanVien()
+RETURNS TABLE AS
+	RETURN SELECT * FROM NhanVien
+GO
+
+-- xóa nhân viên
+CREATE PROCEDURE USP_xoaNhanVien @StaffID varchar(50)
 AS
 	DELETE FROM NhanVien WHERE idNV = @StaffID
 GO
 
--- store add staff
-CREATE PROCEDURE USP_AddStaff @idNV varchar(50), @HoTen nvarchar(100), @NgaySinh date, @DiaChi varchar(100), @SDT varchar(100), @CMND int
+-- Thêm nhân viên
+CREATE PROCEDURE USP_themNhanVien @idNV varchar(50), @HoTen nvarchar(100), @NgaySinh date, @DiaChi varchar(100), @SDT varchar(100), @CMND int
 AS
 	INSERT INTO NhanVien(idNV , HoTen , NgaySinh , DiaChi , SDT , CMND) 
 	VALUES(@idNV, @HoTen , @NgaySinh , @DiaChi , @SDT , @CMND )
@@ -723,8 +706,8 @@ GO
 
 
 
--- update staff infor
-CREATE PROCEDURE USP_UpdateStaff @id varchar(50), @name nvarchar(100), @birth date, @address nvarchar(100), @phone varchar(100), @identity int
+-- Cập nhật nhân viên
+CREATE PROCEDURE USP_capNhatNhanVien @id varchar(50), @name nvarchar(100), @birth date, @address nvarchar(100), @phone varchar(100), @identity int
 AS 
 	UPDATE NhanVien SET idNV = @id, HoTen = @name, NgaySinh = @birth, DiaChi = @address, SDT = @phone, CMND = @identity
 	WHERE idNV = @id
@@ -769,11 +752,7 @@ RETURN
 GO
 
 
--- CREARTE FUNCTION get All staff 
-CREATE FUNCTION UF_readAllStaff()
-RETURNS TABLE AS
-	RETURN SELECT * FROM NhanVien
-GO
+
 
 
 --Function lấy danh sách phim theo ngày chiếu(Chỉ lấy record thỏa điều kiện NgayCongChieu <= NgayDuocChon <= NgayKetThuc)
