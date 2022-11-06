@@ -18,8 +18,9 @@ namespace QuanLyXemPhim
         private string maCaChieu;
         private static List<String> maVe = new List<string>();
         private static float totalPrice = 0;
-
-        public object Of { get; private set; }
+        private static float finalPrice = 0;
+        private static int bonus = 0;
+        
 
         public frmTheatre(string maCaChieu)
         {
@@ -30,7 +31,7 @@ namespace QuanLyXemPhim
         
         private void chkCustomer_CheckedChanged(object sender, EventArgs e)
         {
-            frmCustomer frmCustomer = new frmCustomer();
+            frmCustomer frmCustomer = new frmCustomer(this);
             frmCustomer.ShowDialog();
         }
 
@@ -76,21 +77,20 @@ namespace QuanLyXemPhim
                 btn.BackColor = Color.LightGoldenrodYellow;
                 maVe.Remove(id);
                 totalPrice -= getSingleTicketPrice(Convert.ToInt32(id));
+                bonus--;
             }
             else
             {
                 btn.BackColor = Color.Yellow;
                 maVe.Add(id);
                 totalPrice += getSingleTicketPrice(Convert.ToInt32(id));
+                bonus++;
             }
 
             txtTotal.Text = totalPrice.ToString() + " VNĐ";
-
-            Debug.WriteLine("/n");
-            foreach (String mv in maVe)
-            {
-                Debug.Write(mv + " ");
-            }
+            finalPrice = totalPrice;
+            txtPayment.Text = finalPrice.ToString() + " VNĐ";
+            txtPlusPoint.Text = bonus.ToString();
                 
         }
 
@@ -105,9 +105,20 @@ namespace QuanLyXemPhim
         // thanh toán
         private void btnPayment_Click(object sender, EventArgs e)
         {
+
+
+            if (maVe.Count == 0)
+            {
+                MessageBox.Show("Vui lòng chọn vé");
+                return;
+            }
             if (VeBUS.Instance.updateListTicket(maVe))
             {
                 MessageBox.Show("Đặt vé thành công");
+                if (txtCustomerName.Text != "" || txtCustomerName.Text != null)
+                {
+                    updatePoint(frmCustomer.phoneNumber.Trim(), Int32.Parse(txtPlusPoint.Text));
+                }
             }
             else
             {
@@ -115,9 +126,12 @@ namespace QuanLyXemPhim
             }
 
             totalPrice = 0;
+            finalPrice = 0;
+            bonus = 0;
             maVe.Clear();
             flpSeat.Controls.Clear();
             hienThiDanhSachChoNgoiTheoMaCaChieu(this.maCaChieu);
+            resetPanels();
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
@@ -126,8 +140,79 @@ namespace QuanLyXemPhim
             hienThiDanhSachChoNgoiTheoMaCaChieu(this.maCaChieu);
             maVe.Clear();
             totalPrice = 0;
+            finalPrice = 0;
+            bonus = 0;
 
+            resetPanels();
+        }
+
+        private void resetPanels()
+        {
             txtTotal.ResetText();
+            txtCustomerName.ResetText();
+            txtPoint.ResetText();
+            txtPlusPoint.ResetText();
+            txtDiscount.ResetText();
+            txtPayment.ResetText();
+        }
+
+       
+
+        public void loadDataCustomer()
+        {
+            if (frmCustomer.phoneNumber != "")
+            {
+                DataTable customer = CustomerBUS.Instance.getCustomer(frmCustomer.phoneNumber.Trim());
+                if (customer != null)
+                {
+                    DataRow row = customer.Rows[0];
+                    txtCustomerName.Text = row["TenKhachHang"].ToString();
+                    txtPoint.Text = row["DiemTichLuy"].ToString();
+                }
+                else
+                {
+                    MessageBox.Show("Lỗi ");
+                }
+            }
+        }
+
+        private void frmTheatre_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            resetPanels();
+            maVe.Clear();
+        }
+
+        private void updatePoint (string phoneNumber, int bonus)
+        {
+            
+            if (!CustomerBUS.Instance.updatePointBUS(phoneNumber, bonus))
+            {
+                MessageBox.Show("Cập nhật điểm không thành công");
+            }
+        }
+
+        private void btnUsePoint_Click(object sender, EventArgs e)
+        {
+           if (txtPoint.Text == "" || txtPoint.Text == null)
+            {
+                MessageBox.Show("Vui lòng điền thông tin khách hàng");
+                return;
+            }
+
+           if (CustomerBUS.Instance.usePointBUS(frmCustomer.phoneNumber))
+            {
+                int percent = Convert.ToInt32(txtPoint.Text);
+                float discountAmount = totalPrice * ((float)percent / 100);
+                finalPrice = totalPrice - discountAmount;
+
+                txtDiscount.Text = discountAmount.ToString() + " VNĐ";
+                txtPoint.Text = "0";
+                txtPayment.Text = finalPrice.ToString() + " VNĐ";
+            }
+            else
+            {
+                Debug.WriteLine("result is false");
+            }
         }
     }
 }

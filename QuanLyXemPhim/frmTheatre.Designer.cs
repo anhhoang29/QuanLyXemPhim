@@ -45,30 +45,25 @@ namespace QuanLyXemPhim
             this.panel7 = new System.Windows.Forms.Panel();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.pnCustomer = new System.Windows.Forms.Panel();
-            this.label6 = new System.Windows.Forms.Label();
+            this.txtCustomerName = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.lblPlusPoint = new System.Windows.Forms.Label();
+            this.txtPlusPoint = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.lblCustomerName = new System.Windows.Forms.Label();
-            this.lblPoint = new System.Windows.Forms.Label();
+            this.txtPoint = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.chkCustomer = new System.Windows.Forms.CheckBox();
-            this.grpLoaiVe = new System.Windows.Forms.GroupBox();
-            this.label12 = new System.Windows.Forms.Label();
-            this.rdoStudent = new System.Windows.Forms.RadioButton();
-            this.lblTicketPrice = new System.Windows.Forms.Label();
-            this.rdoAdult = new System.Windows.Forms.RadioButton();
-            this.rdoChild = new System.Windows.Forms.RadioButton();
             this.pnlPayment = new System.Windows.Forms.Panel();
             this.btnCancel = new System.Windows.Forms.Button();
             this.txtTotal = new System.Windows.Forms.Label();
             this.btnPayment = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
-            this.lblPayment = new System.Windows.Forms.Label();
+            this.txtPayment = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.lblDiscount = new System.Windows.Forms.Label();
+            this.txtDiscount = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
+            this.btnUsePoint = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -76,7 +71,6 @@ namespace QuanLyXemPhim
             this.panel7.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.pnCustomer.SuspendLayout();
-            this.grpLoaiVe.SuspendLayout();
             this.pnlPayment.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -219,53 +213,53 @@ namespace QuanLyXemPhim
             // 
             this.panel7.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel7.Controls.Add(this.groupBox2);
-            this.panel7.Controls.Add(this.grpLoaiVe);
             this.panel7.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel7.Location = new System.Drawing.Point(0, 0);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(843, 200);
+            this.panel7.Size = new System.Drawing.Size(765, 200);
             this.panel7.TabIndex = 17;
             // 
             // groupBox2
             // 
             this.groupBox2.BackColor = System.Drawing.Color.Black;
+            this.groupBox2.Controls.Add(this.btnUsePoint);
             this.groupBox2.Controls.Add(this.pnCustomer);
             this.groupBox2.Controls.Add(this.chkCustomer);
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox2.ForeColor = System.Drawing.Color.White;
-            this.groupBox2.Location = new System.Drawing.Point(343, 0);
+            this.groupBox2.Location = new System.Drawing.Point(0, 0);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(498, 198);
+            this.groupBox2.Size = new System.Drawing.Size(763, 198);
             this.groupBox2.TabIndex = 18;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Thành Viên:";
             // 
             // pnCustomer
             // 
-            this.pnCustomer.Controls.Add(this.label6);
+            this.pnCustomer.Controls.Add(this.txtCustomerName);
             this.pnCustomer.Controls.Add(this.label7);
-            this.pnCustomer.Controls.Add(this.lblPlusPoint);
+            this.pnCustomer.Controls.Add(this.txtPlusPoint);
             this.pnCustomer.Controls.Add(this.label4);
             this.pnCustomer.Controls.Add(this.lblCustomerName);
-            this.pnCustomer.Controls.Add(this.lblPoint);
+            this.pnCustomer.Controls.Add(this.txtPoint);
             this.pnCustomer.Controls.Add(this.label11);
             this.pnCustomer.Location = new System.Drawing.Point(6, 59);
             this.pnCustomer.Name = "pnCustomer";
             this.pnCustomer.Size = new System.Drawing.Size(486, 136);
             this.pnCustomer.TabIndex = 16;
             // 
-            // label6
+            // txtCustomerName
             // 
-            this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.label6.BackColor = System.Drawing.Color.White;
-            this.label6.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.Red;
-            this.label6.Location = new System.Drawing.Point(203, 13);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(230, 30);
-            this.label6.TabIndex = 26;
-            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.txtCustomerName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtCustomerName.BackColor = System.Drawing.Color.White;
+            this.txtCustomerName.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.txtCustomerName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCustomerName.ForeColor = System.Drawing.Color.Red;
+            this.txtCustomerName.Location = new System.Drawing.Point(203, 13);
+            this.txtCustomerName.Name = "txtCustomerName";
+            this.txtCustomerName.Size = new System.Drawing.Size(230, 30);
+            this.txtCustomerName.TabIndex = 26;
+            this.txtCustomerName.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // label7
             // 
@@ -276,18 +270,18 @@ namespace QuanLyXemPhim
             this.label7.TabIndex = 25;
             this.label7.Text = "Tên Khách Hàng:";
             // 
-            // lblPlusPoint
+            // txtPlusPoint
             // 
-            this.lblPlusPoint.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblPlusPoint.BackColor = System.Drawing.Color.White;
-            this.lblPlusPoint.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.lblPlusPoint.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPlusPoint.ForeColor = System.Drawing.Color.Red;
-            this.lblPlusPoint.Location = new System.Drawing.Point(203, 96);
-            this.lblPlusPoint.Name = "lblPlusPoint";
-            this.lblPlusPoint.Size = new System.Drawing.Size(230, 30);
-            this.lblPlusPoint.TabIndex = 21;
-            this.lblPlusPoint.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.txtPlusPoint.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtPlusPoint.BackColor = System.Drawing.Color.White;
+            this.txtPlusPoint.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.txtPlusPoint.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPlusPoint.ForeColor = System.Drawing.Color.Red;
+            this.txtPlusPoint.Location = new System.Drawing.Point(203, 96);
+            this.txtPlusPoint.Name = "txtPlusPoint";
+            this.txtPlusPoint.Size = new System.Drawing.Size(230, 30);
+            this.txtPlusPoint.TabIndex = 21;
+            this.txtPlusPoint.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // label4
             // 
@@ -305,18 +299,18 @@ namespace QuanLyXemPhim
             this.lblCustomerName.Size = new System.Drawing.Size(193, 25);
             this.lblCustomerName.TabIndex = 19;
             // 
-            // lblPoint
+            // txtPoint
             // 
-            this.lblPoint.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblPoint.BackColor = System.Drawing.Color.White;
-            this.lblPoint.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.lblPoint.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPoint.ForeColor = System.Drawing.Color.Red;
-            this.lblPoint.Location = new System.Drawing.Point(203, 58);
-            this.lblPoint.Name = "lblPoint";
-            this.lblPoint.Size = new System.Drawing.Size(230, 30);
-            this.lblPoint.TabIndex = 17;
-            this.lblPoint.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.txtPoint.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtPoint.BackColor = System.Drawing.Color.White;
+            this.txtPoint.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.txtPoint.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPoint.ForeColor = System.Drawing.Color.Red;
+            this.txtPoint.Location = new System.Drawing.Point(203, 54);
+            this.txtPoint.Name = "txtPoint";
+            this.txtPoint.Size = new System.Drawing.Size(230, 30);
+            this.txtPoint.TabIndex = 17;
+            this.txtPoint.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // label11
             // 
@@ -338,78 +332,6 @@ namespace QuanLyXemPhim
             this.chkCustomer.UseVisualStyleBackColor = true;
             this.chkCustomer.CheckedChanged += new System.EventHandler(this.chkCustomer_CheckedChanged);
             // 
-            // grpLoaiVe
-            // 
-            this.grpLoaiVe.BackColor = System.Drawing.Color.Black;
-            this.grpLoaiVe.Controls.Add(this.label12);
-            this.grpLoaiVe.Controls.Add(this.rdoStudent);
-            this.grpLoaiVe.Controls.Add(this.lblTicketPrice);
-            this.grpLoaiVe.Controls.Add(this.rdoAdult);
-            this.grpLoaiVe.Controls.Add(this.rdoChild);
-            this.grpLoaiVe.Dock = System.Windows.Forms.DockStyle.Left;
-            this.grpLoaiVe.ForeColor = System.Drawing.Color.White;
-            this.grpLoaiVe.Location = new System.Drawing.Point(0, 0);
-            this.grpLoaiVe.Name = "grpLoaiVe";
-            this.grpLoaiVe.Size = new System.Drawing.Size(343, 198);
-            this.grpLoaiVe.TabIndex = 17;
-            this.grpLoaiVe.TabStop = false;
-            this.grpLoaiVe.Text = "Loại Vé:";
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(6, 136);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(78, 25);
-            this.label12.TabIndex = 10;
-            this.label12.Text = "Giá Vé:";
-            // 
-            // rdoStudent
-            // 
-            this.rdoStudent.AutoSize = true;
-            this.rdoStudent.Location = new System.Drawing.Point(156, 43);
-            this.rdoStudent.Name = "rdoStudent";
-            this.rdoStudent.Size = new System.Drawing.Size(118, 29);
-            this.rdoStudent.TabIndex = 5;
-            this.rdoStudent.TabStop = true;
-            this.rdoStudent.Text = "Sinh Viên";
-            this.rdoStudent.UseVisualStyleBackColor = true;
-            // 
-            // lblTicketPrice
-            // 
-            this.lblTicketPrice.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblTicketPrice.BackColor = System.Drawing.Color.White;
-            this.lblTicketPrice.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.lblTicketPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTicketPrice.ForeColor = System.Drawing.Color.Red;
-            this.lblTicketPrice.Location = new System.Drawing.Point(90, 133);
-            this.lblTicketPrice.Name = "lblTicketPrice";
-            this.lblTicketPrice.Size = new System.Drawing.Size(247, 30);
-            this.lblTicketPrice.TabIndex = 9;
-            this.lblTicketPrice.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // rdoAdult
-            // 
-            this.rdoAdult.AutoSize = true;
-            this.rdoAdult.Location = new System.Drawing.Point(28, 43);
-            this.rdoAdult.Name = "rdoAdult";
-            this.rdoAdult.Size = new System.Drawing.Size(122, 29);
-            this.rdoAdult.TabIndex = 4;
-            this.rdoAdult.TabStop = true;
-            this.rdoAdult.Text = "Người Lớn";
-            this.rdoAdult.UseVisualStyleBackColor = true;
-            // 
-            // rdoChild
-            // 
-            this.rdoChild.AutoSize = true;
-            this.rdoChild.Location = new System.Drawing.Point(28, 87);
-            this.rdoChild.Name = "rdoChild";
-            this.rdoChild.Size = new System.Drawing.Size(219, 29);
-            this.rdoChild.TabIndex = 3;
-            this.rdoChild.TabStop = true;
-            this.rdoChild.Text = "Trẻ Em (Dưới 12 tuổi)";
-            this.rdoChild.UseVisualStyleBackColor = true;
-            // 
             // pnlPayment
             // 
             this.pnlPayment.BackColor = System.Drawing.Color.Black;
@@ -418,15 +340,15 @@ namespace QuanLyXemPhim
             this.pnlPayment.Controls.Add(this.txtTotal);
             this.pnlPayment.Controls.Add(this.btnPayment);
             this.pnlPayment.Controls.Add(this.label5);
-            this.pnlPayment.Controls.Add(this.lblPayment);
+            this.pnlPayment.Controls.Add(this.txtPayment);
             this.pnlPayment.Controls.Add(this.label8);
             this.pnlPayment.Controls.Add(this.label9);
-            this.pnlPayment.Controls.Add(this.lblDiscount);
+            this.pnlPayment.Controls.Add(this.txtDiscount);
             this.pnlPayment.Dock = System.Windows.Forms.DockStyle.Right;
             this.pnlPayment.ForeColor = System.Drawing.Color.White;
-            this.pnlPayment.Location = new System.Drawing.Point(843, 0);
+            this.pnlPayment.Location = new System.Drawing.Point(765, 0);
             this.pnlPayment.Name = "pnlPayment";
-            this.pnlPayment.Size = new System.Drawing.Size(420, 200);
+            this.pnlPayment.Size = new System.Drawing.Size(498, 200);
             this.pnlPayment.TabIndex = 14;
             // 
             // btnCancel
@@ -448,7 +370,7 @@ namespace QuanLyXemPhim
             this.txtTotal.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.txtTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTotal.ForeColor = System.Drawing.Color.Red;
-            this.txtTotal.Location = new System.Drawing.Point(154, 9);
+            this.txtTotal.Location = new System.Drawing.Point(232, 9);
             this.txtTotal.Name = "txtTotal";
             this.txtTotal.Size = new System.Drawing.Size(254, 30);
             this.txtTotal.TabIndex = 9;
@@ -476,18 +398,18 @@ namespace QuanLyXemPhim
             this.label5.TabIndex = 8;
             this.label5.Text = "Số tiền giảm:";
             // 
-            // lblPayment
+            // txtPayment
             // 
-            this.lblPayment.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblPayment.BackColor = System.Drawing.Color.White;
-            this.lblPayment.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.lblPayment.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPayment.ForeColor = System.Drawing.Color.Red;
-            this.lblPayment.Location = new System.Drawing.Point(154, 93);
-            this.lblPayment.Name = "lblPayment";
-            this.lblPayment.Size = new System.Drawing.Size(254, 30);
-            this.lblPayment.TabIndex = 10;
-            this.lblPayment.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.txtPayment.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtPayment.BackColor = System.Drawing.Color.White;
+            this.txtPayment.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.txtPayment.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPayment.ForeColor = System.Drawing.Color.Red;
+            this.txtPayment.Location = new System.Drawing.Point(232, 93);
+            this.txtPayment.Name = "txtPayment";
+            this.txtPayment.Size = new System.Drawing.Size(254, 30);
+            this.txtPayment.TabIndex = 10;
+            this.txtPayment.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // label8
             // 
@@ -509,18 +431,18 @@ namespace QuanLyXemPhim
             this.label9.TabIndex = 8;
             this.label9.Text = "Số tiền cần trả:";
             // 
-            // lblDiscount
+            // txtDiscount
             // 
-            this.lblDiscount.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblDiscount.BackColor = System.Drawing.Color.White;
-            this.lblDiscount.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.lblDiscount.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDiscount.ForeColor = System.Drawing.Color.Red;
-            this.lblDiscount.Location = new System.Drawing.Point(154, 51);
-            this.lblDiscount.Name = "lblDiscount";
-            this.lblDiscount.Size = new System.Drawing.Size(254, 30);
-            this.lblDiscount.TabIndex = 10;
-            this.lblDiscount.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.txtDiscount.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtDiscount.BackColor = System.Drawing.Color.White;
+            this.txtDiscount.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.txtDiscount.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDiscount.ForeColor = System.Drawing.Color.Red;
+            this.txtDiscount.Location = new System.Drawing.Point(232, 51);
+            this.txtDiscount.Name = "txtDiscount";
+            this.txtDiscount.Size = new System.Drawing.Size(254, 30);
+            this.txtDiscount.TabIndex = 10;
+            this.txtDiscount.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // label10
             // 
@@ -531,6 +453,18 @@ namespace QuanLyXemPhim
             this.label10.Size = new System.Drawing.Size(186, 36);
             this.label10.TabIndex = 8;
             this.label10.Text = "<= LỐI VÀO";
+            // 
+            // btnUsePoint
+            // 
+            this.btnUsePoint.BackColor = System.Drawing.Color.Lime;
+            this.btnUsePoint.ForeColor = System.Drawing.Color.Black;
+            this.btnUsePoint.Location = new System.Drawing.Point(550, 95);
+            this.btnUsePoint.Name = "btnUsePoint";
+            this.btnUsePoint.Size = new System.Drawing.Size(145, 52);
+            this.btnUsePoint.TabIndex = 17;
+            this.btnUsePoint.Text = "Sử dụng điểm";
+            this.btnUsePoint.UseVisualStyleBackColor = false;
+            this.btnUsePoint.Click += new System.EventHandler(this.btnUsePoint_Click);
             // 
             // frmTheatre
             // 
@@ -550,6 +484,7 @@ namespace QuanLyXemPhim
             this.Name = "frmTheatre";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Bán Vé";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmTheatre_FormClosing);
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
@@ -561,8 +496,6 @@ namespace QuanLyXemPhim
             this.groupBox2.PerformLayout();
             this.pnCustomer.ResumeLayout(false);
             this.pnCustomer.PerformLayout();
-            this.grpLoaiVe.ResumeLayout(false);
-            this.grpLoaiVe.PerformLayout();
             this.pnlPayment.ResumeLayout(false);
             this.pnlPayment.PerformLayout();
             this.ResumeLayout(false);
@@ -586,31 +519,26 @@ namespace QuanLyXemPhim
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Panel pnlPayment;
         private System.Windows.Forms.Label txtTotal;
-        private System.Windows.Forms.Label lblDiscount;
+        private System.Windows.Forms.Label txtDiscount;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Button btnPayment;
         private System.Windows.Forms.Panel panel7;
-        private System.Windows.Forms.GroupBox grpLoaiVe;
-        private System.Windows.Forms.RadioButton rdoStudent;
-        private System.Windows.Forms.RadioButton rdoAdult;
-        private System.Windows.Forms.RadioButton rdoChild;
-        private System.Windows.Forms.Label lblPayment;
+        private System.Windows.Forms.Label txtPayment;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label lblTicketPrice;
-        private System.Windows.Forms.Label label12;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.CheckBox chkCustomer;
         private System.Windows.Forms.Panel pnCustomer;
         private System.Windows.Forms.Label lblCustomerName;
-        private System.Windows.Forms.Label lblPoint;
+        private System.Windows.Forms.Label txtPoint;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Label lblPlusPoint;
+        private System.Windows.Forms.Label txtPlusPoint;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label txtCustomerName;
+        private System.Windows.Forms.Button btnUsePoint;
     }
 }

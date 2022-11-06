@@ -45,7 +45,7 @@ namespace DAO
         public bool updateListTicketDAO(List<String> maVe)
         {
 
-            string query = "USP_UpdateStatusTicket @maVe ";
+            string query = "USP_capNhatTrangThaiVe @maVe ";
             try
             {
                 for (int i = 0; i < maVe.Count; i++)
@@ -62,18 +62,16 @@ namespace DAO
 
         }
 
-
-
         public float getPriceOfTicketDAO(int maVe)
         {
-            string query = "Select dbo.FUNC_GetTicketPrice ( @Id ) ";
+            string query = "Select dbo.FUNC_layGiaVe( @Id ) ";
             try
             {
                 return Convert.ToSingle(DataProvider.Instance.ExecuteScalar(query, new object[] { maVe }));
             }
             catch
             {
-                return -1;
+               return -1;
             }
 
         }

@@ -69,5 +69,62 @@ namespace DAO
                 return false;
             }
         }
+
+        public byte isMemberDAO(string phoneNumber)
+        {
+            string query = "Select dbo.FUNC_laThanhVien ( @phone )";
+            byte kq;
+            try
+            {
+                kq = Convert.ToByte(DataProvider.Instance.ExecuteScalar(query, new object[] { phoneNumber }));
+            }
+            catch
+            {
+                // error
+                kq = 2;
+            }
+            return kq;
+        }
+
+        public DataTable getCustomerDAO(string phoneNumber)
+        {
+            string query = "USP_layThongTinKhachHang @Sdt ";
+            try
+            {
+                return DataProvider.Instance.ExecuteQuery(query, new object[] { phoneNumber });
+            }
+            catch 
+            {
+                return null;
+            }
+        }
+
+        public bool updatePointDAO(string phoneNumber, int bonus)
+        {
+            string query = "USP_congDiemTichLuy @Sdt , @bonus ";
+            try
+            {
+                DataProvider.Instance.ExecuteNonQuery(query, new object[] { phoneNumber, bonus });
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+        public bool usePointDAO (string phoneNumber)
+        {
+            string query = "USP_suDungDiemTichLuy @Sdt ";
+            try
+            {
+                DataProvider.Instance.ExecuteNonQuery(query, new object[] { phoneNumber });
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
     }
 }

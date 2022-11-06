@@ -50,5 +50,27 @@ namespace BUS
         {
             return CustomerDAO.Instance.updateCustomerDAO(id, name, address, birth, phone, point);
         }
+
+
+        public byte isMember (string phoneNumber)
+        {
+            return CustomerDAO.Instance.isMemberDAO(phoneNumber);
+        }
+
+        public DataTable getCustomer(String phoneNumber)
+        {
+            return CustomerDAO.Instance.getCustomerDAO(phoneNumber);
+        }
+
+        public bool updatePointBUS(string phoneNumber, int bonus)
+        {
+            return CustomerDAO.Instance.updatePointDAO(phoneNumber, bonus);
+        }
+
+        public bool usePointBUS(string phoneNumber)
+        {
+            return CustomerDAO.Instance.usePointDAO(phoneNumber);
+        }
     }
 }
+

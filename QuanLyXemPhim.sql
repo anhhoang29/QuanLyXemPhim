@@ -105,9 +105,9 @@ CREATE TABLE KhachHang(
 	MaKH INT PRIMARY KEY IDENTITY(1,1),
 	TenKhachHang NVARCHAR(50) NOT NULL,
 	Diachi NVARCHAR(100),
-	NamSinh INT NOT NULL,
-	SoDienThoai VARCHAR (50),
-	CMND INT NOT NULL UNIQUE,
+	NamSinh INT,
+	SoDienThoai VARCHAR (50) UNIQUE,
+	CMND INT UNIQUE,
 	DiemTichLuy INT DEFAULT 0
 )
 GO
@@ -810,7 +810,7 @@ AS
 	);
 
 --- transaction update trạng thái vé
-CREATE PROC USP_UpdateStatusTicket @MaVe int
+CREATE PROC USP_capNhatTrangThaiVe @MaVe int
 AS
 BEGIN TRANSACTION
 	UPDATE VE SET TrangThai = 1 WHERE VE.id = @MaVe;
@@ -824,17 +824,70 @@ BEGIN TRANSACTION
 	END  
 
 -- lấy giá vé của một vé dựa vào id function
-CREATE FUNCTION FUNC_GetTicketPrice (@Id int)
+CREATE FUNCTION FUNC_layGiaVe (@Id int)
 RETURNS money as
 	BEGIN
 		DECLARE @Price money
 		SELECT @Price=TienBanVe FROM Ve WHERE Ve.id = @Id
 		RETURN @Price
 	END 
+
+
+
+-- hàm kiểm tra có tồn tại khách hàng thành viên thông qua số điện thoại
+CREATE FUNCTION FUNC_laThanhVien(@phone varchar(50))
+RETURNS BIT
+	BEGIN
+		DECLARE @isMember BIT
+		SET @isMember = 0;
+		IF EXISTS(SELECT * FROM KhachHang WHERE SoDienThoai = @phone)
+			BEGIN
+				SET @isMember = 1;
+			END
+		RETURN @isMember
+	END
+
+-- Hàm lấy thông tin của khách hàng dựa vào số điện thoại đăng ký thành viên
+CREATE PROC USP_layThongTinKhachHang @Sdt varchar(100)
+AS
+	SELECT DISTINCT * FROM KhachHang Where SoDienThoai = @Sdt
+
+
+-- transaction cập nhật điểm tích lũy cho khách hàng
+CREATE PROC USP_congDiemTichLuy @Sdt varchar(100), @bonus int
+AS
+	BEGIN TRANSACTION
+		DECLARE @point int
+		select @point = DiemTichLuy from KhachHang where SoDienThoai = @Sdt;
+		set @point = @point + @bonus;
+		update KhachHang set DiemTichLuy = @point where SoDienThoai = @Sdt;
+		IF(@@ERROR > 0)  
+		BEGIN  
+			ROLLBACK TRANSACTION  
+		END  
+		ELSE  
+		BEGIN  
+			COMMIT TRANSACTION  
+		END 
+
+
+-- sử dụng điểm tích lũy 
+ 
+CREATE PROC USP_suDungDiemTichLuy @Sdt varchar(100)
+AS
+	BEGIN TRANSACTION
+		DECLARE @point int
+		select @point = DiemTichLuy from KhachHang where SoDienThoai = @Sdt;
+		update KhachHang set DiemTichLuy = 0 where SoDienThoai = @Sdt;
+		IF(@@ERROR > 0)  
+		BEGIN  
+			ROLLBACK TRANSACTION
+		END  
+		ELSE  
+		BEGIN  
+			COMMIT TRANSACTION  
+		END 
+
+
 	
-
-
-
-
-
-
+ 
