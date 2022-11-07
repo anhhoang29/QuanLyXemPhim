@@ -51,7 +51,7 @@ namespace QuanLyXemPhim.frmAdminUserControl
             this.DiaChi = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SDT = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CMND = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.txtStaffBirth = new System.Windows.Forms.TextBox();
+            this.dtpNgaySinh = new System.Windows.Forms.DateTimePicker();
             this.grpStaff.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvStaff)).BeginInit();
             this.SuspendLayout();
@@ -187,7 +187,7 @@ namespace QuanLyXemPhim.frmAdminUserControl
             // grpStaff
             // 
             this.grpStaff.BackColor = System.Drawing.Color.Transparent;
-            this.grpStaff.Controls.Add(this.txtStaffBirth);
+            this.grpStaff.Controls.Add(this.dtpNgaySinh);
             this.grpStaff.Controls.Add(this.lblStaffID);
             this.grpStaff.Controls.Add(this.txtStaffId);
             this.grpStaff.Controls.Add(this.txtStaffAddress);
@@ -289,14 +289,16 @@ namespace QuanLyXemPhim.frmAdminUserControl
             this.CMND.Name = "CMND";
             this.CMND.ReadOnly = true;
             // 
-            // txtStaffBirth
+            // dtpNgaySinh
             // 
-            this.txtStaffBirth.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtStaffBirth.Location = new System.Drawing.Point(149, 106);
-            this.txtStaffBirth.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtStaffBirth.Name = "txtStaffBirth";
-            this.txtStaffBirth.Size = new System.Drawing.Size(191, 30);
-            this.txtStaffBirth.TabIndex = 5;
+            this.dtpNgaySinh.CustomFormat = "yyyy/MM/dd";
+            this.dtpNgaySinh.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpNgaySinh.Location = new System.Drawing.Point(149, 108);
+            this.dtpNgaySinh.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.dtpNgaySinh.Name = "dtpNgaySinh";
+            this.dtpNgaySinh.Size = new System.Drawing.Size(191, 30);
+            this.dtpNgaySinh.TabIndex = 5;
+            this.dtpNgaySinh.Value = new System.DateTime(2022, 10, 31, 0, 0, 0, 0);
             // 
             // StaffUC
             // 
@@ -341,6 +343,6 @@ namespace QuanLyXemPhim.frmAdminUserControl
         private System.Windows.Forms.DataGridViewTextBoxColumn DiaChi;
         private System.Windows.Forms.DataGridViewTextBoxColumn SDT;
         private System.Windows.Forms.DataGridViewTextBoxColumn CMND;
-        private System.Windows.Forms.TextBox txtStaffBirth;
+        private System.Windows.Forms.DateTimePicker dtpNgaySinh;
     }
 }
