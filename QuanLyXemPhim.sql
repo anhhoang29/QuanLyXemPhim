@@ -163,13 +163,13 @@ INSERT TheLoai(MaLoaiPhim,TenTheLoai) VALUES (N'T09', N'Kinh Dị')
 
 --- insert phim---
 INSERT Phim (MaPhim, TenPhim, MoTa, ThoiLuong, NgayKhoiChieu, NgayKetThuc,QuocGia, DaoDien,NamSX,GioiHanTuoi) 
-VALUES ('P0001',N'Chú Khủng Long Của Nobita',NULL,2.5, CAST(N'2022-10-1' AS Date),CAST(N'2022-12-1' AS Date),N'Nhật Bản','Kaminashi Mitsuo',2019,7)
+VALUES ('P0001',N'Chú Khủng Long Của Nobita',NULL,2.5,N'2022-10-1',N'2022-12-1',N'Nhật Bản','Kaminashi Mitsuo',2019,7)
 INSERT Phim (MaPhim, TenPhim, MoTa, ThoiLuong, NgayKhoiChieu, NgayKetThuc,QuocGia, DaoDien,NamSX,GioiHanTuoi) 
-VALUES ('P0002',N'Harry Potter và Hòn Đá Phù Thủy',NULL,2, CAST(N'2022-10-8' AS Date),CAST(N'2022-12-30' AS Date),N'Anh','Chris Columbus',2018,13)
+VALUES ('P0002',N'Harry Potter và Hòn Đá Phù Thủy',NULL,2, N'2022-10-8',N'2022-12-30',N'Anh','Chris Columbus',2018,13)
 INSERT Phim (MaPhim, TenPhim, MoTa, ThoiLuong, NgayKhoiChieu, NgayKetThuc,QuocGia, DaoDien,NamSX,GioiHanTuoi) 
-VALUES ('P0003',N'Chúa tể của những chiếc nhẫn',NULL,2.5, CAST(N'2022-9-8' AS Date),CAST(N'2022-12-30' AS Date),N'Mỹ','Ralph Bakshi',2016,13)
+VALUES ('P0003',N'Chúa tể của những chiếc nhẫn',NULL,2.5, N'2022-9-8',N'2022-12-30',N'Mỹ','Ralph Bakshi',2016,13)
 INSERT Phim (MaPhim, TenPhim, MoTa, ThoiLuong, NgayKhoiChieu, NgayKetThuc,QuocGia, DaoDien,NamSX,GioiHanTuoi) 
-VALUES ('P0004',N'Bố Già',NULL,2, CAST(N'2022-10-8' AS Date),CAST(N'2022-12-30' AS Date),N'Việt Nam',N'Trấn Thành',2018,9)
+VALUES ('P0004',N'Bố Già',NULL,2,N'2022-10-8',N'2022-12-30',N'Việt Nam',N'Trấn Thành',2018,9)
 
 -- Phân Loại Phim
 INSERT PhanLoaiPhim ( idPhim, idTheLoai) VALUES ('P0001','T02')
@@ -221,8 +221,8 @@ GO
 
 
 --===================================================TẠO STORE==============================================================================
--- STORE Login
-CREATE PROC USP_Login @userName NVARCHAR(1000), @pass VARCHAR(1000)
+-- STORE dang nhap tai khoan
+CREATE PROC USP_DangNhap @userName NVARCHAR(1000), @pass VARCHAR(1000)
 AS
 BEGIN
 	SELECT * FROM dbo.TaiKhoan WHERE UserName = @userName AND Pass = @pass
@@ -274,33 +274,35 @@ BEGIN
 END
 GO
 
-------STORE Account
---STORE add account
-CREATE PROC USP_Add_Account @UserName NVARCHAR(100), @Pass NVARCHAR(1000), @LoaiTK INT, @idNV VARCHAR(50)
+------STORE TaiKhoan
+--STORE them tai khoan
+CREATE PROC USP_themDanhSachTaiKhoan @UserName NVARCHAR(100), @Pass NVARCHAR(1000), @LoaiTK INT, @idNV VARCHAR(50)
 AS
 BEGIN
 	INSERT TaiKhoan (UserName, Pass,LoaiTK, idNV) VALUES (@UserName, @Pass , @LoaiTK, @idNV)
 END
 GO
 
---STORE update account
-CREATE PROC USP_Update_Account @UserName NVARCHAR(100), @Pass NVARCHAR(1000), @LoaiTK INT, @idNV VARCHAR(50)
+--STORE sua tai khoan
+CREATE PROC USP_suaDanhSachTaiKhoan @UserName NVARCHAR(100), @Pass NVARCHAR(1000), @LoaiTK INT, @idNV VARCHAR(50)
 AS
 BEGIN
 	UPDATE TaiKhoan SET UserName = @UserName, Pass = @Pass , LoaiTK = @LoaiTK WHERE idNV = @idNV
 END
 GO
 
---STORE delete account
-CREATE PROC USP_Delete_Account @idNV VARCHAR(50)
+--STORE xoa tai khoan
+
+CREATE PROC USP_xoaDanhSachTaiKhoan @idNV VARCHAR(50)
 AS
 BEGIN
 	DELETE TaiKhoan WHERE idNV = @idNV
 END
 GO
 
---STORE show all account
-CREATE PROC USP_Show_Account
+
+--STORE hien thi danh sach tai khoan
+CREATE PROC USP_hienDanhSachTaiKhoan
 AS
 BEGIN
 	SELECT * FROM TaiKhoan
@@ -353,37 +355,39 @@ Go
 
 
 --------------Phim
---Store add phim
-CREATE PROC USP_Add_Phim @MaPhim VARCHAR(50), @TenPhim NVARCHAR(100), @MoTa NVARCHAR(1000), @ThoiLuong FLOAT, @NgayKhoiChieu DATE,
+--Store Them danh sach phim
+CREATE PROC USP_themDanhSachPhim @MaPhim VARCHAR(50), @TenPhim NVARCHAR(100), @MoTa NVARCHAR(1000), @ThoiLuong FLOAT, @NgayKhoiChieu DATE,
 @NgayKetThuc DATE, @QuocGia NVARCHAR(50), @DaoDien NVARCHAR(100), @NamSX INT, @GioiHanTuoi INT
 AS
 BEGIN
-	INSERT Phim (MaPhim, TenPhim, MoTa, ThoiLuong, NgayKhoiChieu, NgayKetThuc,QuocGia, DaoDien,NamSX,GioiHanTuoi) 
-VALUES (@MaPhim, @TenPhim, @MoTa, @ThoiLuong, CAST(@NgayKhoiChieu AS Date), CAST(@NgayKetThuc AS Date), @QuocGia, @DaoDien, @NamSX, @GioiHanTuoi)
+	INSERT Phim (MaPhim, TenPhim, MoTa, ThoiLuong, NgayKhoiChieu, NgayKetThuc,QuocGia, DaoDien, NamSX, GioiHanTuoi) 
+VALUES (@MaPhim, @TenPhim, @MoTa, @ThoiLuong, @NgayKhoiChieu , @NgayKetThuc, @QuocGia, @DaoDien, @NamSX, @GioiHanTuoi)
 END
 GO
 
 
---Store update phim
-CREATE PROC USP_Update_Phim @MaPhim VARCHAR(50), @TenPhim NVARCHAR(100), @MoTa NVARCHAR(1000), @ThoiLuong FLOAT, @NgayKhoiChieu DATE,
-@NgayKetThuc DATE, @QuocGia NVARCHAR(50), @DaoDien NVARCHAR(100), @NamSX INT, @GioiHanTuoi INT
+--Store sua danh sach phim
+CREATE PROC USP_suaDanhSachPhim @MaPhim VARCHAR(50), @TenPhim NVARCHAR(100), @MoTa NVARCHAR(1000), @ThoiLuong FLOAT, @NgayKhoiChieu DATE,
+@NgayKetThuc DATE, @QuocGia NVARCHAR(50), @DaoDien NVARCHAR(100), @GioiHanTuoi INT
 AS
 BEGIN
-	UPDATE Phim SET TenPhim = @TenPhim, MoTa = @MoTa, ThoiLuong = @ThoiLuong, NgayKhoiChieu = CAST(@NgayKhoiChieu AS Date) WHERE MaPhim = @MaPhim
+	UPDATE Phim SET TenPhim = @TenPhim, MoTa = @MoTa, ThoiLuong = @ThoiLuong, NgayKhoiChieu = @NgayKhoiChieu, NgayKetThuc = @NgayKetThuc WHERE MaPhim = @MaPhim
 END
 GO
 
---Store delete phim
-CREATE PROC USP_Delete_Phim @MaPhim VARCHAR(50)
+--Store xoa danh sach phim
+CREATE PROC USP_xoaDanhSachPhimTuCaChieu @MaPhim varchar(50)
 AS
-BEGIN
+BEGIN 
+	DELETE FROM PhanLoaiPhim WHERE idPhim = @MaPhim
+	DELETE FROM CaChieu WHERE MaPhim = @MaPhim
 	DELETE FROM Phim WHERE MaPhim = @MaPhim
+
 END
 GO
 
-
---Store show phim
-CREATE PROC USP_Show_Phim
+--Store hien thi danh sach phim 
+CREATE PROC USP_hienDanhSachPhim
 AS
 BEGIN
 	SELECT * FROM Phim
@@ -651,17 +655,6 @@ BEGIN
 	SELECT * FROM ChoNgoi
 END
 GO
-
-CREATE PROC USP_Delete_Phim_Phim_PhanLoaiPhim_CaChieu @MaPhim varchar(50)
-as
-Begin 
-	DELETE FROM PhanLoaiPhim WHERE idPhim = @MaPhim
-	DELETE FROM CaChieu WHERE MaPhim = @MaPhim
-	DELETE FROM Phim WHERE MaPhim = @MaPhim
-
-end
-Go
-
 
 
 ---STORE CUSTOMER

@@ -58,11 +58,14 @@ namespace QuanLyXemPhim.frmAdminUserControl.FeatureViewUserControl
             this.btnAddMovie = new System.Windows.Forms.Button();
             this.panel47 = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.nmr_NamSX = new System.Windows.Forms.NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)(this.picFilm)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvMovie)).BeginInit();
             this.panel2.SuspendLayout();
             this.panel47.SuspendLayout();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nmr_NamSX)).BeginInit();
             this.SuspendLayout();
             // 
             // btnUpLoadPictureFilm
@@ -158,6 +161,8 @@ namespace QuanLyXemPhim.frmAdminUserControl.FeatureViewUserControl
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.nmr_NamSX);
+            this.panel2.Controls.Add(this.label1);
             this.panel2.Controls.Add(this.btnUpLoadPictureFilm);
             this.panel2.Controls.Add(this.picFilm);
             this.panel2.Controls.Add(this.clbMovieGenre);
@@ -377,6 +382,39 @@ namespace QuanLyXemPhim.frmAdminUserControl.FeatureViewUserControl
             this.panel1.Size = new System.Drawing.Size(1430, 799);
             this.panel1.TabIndex = 12;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(567, 308);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(118, 32);
+            this.label1.TabIndex = 57;
+            this.label1.Text = "Năm SX";
+            // 
+            // nmr_NamSX
+            // 
+            this.nmr_NamSX.Location = new System.Drawing.Point(763, 308);
+            this.nmr_NamSX.Maximum = new decimal(new int[] {
+            2030,
+            0,
+            0,
+            0});
+            this.nmr_NamSX.Minimum = new decimal(new int[] {
+            2000,
+            0,
+            0,
+            0});
+            this.nmr_NamSX.Name = "nmr_NamSX";
+            this.nmr_NamSX.Size = new System.Drawing.Size(226, 26);
+            this.nmr_NamSX.TabIndex = 58;
+            this.nmr_NamSX.Value = new decimal(new int[] {
+            2000,
+            0,
+            0,
+            0});
+           
+            // 
             // MovieUC
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -391,6 +429,7 @@ namespace QuanLyXemPhim.frmAdminUserControl.FeatureViewUserControl
             this.panel2.PerformLayout();
             this.panel47.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.nmr_NamSX)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -426,5 +465,7 @@ namespace QuanLyXemPhim.frmAdminUserControl.FeatureViewUserControl
         private System.Windows.Forms.Button btnAddMovie;
         private System.Windows.Forms.Panel panel47;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.NumericUpDown nmr_NamSX;
+        private System.Windows.Forms.Label label1;
     }
 }

@@ -42,12 +42,12 @@ namespace BUS
         }
 
         public void suaDanhSachPhim(string MaPhim, string TenPhim, string MoTa, double ThoiLuong,
-            DateTime NgayBatDau, DateTime NgayKetThuc, string QuocGia, string DienVien, int GioiHanTuoi)
+            DateTime NgayBatDau, DateTime NgayKetThuc, string QuocGia, string DienVien, int NamSX, int GioiHanTuoi)
         {
             try
             {
                 if (PhimDAO.Instance.suaDanhSachPhim(MaPhim, TenPhim, MoTa, ThoiLuong, NgayBatDau,
-                    NgayKetThuc, QuocGia, DienVien, GioiHanTuoi) > 0)
+                    NgayKetThuc, QuocGia, DienVien, NamSX, GioiHanTuoi) > 0)
                 {
                     MessageBox.Show("Sửa thành công", "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
                 }
@@ -62,12 +62,12 @@ namespace BUS
             }
         }
         public void themDanhSachPhim(string MaPhim, string TenPhim, string MoTa, double ThoiLuong,
-    DateTime NgayBatDau, DateTime NgayKetThuc, string QuocGia, string DienVien, int GioiHanTuoi)
+    DateTime NgayBatDau, DateTime NgayKetThuc, string QuocGia, string DienVien, int NamSX, int GioiHanTuoi)
         {
             try
             {
                 if (PhimDAO.Instance.themDanhSachPhim(MaPhim, TenPhim, MoTa, ThoiLuong, NgayBatDau,
-                    NgayKetThuc, QuocGia, DienVien, GioiHanTuoi) > 0)
+                    NgayKetThuc, QuocGia, DienVien, NamSX, GioiHanTuoi) > 0)
                 {
                     MessageBox.Show("Thêm thành công", "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
                 }

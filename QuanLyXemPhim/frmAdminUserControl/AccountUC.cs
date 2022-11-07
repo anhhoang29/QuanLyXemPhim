@@ -46,10 +46,7 @@ namespace QuanLyXemPhim.frmAdminUserControl
             string UserName = txtUsername.Text;
             string Pass = txt_Pass.Text;
             int LoaiTK = Convert.ToInt32(nudAccountType.Text);
-            string idNV = txt_idNV.Text;
-            //PhimBUS.Instance.suaDanhSachPhim(MaPhim, TenPhim, MoTa, ThoiLuong, NgayBatDau, NgayKetThuc,
-            //    QuocGia, DienVien, GioiHanTuoi);
-            //PhimBUS.Instance.hienThiPhim(movieList);
+            string idNV = txt_idNV.Text;            
             TaiKhoanBUS.Instance.themDanhSachTaiKhoan(UserName, Pass, LoaiTK, idNV);
             TaiKhoanBUS.Instance.hienThiTaiKhoan(accountList);
         }

@@ -22,7 +22,7 @@ namespace DAO
         {
             try
             {
-                string query = @"USP_Show_Phim";
+                string query = @"USP_hienDanhSachPhim";
                 List<Phim> danhSachPhim = new List<Phim>();
                 DataTable table = DataProvider.Instance.ExecuteQuery(query);
 
@@ -61,14 +61,14 @@ namespace DAO
         }
 
         public int suaDanhSachPhim(string MaPhim, string TenPhim, string MoTa, double ThoiLuong,
-            DateTime NgayBatDau, DateTime NgayKetThuc, string QuocGia, string DienVien, int GioiHanTuoi)
+            DateTime NgayBatDau, DateTime NgayKetThuc, string QuocGia, string DienVien, int NamSX, int GioiHanTuoi)
         {
            try
            {
-                string query = @"USP_Update_Phim @MaPhim , @TenPhim , @MoTa , @ThoiLuong , @NgayKhoiChieu ,
-                        @NgayKetThuc , @QuocGia , @DaoDien , @GioiHanTuoi ";
+                string query = @"USP_suaDanhSachPhim @MaPhim , @TenPhim , @MoTa , @ThoiLuong , @NgayKhoiChieu ,
+                        @NgayKetThuc , @QuocGia , @DaoDien , @NamSX , @GioiHanTuoi ";
                 int kq = DataProvider.Instance.ExecuteNonQuery(query, new object[] {MaPhim, TenPhim,MoTa, ThoiLuong,
-                        NgayBatDau, NgayKetThuc, QuocGia, DienVien, GioiHanTuoi });
+                        NgayBatDau, NgayKetThuc, QuocGia, DienVien,NamSX, GioiHanTuoi });
                 return kq;
            }
            catch
@@ -77,14 +77,14 @@ namespace DAO
            }
         }
         public int themDanhSachPhim(string MaPhim, string TenPhim, string MoTa, double ThoiLuong,
-            DateTime NgayBatDau, DateTime NgayKetThuc, string QuocGia, string DienVien, int GioiHanTuoi)
+            DateTime NgayBatDau, DateTime NgayKetThuc, string QuocGia, string DienVien,int NamSX, int GioiHanTuoi)
         {
             try
             {
-                string query = @"USP_Add_Phim @MaPhim , @TenPhim , @MoTa , @ThoiLuong , @NgayKhoiChieu ,
-                        @NgayKetThuc , @QuocGia , @DaoDien , @GioiHanTuoi ";
+                string query = @"USP_themDanhSachPhim @MaPhim , @TenPhim , @MoTa , @ThoiLuong , @NgayKhoiChieu ,
+                        @NgayKetThuc , @QuocGia , @DaoDien , @NamSX , @GioiHanTuoi ";
                 int kq = DataProvider.Instance.ExecuteNonQuery(query, new object[] {MaPhim, TenPhim,MoTa, ThoiLuong,
-                        NgayBatDau, NgayKetThuc, QuocGia, DienVien, GioiHanTuoi });
+                        NgayBatDau, NgayKetThuc, QuocGia, DienVien, NamSX, GioiHanTuoi });
                 return kq;
             }
             catch
@@ -96,7 +96,7 @@ namespace DAO
         {
             try
             {
-                string query = @"USP_Delete_Phim_Phim_PhanLoaiPhim_CaChieu @MaPhim ";
+                string query = @"USP_xoaDanhSachPhimTuCaChieu @MaPhim ";
                 int kq = DataProvider.Instance.ExecuteNonQuery(query, new object[] { MaPhim});
                 return kq;
             }
@@ -110,7 +110,7 @@ namespace DAO
         public static List<Phim> GetPhim()
         {
             List<Phim> MovieList = new List<Phim>();
-            DataTable data = DataProvider.Instance.ExecuteQuery(@"USP_Show_Phim");
+            DataTable data = DataProvider.Instance.ExecuteQuery(@"USP_hienDanhSachPhim");
             foreach (DataRow item in data.Rows)
             {
                 Phim MovieName = new Phim(item);

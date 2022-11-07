@@ -20,7 +20,7 @@ namespace DAO
         public List<TaiKhoan> hienThiTaiKhoan()
         {
             List<TaiKhoan> danhSachTaiKhoan = new List<TaiKhoan>();
-            string query = @"USP_Show_Account";
+            string query = @"USP_hienDanhSachTaiKhoan";
             DataTable table = DataProvider.Instance.ExecuteQuery(query);
             foreach (DataRow row in table.Rows)
             {
@@ -33,7 +33,7 @@ namespace DAO
 
         public TaiKhoan handleLogin(string userName, string password)
         {
-            string query = @"USP_Login @userName , @pass ";
+            string query = @"USP_DangNhap @userName , @pass ";
             DataTable table = DataProvider.Instance.ExecuteQuery(query, new object[] { userName, password });
             if (table.Rows.Count > 0)
             {
@@ -46,7 +46,7 @@ namespace DAO
         {
             try
             {
-                string query = @"USP_Add_Account @UserName , @Pass , @LoaiTK , @idNV ";
+                string query = @"USP_themDanhSachTaiKhoan @UserName , @Pass , @LoaiTK , @idNV ";
                 //USP_Add_Account @UserName , @Pass , @LoaiTK , @idNV
                 int kq = DataProvider.Instance.ExecuteNonQuery(query, new object[] { UserName, Pass, LoaiTK, idNV });
                 return kq;
@@ -60,8 +60,7 @@ namespace DAO
         {
             try
             {
-                string query = @"USP_Update_Account @UserName , @Pass , @LoaiTK , @idNV ";
-                //USP_Add_Account @UserName , @Pass , @LoaiTK , @idNV
+                string query = @"USP_suaDanhSachTaiKhoan @UserName , @Pass , @LoaiTK , @idNV ";
                 int kq = DataProvider.Instance.ExecuteNonQuery(query, new object[] { UserName, Pass, LoaiTK, idNV });
                 return kq;
             }
@@ -74,7 +73,7 @@ namespace DAO
         {
             try
             {
-                string query = @"USP_Delete_Account @idNV ";
+                string query = @"USP_xoaDanhSachTaiKhoan @idNV ";
                 int kq = DataProvider.Instance.ExecuteNonQuery(query, new object[] { idNV });
                 return kq;
             }
