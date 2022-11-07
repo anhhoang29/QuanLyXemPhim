@@ -136,13 +136,13 @@ namespace QuanLyXemPhim
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
+            CustomerBUS.Instance.rollbackPoint(Int32.Parse(txtPoint.Text), frmCustomer.phoneNumber);
             flpSeat.Controls.Clear();
             hienThiDanhSachChoNgoiTheoMaCaChieu(this.maCaChieu);
             maVe.Clear();
             totalPrice = 0;
             finalPrice = 0;
             bonus = 0;
-
             resetPanels();
         }
 
@@ -154,6 +154,7 @@ namespace QuanLyXemPhim
             txtPlusPoint.ResetText();
             txtDiscount.ResetText();
             txtPayment.ResetText();
+            btnUsePoint.Enabled = true;
         }
 
        
@@ -171,7 +172,7 @@ namespace QuanLyXemPhim
                 }
                 else
                 {
-                    MessageBox.Show("Lỗi ");
+                    MessageBox.Show("Không tìm thấy khách hàng");
                 }
             }
         }
@@ -199,6 +200,12 @@ namespace QuanLyXemPhim
                 return;
             }
 
+           if (maVe.Count == 0)
+            {
+                MessageBox.Show("Vui lòng chọn vé");
+                return;
+            }
+
            if (CustomerBUS.Instance.usePointBUS(frmCustomer.phoneNumber))
             {
                 int percent = Convert.ToInt32(txtPoint.Text);
@@ -206,8 +213,9 @@ namespace QuanLyXemPhim
                 finalPrice = totalPrice - discountAmount;
 
                 txtDiscount.Text = discountAmount.ToString() + " VNĐ";
-                txtPoint.Text = "0";
+                //txtPoint.Text = "0";
                 txtPayment.Text = finalPrice.ToString() + " VNĐ";
+                btnUsePoint.Enabled = false;
             }
             else
             {

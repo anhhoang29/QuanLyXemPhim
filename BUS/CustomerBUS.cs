@@ -71,6 +71,12 @@ namespace BUS
         {
             return CustomerDAO.Instance.usePointDAO(phoneNumber);
         }
+
+        public void rollbackPoint(int point, string phoneNumber)
+        {
+            CustomerDAO.Instance.rollbackPoint(point, phoneNumber);
+        }
+
     }
 }
 

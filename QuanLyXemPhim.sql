@@ -675,7 +675,7 @@ AS
 GO
 
 -- cập nhật thông tin khách hàng
-àCREATE PROCEDURE USP_capNhatKhachHang @CusId INT, @name nvarchar(50), @address nvarchar(100), @birth int, @phone varchar(50), @point int
+CREATE PROCEDURE USP_capNhatKhachHang @CusId INT, @name nvarchar(50), @address nvarchar(100), @birth int, @phone varchar(50), @point int
 AS 
 	UPDATE KhachHang SET TenKhachHang = @name, Diachi = @address, NamSinh = @birth, SoDienThoai = @phone, DiemTichLuy = @point
 	WHERE MaKH = @CusId
@@ -788,6 +788,8 @@ AS
 		FROM CaChieu as cc, Phim as p WHERE p.TenPhim = @TenPhim  AND cc.MaPhim = p.MaPhim AND cc.TrangThai = 0
 	);
 
+
+
 --- transaction update trạng thái vé
 CREATE PROC USP_capNhatTrangThaiVe @MaVe int
 AS
@@ -800,7 +802,8 @@ BEGIN TRANSACTION
 	ELSE  
 	BEGIN  
 		COMMIT TRANSACTION  
-	END  
+	END 
+GO 
 
 -- lấy giá vé của một vé dựa vào id function
 CREATE FUNCTION FUNC_layGiaVe (@Id int)
@@ -810,6 +813,7 @@ RETURNS money as
 		SELECT @Price=TienBanVe FROM Ve WHERE Ve.id = @Id
 		RETURN @Price
 	END 
+GO
 
 
 
@@ -825,7 +829,7 @@ RETURNS BIT
 			END
 		RETURN @isMember
 	END
-
+GO
 -- Hàm lấy thông tin của khách hàng dựa vào số điện thoại đăng ký thành viên
 CREATE PROC USP_layThongTinKhachHang @Sdt varchar(100)
 AS
@@ -848,10 +852,10 @@ AS
 		BEGIN  
 			COMMIT TRANSACTION  
 		END 
+GO
 
 
 -- sử dụng điểm tích lũy 
- 
 CREATE PROC USP_suDungDiemTichLuy @Sdt varchar(100)
 AS
 	BEGIN TRANSACTION
@@ -866,7 +870,9 @@ AS
 		BEGIN  
 			COMMIT TRANSACTION  
 		END 
+GO
 
-
-	
- 
+CREATE PROC USP_capNhatDiem @Diem int, @Sdt varchar(100)
+AS 
+	UPDATE KhachHang SET DiemTichLuy = @Diem WHERE SoDienThoai = @Sdt;
+GO

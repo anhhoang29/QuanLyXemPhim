@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -120,6 +121,20 @@ namespace DAO
             {
                 return false;
             }
+        }
+
+        public void rollbackPoint (int point, string phoneNumber)
+        {
+            string query = "USP_capNhatDiem @Diem , @Sdt ";
+            try
+            {
+                DataProvider.Instance.ExecuteNonQuery(query, new object[] { point, phoneNumber });
+            }
+            catch
+            {
+                Debug.WriteLine("Error");
+            }
+
         }
     }
 }
