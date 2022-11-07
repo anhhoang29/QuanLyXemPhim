@@ -47,7 +47,7 @@ namespace QuanLyXemPhim
                     int col = count % 10;
                     int row = (count / 10) + 65;
                     Button btn = new Button() { Width = 80, Height = 30 };
-                    btn.Text = Convert.ToChar(row).ToString() + " - " + col.ToString();
+                    btn.Text = ve.MaGheNgoi;
                     btn.Font = new Font("Arial", (float)10.5);
                     btn.Click += btn_Click;
                     btn.Tag = ve;
@@ -136,7 +136,11 @@ namespace QuanLyXemPhim
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            CustomerBUS.Instance.rollbackPoint(Int32.Parse(txtPoint.Text), frmCustomer.phoneNumber);
+            if (txtPoint.Text != "" && txtPoint.Text != null)
+            {
+                CustomerBUS.Instance.rollbackPoint(Int32.Parse(txtPoint.Text), frmCustomer.phoneNumber);
+            }
+            
             flpSeat.Controls.Clear();
             hienThiDanhSachChoNgoiTheoMaCaChieu(this.maCaChieu);
             maVe.Clear();
@@ -158,7 +162,6 @@ namespace QuanLyXemPhim
         }
 
        
-
         public void loadDataCustomer()
         {
             if (frmCustomer.phoneNumber != "")
