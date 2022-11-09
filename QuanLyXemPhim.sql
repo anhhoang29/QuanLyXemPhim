@@ -149,6 +149,10 @@ INSERT NhanVien (idNV, HoTen, NgaySinh, DiaChi, SDT, CMND) VALUES (N'NV05',N'Vũ
 --- insert tài khoản---
 INSERT TaiKhoan (UserName, Pass,LoaiTK, idNV) VALUES (N'admin',N'admin',1,N'NV01')
 INSERT TaiKhoan (UserName, Pass,LoaiTK, idNV) VALUES (N'NV02',N'123456',2,N'NV02')
+INSERT TaiKhoan (UserName, Pass,LoaiTK, idNV) VALUES (N'NV03',N'123456',2,N'NV03')
+INSERT TaiKhoan (UserName, Pass,LoaiTK, idNV) VALUES (N'NV04',N'123456',1,N'NV04')
+INSERT TaiKhoan (UserName, Pass,LoaiTK, idNV) VALUES (N'NV05',N'123456',1,N'NV05')
+
 
 --- insert thể loại phim
 INSERT TheLoai(MaLoaiPhim,TenTheLoai) VALUES (N'T01', N'Hành Động')
@@ -170,6 +174,19 @@ INSERT Phim (MaPhim, TenPhim, MoTa, ThoiLuong, NgayKhoiChieu, NgayKetThuc,QuocGi
 VALUES ('P0003',N'Chúa tể của những chiếc nhẫn',NULL,2.5, N'2022-9-8',N'2022-12-30',N'Mỹ','Ralph Bakshi',2016,13)
 INSERT Phim (MaPhim, TenPhim, MoTa, ThoiLuong, NgayKhoiChieu, NgayKetThuc,QuocGia, DaoDien,NamSX,GioiHanTuoi) 
 VALUES ('P0004',N'Bố Già',NULL,2,N'2022-10-8',N'2022-12-30',N'Việt Nam',N'Trấn Thành',2018,9)
+INSERT Phim (MaPhim, TenPhim, MoTa, ThoiLuong, NgayKhoiChieu, NgayKetThuc,QuocGia, DaoDien,NamSX,GioiHanTuoi) 
+VALUES ('P0005',N'Nhà tù Shawshank',NULL,2,N'2022-1-8',N'2022-11-30',N'Mỹ',N'Frank Darabont',1994,10)
+INSERT Phim (MaPhim, TenPhim, MoTa, ThoiLuong, NgayKhoiChieu, NgayKetThuc,QuocGia, DaoDien,NamSX,GioiHanTuoi) 
+VALUES ('P0006',N'Kỵ sĩ bóng đêm',NULL,3,N'2022-2-12',N'2022-5-30',N'Mỹ',N'Christopher Nolan',2008,18)
+INSERT Phim (MaPhim, TenPhim, MoTa, ThoiLuong, NgayKhoiChieu, NgayKetThuc,QuocGia, DaoDien,NamSX,GioiHanTuoi) 
+VALUES ('P0007',N'Kẻ đánh cắp giấc mơ',NULL,2.5,N'2022-4-12',N'2022-6-30',N'Mỹ',N'Christopher Nolan',2010,9)
+INSERT Phim (MaPhim, TenPhim, MoTa, ThoiLuong, NgayKhoiChieu, NgayKetThuc,QuocGia, DaoDien,NamSX,GioiHanTuoi) 
+VALUES ('P0008',N'Sàn đấu sinh tử ',NULL,3.1,N'2022-4-23',N'2022-8-3',N'Mỹ',N'David Fincher',1999,5)
+INSERT Phim (MaPhim, TenPhim, MoTa, ThoiLuong, NgayKhoiChieu, NgayKetThuc,QuocGia, DaoDien,NamSX,GioiHanTuoi) 
+VALUES ('P0009',N'Vua sư tử ',NULL,2,N'2022-1-23',N'2022-3-3',N'Mỹ',N'Roger Allers và Rob Minkoff',1994,2)
+
+INSERT Phim (MaPhim, TenPhim, MoTa, ThoiLuong, NgayKhoiChieu, NgayKetThuc,QuocGia, DaoDien,NamSX,GioiHanTuoi) 
+VALUES ('P00010',N'Ngôi nhà ma ',NULL,4,N'2022-1-23',N'2022-8-3',N'Anh',N'The shining ',1940,5)
 
 -- Phân Loại Phim
 INSERT PhanLoaiPhim ( idPhim, idTheLoai) VALUES ('P0001','T02')
