@@ -140,11 +140,19 @@ GO
 
 --================================================CHÈN DỮ LIỆU VÀO CÁC BẢNG==================================================
 -- insert nhân viên---
-INSERT NhanVien (idNV, HoTen, NgaySinh, DiaChi, SDT, CMND) VALUES (N'NV01','Admin', CAST(N'2002-10-29' AS Date),N'Admin',NULL,123456789)
-INSERT NhanVien (idNV, HoTen, NgaySinh, DiaChi, SDT, CMND) VALUES (N'NV02',N'Bùi Thanh Duy', CAST(N'2002-1-1' AS Date),N'Phú Yên',NULL,075234567)
-INSERT NhanVien (idNV, HoTen, NgaySinh, DiaChi, SDT, CMND) VALUES (N'NV03',N'Phạm Nguyễn Nhựt Trường', CAST(N'2002-2-2' AS Date),N'Tiền Giang',NULL,075234568)
-INSERT NhanVien (idNV, HoTen, NgaySinh, DiaChi, SDT, CMND) VALUES (N'NV04',N'Phan Quốc Lưu', CAST(N'2002-3-3' AS Date),N'Thủ Đức',NULL,075234569)
-INSERT NhanVien (idNV, HoTen, NgaySinh, DiaChi, SDT, CMND) VALUES (N'NV05',N'Vũ Hoàng Anh', CAST(N'2002-5-5' AS Date),N'Đồng Nai',NULL,075234560)
+INSERT NhanVien (idNV, HoTen, NgaySinh, DiaChi, SDT, CMND) VALUES (N'NV01','Admin', CAST(N'2002-10-29' AS Date),N'Admin',0772797888,123456789)
+INSERT NhanVien (idNV, HoTen, NgaySinh, DiaChi, SDT, CMND) VALUES (N'NV02',N'Bùi Thanh Duy', CAST(N'2002-1-1' AS Date),N'Phú Yên',0392370979,075234567)
+INSERT NhanVien (idNV, HoTen, NgaySinh, DiaChi, SDT, CMND) VALUES (N'NV03',N'Phạm Nguyễn Nhựt Trường', CAST(N'2002-2-2' AS Date),N'Tiền Giang',0352864779,075234568)
+INSERT NhanVien (idNV, HoTen, NgaySinh, DiaChi, SDT, CMND) VALUES (N'NV04',N'Phan Quốc Lưu', CAST(N'2002-3-3' AS Date),N'Thủ Đức',0326721551,075234569)
+INSERT NhanVien (idNV, HoTen, NgaySinh, DiaChi, SDT, CMND) VALUES (N'NV05',N'Vũ Hoàng Anh', CAST(N'2002-5-5' AS Date),N'Đồng Nai',0336725088,075234560)
+INSERT NhanVien (idNV, HoTen, NgaySinh, DiaChi, SDT, CMND) VALUES (N'NV06',N'Nguyen Văn Trí', CAST(N'2001-6-5' AS Date),N'Bình Dương',0372913986,09881234769)
+INSERT NhanVien (idNV, HoTen, NgaySinh, DiaChi, SDT, CMND) VALUES (N'NV07',N'Cao Văn Minh', CAST(N'2000-9-29' AS Date),N'Thái Nguyên',0865808784,0752345600)
+INSERT NhanVien (idNV, HoTen, NgaySinh, DiaChi, SDT, CMND) VALUES (N'NV08',N'Nguyễn Minh Quang', CAST(N'2002-6-21' AS Date),N'Đồng Tháp',0333506399,0881236789)
+INSERT NhanVien (idNV, HoTen, NgaySinh, DiaChi, SDT, CMND) VALUES (N'NV09',N'Trần Thanh Quang', CAST(N'2002-12-30' AS Date),N'Quảng Ngãi',0348693479,0988133409)
+INSERT NhanVien (idNV, HoTen, NgaySinh, DiaChi, SDT, CMND) VALUES (N'NV010',N'Nguyễn Gia Huy', CAST(N'2002-8-27' AS Date),N'Khánh Hòa',0965987619,0945342358)
+INSERT NhanVien (idNV, HoTen, NgaySinh, DiaChi, SDT, CMND) VALUES (N'NV011',N'Lê Minh Quốc', CAST(N'2002-8-5' AS Date),N'Bình Thuận',0348786939,0912378906)
+ 
+
 
 --- insert tài khoản---
 INSERT TaiKhoan (UserName, Pass,LoaiTK, idNV) VALUES (N'admin',N'admin',1,N'NV01')
@@ -152,7 +160,12 @@ INSERT TaiKhoan (UserName, Pass,LoaiTK, idNV) VALUES (N'NV02',N'123456',2,N'NV02
 INSERT TaiKhoan (UserName, Pass,LoaiTK, idNV) VALUES (N'NV03',N'123456',2,N'NV03')
 INSERT TaiKhoan (UserName, Pass,LoaiTK, idNV) VALUES (N'NV04',N'123456',1,N'NV04')
 INSERT TaiKhoan (UserName, Pass,LoaiTK, idNV) VALUES (N'NV05',N'123456',1,N'NV05')
-
+INSERT TaiKhoan (UserName, Pass,LoaiTK, idNV) VALUES (N'NV06',N'123456',2,N'NV06')
+INSERT TaiKhoan (UserName, Pass,LoaiTK, idNV) VALUES (N'NV07',N'admin',2,N'NV07')
+INSERT TaiKhoan (UserName, Pass,LoaiTK, idNV) VALUES (N'NV08',N'123456',1,N'NV08')
+INSERT TaiKhoan (UserName, Pass,LoaiTK, idNV) VALUES (N'NV09',N'123456',2,N'NV09')
+INSERT TaiKhoan (UserName, Pass,LoaiTK, idNV) VALUES (N'NV010',N'123456',1,N'NV010')
+INSERT TaiKhoan (UserName, Pass,LoaiTK, idNV) VALUES (N'NV011',N'123456',2,N'NV011')
 
 --- insert thể loại phim
 INSERT TheLoai(MaLoaiPhim,TenTheLoai) VALUES (N'T01', N'Hành Động')
@@ -184,9 +197,25 @@ INSERT Phim (MaPhim, TenPhim, MoTa, ThoiLuong, NgayKhoiChieu, NgayKetThuc,QuocGi
 VALUES ('P0008',N'Sàn đấu sinh tử ',NULL,3.1,N'2022-4-23',N'2022-8-3',N'Mỹ',N'David Fincher',1999,5)
 INSERT Phim (MaPhim, TenPhim, MoTa, ThoiLuong, NgayKhoiChieu, NgayKetThuc,QuocGia, DaoDien,NamSX,GioiHanTuoi) 
 VALUES ('P0009',N'Vua sư tử ',NULL,2,N'2022-1-23',N'2022-3-3',N'Mỹ',N'Roger Allers và Rob Minkoff',1994,2)
+INSERT Phim (MaPhim, TenPhim, MoTa, ThoiLuong, NgayKhoiChieu, NgayKetThuc,QuocGia, DaoDien,NamSX,GioiHanTuoi) 
+VALUES ('P00010',N'Ngôi nhà ma',NULL,4,N'2022-1-23',N'2022-8-3',N'Anh',N'The shining ',1940,5)
+INSERT Phim (MaPhim, TenPhim, MoTa, ThoiLuong, NgayKhoiChieu, NgayKetThuc,QuocGia, DaoDien,NamSX,GioiHanTuoi) 
+VALUES ('P00011',N'Star Wars IV ',NULL,2,N'2022-12-20',N'2022-12-29',N'Anh',N'A New Hope ',1977,2)
+INSERT Phim (MaPhim, TenPhim, MoTa, ThoiLuong, NgayKhoiChieu, NgayKetThuc,QuocGia, DaoDien,NamSX,GioiHanTuoi) 
+VALUES ('P00012',N'Cái Tên Khắc Sâu Trong Tim Người',NULL,1,N'2020-12-20',N'2021-12-29',N'Đài Loan',N'Liễu Quảng Huy ',2020,8)
+INSERT Phim (MaPhim, TenPhim, MoTa, ThoiLuong, NgayKhoiChieu, NgayKetThuc,QuocGia, DaoDien,NamSX,GioiHanTuoi) 
+VALUES ('P00013',N'Tân Tuyệt Đại Song Kiêu',NULL,1,N'2021-12-23',N'2022-12-29',N'Trung Quốc',N'Trâu Tập Thành',2020,8)
+INSERT Phim (MaPhim, TenPhim, MoTa, ThoiLuong, NgayKhoiChieu, NgayKetThuc,QuocGia, DaoDien,NamSX,GioiHanTuoi) 
+VALUES ('P00014',N'Tảo Hắc Phong Bạo',NULL,4,N'2021-9-23',N'2022-10-29',N'Hàn Quốc',N'Thanh Khôi',2013,8)
 
 INSERT Phim (MaPhim, TenPhim, MoTa, ThoiLuong, NgayKhoiChieu, NgayKetThuc,QuocGia, DaoDien,NamSX,GioiHanTuoi) 
-VALUES ('P00010',N'Ngôi nhà ma ',NULL,4,N'2022-1-23',N'2022-8-3',N'Anh',N'The shining ',1940,5)
+VALUES ('P00015',N'Tiếu Ngạo Gian Hồ',NULL,1,N'2021-1-23',N'2022-10-29',N'Trung Quốc',N'Minh Châu',1990,9)
+
+INSERT Phim (MaPhim, TenPhim, MoTa, ThoiLuong, NgayKhoiChieu, NgayKetThuc,QuocGia, DaoDien,NamSX,GioiHanTuoi) 
+VALUES ('P00016',N'Thủy Hử',NULL,1,N'2021-12-23',N'2022-12-29',N'Trung Quốc',N'Tràng An ',1890,8)
+
+
+
 
 -- Phân Loại Phim
 INSERT PhanLoaiPhim ( idPhim, idTheLoai) VALUES ('P0001','T02')
@@ -584,6 +613,13 @@ BEGIN
 	VALUES(@MaKH,  @TenKhachHang, @DiaChi, @NamSinh, @SoDienThoai, @CMND, @DiemTichLuy)
 END
 GO
+
+
+
+--store  add cho ngoi 
+create proc usp_add_chongoi @Id int, @Hang char(1), @
+
+
 
 --STORE update khách hàng
 CREATE PROC USP_Update_Khach_Hang @MaKH INT, @TenKhachHang NVARCHAR(50), @DiaChi NVARCHAR(50), @NamSinh INT,
