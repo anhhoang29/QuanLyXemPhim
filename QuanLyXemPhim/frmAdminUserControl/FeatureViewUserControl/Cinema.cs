@@ -18,10 +18,10 @@ namespace QuanLyXemPhim.frmAdminUserControl.FeatureViewUserControl
         {
             InitializeComponent();
             dtgvCinema.DataSource = cinemaList;
-            LoadCinema();
+            hienThiPhongChieu();
         }
 
-        void LoadCinema()
+        void hienThiPhongChieu()
         {
             PhongChieuBUS.Instance.hienThiPhongChieu(cinemaList);
             AddCinemaBinding();

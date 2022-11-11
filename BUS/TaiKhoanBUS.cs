@@ -18,14 +18,9 @@ namespace BUS
             get { if (instance == null) instance = new TaiKhoanBUS(); return TaiKhoanBUS.instance; }
             private set { TaiKhoanBUS.instance = value; }
         }
-        public void hienThiTaiKhoan(BindingSource source)
+        public TaiKhoan xuLyDangNhap(string userName, string password)
         {
-            source.DataSource = TaiKhoanDAO.Instance.hienThiTaiKhoan();
-        }
-
-        public TaiKhoan handleLogin(string userName, string password)
-        {
-            return TaiKhoanDAO.Instance.handleLogin(userName, password);
+            return TaiKhoanDAO.Instance.xuLyDangNhap(userName, password);
         }
         public void themDanhSachTaiKhoan(string UserName, string Pass, int LoaiTK, string idNV)
         {

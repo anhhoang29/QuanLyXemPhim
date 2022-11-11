@@ -32,13 +32,13 @@ namespace QuanLyXemPhim
             this.resUsername = new System.Windows.Forms.Label();
             this.resSdt = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.boxRole = new System.Windows.Forms.ComboBox();
-            this.txtUsername_Resgister = new System.Windows.Forms.TextBox();
-            this.txtResSDT = new System.Windows.Forms.TextBox();
-            this.txtBorn = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.txtName = new System.Windows.Forms.TextBox();
+            this.txtPhoneNumber = new System.Windows.Forms.TextBox();
+            this.txtBirth = new System.Windows.Forms.TextBox();
+            this.lblAddress = new System.Windows.Forms.Label();
             this.DangKy = new System.Windows.Forms.Button();
             this.Re_Thoat = new System.Windows.Forms.Button();
+            this.txtAddress = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // resUsername
@@ -71,63 +71,55 @@ namespace QuanLyXemPhim
             this.label3.TabIndex = 2;
             this.label3.Text = "Năm Sinh:";
             // 
-            // boxRole
+            // txtName
             // 
-            this.boxRole.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.boxRole.FormattingEnabled = true;
-            this.boxRole.Location = new System.Drawing.Point(221, 225);
-            this.boxRole.Name = "boxRole";
-            this.boxRole.Size = new System.Drawing.Size(168, 33);
-            this.boxRole.TabIndex = 3;
+            this.txtName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtName.Location = new System.Drawing.Point(221, 45);
+            this.txtName.Name = "txtName";
+            this.txtName.Size = new System.Drawing.Size(308, 30);
+            this.txtName.TabIndex = 4;
             // 
-            // txtUsername_Resgister
+            // txtPhoneNumber
             // 
-            this.txtUsername_Resgister.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUsername_Resgister.Location = new System.Drawing.Point(221, 45);
-            this.txtUsername_Resgister.Name = "txtUsername_Resgister";
-            this.txtUsername_Resgister.Size = new System.Drawing.Size(308, 30);
-            this.txtUsername_Resgister.TabIndex = 4;
+            this.txtPhoneNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPhoneNumber.Location = new System.Drawing.Point(221, 105);
+            this.txtPhoneNumber.Name = "txtPhoneNumber";
+            this.txtPhoneNumber.Size = new System.Drawing.Size(308, 30);
+            this.txtPhoneNumber.TabIndex = 5;
             // 
-            // txtResSDT
+            // txtBirth
             // 
-            this.txtResSDT.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtResSDT.Location = new System.Drawing.Point(221, 105);
-            this.txtResSDT.Name = "txtResSDT";
-            this.txtResSDT.Size = new System.Drawing.Size(308, 30);
-            this.txtResSDT.TabIndex = 5;
+            this.txtBirth.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBirth.Location = new System.Drawing.Point(221, 167);
+            this.txtBirth.Name = "txtBirth";
+            this.txtBirth.Size = new System.Drawing.Size(308, 30);
+            this.txtBirth.TabIndex = 6;
             // 
-            // txtBorn
+            // lblAddress
             // 
-            this.txtBorn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBorn.Location = new System.Drawing.Point(221, 167);
-            this.txtBorn.Name = "txtBorn";
-            this.txtBorn.Size = new System.Drawing.Size(308, 30);
-            this.txtBorn.TabIndex = 6;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(73, 228);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(132, 25);
-            this.label1.TabIndex = 7;
-            this.label1.Text = "Nghề Nghiệp:";
+            this.lblAddress.AutoSize = true;
+            this.lblAddress.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAddress.Location = new System.Drawing.Point(73, 228);
+            this.lblAddress.Name = "lblAddress";
+            this.lblAddress.Size = new System.Drawing.Size(82, 25);
+            this.lblAddress.TabIndex = 7;
+            this.lblAddress.Text = "Địa Chỉ:";
             // 
             // DangKy
             // 
             this.DangKy.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DangKy.Location = new System.Drawing.Point(152, 299);
+            this.DangKy.Location = new System.Drawing.Point(221, 299);
             this.DangKy.Name = "DangKy";
-            this.DangKy.Size = new System.Drawing.Size(99, 34);
+            this.DangKy.Size = new System.Drawing.Size(160, 34);
             this.DangKy.TabIndex = 8;
             this.DangKy.Text = "Đăng Ký";
             this.DangKy.UseVisualStyleBackColor = true;
+            this.DangKy.Click += new System.EventHandler(this.DangKy_Click);
             // 
             // Re_Thoat
             // 
             this.Re_Thoat.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Re_Thoat.Location = new System.Drawing.Point(318, 299);
+            this.Re_Thoat.Location = new System.Drawing.Point(417, 299);
             this.Re_Thoat.Name = "Re_Thoat";
             this.Re_Thoat.Size = new System.Drawing.Size(112, 34);
             this.Re_Thoat.TabIndex = 9;
@@ -135,19 +127,27 @@ namespace QuanLyXemPhim
             this.Re_Thoat.UseVisualStyleBackColor = true;
             this.Re_Thoat.Click += new System.EventHandler(this.Re_Thoat_Click);
             // 
+            // txtAddress
+            // 
+            this.txtAddress.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtAddress.Location = new System.Drawing.Point(221, 228);
+            this.txtAddress.Name = "txtAddress";
+            this.txtAddress.Size = new System.Drawing.Size(308, 30);
+            this.txtAddress.TabIndex = 10;
+            // 
             // frmRegister
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Silver;
             this.ClientSize = new System.Drawing.Size(701, 373);
+            this.Controls.Add(this.txtAddress);
             this.Controls.Add(this.Re_Thoat);
             this.Controls.Add(this.DangKy);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.txtBorn);
-            this.Controls.Add(this.txtResSDT);
-            this.Controls.Add(this.txtUsername_Resgister);
-            this.Controls.Add(this.boxRole);
+            this.Controls.Add(this.lblAddress);
+            this.Controls.Add(this.txtBirth);
+            this.Controls.Add(this.txtPhoneNumber);
+            this.Controls.Add(this.txtName);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.resSdt);
             this.Controls.Add(this.resUsername);
@@ -164,12 +164,12 @@ namespace QuanLyXemPhim
         private System.Windows.Forms.Label resUsername;
         private System.Windows.Forms.Label resSdt;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.ComboBox boxRole;
-        private System.Windows.Forms.TextBox txtUsername_Resgister;
-        private System.Windows.Forms.TextBox txtResSDT;
-        private System.Windows.Forms.TextBox txtBorn;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox txtName;
+        private System.Windows.Forms.TextBox txtPhoneNumber;
+        private System.Windows.Forms.TextBox txtBirth;
+        private System.Windows.Forms.Label lblAddress;
         private System.Windows.Forms.Button DangKy;
         private System.Windows.Forms.Button Re_Thoat;
+        private System.Windows.Forms.TextBox txtAddress;
     }
 }

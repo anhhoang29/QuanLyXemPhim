@@ -1,4 +1,5 @@
 ﻿using BUS;
+using DAO;
 using DTO;
 using QuanLyXemPhim.frmAdminUserControl;
 using System;
@@ -23,7 +24,8 @@ namespace QuanLyXemPhim
         {
             string userName = txtUsername.Text;
             string password = txtPassword.Text;
-            TaiKhoan taiKhoan = TaiKhoanBUS.Instance.handleLogin(userName, password);
+            DBSQLServerUtils con = new DBSQLServerUtils(userName, password);
+            TaiKhoan taiKhoan = TaiKhoanBUS.Instance.xuLyDangNhap(userName, password);
             if (taiKhoan != null)
             {
                 frmDashboard dashboard = new frmDashboard(taiKhoan);

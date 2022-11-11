@@ -19,7 +19,7 @@ namespace DAO
         public static List<CaChieu_Phim> GetCaChieuByTicket()
         {
             List<CaChieu_Phim> listcachieu = new List<CaChieu_Phim>();
-            DataTable data = DataProvider.Instance.ExecuteQuery("USP_GetCaChieubyTicket");
+            DataTable data = DataProvider.Instance.ExecuteQuery("USP_layCaChieuTheoVe");
             foreach (DataRow row in data.Rows)
             {
                 CaChieu_Phim showTimes = new CaChieu_Phim(row);

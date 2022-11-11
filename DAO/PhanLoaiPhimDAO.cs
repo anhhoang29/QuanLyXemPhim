@@ -18,7 +18,7 @@ namespace DAO
         {
             try
             {
-                string query = @"USP_Delete_The_Loai_Phim @idPhim ";
+                string query = @"USP_xoaTheLoaiPhim @idPhim ";
                 int kq = DataProvider.Instance.ExecuteNonQuery(query, new object[] { idPhim });
                 return kq;
             }
