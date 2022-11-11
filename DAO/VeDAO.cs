@@ -21,7 +21,7 @@ namespace DAO
         }
         public int themVeByCaChieu(string MaCaChieu, string MaGheNgoi)
         {
-            string query = "USP_themVeByCaChieu @MaCaChieu , @MaGheNgoi";
+            string query = "USP_themVeCaChieu @MaCaChieu , @MaGheNgoi ";
             return DataProvider.Instance.ExecuteNonQuery(query, new object[] { MaCaChieu, MaGheNgoi });
         }
         public List<Ve> hienthiVe(string maCaChieu)
@@ -38,7 +38,7 @@ namespace DAO
         }
         public int xoaVeByCaChieu(string MaCaChieu)
         {
-            string query = "USP_Xoa_Ve_By_Ca_Chieu @MaCaChieu";
+            string query = "USP_xoaVeBoiMaCaChieu";
             return DataProvider.Instance.ExecuteNonQuery(query, new object[] { MaCaChieu });
         }
 

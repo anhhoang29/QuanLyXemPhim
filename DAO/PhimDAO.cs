@@ -22,7 +22,7 @@ namespace DAO
         {
             try
             {
-                string query = @"USP_Show_Phim";
+                string query = @"USP_hienDanhSachPhim";
                 List<Phim> danhSachPhim = new List<Phim>();
                 DataTable table = DataProvider.Instance.ExecuteQuery(query);
 
@@ -65,7 +65,7 @@ namespace DAO
         {
            try
            {
-                string query = @"USP_Update_Phim @MaPhim , @TenPhim , @MoTa , @ThoiLuong , @NgayKhoiChieu ,
+                string query = @"USP_suaDanhSachPhim @MaPhim , @TenPhim , @MoTa , @ThoiLuong , @NgayKhoiChieu ,
                         @NgayKetThuc , @QuocGia , @DaoDien , @GioiHanTuoi ";
                 int kq = DataProvider.Instance.ExecuteNonQuery(query, new object[] {MaPhim, TenPhim,MoTa, ThoiLuong,
                         NgayBatDau, NgayKetThuc, QuocGia, DienVien, GioiHanTuoi });
@@ -81,7 +81,7 @@ namespace DAO
         {
             try
             {
-                string query = @"USP_Add_Phim @MaPhim , @TenPhim , @MoTa , @ThoiLuong , @NgayKhoiChieu ,
+                string query = @"USP_themDanhSachPhim @MaPhim , @TenPhim , @MoTa , @ThoiLuong , @NgayKhoiChieu ,
                         @NgayKetThuc , @QuocGia , @DaoDien , @GioiHanTuoi ";
                 int kq = DataProvider.Instance.ExecuteNonQuery(query, new object[] {MaPhim, TenPhim,MoTa, ThoiLuong,
                         NgayBatDau, NgayKetThuc, QuocGia, DienVien, GioiHanTuoi });
@@ -96,7 +96,7 @@ namespace DAO
         {
             try
             {
-                string query = @"USP_Delete_Phim_Phim_PhanLoaiPhim_CaChieu @MaPhim ";
+                string query = @"USP_xoaDanhSachPhimTuCaChieu @MaPhim ";
                 int kq = DataProvider.Instance.ExecuteNonQuery(query, new object[] { MaPhim});
                 return kq;
             }
@@ -123,7 +123,7 @@ namespace DAO
         public static List<Phim> GetPhim()
         {
             List<Phim> MovieList = new List<Phim>();
-            DataTable data = DataProvider.Instance.ExecuteQuery(@"USP_Show_Phim");
+            DataTable data = DataProvider.Instance.ExecuteQuery(@"USP_hienDanhSachPhim");
             foreach (DataRow item in data.Rows)
             {
                 Phim MovieName = new Phim(item);

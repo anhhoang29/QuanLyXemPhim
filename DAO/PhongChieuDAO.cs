@@ -20,7 +20,7 @@ namespace DAO
         public List<PhongChieu> hienThiPhongChieu() 
         {
             List<PhongChieu> danhSahcPhongChieu = new List<PhongChieu>();
-            string query = @"USP_Show_Phong_Chieu";
+            string query = @"USP_layDanhSachPhongChieu";
             DataTable table = DataProvider.Instance.ExecuteQuery(query);
 
             foreach(DataRow row in table.Rows)
@@ -35,7 +35,7 @@ namespace DAO
         {
             try
             {
-                string query = @"USP_Add_Phong_Chieu @MaPhong , @TenPhong , @SoChoNgoi , @TinhTrang , @SoHangGhe , @SoGheMotHang ";
+                string query = @"USP_themPhongChieu @MaPhong , @TenPhong , @SoChoNgoi , @TinhTrang , @SoHangGhe , @SoGheMotHang ";
                 int kq = DataProvider.Instance.ExecuteNonQuery(query, new object[] { MaPhong, TenPhong.ToUpper(), SoChoNgoi, TinhTrang, SoHangGhe, SoGheMotHang });
                 return kq;
             }
@@ -49,7 +49,7 @@ namespace DAO
         {
             try
             {
-                string query = @"USP_Xoa_Phong_Chieu @MaPhong ";
+                string query = @"USP_xoaPhongChieu @MaPhong ";
                 int kq = DataProvider.Instance.ExecuteNonQuery(query, new object[] { MaPhong});
                 return kq;
             }
@@ -63,7 +63,7 @@ namespace DAO
         {
             try
             {
-                string query = @"USP_Update_Phong_Chieu @MaPhong , @TenPhong , @SoChoNgoi , @TinhTrang , @SoHangGhe , @SoGheMotHang ";
+                string query = @"USP_capNhatPhongChieu @MaPhong , @TenPhong , @SoChoNgoi , @TinhTrang , @SoHangGhe , @SoGheMotHang ";
                 int kq = DataProvider.Instance.ExecuteNonQuery(query, new object[] { MaPhong, TenPhong.ToUpper(), SoChoNgoi, TinhTrang, SoHangGhe, SoGheMotHang });
                 return kq;
             }

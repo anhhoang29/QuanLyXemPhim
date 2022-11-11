@@ -5,6 +5,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace DAO
 {
@@ -16,9 +17,9 @@ namespace DAO
             get { if (instance == null) instance = new TaiKhoanDAO(); return TaiKhoanDAO.instance; }
             private set { TaiKhoanDAO.instance = value; }
         }
-        public TaiKhoan handleLogin(string userName, string password)
+        public TaiKhoan xuLyDangNhap(string userName, string password)
         {
-            string query = @"USP_Login @userName , @pass ";
+            string query = @"USP_dangNhap @userName , @pass ";
             DataTable table = DataProvider.Instance.ExecuteQuery(query, new object[] { userName, password });
             if (table.Rows.Count > 0)
             {

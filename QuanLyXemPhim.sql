@@ -17,7 +17,6 @@ CREATE TABLE NhanVien
 )
 GO
 
-
 CREATE TABLE TaiKhoan
 (
 	UserName NVARCHAR(100) NOT NULL,
@@ -79,6 +78,7 @@ CREATE TABLE PhanLoaiPhim --Quan hệ giữa Phim và LoaiPhim là quan hệ n-n
 )
 GO
 
+
 CREATE TABLE CaChieu
 (
 	MaCaChieu VARCHAR(50) PRIMARY KEY,
@@ -101,16 +101,15 @@ GO
 
 -- Tạo bảng khách hàng ---
 CREATE TABLE KhachHang(
-	MaKH INT PRIMARY KEY IDENTITY(1,1) NOT NULL,
+	MaKH INT PRIMARY KEY IDENTITY(1,1),
 	TenKhachHang NVARCHAR(50) NOT NULL,
 	Diachi NVARCHAR(100),
-	NamSinh INT,
-	SoDienThoai VARCHAR (50) UNIQUE,
+	NamSinh INT NOT NULL,
+	SoDienThoai VARCHAR (50),
+	CMND INT NOT NULL UNIQUE,
 	DiemTichLuy INT DEFAULT 0
 )
 GO
-
-
 
 CREATE TABLE Ve
 (
@@ -127,6 +126,7 @@ CREATE TABLE Ve
 )
 GO
 
+
 CREATE TABLE ChoNgoi(
 	Id INT IDENTITY(1,1) PRIMARY KEY,
 	Hang CHAR(1) NOT NULL, -- Hàng A, B, C
@@ -140,188 +140,236 @@ CREATE TABLE ChoNgoi(
 GO
 
 
-select * from NhanVien
 
 --================================================CHÈN DỮ LIỆU VÀO CÁC BẢNG==================================================
 -- insert nhân viên---
 INSERT NhanVien (idNV, HoTen, NgaySinh, DiaChi, SDT, CMND) VALUES (N'NV01','Admin', CAST(N'2002-10-29' AS Date),N'Admin',NULL,123456789)
+GO
 INSERT NhanVien (idNV, HoTen, NgaySinh, DiaChi, SDT, CMND) VALUES (N'NV02',N'Bùi Thanh Duy', CAST(N'2002-1-1' AS Date),N'Phú Yên',NULL,075234567)
+GO
 INSERT NhanVien (idNV, HoTen, NgaySinh, DiaChi, SDT, CMND) VALUES (N'NV03',N'Phạm Nguyễn Nhựt Trường', CAST(N'2002-2-2' AS Date),N'Tiền Giang',NULL,075234568)
+GO
 INSERT NhanVien (idNV, HoTen, NgaySinh, DiaChi, SDT, CMND) VALUES (N'NV04',N'Phan Quốc Lưu', CAST(N'2002-3-3' AS Date),N'Thủ Đức',NULL,075234569)
+GO
 INSERT NhanVien (idNV, HoTen, NgaySinh, DiaChi, SDT, CMND) VALUES (N'NV05',N'Vũ Hoàng Anh', CAST(N'2002-5-5' AS Date),N'Đồng Nai',NULL,075234560)
+GO
+
 
 --- insert tài khoản---
+---1: quyền admin(Có đầy đủ tất cả các quyền trên bảng, store, function)
 INSERT TaiKhoan (UserName, Pass,LoaiTK, idNV) VALUES (N'admin',N'admin',1,N'NV01')
+GO
+---2: quyền nhân viên(Chỉ có quyền thao tác trên 1 số bảng, store, function)
 INSERT TaiKhoan (UserName, Pass,LoaiTK, idNV) VALUES (N'NV02',N'123456',2,N'NV02')
+GO
 
-select * from TaiKhoan
+
 
 --- insert thể loại phim
 INSERT TheLoai(MaLoaiPhim,TenTheLoai) VALUES (N'T01', N'Hành Động')
+GO
 INSERT TheLoai(MaLoaiPhim,TenTheLoai) VALUES (N'T02', N'Hoạt Hình')
+GO
 INSERT TheLoai(MaLoaiPhim,TenTheLoai) VALUES (N'T03', N'Hài')
+GO
 INSERT TheLoai(MaLoaiPhim,TenTheLoai) VALUES (N'T04', N'Viễn Tưởng')
+GO
 INSERT TheLoai(MaLoaiPhim,TenTheLoai) VALUES (N'T05', N'Phiêu lưu')
+GO
 INSERT TheLoai(MaLoaiPhim,TenTheLoai) VALUES (N'T06', N'Gia đình')
+GO
 INSERT TheLoai(MaLoaiPhim,TenTheLoai) VALUES (N'T07', N'Tình Cảm')
+GO
 INSERT TheLoai(MaLoaiPhim,TenTheLoai) VALUES (N'T08', N'Tâm Lý')
+GO
 INSERT TheLoai(MaLoaiPhim,TenTheLoai) VALUES (N'T09', N'Kinh Dị')
+GO
 
 --- insert phim---
 INSERT Phim (MaPhim, TenPhim, MoTa, ThoiLuong, NgayKhoiChieu, NgayKetThuc,QuocGia, DaoDien,NamSX,GioiHanTuoi) 
 VALUES ('P0001',N'Chú Khủng Long Của Nobita',NULL,2.5, CAST(N'2022-10-1' AS Date),CAST(N'2022-12-1' AS Date),N'Nhật Bản','Kaminashi Mitsuo',2019,7)
+GO
 INSERT Phim (MaPhim, TenPhim, MoTa, ThoiLuong, NgayKhoiChieu, NgayKetThuc,QuocGia, DaoDien,NamSX,GioiHanTuoi) 
 VALUES ('P0002',N'Harry Potter và Hòn Đá Phù Thủy',NULL,2, CAST(N'2022-10-8' AS Date),CAST(N'2022-12-30' AS Date),N'Anh','Chris Columbus',2018,13)
+GO
 INSERT Phim (MaPhim, TenPhim, MoTa, ThoiLuong, NgayKhoiChieu, NgayKetThuc,QuocGia, DaoDien,NamSX,GioiHanTuoi) 
 VALUES ('P0003',N'Chúa tể của những chiếc nhẫn',NULL,2.5, CAST(N'2022-9-8' AS Date),CAST(N'2022-12-30' AS Date),N'Mỹ','Ralph Bakshi',2016,13)
+GO
 INSERT Phim (MaPhim, TenPhim, MoTa, ThoiLuong, NgayKhoiChieu, NgayKetThuc,QuocGia, DaoDien,NamSX,GioiHanTuoi) 
 VALUES ('P0004',N'Bố Già',NULL,2, CAST(N'2022-10-8' AS Date),CAST(N'2022-12-30' AS Date),N'Việt Nam',N'Trấn Thành',2018,9)
+GO
 
 -- Phân Loại Phim
 INSERT PhanLoaiPhim ( idPhim, idTheLoai) VALUES ('P0001','T02')
+GO
 INSERT PhanLoaiPhim ( idPhim, idTheLoai) VALUES ('P0001','T05')
+GO
 INSERT PhanLoaiPhim ( idPhim, idTheLoai) VALUES ('P0002','T01')
+GO
 INSERT PhanLoaiPhim ( idPhim, idTheLoai) VALUES ('P0002','T05')
+GO
 INSERT PhanLoaiPhim ( idPhim, idTheLoai) VALUES ('P0002','T04')
+GO
 INSERT PhanLoaiPhim ( idPhim, idTheLoai) VALUES ('P0003','T02')
+GO
 INSERT PhanLoaiPhim ( idPhim, idTheLoai) VALUES ('P0003','T05')
+GO
 INSERT PhanLoaiPhim ( idPhim, idTheLoai) VALUES ('P0003','T07')
+GO
 INSERT PhanLoaiPhim ( idPhim, idTheLoai) VALUES ('P0003','T09')
+GO
 INSERT PhanLoaiPhim ( idPhim, idTheLoai) VALUES ('P0004','T06')
+GO
 INSERT PhanLoaiPhim ( idPhim, idTheLoai) VALUES ('P0004','T08')
+GO
 INSERT PhanLoaiPhim ( idPhim, idTheLoai) VALUES ('P0004','T07')
+GO
 INSERT PhanLoaiPhim ( idPhim, idTheLoai) VALUES ('P0004','T03')
+GO
 
 
 -- insert phong chiếu---
 INSERT PhongChieu(MaPhong,TenPhong,SoChoNgoi,TinhTrang,SoHangGhe,SoGheMotHang) VALUES ( 'R01','USA',100,1,10,10)
+GO
 INSERT PhongChieu(MaPhong,TenPhong,SoChoNgoi,TinhTrang,SoHangGhe,SoGheMotHang) VALUES ( 'R02','AUSTRALIA',100,1,10,10)
+GO
 INSERT PhongChieu(MaPhong,TenPhong,SoChoNgoi,TinhTrang,SoHangGhe,SoGheMotHang) VALUES ( 'R03','KOREAN',100,1,10,10)
+GO
 INSERT PhongChieu(MaPhong,TenPhong,SoChoNgoi,TinhTrang,SoHangGhe,SoGheMotHang) VALUES ( 'R04','VIETNAM',100,1,10,10)
+GO
 
 --- insert ca chiếu----
 INSERT CaChieu ( MaCaChieu, ThoiGianChieu, ThoiGianKetThuc,MaPhong,MaPhim,GiaVe,TrangThai)
 VALUES ('MCC0001',CAST(N'2022-10-24T08:50:00.000' AS DateTime),CAST(N'2022-10-25T08:50:00.000' AS DateTime),'R01','P0001', 90.000,1)
+GO
 INSERT CaChieu ( MaCaChieu, ThoiGianChieu, ThoiGianKetThuc,MaPhong,MaPhim,GiaVe,TrangThai)
 VALUES ('MCC0002',CAST(N'2022-10-23T08:50:00.000' AS DateTime),CAST(N'2022-10-06T08:50:00.000' AS DateTime),'R01','P0002', 90.000,0)
+GO
 INSERT CaChieu ( MaCaChieu, ThoiGianChieu, ThoiGianKetThuc,MaPhong,MaPhim,GiaVe,TrangThai)
 VALUES ('MCC0003',CAST(N'2022-10-22T08:50:00.000' AS DateTime),CAST(N'2022-10-27T08:50:00.000' AS DateTime),'R01','P0003', 90.000,0)
+GO
 INSERT CaChieu ( MaCaChieu, ThoiGianChieu, ThoiGianKetThuc,MaPhong,MaPhim,GiaVe,TrangThai)
 VALUES ('MCC0004',CAST(N'2022-10-21T08:50:00.000' AS DateTime),CAST(N'2012-10-28T08:50:00.000' AS DateTime),'R01','P0004', 90.000,1)
+GO
 INSERT CaChieu ( MaCaChieu, ThoiGianChieu, ThoiGianKetThuc,MaPhong,MaPhim,GiaVe,TrangThai)
 VALUES ('MCC0005',CAST(N'2022-11-22T08:50:00.000' AS DateTime),CAST(N'2022-11-27T08:50:00.000' AS DateTime),'R01','P0003', 90.000,0)
+GO
 
 --- insert khách hàng
-INSERT KhachHang (TenKhachHang, Diachi, NamSinh, SoDienThoai,DiemTichLuy)
-VALUES (N'Đỗ Dương Thái Tuấn',N'Thủ Đức',2002,'0912999988',0)
-INSERT KhachHang (TenKhachHang, Diachi, NamSinh, SoDienThoai,DiemTichLuy)
-VALUES (N'Trần Chí Mỹ',N'Thủ Đức',2002,'0912922988',0)
+INSERT KhachHang (TenKhachHang, Diachi, NamSinh, SoDienThoai, CMND,DiemTichLuy)
+VALUES (N'Đỗ Dương Thái Tuấn',N'Thủ Đức',2002,'0912999988',752020123,0)
+GO
+INSERT KhachHang (TenKhachHang, Diachi, NamSinh, SoDienThoai, CMND,DiemTichLuy)
+VALUES (N'Trần Chí Mỹ',N'Thủ Đức',2002,'0912922988',752020122,0)
+GO
 
 -- insert cho ngoi
 INSERT ChoNgoi (Hang,So,MaPhong,MaKhachHang) VALUES ('A',1,'R01',2)
+GO
 
 --insert vé --
 INSERT Ve (LoaiVe,MaCaChieu,MaGheNgoi,MaKhachHang,TrangThai,TienBanVe) VALUES (0,'MCC0001',2,2,1,90.000)
 GO
 
 
-
---===================================================TẠO STORE==============================================================================
--- STORE Login
-CREATE PROC USP_Login @userName NVARCHAR(1000), @pass VARCHAR(1000)
+--===================================================TẠO STORE============================================================================
+----Store xử lý đăng nhập
+CREATE PROC USP_dangNhap @userName NVARCHAR(1000), @pass VARCHAR(1000)
 AS
 BEGIN
 	SELECT * FROM dbo.TaiKhoan WHERE UserName = @userName AND Pass = @pass
 END
 GO
 
---STORE Resest password
-CREATE PROC USP_ResetPasswordtAccount
-@username NVARCHAR(100)
-AS
-BEGIN
-	UPDATE dbo.TaiKhoan 
-	SET Pass = '123456' 
-	WHERE UserName = @username
-END
-GO
-
------------STAFF
--- STORE add staff
-CREATE PROC USP_Add_Staff @idNV VARCHAR(50), @HoTen NVARCHAR(100), @NgaySinh VARCHAR(100), @DiaChi NVARCHAR(100), @SDT VARCHAR(100), @CMND INT
-AS
-BEGIN
-	INSERT NhanVien (idNV, HoTen, NgaySinh, DiaChi, SDT, CMND) VALUES (@idNV, @HoTen, CAST(@NgaySinh AS Date), @DiaChi, @SDT, @CMND)
-END
-GO
-
--- STORE update staff
-CREATE PROC USP_Update_Staff @idNV VARCHAR(50), @HoTen NVARCHAR(100), @NgaySinh VARCHAR(100), @DiaChi NVARCHAR(100), @SDT VARCHAR(100), @CMND INT
-AS
-BEGIN
-	UPDATE NhanVien SET HoTen = @HoTen, NgaySinh = CAST(@NgaySinh AS Date), DiaChi = @DiaChi, SDT = @SDT, CMND = @CMND WHERE idNV = @idNV
-END
-GO
-
---STROE delete staff
-CREATE PROC USP_Delete_Staff @idNV VARCHAR(50)
-AS
-BEGIN
-	DELETE NhanVien WHERE idNV = @idNV
-END
+-----------STORE NHÂN VIÊN
+----Store lấy tất cả các nhân viên 
+CREATE FUNCTION FUNC_layTatCaNhanVien()
+RETURNS TABLE AS
+	RETURN SELECT * FROM NhanVien
 GO
 
 
-select * from CaChieu
-select * from Phim
---STORE show staff
-
-CREATE PROC USP_Show_Staff 
+----Store Thêm nhân viên
+CREATE PROCEDURE USP_themNhanVien @idNV varchar(50), @HoTen nvarchar(100), @NgaySinh date, @DiaChi varchar(100), @SDT varchar(100), @CMND int
 AS
-BEGIN
-	SELECT * FROM NhanVien
-END
+	INSERT INTO NhanVien(idNV , HoTen , NgaySinh , DiaChi , SDT , CMND) 
+	VALUES(@idNV, @HoTen , @NgaySinh , @DiaChi , @SDT , @CMND )
 GO
 
-select * from VE
-select * from ChoNgoi
 
-------STORE Account
---STORE add account
-CREATE PROC USP_Add_Account @UserName NVARCHAR(100), @Pass NVARCHAR(1000), @LoaiTK INT, @idNV VARCHAR(50)
-AS
-BEGIN
-	INSERT TaiKhoan (UserName, Pass,LoaiTK, idNV) VALUES (@UserName, @Pass , @LoaiTK, @idNV)
-END
+
+----Store Cập nhật nhân viên
+CREATE PROCEDURE USP_capNhatNhanVien @id varchar(50), @name nvarchar(100), @birth date, @address nvarchar(100), @phone varchar(100), @identity int
+AS 
+	UPDATE NhanVien SET idNV = @id, HoTen = @name, NgaySinh = @birth, DiaChi = @address, SDT = @phone, CMND = @identity
+	WHERE idNV = @id
 GO
 
---STORE update account
-CREATE PROC USP_Update_Account @UserName NVARCHAR(100), @Pass NVARCHAR(1000), @LoaiTK INT, @idNV VARCHAR(50)
+
+
+
+
+----Store xóa nhân viên
+CREATE PROCEDURE USP_xoaNhanVien @StaffID varchar(50)
 AS
-BEGIN
-	UPDATE TaiKhoan SET UserName = @UserName, Pass = @Pass , LoaiTK = @LoaiTK WHERE idNV = @idNV
-END
+	DELETE FROM NhanVien WHERE idNV = @StaffID
 GO
 
---STORE delete account
-CREATE PROC USP_Delete_Account @idNV VARCHAR(50)
-AS
-BEGIN
-	DELETE TaiKhoan WHERE idNV = @idNV
-END
-GO
 
---STORE show all account
-CREATE PROC USP_Show_Account
+
+
+-----------STORE TÀI KHOẢN
+--Store lấy danh sách tài khoản
+CREATE PROC USP_hienDanhSachTaiKhoan
 AS
 BEGIN
 	SELECT * FROM TaiKhoan
 END
 GO
 
---------------PhongChieu
---STORE add Phong chieu
-CREATE PROC USP_Add_Phong_Chieu @MaPhong VARCHAR(50), @TenPhong NVARCHAR(100) , @SoChoNgoi INT, @TinhTrang INT, @SoHangGhe int ,@SoGheMotHang int
+
+--Store thêm tài khoản
+CREATE PROC USP_themDanhSachTaiKhoan @UserName NVARCHAR(100), @Pass NVARCHAR(1000), @LoaiTK INT, @idNV VARCHAR(50)
+AS
+BEGIN
+	INSERT TaiKhoan (UserName, Pass,LoaiTK, idNV) VALUES (@UserName, @Pass , @LoaiTK, @idNV)
+END
+GO
+
+
+
+--Store sửa tài khoản
+CREATE PROC USP_suaDanhSachTaiKhoan @UserName NVARCHAR(100), @Pass NVARCHAR(1000), @LoaiTK INT, @idNV VARCHAR(50)
+AS
+BEGIN
+	UPDATE TaiKhoan SET UserName = @UserName, Pass = @Pass , LoaiTK = @LoaiTK WHERE idNV = @idNV
+END
+GO
+
+
+
+--Store xóa tài khoản
+CREATE PROC USP_xoaDanhSachTaiKhoan @idNV VARCHAR(50)
+AS
+BEGIN
+	DELETE TaiKhoan WHERE idNV = @idNV
+END
+GO
+
+
+
+-----------STORE PHÒNG CHIẾU
+--Store lấy danh sách phòng chiếu
+CREATE PROC USP_layDanhSachPhongChieu 
+AS
+BEGIN
+	SELECT * FROM PhongChieu
+END
+GO
+
+
+--Store thêm phòng chiếu
+CREATE PROC USP_themPhongChieu @MaPhong VARCHAR(50), @TenPhong NVARCHAR(100) , @SoChoNgoi INT, @TinhTrang INT, @SoHangGhe int ,@SoGheMotHang int
 AS
 BEGIN
 	INSERT INTO PhongChieu(MaPhong, TenPhong, SoChoNgoi, TinhTrang, SoHangGhe, SoGheMotHang) VALUES (@MaPhong, @TenPhong, @SoChoNgoi, @TinhTrang, @SoHangGhe, @SoGheMotHang)
@@ -329,8 +377,9 @@ END
 GO
 
 
---STORE update Phong chieu
-CREATE PROC USP_Update_Phong_Chieu @MaPhong VARCHAR(50), @TenPhong NVARCHAR(100) , @SoChoNgoi INT, @TinhTrang INT, @SoHangGhe int ,@SoGheMotHang int
+
+--Store cập nhật phòng chiếu
+CREATE PROC USP_capNhatPhongChieu @MaPhong VARCHAR(50), @TenPhong NVARCHAR(100) , @SoChoNgoi INT, @TinhTrang INT, @SoHangGhe int ,@SoGheMotHang int
 AS
 BEGIN
 	UPDATE PhongChieu SET TenPhong = @TenPhong, SoChoNgoi = @SoChoNgoi, TinhTrang = @TinhTrang, SoHangGhe = @SoHangGhe , SoGheMotHang = @SoGheMotHang WHERE MaPhong = @MaPhong
@@ -338,64 +387,19 @@ END
 GO
 
 
---STORE show Phong chieu
-CREATE PROC USP_Show_Phong_Chieu 
-AS
-BEGIN
-	SELECT * FROM PhongChieu
-END
-GO
-
---STORE xóa Phong Chieu
-CREATE PROC USP_Xoa_Phong_Chieu @MaPhong VARCHAR(50)
+--Store xóa Phòng chiếu
+CREATE PROC USP_xoaPhongChieu @MaPhong VARCHAR(50)
 AS
 BEGIN
 	DELETE FROM PhongChieu WHERE MaPhong = @MaPhong
 END
 GO
 
--- Lấy phòng chiếu và tên
-CREATE PROC USP_GetPhongChieuByName
-AS
-BEGIN 
-	SELECT MaPhong, TenPhong
-	FROM PhongChieu
-END
-Go
 
 
---------------Phim
---Store add phim
-CREATE PROC USP_Add_Phim @MaPhim VARCHAR(50), @TenPhim NVARCHAR(100), @MoTa NVARCHAR(1000), @ThoiLuong FLOAT, @NgayKhoiChieu DATE,
-@NgayKetThuc DATE, @QuocGia NVARCHAR(50), @DaoDien NVARCHAR(100), @NamSX INT, @GioiHanTuoi INT
-AS
-BEGIN
-	INSERT Phim (MaPhim, TenPhim, MoTa, ThoiLuong, NgayKhoiChieu, NgayKetThuc,QuocGia, DaoDien,NamSX,GioiHanTuoi) 
-VALUES (@MaPhim, @TenPhim, @MoTa, @ThoiLuong, CAST(@NgayKhoiChieu AS Date), CAST(@NgayKetThuc AS Date), @QuocGia, @DaoDien, @NamSX, @GioiHanTuoi)
-END
-GO
-
-
---Store update phim
-CREATE PROC USP_Update_Phim @MaPhim VARCHAR(50), @TenPhim NVARCHAR(100), @MoTa NVARCHAR(1000), @ThoiLuong FLOAT, @NgayKhoiChieu DATE,
-@NgayKetThuc DATE, @QuocGia NVARCHAR(50), @DaoDien NVARCHAR(100), @NamSX INT, @GioiHanTuoi INT
-AS
-BEGIN
-	UPDATE Phim SET TenPhim = @TenPhim, MoTa = @MoTa, ThoiLuong = @ThoiLuong, NgayKhoiChieu = CAST(@NgayKhoiChieu AS Date) WHERE MaPhim = @MaPhim
-END
-GO
-
---Store delete phim
-CREATE PROC USP_Delete_Phim @MaPhim VARCHAR(50)
-AS
-BEGIN
-	DELETE FROM Phim WHERE MaPhim = @MaPhim
-END
-GO
-
-
---Store show phim
-CREATE PROC USP_Show_Phim
+-----------STORE PHIM
+--Store lấy danh sách các phim
+CREATE PROC USP_hienDanhSachPhim
 AS
 BEGIN
 	SELECT * FROM Phim
@@ -403,34 +407,47 @@ END
 GO
 
 
----------------Thể loại phim
----Store add thể loại phim
-CREATE PROC USP_Add_The_Loai_Phim @MaLoaiPhim  VARCHAR(50), @TenTheLoai NVARCHAR(100)
+--Store thêm phim 
+CREATE PROC USP_themDanhSachPhim @MaPhim VARCHAR(50), @TenPhim NVARCHAR(100), @MoTa NVARCHAR(1000), @ThoiLuong FLOAT, @NgayKhoiChieu DATE,
+@NgayKetThuc DATE, @QuocGia NVARCHAR(50), @DaoDien NVARCHAR(100), @NamSX INT, @GioiHanTuoi INT
 AS
 BEGIN
-	INSERT INTO TheLoai (MaLoaiPhim, TenTheLoai) VALUES (@MaLoaiPhim, @TenTheLoai)
-END
-GO
-
-----Store update thể loại phim
-CREATE PROC USP_Update_The_Loai_Phim @MaLoaiPhim  VARCHAR(50), @TenTheLoai NVARCHAR(100)
-AS
-BEGIN
-	UPDATE TheLoai SET TenTheLoai = @TenTheLoai WHERE MaLoaiPhim = @MaLoaiPhim
-END
-GO
-
-----Store delete thể loại phim
-CREATE PROC USP_Delete_The_Loai_Phim @MaLoaiPhim  VARCHAR(50)
-AS
-BEGIN
-	DELETE FROM TheLoai WHERE MaLoaiPhim = @MaLoaiPhim
+	INSERT Phim (MaPhim, TenPhim, MoTa, ThoiLuong, NgayKhoiChieu, NgayKetThuc,QuocGia, DaoDien, NamSX, GioiHanTuoi) 
+VALUES (@MaPhim, @TenPhim, @MoTa, @ThoiLuong, @NgayKhoiChieu , @NgayKetThuc, @QuocGia, @DaoDien, @NamSX, @GioiHanTuoi)
 END
 GO
 
 
-----Store show thể loại phim
-CREATE PROC USP_Show_The_Loai_Phim
+
+--Store sửa phim
+
+CREATE PROC USP_suaDanhSachPhim @MaPhim VARCHAR(50), @TenPhim NVARCHAR(100), @MoTa NVARCHAR(1000), @ThoiLuong FLOAT, @NgayKhoiChieu DATE,
+@NgayKetThuc DATE, @QuocGia NVARCHAR(50), @DaoDien NVARCHAR(100), @GioiHanTuoi INT
+AS
+BEGIN
+	UPDATE Phim SET TenPhim = @TenPhim, MoTa = @MoTa, ThoiLuong = @ThoiLuong, NgayKhoiChieu = @NgayKhoiChieu, NgayKetThuc = @NgayKetThuc WHERE MaPhim = @MaPhim
+END
+GO
+
+
+
+--Store xóa phim 
+CREATE PROC USP_xoaDanhSachPhimTuCaChieu @MaPhim varchar(50)
+AS
+BEGIN 
+	DELETE FROM PhanLoaiPhim WHERE idPhim = @MaPhim
+	DELETE FROM CaChieu WHERE MaPhim = @MaPhim
+	DELETE FROM Phim WHERE MaPhim = @MaPhim
+
+END
+GO
+
+
+
+
+-----------STORE THỂ LOẠI
+----Store lấy danh sách thể loại phim
+CREATE PROC USP_hienThiTheLoaiPhim
 AS
 BEGIN
 	SELECT * FROM TheLoai
@@ -439,89 +456,51 @@ GO
 
 
 
-
-----------Phân loại phim
-----Store add Phân Loại Phim
-CREATE PROC USP_Add_Phan_Loai_Phim @idPhim VARCHAR(50), @idTheLoaiPhim VARCHAR(50)
+---Store thêm thể loại phim
+CREATE PROC USP_themTheLoaiPhim @MaLoaiPhim  VARCHAR(50), @TenTheLoai NVARCHAR(100)
 AS
 BEGIN
-	INSERT INTO PhanLoaiPhim(idPhim, idTheLoai) VALUES(@idPhim, @idTheLoaiPhim)
-END
-GO
-
-----Store show Phân Loại Phim
-CREATE PROC USP_Show_Phan_Loai_Phim @idPhim VARCHAR(50), @idTheLoaiPhim VARCHAR(50)
-AS
-BEGIN
-	SELECT * FROM PhanLoaiPhim
+	INSERT INTO TheLoai (MaLoaiPhim, TenTheLoai) VALUES (@MaLoaiPhim, @TenTheLoai)
 END
 GO
 
 
-----------Ca Chiếu
---STORE lấy ca chiếu
-CREATE PROC USP_LayCaChieu
+
+----Store sửa thể loại phim
+CREATE PROC USP_suaTheLoaiPhim @MaLoaiPhim  VARCHAR(50), @TenTheLoai NVARCHAR(100)
 AS
 BEGIN
-	SELECT Cc.MaCaChieu AS [Mã lịch chiếu], Cc.MaPhong AS [Mã phòng], p.TenPhim AS [Tên phim], Cc.ThoiGianChieu AS [Thời gian chiếu],Cc.ThoiGianKetThuc AS [Thời gian Kết Thúc], Cc.GiaVe AS [Giá vé]
-	FROM dbo.CaChieu AS Cc, dbo.Phim AS p
-	WHERE Cc.MaPhim = p.MaPhim 
+	UPDATE TheLoai SET TenTheLoai = @TenTheLoai WHERE MaLoaiPhim = @MaLoaiPhim
 END
 GO
 
---STORE lấy danh sách ca chiếu
-CREATE PROC USP_GetListCaChieusByPhim
-@ID varchar(50), @Date Datetime
+
+
+----Store xóa thể loại phim
+CREATE PROC USP_xoaTheLoaiPhim @MaLoaiPhim  VARCHAR(50)
 AS
 BEGIN
-	select l.MaCaChieu, pc.TenPhong, p.TenPhim, l.ThoiGianChieu, l.ThoiGianKetThuc, l.GiaVe, l.TrangThai
-	from Phim p , CaChieu l, PhongChieu pc
-	where p.MaPhim = l.MaCaChieu and l.MaPhong = pc.MaPhong
-	and CONVERT(DATE, @Date) = CONVERT(DATE, l.ThoiGianChieu) and CONVERT(DATE, @Date) = CONVERT(DATE, l.ThoiGianChieu)
-	order by l.ThoiGianChieu, l.ThoiGianKetThuc
+	DELETE FROM TheLoai WHERE MaLoaiPhim = @MaLoaiPhim
 END
 GO
 
---STORE add ca chiếu
-Create PROC USP_Add_Ca_Chieu @MaCaChieu VARCHAR(50), @ThoiGianChieu DATETIME, @ThoiGianKetThuc DATETIME, 
-@MaPhong VARCHAR(50), @MaPhim VARCHAR(50), @GiaVe Money
-AS
-BEGIN
-	INSERT INTO CaChieu(MaCaChieu, ThoiGianChieu, ThoiGianKetThuc, MaPhong, MaPhim, GiaVe)
-	VALUES (@MaCaChieu, @ThoiGianChieu, @ThoiGianKetThuc, @MaPhong, @MaPhim, @GiaVe)
-END
-GO
-
---STORE update ca chieu
-Create PROC USP_Update_Ca_Chieu @MaCaChieu VARCHAR(50), @ThoiGianChieu DATETIME, @ThoiGianKetThuc DATETIME, 
-@MaPhong VARCHAR(50), @MaPhim VARCHAR(50), @GiaVe Money
-AS
-BEGIN
-	UPDATE CaChieu SET ThoiGianChieu = @ThoiGianChieu, ThoiGianKetThuc = @ThoiGianKetThuc, MaPhong = @MaPhong, MaPhim = @MaPhim, GiaVe = @GiaVe
-	WHERE MaCaChieu = @MaCaChieu
-END
-
-GO
-
---STORE delete ca chieu 
-CREATE PROC USP_Delete_Ca_Chieu @MaCaChieu VARCHAR(50)
-AS
-BEGIN
-	DELETE FROM CaChieu WHERE MaCaChieu = @MaCaChieu
-END
-Go
 
 
---STORE show ca chieu 
-Create PROC USP_Show_Ca_Chieu 
+
+-----------STORE PHÂN LOẠI PHIM
+-----------STORE CA CHIẾU
+----Store hiện thị ca chiếu
+CREATE PROC USP_hienThiCaChieu
 AS
 BEGIN
 	SELECT * FROM CaChieu
 END
 GO
 
--- STORE Get ca chiếu
-Create PROC USP_GetCaChieu
+
+
+----Store lấy danh sách ca chiếu
+CREATE PROC USP_layDanhSachCaChieu
 AS
 BEGIN
 	SELECT  DISTINCT   CC.MaCaChieu, CC.MaPhong, P.TenPhim , CC.ThoiGianChieu, CC.ThoiGianKetThuc, CC.GiaVe
@@ -531,20 +510,43 @@ BEGIN
 END
 GO
 
---- Get ca chieu by ticket
-CREATE PROC USP_GetCaChieuByTicket
+
+
+----Store thêm ca chiếu
+CREATE PROC USP_themCaChieu @MaCaChieu VARCHAR(50), @ThoiGianChieu DATETIME, @ThoiGianKetThuc DATETIME, 
+@MaPhong VARCHAR(50), @MaPhim VARCHAR(50), @GiaVe Money
 AS
 BEGIN
-	select CaChieu.MaCaChieu, CaChieu.MaPhong, Phim.TenPhim, CaChieu.TrangThai, CaChieu.ThoiGianChieu
-	from Phim , CaChieu 
-	where Phim.MaPhim = CaChieu.MaPhim
-	order by ThoiGianChieu
+	INSERT INTO CaChieu(MaCaChieu, ThoiGianChieu, ThoiGianKetThuc, MaPhong, MaPhim, GiaVe)
+	VALUES (@MaCaChieu, @ThoiGianChieu, @ThoiGianKetThuc, @MaPhong, @MaPhim, @GiaVe)
 END
 GO
 
--- update tinh trang ca chieu
 
-CREATE PROC USP_updateTinhTrangCaChieu
+
+----Store sửa ca chiếu
+CREATE PROC USP_capNhatCaChieu @MaCaChieu VARCHAR(50), @ThoiGianChieu DATETIME, @ThoiGianKetThuc DATETIME, 
+@MaPhong VARCHAR(50), @MaPhim VARCHAR(50), @GiaVe Money
+AS
+BEGIN
+	UPDATE CaChieu SET ThoiGianChieu = @ThoiGianChieu, ThoiGianKetThuc = @ThoiGianKetThuc, MaPhong = @MaPhong, MaPhim = @MaPhim, GiaVe = @GiaVe
+	WHERE MaCaChieu = @MaCaChieu
+END
+GO
+
+
+--STORE xóa ca chiếu
+CREATE PROC USP_xoaCaChieu @MaCaChieu VARCHAR(50)
+AS
+BEGIN
+	DELETE FROM CaChieu WHERE MaCaChieu = @MaCaChieu
+END
+Go
+
+
+
+----Store sửa tình trạng ca chiếu
+CREATE PROC USP_capNhatTinhTrangCaChieu
 @MaCaChieu NVARCHAR(50), @TinhTrang int
 AS
 BEGIN
@@ -554,51 +556,70 @@ BEGIN
 END
 GO
 
----STORE lấy tên phim theo ca chiếu
-Create PROC USP_LayTenPhimByCaChieu
+
+
+--- Store lấy ca chếu theo vé
+CREATE PROC USP_layCaChieuTheoVe
 AS
 BEGIN
-	SELECT CC.MaCaChieu, p.TenPhim
-	from CaChieu CC, Phim p
-	where CC.MaPhim = p.MaPhim
+	select CaChieu.MaCaChieu, CaChieu.MaPhong, Phim.TenPhim, CaChieu.TrangThai, CaChieu.ThoiGianChieu
+	from Phim , CaChieu 
+	where Phim.MaPhim = CaChieu.MaPhim
+	order by ThoiGianChieu
 END
+GO
+
+-----------STORE KHÁCH HÀNG
+----Store lấy ra danh sách tất cả khách hàng
+CREATE PROCEDURE SP_layTatCaKhachHang
+AS
+	SELECT MaKH, TenKhachHang, Diachi, NamSinh, SoDienThoai, DiemTichLuy FROM KhachHang;
+GO
+
+
+----Store thêm khách hàng
+CREATE PROCEDURE USP_themKhachHang @TenKhachHang nvarchar(50), @DiaChi nvarchar(100), @NamSinh int, @SoDienThoai varchar(50), @Diem int
+AS
+	INSERT INTO KhachHang(TenKhachHang, DiaChi, NamSinh, SoDienThoai, DiemTichLuy) 
+	VALUES(@TenKhachHang, @DiaChi, @NamSinh, @SoDienThoai, @Diem)
+GO
+
+
+----Store cập nhật thông tin khách hàng
+CREATE PROCEDURE USP_capNhatKhachHang @CusId INT, @name nvarchar(50), @address nvarchar(100), @birth int, @phone varchar(50), @point int
+AS 
+	UPDATE KhachHang SET TenKhachHang = @name, Diachi = @address, NamSinh = @birth, SoDienThoai = @phone, DiemTichLuy = @point
+	WHERE MaKH = @CusId
+GO  
+
+
+
+----Store xóa khách hàng bởi id
+CREATE PROCEDURE USP_xoaKhachHang @CusID INT
+AS
+	DELETE FROM KhachHang WHERE MaKH = @CusID
+GO
+
+
+----Store lấy thông tin của khách hàng dựa vào số điện thoại đăng ký thành viên
+CREATE PROC USP_layThongTinKhachHang @Sdt varchar(100)
+AS
+	SELECT DISTINCT * FROM KhachHang Where SoDienThoai = @Sdt
+GO
+
+
+----Store xập nhật điểm tích lũy
+CREATE PROC USP_capNhatDiem @Diem int, @Sdt varchar(100)
+AS 
+	UPDATE KhachHang SET DiemTichLuy = @Diem WHERE SoDienThoai = @Sdt;
 GO
 
 
 
 
-
-
--------STORE Vé
---STORE add Ve
-CREATE PROC USP_Add_Ve @LoaiVe INT, @MaCaChieu VARCHAR(50), @MaGheNgoi VARCHAR(50), @MaKhachHang INT,
-@TrangThai INT, @TienBanVe MONEY
-AS
-BEGIN
-	INSERT INTO Ve (LoaiVe, MaCaChieu, MaGheNgoi, MaKhachHang, TrangThai, TienBanVe)
-	VALUES (@LoaiVe, @MaCaChieu, @MaGheNgoi, @MaKhachHang, @TrangThai, @TienBanVe)
-END
-GO
-
--- Xoa ve
-CREATE PROC USP_Xoa_Ve_By_Ca_Chieu
-@MaCaChieu VARCHAR(50)
-AS
-BEGIN
-	DELETE FROM dbo.Ve
-	WHERE MaCaChieu = @MaCaChieu
-END
-GO
-
---STORE show danh sách vé
-CREATE PROC USP_Show_Ve 
-AS
-BEGIN
-	SELECT * FROm Ve
-END
-GO
-
-CREATE PROC USP_themVebyCaChieu
+-----------STORE VÉ
+----Store thêm vé bằng mã ca chiếu
+CREATE PROC USP_themVeCaChieu
 @MaCaChieu VARCHAR(50), @MaGheNgoi VARCHAR(50)
 AS
 BEGIN
@@ -608,116 +629,54 @@ END
 GO
 
 
-
-
--------STORE Chỗ ngồi
---STORE Add Chỗ ngồi
-CREATE PROC USP_Add_Cho_Ngoi @Hang CHAR(1), @So INT, @MaPhong VARCHAR(50), @MaKhachHang INT
+----Store xóa vé bằng mã ca chiếu
+CREATE PROC USP_xoaVeBoiMaCaChieu
+@MaCaChieu VARCHAR(50)
 AS
 BEGIN
-	INSERT INTO ChoNgoi(Hang, So, MaPhong, MaKhachHang) VALUES (@Hang, @So, @MaPhong, @MaKhachHang)
+	DELETE FROM dbo.Ve
+	WHERE MaCaChieu = @MaCaChieu
+END
+GO
+
+-----------STORE CHỖ NGỒI
+
+
+
+
+--===================================================TẠO TRIGGER==========================================================================
+----Trigger kiểm tra lịch chiếu trùng
+CREATE TRIGGER [dbo].[UTG_kiemTraCaChieu]
+ON [dbo].[CaChieu]
+FOR INSERT, UPDATE
+AS
+BEGIN
+	DECLARE @count INT = 0, @count2 INT = 0, @ThoiGianChieu DATETIME, @idPhong VARCHAR(50)
+
+	SELECT @idPhong = MaPhong, @ThoiGianChieu = ThoiGianChieu from INSERTED
+
+	SELECT @count = COUNT(*)
+	FROM dbo.CaChieu CC, dbo.Phim P
+	WHERE CC.MaPhong = @idPhong AND CC.MaPhim = P.MaPhim AND (@ThoiGianChieu >= Cc.ThoiGianChieu AND @ThoiGianChieu <= DATEADD(MINUTE, P.ThoiLuong, Cc.ThoiGianChieu))
+
+	SELECT @count2 = COUNT(*)
+	FROM dbo.CaChieu CC, dbo.Phim P
+	WHERE @idPhong = CC.MaPhong AND CC.MaPhim = P.MaPhim AND (CC.ThoiGianChieu >= @ThoiGianChieu AND CC.ThoiGianChieu <= DATEADD(MINUTE, P.ThoiLuong, @ThoiGianChieu))
+
+	IF (@count > 1 OR @count2 > 1)
+	BEGIN
+		ROLLBACK TRAN
+		Raiserror('Thời Gian Chiếu đã trùng với một lịch chiếu khác cùng Phòng Chiếu',16,1)
+		Return
+	END
 END
 GO
 
 
---STORE Update Chỗ ngồi
-CREATE PROC USP_Update_Cho_Ngoi @Id INT,@Hang CHAR(1), @So INT, @MaPhong VARCHAR(50), @MaKhachHang INT
-AS
-BEGIN
-	UPDATE ChoNgoi SET Hang = @Hang, So = @So, MaPhong = @MaPhong, MaKhachHang = @MaKhachHang WHERE Id = @Id
-END
-GO
 
---STORE Show Chỗ ngồi
-CREATE PROC USP_Show_Cho_Ngoi
-AS
-BEGIN
-	SELECT * FROM ChoNgoi
-END
-GO
-
-CREATE PROC USP_Delete_Phim_Phim_PhanLoaiPhim_CaChieu @MaPhim varchar(50)
-as
-Begin 
-	DELETE FROM PhanLoaiPhim WHERE idPhim = @MaPhim
-	DELETE FROM CaChieu WHERE MaPhim = @MaPhim
-	DELETE FROM Phim WHERE MaPhim = @MaPhim
-
-end
-Go
-
-
-
-
--- KHÁCH HÀNG
-
---STORE lấy ra danh sách tất cả khách hàng
-CREATE PROCEDURE SP_layTatCaKhachHang
-AS
-	SELECT MaKH, TenKhachHang, Diachi, NamSinh, SoDienThoai, DiemTichLuy FROM KhachHang;
-GO
-
-
--- Thêm khách hàng
-CREATE PROCEDURE USP_themKhachHang @TenKhachHang nvarchar(50), @DiaChi nvarchar(100), @NamSinh int, @SoDienThoai varchar(50), @Diem int
-AS
-	INSERT INTO KhachHang(TenKhachHang, DiaChi, NamSinh, SoDienThoai, DiemTichLuy) 
-	VALUES(@TenKhachHang, @DiaChi, @NamSinh, @SoDienThoai, @Diem)
-GO
-
-
-
-
--- xóa khách hàng bởi id
-CREATE PROCEDURE USP_xoaKhachHang @CusID INT
-AS
-	DELETE FROM KhachHang WHERE MaKH = @CusID
-GO
-
--- cập nhật thông tin khách hàng
-CREATE PROCEDURE USP_capNhatKhachHang @CusId INT, @name nvarchar(50), @address nvarchar(100), @birth int, @phone varchar(50), @point int
-AS 
-	UPDATE KhachHang SET TenKhachHang = @name, Diachi = @address, NamSinh = @birth, SoDienThoai = @phone, DiemTichLuy = @point
-	WHERE MaKH = @CusId
-GO  
-
-
-
-
--- NHÂN VIÊN
--- lấy tất cả các nhân viên 
-CREATE FUNCTION FUNC_layTatCaNhanVien()
-RETURNS TABLE AS
-	RETURN SELECT * FROM NhanVien
-GO
-
--- xóa nhân viên
-CREATE PROCEDURE USP_xoaNhanVien @StaffID varchar(50)
-AS
-	DELETE FROM NhanVien WHERE idNV = @StaffID
-GO
-
--- Thêm nhân viên
-CREATE PROCEDURE USP_themNhanVien @idNV varchar(50), @HoTen nvarchar(100), @NgaySinh date, @DiaChi varchar(100), @SDT varchar(100), @CMND int
-AS
-	INSERT INTO NhanVien(idNV , HoTen , NgaySinh , DiaChi , SDT , CMND) 
-	VALUES(@idNV, @HoTen , @NgaySinh , @DiaChi , @SDT , @CMND )
-GO
-
-
-
--- Cập nhật nhân viên
-CREATE PROCEDURE USP_capNhatNhanVien @id varchar(50), @name nvarchar(100), @birth date, @address nvarchar(100), @phone varchar(100), @identity int
-AS 
-	UPDATE NhanVien SET idNV = @id, HoTen = @name, NgaySinh = @birth, DiaChi = @address, SDT = @phone, CMND = @identity
-	WHERE idNV = @id
-GO  
-
-
-
---======================================================TRIGGER====================================================
-CREATE TRIGGER UTG_INSERT_CheckDateLichChieu
-ON dbo.CaChieu
+----Trigger kiểm tra ca chiếu với ngày khởi chiếu và ngày kết thúc của phim
+CREATE TRIGGER [dbo].[UTG_INSERT_kiemTraNgayCaChieu]
+ON [dbo].[CaChieu]
 FOR INSERT, UPDATE
 AS
 BEGIN
@@ -738,24 +697,115 @@ END
 GO
 
 
-
-
----=================================================FUNCTION===============================================
---FUNCTION get ca chiếu 
-CREATE FUNCTION FUNC_GetCaChieu()
-RETURNS TABLE
+----Trigger tạo danh sách vé ứng với ca chiếu vừa được thêm mới 
+CREATE TRIGGER [dbo].[UTG_themVeCaChieu]
+ON [dbo].[CaChieu]
+FOR INSERT
 AS
-RETURN
-	(SELECT  DISTINCT   CC.MaCaChieu, CC.MaPhong, P.TenPhim , CC.ThoiGianChieu AS [Thời gian chiếu], CC.ThoiGianKetThuc AS [Thời gian kết thúc], CC.GiaVe AS [Giá vé]
-	FROM dbo.CaChieu AS CC, dbo.Phim AS p, dbo.PhanLoaiPhim AS PL
-	WHERE CC.MaPhim = PL.idPhim AND p.MaPhim = PL.idPhim )
+BEGIN 
+	DECLARE @result INT = 0, @i INT = 0, @SoHangGhe INT, @SoGheMotHang INT, @j INT = 0, @MaCaChieu VARCHAR(50)
+	SELECT @SoHangGhe = dbo.PhongChieu.SoHangGhe FROM dbo.PhongChieu, inserted 
+	SELECT @SoGheMotHang = dbo.PhongChieu.SoGheMotHang FROM dbo.PhongChieu, inserted 
+	SELECT @MaCaChieu = dbo.CaChieu.MaCaChieu  FROM dbo.CaChieu, inserted
+	WHILE @i < @SoHangGhe
+	BEGIN
+		DECLARE @tempt INT = 0;
+		SET @tempt= @i + 65;
+		DECLARE @charName VARCHAR(50);
+		SELECT @charName = char(@tempt);
+		WHILE @j <@SoGheMotHang
+		BEGIN
+			DECLARE @seatName VARCHAR(50);
+			SET @seatName = @charName + '-' + CONVERT(CHAR,@j);
+			BEGIN
+				INSERT INTO Ve (LoaiVe, MaCaChieu, MaGheNgoi, TrangThai, TienBanVe)
+				VALUES ('0', @MaCaChieu, @seatName,0, '0')
+			END;
+			SET @j = @j + 1;
+		END;
+		SET @j = 0;
+		SET @i = @i +1;
+	END
+END
+GO
+
+
+
+----Trigger Xóa đi các vé thừa sau khi ca chiếu đã kết thúc.
+CREATE TRIGGER USP_xoaVeThuaKhiCaChieuKetThuc ON CaChieu FOR UPDATE
+AS
+BEGIN
+	DECLARE @MaCaChieu VARCHAR(50);
+	SELECT @MaCaChieu = MaCaChieu FROM deleted;
+	DELETE FROM Ve WHERE MaCaChieu = @MaCaChieu AND TrangThai = 0;
+END
+GO
+
+
+
+----Trigger tạo tài khoản phân quyền ở Db khi admin thêm mới tài khoản vào bảng tài khoản
+CREATE TRIGGER UTG_taoTaiKhoanPhanQuyen ON TaiKhoan FOR INSERT
+AS
+BEGIN
+	DECLARE @username VARCHAR(100);
+	DECLARE @pass VARCHAR(1000);
+	DECLARE @loaiTK INT;
+	DECLARE @createLogin VARCHAR(200);
+	DECLARE @createUser VARCHAR(200);
+	DECLARE @addUserToRole VARCHAR(200);
+
+	SELECT @username = UserName, @pass = Pass, @loaiTK = LoaiTK FROM inserted
+	IF @loaiTK = 1
+	BEGIN
+		IF @loaiTK = 1
+		BEGIN
+			SET @createLogin ='CREATE LOGIN '+ @username +' WITH PASSWORD ='''+ @pass +'''';
+			EXEC (@createLogin)
+			SET @createUser = 'USE QuanLyXemPhim CREATE USER ' + @username + ' FOR LOGIN ' + @username ;
+			EXEC (@createUser)
+			SET @addUserToRole = 'sp_addrolemember Staff,' + @username;
+			EXEC (@addUserToRole)
+			EXEC sp_addrolemember 'Staff', [@username];
+		END
+		ELSE
+		BEGIN
+			SET @createLogin ='CREATE LOGIN '+ @username +' WITH PASSWORD ='''+ @pass +'''';
+			EXEC (@createLogin)
+			SET @createUser = 'USE QuanLyXemPhim CREATE USER ' + @username + ' FOR LOGIN ' + @username ;
+			EXEC (@createUser)
+			SET @addUserToRole = 'sp_addrolemember Staff,' + @username;
+			EXEC (@addUserToRole)
+			EXEC SP_ADDSRVROLEMEMBER [admin],'SYSADMIN'
+			EXEC sp_addrolemember 'Manager', [@username];
+		END
+	END
+END
+GO
+
+
+
+----Trigger xóa tài khoản phân quyền ở Db khi admin xóa tài khoản ở bảng tài khoản
+CREATE TRIGGER UTG_xoaTaiKhoanPhanQuyen ON TaiKhoan FOR INSERT
+AS
+BEGIN
+	DECLARE @username VARCHAR(100);
+	DECLARE @xoaTaiKhoan VARCHAR(200);
+	DECLARE @xoaNguoiDung VARCHAR(200);
+	SELECT @username = UserName FROM deleted
+	
+	SET @xoaNguoiDung = 'DROP USER ' + @username
+	EXEC(@xoaNguoiDung)
+	SET @xoaTaiKhoan = 'DROP LOGIN ' + @username;
+	EXEC(@xoaTaiKhoan)
+END
 GO
 
 
 
 
 
---Function lấy danh sách phim theo ngày chiếu(Chỉ lấy record thỏa điều kiện NgayCongChieu <= NgayDuocChon <= NgayKetThuc)
+--===================================================TẠO FUNCTION==========================================================================
+----FUNCTION lấy danh sách phim theo ngày chiếu
 CREATE FUNCTION FUNC_layPhimTheoNgayChieu(@NgayChieu DATE)
 RETURNS TABLE
 AS
@@ -766,7 +816,9 @@ AS
 	);
 GO
 
--- Function lấy danh sách ca chiếu theo Tên phim và tình trạng ca chiếu (Chỉ lấy những ca chiếu của bộ phim được chọn mà chưa công chiếu)
+
+
+----Function lấy danh sách ca chiếu theo Tên phim và tình trạng ca chiếu (Chỉ lấy những ca chiếu của bộ phim được chọn mà chưa công chiếu)
 CREATE FUNCTION FUNC_layCaChieuTheoTenPhim(@TenPhim NVARCHAR(100))
 RETURNS TABLE
 AS
@@ -778,34 +830,8 @@ AS
 
 GO
 
---FUNCTION Lấy danh sách cá chiếu - Tên phòng chiếu phù hợp với thời gian người dùng chọn.
-CREATE FUNCTION FUNC_Get_DanhSachThongTinCaChieuTheoThoiGian (@TenPhim NVARCHAR(100))
-RETURNS TABLE
-AS
-	RETURN
-	(
-		SELECT cc.MaCaChieu, p.TenPhim, cc.ThoiGianChieu, cc.MaPhong, cc.TrangThai
-		FROM CaChieu as cc, Phim as p WHERE p.TenPhim = @TenPhim  AND cc.MaPhim = p.MaPhim AND cc.TrangThai = 0
-	);
 
-
-
---- transaction update trạng thái vé
-CREATE PROC USP_capNhatTrangThaiVe @MaVe int
-AS
-BEGIN TRANSACTION
-	UPDATE VE SET TrangThai = 1 WHERE VE.id = @MaVe;
-	IF(@@ERROR > 0)  
-	BEGIN  
-		ROLLBACK TRANSACTION  
-	END  
-	ELSE  
-	BEGIN  
-		COMMIT TRANSACTION  
-	END 
-GO 
-
--- lấy giá vé của một vé dựa vào id function
+----Function lấy giá vé của một vé dựa vào id function
 CREATE FUNCTION FUNC_layGiaVe (@Id int)
 RETURNS money as
 	BEGIN
@@ -816,8 +842,7 @@ RETURNS money as
 GO
 
 
-
--- hàm kiểm tra có tồn tại khách hàng thành viên thông qua số điện thoại
+----Function kiểm tra có tồn tại khách hàng thành viên thông qua số điện thoại
 CREATE FUNCTION FUNC_laThanhVien(@phone varchar(50))
 RETURNS BIT
 	BEGIN
@@ -830,13 +855,12 @@ RETURNS BIT
 		RETURN @isMember
 	END
 GO
--- Hàm lấy thông tin của khách hàng dựa vào số điện thoại đăng ký thành viên
-CREATE PROC USP_layThongTinKhachHang @Sdt varchar(100)
-AS
-	SELECT DISTINCT * FROM KhachHang Where SoDienThoai = @Sdt
 
 
--- transaction cập nhật điểm tích lũy cho khách hàng
+
+
+--===================================================TẠO TRANSACTION==========================================================================
+----Store + Transaction cập nhật điểm tích lũy cho khách hàng
 CREATE PROC USP_congDiemTichLuy @Sdt varchar(100), @bonus int
 AS
 	BEGIN TRANSACTION
@@ -855,7 +879,7 @@ AS
 GO
 
 
--- sử dụng điểm tích lũy 
+----Store + Transaction sử dụng điểm tích lũy 
 CREATE PROC USP_suDungDiemTichLuy @Sdt varchar(100)
 AS
 	BEGIN TRANSACTION
@@ -872,7 +896,88 @@ AS
 		END 
 GO
 
-CREATE PROC USP_capNhatDiem @Diem int, @Sdt varchar(100)
-AS 
-	UPDATE KhachHang SET DiemTichLuy = @Diem WHERE SoDienThoai = @Sdt;
+
+--=============================================PHÂN QUYỀN THEO ROLE==================================================================
+CREATE ROLE Manager
+GO
+CREATE ROLE Staff
+GO
+
+----Cấp quyền trên bảng cho nhóm Manager vừa tạo
+GRANT ALL ON CaChieu TO [Manager] WITH GRANT OPTION
+GO
+GRANT ALL ON ChoNgoi TO [Manager] WITH GRANT OPTION
+GO
+GRANT ALL ON KhachHang TO [Manager] WITH GRANT OPTION
+GO
+GRANT ALL ON NhanVien TO [Manager] WITH GRANT OPTION
+GO
+GRANT ALL ON PhanLoaiPhim TO [Manager] WITH GRANT OPTION
+GO
+GRANT ALL ON Phim TO [Manager] WITH GRANT OPTION
+GO
+GRANT ALL ON PhongChieu TO [Manager] WITH GRANT OPTION
+GO
+GRANT ALL ON TaiKhoan TO [Manager] WITH GRANT OPTION 
+GO
+GRANT ALL ON TheLoai TO [Manager] WITH GRANT OPTION
+GO
+GRANT ALL ON Ve TO [Manager] WITH GRANT OPTION
+GO
+----Cấp quyền thực thi toàn bộ STORE và FUNCTION cho nhóm Manager
+GRANT EXECUTE, SELECT ON SCHEMA::dbo TO [Manager] WITH GRANT OPTION
+GO
+
+
+
+
+
+
+
+----Cấp quyền trên bảng cho nhóm user vừa tạo
+GRANT SELECT ON Phim TO [Staff]
+GO
+GRANT SELECT, UPDATE ON CaChieu TO [Staff]
+GO
+GRANT SELECT, DELETE ON Ve TO [Staff]
+GO
+GRANT SELECT, INSERT, UPDATE ON KhachHang TO [Staff]
+GO
+----Cấp quyền trên store và function
+GRANT SELECT ON OBJECT:: FUNC_layPhimTheoNgayChieu TO [Staff]
+GO
+GRANT SELECT ON OBJECT:: FUNC_layCaChieuTheoTenPhim TO [Staff]
+GO
+GRANT EXEC ON OBJECT:: FUNC_layGiaVe  TO [Staff]
+GO
+GRANT EXEC ON OBJECT:: FUNC_laThanhVien  TO [Staff]
+GO
+GRANT EXECUTE ON USP_dangNhap TO [Staff]
+GO
+GRANT EXECUTE ON USP_layThongTinKhachHang TO [Staff]
+GO
+GRANT EXECUTE ON SP_layTatCaKhachHang TO [Staff]
+GO
+GRANT EXECUTE ON USP_themKhachHang TO [Staff]
+GO
+
+
+----Tạo user admin
+CREATE LOGIN [admin] WITH PASSWORD = 'admin' 
+GO
+USE QuanLyXemPhim CREATE USER [admin] FOR LOGIN [admin]
+GO
+--Cấp quyền cho nhóm Manager
+SP_ADDSRVROLEMEMBER [admin],'SYSADMIN'
+GO
+EXEC sp_addrolemember 'Manager', [admin];
+GO
+
+
+
+CREATE LOGIN [NV02] WITH PASSWORD = '123456'
+GO
+USE QuanLyXemPhim CREATE USER [NV02] FOR LOGIN [NV02]
+GO
+EXEC sp_addrolemember 'Staff', [NV02];
 GO

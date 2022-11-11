@@ -46,6 +46,9 @@ namespace QuanLyXemPhim
 
         private void btnAccountUC_Click(object sender, EventArgs e)
         {
+            AccountUC accountUC = new AccountUC();
+            pnAdmin.Controls.Clear();
+            pnAdmin.Controls.Add(accountUC);
         }
 
         private void pnAdmin_Paint(object sender, PaintEventArgs e)
