@@ -34,7 +34,7 @@ namespace QuanLyXemPhim
             this.label1 = new System.Windows.Forms.Label();
             this.pnThanhVien = new System.Windows.Forms.Panel();
             this.txtCustomerName = new System.Windows.Forms.TextBox();
-            this.txtCustomerID = new System.Windows.Forms.TextBox();
+            this.txtCustomerPhone = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.btn_register = new System.Windows.Forms.Button();
@@ -44,7 +44,7 @@ namespace QuanLyXemPhim
             // btnCofirm
             // 
             this.btnCofirm.AutoSize = true;
-            this.btnCofirm.Location = new System.Drawing.Point(16, 87);
+            this.btnCofirm.Location = new System.Drawing.Point(104, 90);
             this.btnCofirm.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.btnCofirm.Name = "btnCofirm";
             this.btnCofirm.Size = new System.Drawing.Size(120, 35);
@@ -72,7 +72,7 @@ namespace QuanLyXemPhim
             // pnThanhVien
             // 
             this.pnThanhVien.Controls.Add(this.txtCustomerName);
-            this.pnThanhVien.Controls.Add(this.txtCustomerID);
+            this.pnThanhVien.Controls.Add(this.txtCustomerPhone);
             this.pnThanhVien.Controls.Add(this.label4);
             this.pnThanhVien.Controls.Add(this.label3);
             this.pnThanhVien.Dock = System.Windows.Forms.DockStyle.Top;
@@ -90,13 +90,13 @@ namespace QuanLyXemPhim
             this.txtCustomerName.Size = new System.Drawing.Size(302, 30);
             this.txtCustomerName.TabIndex = 2;
             // 
-            // txtCustomerID
+            // txtCustomerPhone
             // 
-            this.txtCustomerID.Location = new System.Drawing.Point(160, 6);
-            this.txtCustomerID.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.txtCustomerID.Name = "txtCustomerID";
-            this.txtCustomerID.Size = new System.Drawing.Size(302, 30);
-            this.txtCustomerID.TabIndex = 1;
+            this.txtCustomerPhone.Location = new System.Drawing.Point(160, 6);
+            this.txtCustomerPhone.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.txtCustomerPhone.Name = "txtCustomerPhone";
+            this.txtCustomerPhone.Size = new System.Drawing.Size(302, 30);
+            this.txtCustomerPhone.TabIndex = 1;
             // 
             // label4
             // 
@@ -120,7 +120,7 @@ namespace QuanLyXemPhim
             // 
             // btn_register
             // 
-            this.btn_register.Location = new System.Drawing.Point(160, 87);
+            this.btn_register.Location = new System.Drawing.Point(262, 90);
             this.btn_register.Name = "btn_register";
             this.btn_register.Size = new System.Drawing.Size(113, 35);
             this.btn_register.TabIndex = 14;
@@ -158,9 +158,9 @@ namespace QuanLyXemPhim
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel pnThanhVien;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label3;
-        public System.Windows.Forms.TextBox txtCustomerName;
-        public System.Windows.Forms.TextBox txtCustomerID;
+        public System.Windows.Forms.TextBox txtCustomerPhone;
         private System.Windows.Forms.Button btn_register;
+        public System.Windows.Forms.TextBox txtCustomerName;
+        private System.Windows.Forms.Label label3;
     }
 }
