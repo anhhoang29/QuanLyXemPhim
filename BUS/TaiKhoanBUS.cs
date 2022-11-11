@@ -58,6 +58,12 @@ namespace BUS
                 MessageBox.Show("Error", "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
             }
         }
+
+        public void hienThiTaiKhoan(BindingSource accountList)
+        {
+            throw new NotImplementedException();
+        }
+
         public void xoaDanhSachTaiKhoan(string idNV)
         {
             try

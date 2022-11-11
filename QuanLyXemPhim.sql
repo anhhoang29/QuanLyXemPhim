@@ -42,6 +42,7 @@ CREATE TABLE PhongChieu
 )
 GO
 
+
 CREATE TABLE Phim
 (
 	MaPhim varchar(50) PRIMARY KEY,
@@ -143,17 +144,24 @@ GO
 
 --================================================CHÈN DỮ LIỆU VÀO CÁC BẢNG==================================================
 -- insert nhân viên---
-INSERT NhanVien (idNV, HoTen, NgaySinh, DiaChi, SDT, CMND) VALUES (N'NV01','Admin', CAST(N'2002-10-29' AS Date),N'Admin',NULL,123456789)
+INSERT NhanVien (idNV, HoTen, NgaySinh, DiaChi, SDT, CMND) VALUES (N'NV01','Admin', CAST(N'2002-10-29' AS Date),N'Admin',032903968,123456789)
 GO
-INSERT NhanVien (idNV, HoTen, NgaySinh, DiaChi, SDT, CMND) VALUES (N'NV02',N'Bùi Thanh Duy', CAST(N'2002-1-1' AS Date),N'Phú Yên',NULL,075234567)
+INSERT NhanVien (idNV, HoTen, NgaySinh, DiaChi, SDT, CMND) VALUES (N'NV02',N'Bùi Thanh Duy', CAST(N'2002-1-1' AS Date),N'Phú Yên',0344968539,075234567)
 GO
-INSERT NhanVien (idNV, HoTen, NgaySinh, DiaChi, SDT, CMND) VALUES (N'NV03',N'Phạm Nguyễn Nhựt Trường', CAST(N'2002-2-2' AS Date),N'Tiền Giang',NULL,075234568)
+INSERT NhanVien (idNV, HoTen, NgaySinh, DiaChi, SDT, CMND) VALUES (N'NV03',N'Phạm Nguyễn Nhựt Trường', CAST(N'2002-2-2' AS Date),N'Tiền Giang',0349685558,075234568)
 GO
-INSERT NhanVien (idNV, HoTen, NgaySinh, DiaChi, SDT, CMND) VALUES (N'NV04',N'Phan Quốc Lưu', CAST(N'2002-3-3' AS Date),N'Thủ Đức',NULL,075234569)
+INSERT NhanVien (idNV, HoTen, NgaySinh, DiaChi, SDT, CMND) VALUES (N'NV04',N'Phan Quốc Lưu', CAST(N'2002-3-3' AS Date),N'Thủ Đức',0379814088,075234569)
 GO
-INSERT NhanVien (idNV, HoTen, NgaySinh, DiaChi, SDT, CMND) VALUES (N'NV05',N'Vũ Hoàng Anh', CAST(N'2002-5-5' AS Date),N'Đồng Nai',NULL,075234560)
+INSERT NhanVien (idNV, HoTen, NgaySinh, DiaChi, SDT, CMND) VALUES (N'NV05',N'Vũ Hoàng Anh', CAST(N'2002-5-5' AS Date),N'Đồng Nai',0385511101,075234560)
 GO
-
+INSERT NhanVien (idNV, HoTen, NgaySinh, DiaChi, SDT, CMND) VALUES (N'NV06',N'Vân Anh', CAST(N'2000-2-25' AS Date),N'Đồng Tháp',0934567891,0213467321)
+GO
+INSERT NhanVien (idNV, HoTen, NgaySinh, DiaChi, SDT, CMND) VALUES (N'NV07',N'Vân Mỹ Lan', CAST(N'1998-2-25' AS Date),N'Cần Thơ',0397091786,215620175)
+GO
+INSERT NhanVien (idNV, HoTen, NgaySinh, DiaChi, SDT, CMND) VALUES (N'NV08',N'Vân Mỹ Lên', CAST(N'2003-2-25' AS Date),N'An Giang',0890984544,0904567345)
+GO
+INSERT NhanVien (idNV, HoTen, NgaySinh, DiaChi, SDT, CMND) VALUES (N'NV09',N'Ngọc Lan Anh', CAST(N'2000-2-25' AS Date),N'Khánh Hòa',08909847676,345767895)
+GO
 
 --- insert tài khoản---
 ---1: quyền admin(Có đầy đủ tất cả các quyền trên bảng, store, function)
@@ -162,8 +170,18 @@ GO
 ---2: quyền nhân viên(Chỉ có quyền thao tác trên 1 số bảng, store, function)
 INSERT TaiKhoan (UserName, Pass,LoaiTK, idNV) VALUES (N'NV02',N'123456',2,N'NV02')
 GO
-
-
+INSERT TaiKhoan (UserName, Pass,LoaiTK, idNV) VALUES (N'NV03',N'123456',2,N'NV03')
+GO
+INSERT TaiKhoan (UserName, Pass,LoaiTK, idNV) VALUES (N'NV04',N'123456',2,N'NV04')
+GO
+INSERT TaiKhoan (UserName, Pass,LoaiTK, idNV) VALUES (N'NV05',N'123456',2,N'NV05')
+GO
+INSERT TaiKhoan (UserName, Pass,LoaiTK, idNV) VALUES (N'NV06',N'123456',2,N'NV06')
+GO
+INSERT TaiKhoan (UserName, Pass,LoaiTK, idNV) VALUES (N'NV07',N'123456',2,N'NV07')
+GO
+INSERT TaiKhoan (UserName, Pass,LoaiTK, idNV) VALUES (N'NV08',N'123456',2,N'NV08')
+GO
 
 --- insert thể loại phim
 INSERT TheLoai(MaLoaiPhim,TenTheLoai) VALUES (N'T01', N'Hành Động')
@@ -188,39 +206,52 @@ GO
 --- insert phim---
 INSERT Phim (MaPhim, TenPhim, MoTa, ThoiLuong, NgayKhoiChieu, NgayKetThuc,QuocGia, DaoDien,NamSX,GioiHanTuoi) 
 VALUES ('P0001',N'Chú Khủng Long Của Nobita',NULL,2.5,N'2022-10-1',N'2022-12-1',N'Nhật Bản','Kaminashi Mitsuo',2019,7)
+GO
 INSERT Phim (MaPhim, TenPhim, MoTa, ThoiLuong, NgayKhoiChieu, NgayKetThuc,QuocGia, DaoDien,NamSX,GioiHanTuoi) 
 VALUES ('P0002',N'Harry Potter và Hòn Đá Phù Thủy',NULL,2, N'2022-10-8',N'2022-12-30',N'Anh','Chris Columbus',2018,13)
+GO
 INSERT Phim (MaPhim, TenPhim, MoTa, ThoiLuong, NgayKhoiChieu, NgayKetThuc,QuocGia, DaoDien,NamSX,GioiHanTuoi) 
 VALUES ('P0003',N'Chúa tể của những chiếc nhẫn',NULL,2.5, N'2022-9-8',N'2022-12-30',N'Mỹ','Ralph Bakshi',2016,13)
+GO
 INSERT Phim (MaPhim, TenPhim, MoTa, ThoiLuong, NgayKhoiChieu, NgayKetThuc,QuocGia, DaoDien,NamSX,GioiHanTuoi) 
 VALUES ('P0004',N'Bố Già',NULL,2,N'2022-10-8',N'2022-12-30',N'Việt Nam',N'Trấn Thành',2018,9)
+GO
 INSERT Phim (MaPhim, TenPhim, MoTa, ThoiLuong, NgayKhoiChieu, NgayKetThuc,QuocGia, DaoDien,NamSX,GioiHanTuoi) 
 VALUES ('P0005',N'Nhà tù Shawshank',NULL,2,N'2022-1-8',N'2022-11-30',N'Mỹ',N'Frank Darabont',1994,10)
+GO
 INSERT Phim (MaPhim, TenPhim, MoTa, ThoiLuong, NgayKhoiChieu, NgayKetThuc,QuocGia, DaoDien,NamSX,GioiHanTuoi) 
 VALUES ('P0006',N'Kỵ sĩ bóng đêm',NULL,3,N'2022-2-12',N'2022-5-30',N'Mỹ',N'Christopher Nolan',2008,18)
+GO
 INSERT Phim (MaPhim, TenPhim, MoTa, ThoiLuong, NgayKhoiChieu, NgayKetThuc,QuocGia, DaoDien,NamSX,GioiHanTuoi) 
 VALUES ('P0007',N'Kẻ đánh cắp giấc mơ',NULL,2.5,N'2022-4-12',N'2022-6-30',N'Mỹ',N'Christopher Nolan',2010,9)
+GO
 INSERT Phim (MaPhim, TenPhim, MoTa, ThoiLuong, NgayKhoiChieu, NgayKetThuc,QuocGia, DaoDien,NamSX,GioiHanTuoi) 
 VALUES ('P0008',N'Sàn đấu sinh tử ',NULL,3.1,N'2022-4-23',N'2022-8-3',N'Mỹ',N'David Fincher',1999,5)
+GO
 INSERT Phim (MaPhim, TenPhim, MoTa, ThoiLuong, NgayKhoiChieu, NgayKetThuc,QuocGia, DaoDien,NamSX,GioiHanTuoi) 
 VALUES ('P0009',N'Vua sư tử ',NULL,2,N'2022-1-23',N'2022-3-3',N'Mỹ',N'Roger Allers và Rob Minkoff',1994,2)
+GO
 INSERT Phim (MaPhim, TenPhim, MoTa, ThoiLuong, NgayKhoiChieu, NgayKetThuc,QuocGia, DaoDien,NamSX,GioiHanTuoi) 
 VALUES ('P00010',N'Ngôi nhà ma',NULL,4,N'2022-1-23',N'2022-8-3',N'Anh',N'The shining ',1940,5)
+GO
 INSERT Phim (MaPhim, TenPhim, MoTa, ThoiLuong, NgayKhoiChieu, NgayKetThuc,QuocGia, DaoDien,NamSX,GioiHanTuoi) 
 VALUES ('P00011',N'Star Wars IV ',NULL,2,N'2022-12-20',N'2022-12-29',N'Anh',N'A New Hope ',1977,2)
+GO
 INSERT Phim (MaPhim, TenPhim, MoTa, ThoiLuong, NgayKhoiChieu, NgayKetThuc,QuocGia, DaoDien,NamSX,GioiHanTuoi) 
 VALUES ('P00012',N'Cái Tên Khắc Sâu Trong Tim Người',NULL,1,N'2020-12-20',N'2021-12-29',N'Đài Loan',N'Liễu Quảng Huy ',2020,8)
+GO
 INSERT Phim (MaPhim, TenPhim, MoTa, ThoiLuong, NgayKhoiChieu, NgayKetThuc,QuocGia, DaoDien,NamSX,GioiHanTuoi) 
 VALUES ('P00013',N'Tân Tuyệt Đại Song Kiêu',NULL,1,N'2021-12-23',N'2022-12-29',N'Trung Quốc',N'Trâu Tập Thành',2020,8)
+GO
 INSERT Phim (MaPhim, TenPhim, MoTa, ThoiLuong, NgayKhoiChieu, NgayKetThuc,QuocGia, DaoDien,NamSX,GioiHanTuoi) 
 VALUES ('P00014',N'Tảo Hắc Phong Bạo',NULL,4,N'2021-9-23',N'2022-10-29',N'Hàn Quốc',N'Thanh Khôi',2013,8)
-
+GO
 INSERT Phim (MaPhim, TenPhim, MoTa, ThoiLuong, NgayKhoiChieu, NgayKetThuc,QuocGia, DaoDien,NamSX,GioiHanTuoi) 
 VALUES ('P00015',N'Tiếu Ngạo Gian Hồ',NULL,1,N'2021-1-23',N'2022-10-29',N'Trung Quốc',N'Minh Châu',1990,9)
-
+GO
 INSERT Phim (MaPhim, TenPhim, MoTa, ThoiLuong, NgayKhoiChieu, NgayKetThuc,QuocGia, DaoDien,NamSX,GioiHanTuoi) 
 VALUES ('P00016',N'Thủy Hử',NULL,1,N'2021-12-23',N'2022-12-29',N'Trung Quốc',N'Tràng An ',1890,8)
-
+GO
 
 
 
@@ -286,6 +317,30 @@ VALUES (N'Đỗ Dương Thái Tuấn',N'Thủ Đức',2002,'0912999988',75202012
 GO
 INSERT KhachHang (TenKhachHang, Diachi, NamSinh, SoDienThoai, CMND,DiemTichLuy)
 VALUES (N'Trần Chí Mỹ',N'Thủ Đức',2002,'0912922988',752020122,0)
+GO
+INSERT KhachHang (TenKhachHang, Diachi, NamSinh, SoDienThoai, CMND,DiemTichLuy)
+VALUES (N'Nguyễn Minh Quốc',N'Quận 1',1995,'0987635456',752083128,5)
+GO
+INSERT KhachHang (TenKhachHang, Diachi, NamSinh, SoDienThoai, CMND,DiemTichLuy)
+VALUES (N'Trần Minh Quân',N'Quận Bình Thạnh',2000,'0983456789',752022345,12)
+GO
+INSERT KhachHang (TenKhachHang, Diachi, NamSinh, SoDienThoai, CMND,DiemTichLuy)
+VALUES (N'Trần Văn Trường',N'Quận Tân Bình',1999,'0934567823',752034567,10)
+GO
+INSERT KhachHang (TenKhachHang, Diachi, NamSinh, SoDienThoai, CMND,DiemTichLuy)
+VALUES (N'Trần Vân Anh',N'Huyện Cần Giờ',1995,'09345672346',752023434,5)
+GO
+INSERT KhachHang (TenKhachHang, Diachi, NamSinh, SoDienThoai, CMND,DiemTichLuy)
+VALUES (N'Trần Thị Lan',N'Huyện Bình Chánh',2009,'09944567846',734312345,5)
+GO
+INSERT KhachHang (TenKhachHang, Diachi, NamSinh, SoDienThoai, CMND,DiemTichLuy)
+VALUES (N'Trần Minh Long',N'Quảng Ngãi',2003,'04567892345',023435678,20)
+GO
+INSERT KhachHang (TenKhachHang, Diachi, NamSinh, SoDienThoai, CMND,DiemTichLuy)
+VALUES (N'Trần Minh Hướng',N'Quảng Nam',1999,'09454324535',234356708,5)
+GO
+INSERT KhachHang (TenKhachHang, Diachi, NamSinh, SoDienThoai, CMND,DiemTichLuy)
+VALUES (N'Trần Thị Minh Phương',N'Thái Nguyên',1999,'34567898054',752035690,10)
 GO
 
 -- insert cho ngoi
@@ -461,13 +516,12 @@ GO
 
 --Store sua danh sach phim
 CREATE PROC USP_suaDanhSachPhim @MaPhim VARCHAR(50), @TenPhim NVARCHAR(100), @MoTa NVARCHAR(1000), @ThoiLuong FLOAT, @NgayKhoiChieu DATE,
-@NgayKetThuc DATE, @QuocGia NVARCHAR(50), @DaoDien NVARCHAR(100), @GioiHanTuoi INT
+@NgayKetThuc DATE, @QuocGia NVARCHAR(50), @DaoDien NVARCHAR(100), @NamSX int, @GioiHanTuoi INT
 AS
 BEGIN
-	UPDATE Phim SET TenPhim = @TenPhim, MoTa = @MoTa, ThoiLuong = @ThoiLuong, NgayKhoiChieu = @NgayKhoiChieu, NgayKetThuc = @NgayKetThuc WHERE MaPhim = @MaPhim
+	UPDATE Phim SET TenPhim = @TenPhim, MoTa = @MoTa, ThoiLuong = @ThoiLuong, NgayKhoiChieu = @NgayKhoiChieu, NgayKetThuc = @NgayKetThuc, @NamSX = NamSX WHERE MaPhim = @MaPhim
 END
 GO
-
 --Store xoa danh sach phim
 CREATE PROC USP_xoaDanhSachPhimTuCaChieu @MaPhim varchar(50)
 AS
