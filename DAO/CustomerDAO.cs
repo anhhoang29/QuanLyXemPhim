@@ -21,7 +21,7 @@ namespace DAO
 
         public DataTable ReadAllCustomer()
         {
-            String query = "dbo.SP_GetALLCustomer";
+            String query = "SP_layTatCaKhachHang";
             DataTable dt = DataProvider.Instance.UserExecuteReader(query, new object[] { });
             return dt;
         }
@@ -29,7 +29,7 @@ namespace DAO
         public bool addCustomerDAO(String name, int birth, String phoneNumber, int point, String address)
         {
 
-            String query = "dbo.USP_AddCustomer @TenKhachHang ,  @DiaChi , @NamSinh , @SoDienThoai ,  @Diem ";
+            String query = "USP_themKhachHang @TenKhachHang ,  @DiaChi , @NamSinh , @SoDienThoai ,  @Diem ";
             try
             {
                 DataProvider.Instance.UserExecuteNonQuery(query, new object[] { name, address, birth, phoneNumber, point });
@@ -44,7 +44,7 @@ namespace DAO
 
         public bool deleteCustomerDAO (int CustomerID)
         {
-            String query = "dbo.USP_deleteCustomer @CustomerId";
+            String query = "USP_xoaKhachHang @CustomerId";
             try
             {
                 DataProvider.Instance.UserExecuteNonQuery(query, new object[] { CustomerID });
@@ -58,7 +58,7 @@ namespace DAO
 
         public bool updateCustomerDAO(int id, String name, String address, int birth, String phone, int point)
         {
-            String query = "USP_updateCustomer @CusId , @name , @address , @birth , @phone , @point ";
+            String query = "USP_capNhatKhachHang @CusId , @name , @address , @birth , @phone , @point ";
             try
             {
                 DataProvider.Instance.UserExecuteNonQuery(query, new object[] {id, name, address, birth, phone, point });

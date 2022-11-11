@@ -37,10 +37,11 @@ namespace QuanLyXemPhim
             {
                 foreach (Ve ve in danhSachVe)
                 {
-                    int col = count % 10;
+                    int col = count % 10 + 1;
                     int row = (count / 10) + 65;
                     Button btn = new Button() { Width = 80, Height = 30 };
-                    btn.Text = Convert.ToChar(row).ToString() + " - " + col.ToString();
+                    btn.Text = ve.MaCaChieu;
+                    //btn.Text = Convert.ToChar(row).ToString() + " - " + col.ToString();
                     btn.Font = new Font("Arial", (float)10.5);
                     btn.Click += btn_Click;
                     btn.Tag = ve;

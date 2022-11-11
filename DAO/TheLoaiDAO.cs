@@ -20,7 +20,7 @@ namespace DAO
         public List<TheLoai> hienThiTheLoaiPhim()
         {
             List<TheLoai> theLoais = new List<TheLoai>();
-            string query = @"USP_Show_The_Loai_Phim";
+            string query = @"USP_hienThiTheLoaiPhim";
             DataTable table = DataProvider.Instance.ExecuteQuery(query);
 
             foreach (DataRow row in table.Rows)
@@ -36,7 +36,7 @@ namespace DAO
         {
             try
             {
-                string query = @"USP_Add_The_Loai_Phim @MaLoaiPhim , @TenTheLoai ";
+                string query = @"USP_themTheLoaiPhim @MaLoaiPhim , @TenTheLoai ";
                 int kq = DataProvider.Instance.ExecuteNonQuery(query, new object[] { MaLoaiPhim, TenTheLoai });
                 return kq;
             }
@@ -50,7 +50,7 @@ namespace DAO
         {
             try
             {
-                string query = @"USP_Delete_The_Loai_Phim @MaLoaiPhim ";
+                string query = @"USP_xoaTheLoaiPhim @MaLoaiPhim ";
                 int kq = DataProvider.Instance.ExecuteNonQuery(query, new object[] { MaLoaiPhim});
                 return kq;
             }
@@ -64,7 +64,7 @@ namespace DAO
         {
             try
             {
-                string query = @"USP_Update_The_Loai_Phim @MaLoaiPhim , @TenTheLoai ";
+                string query = @"USP_suaTheLoaiPhim @MaLoaiPhim , @TenTheLoai ";
                 int kq = DataProvider.Instance.ExecuteNonQuery(query, new object[] { MaLoaiPhim, TenTheLoai });
                 return kq;
             }

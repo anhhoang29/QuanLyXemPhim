@@ -22,7 +22,7 @@ namespace DAO
 
         public DataTable readAllStaff()
         {
-            String query = "select * from dbo.UF_readAllStaff()";
+            String query = "select * from dbo.FUNC_layTatCaNhanVien()";
            
             using (var conn = new SqlConnection(DataProvider.connectionString))
             {
@@ -47,7 +47,7 @@ namespace DAO
 
         public bool addStaffDAO (String id, String name, DateTime birth, String address,  String phone, int identity)
         {
-            String query = "USP_AddStaff @idNV , @HoTen , @NgaySinh , @DiaChi , @SDT , @CMND ";
+            String query = "USP_themNhanVien @idNV , @HoTen , @NgaySinh , @DiaChi , @SDT , @CMND ";
             try
             {
                 DataProvider.Instance.UserExecuteNonQuery(query, new object[] { id, name, birth, address, phone, identity });
@@ -62,7 +62,7 @@ namespace DAO
 
         public bool deleteStaffDAO (String staffId)
         {
-            String query = "dbo.USP_deleteStaff @StaffId";
+            String query = "USP_xoaNhanVien @StaffID ";
             try
             {
                 DataProvider.Instance.UserExecuteNonQuery(query, new object[] { staffId });

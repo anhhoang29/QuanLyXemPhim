@@ -17,13 +17,13 @@ namespace QuanLyXemPhim
         public frmStaff()
         {
             InitializeComponent();
-            loadDataToComboboxNameMovie();
+            hienThiPhimTheoNgay();
             //loadDataToComboboxShowTime();
         }
   
         private void dtpThoiGian_ValueChanged(object sender, EventArgs e)
         {
-            loadDataToComboboxNameMovie();
+            hienThiPhimTheoNgay();
             //loadDataToComboboxShowTime();
         }
         private void timer1_Tick(object sender, EventArgs e)
@@ -38,7 +38,7 @@ namespace QuanLyXemPhim
 
         private void cboFilmName_SelectedIndexChanged(object sender, EventArgs e)
         {
-            loadDataToComboboxShowTime();
+            hienThiDanhSachCaChieuTheoTenPhim();
         }
 
         private void btn_ChonVe_Click(object sender, EventArgs e)
@@ -48,14 +48,14 @@ namespace QuanLyXemPhim
             frmTheatre.ShowDialog();
         }
         // Hiện thị danh sách các phim thỏa điều kiện ngày được người dùng chọn từ Datetimepicker
-        public void loadDataToComboboxNameMovie()
+        public void hienThiPhimTheoNgay()
         {
             DateTime date = dtpThoiGian.Value;
             PhimBUS.Instance.hienThiPhimTheoNgay(cboFilmName, date);
         }
 
 
-        public void loadDataToComboboxShowTime()
+        public void hienThiDanhSachCaChieuTheoTenPhim()
         {
             string tenPhim = cboFilmName.Text;
             CaChieu_PhimBUS.Instance.hienThiDanhSachCaChieuTheoTenPhim(dtv_CaChieu,tenPhim);

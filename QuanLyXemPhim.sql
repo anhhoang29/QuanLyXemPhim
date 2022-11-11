@@ -798,3 +798,8 @@ AS
 		FROM CaChieu as cc, Phim as p WHERE p.TenPhim = @TenPhim  AND cc.MaPhim = p.MaPhim AND cc.TrangThai = 0
 	);
 GO
+
+
+SELECT * FROM Phim
+SELECT * FROM CaChieu
+SELECT * FROM Ve
