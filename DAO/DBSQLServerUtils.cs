@@ -25,7 +25,9 @@ namespace DAO
 
         public string conString()
         {
-            return "Data Source=DESKTOP-SHGHBSM\\SQLEXPRESS;Initial Catalog=QuanLyXemPhim;Persist Security Info=True;" +
+            //return "Data Source=DESKTOP-SHGHBSM\\SQLEXPRESS;Initial Catalog=QuanLyXemPhim;Persist Security Info=True;" +
+                //"User ID=" + userName + ";Password=" + Password;
+            return "Data Source=LAPTOP-16UP1LFV\\SQLEXPRESS;Initial Catalog=QuanLyXemPhim;Persist Security Info=True;" +
                 "User ID=" + userName + ";Password=" + Password;
         }
     }

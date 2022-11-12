@@ -38,7 +38,7 @@ namespace QuanLyXemPhim.frmAdminUserControl
         {
             txtUsername.DataBindings.Add(new Binding("Text", dtgvAccount.DataSource, "UserName", true, DataSourceUpdateMode.Never));
             txt_Pass.DataBindings.Add(new Binding("Text", dtgvAccount.DataSource, "Pass", true, DataSourceUpdateMode.Never));
-            nudAccountType.DataBindings.Add(new Binding("Text", dtgvAccount.DataSource, "LoaiTK", true, DataSourceUpdateMode.Never));
+            nudAccountType.DataBindings.Add(new Binding("Value", dtgvAccount.DataSource, "LoaiTK", true, DataSourceUpdateMode.Never));
             txt_idNV.DataBindings.Add(new Binding("Text", dtgvAccount.DataSource, "idNV", true, DataSourceUpdateMode.Never));
         }
         private void btnInsertAccount_Click(object sender, EventArgs e)
@@ -79,7 +79,5 @@ namespace QuanLyXemPhim.frmAdminUserControl
                 txt_Pass.UseSystemPasswordChar = false;
             }
         }
-
-        
     }
 }

@@ -41,7 +41,7 @@ namespace DAO
         {
             try
             {
-                string query = @"USP_Add_Ca_Chieu @MaCaChieu , @ThoiGianChieu , @ThoiGianKetThuc , @MaPhong , @MaPhim , @GiaVe ";
+                string query = @"USP_themCaChieu @MaCaChieu , @ThoiGianChieu , @ThoiGianKetThuc , @MaPhong , @MaPhim , @GiaVe ";
                 int kq = DataProvider.Instance.ExecuteNonQuery(query, new object[] { MaCaChieu, ThoiGianChieu, ThoiGianKetThuc, MaPhong, MaPhim, GiaVe });
                 return kq;
             }

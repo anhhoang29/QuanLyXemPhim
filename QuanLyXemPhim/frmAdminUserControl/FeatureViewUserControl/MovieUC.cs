@@ -1,4 +1,6 @@
 ﻿using BUS;
+using DAO;
+using DTO;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -83,6 +85,17 @@ namespace QuanLyXemPhim.frmAdminUserControl.FeatureViewUserControl
             
             PhimBUS.Instance.xoaDanhSachPhim(MaPhim);
             PhimBUS.Instance.hienThiPhim(movieList);
+
+        }
+        void LoadGenreIntoCheckedList(CheckedListBox checkedList)
+        {
+            List<TheLoai> theloaiList = TheLoaiDAO.Instance.hienThiTheLoaiPhim();
+            checkedList.DataSource = theloaiList;
+            checkedList.DisplayMember = "TenTheLoai";
+        }
+
+        private void clbMovieGenre_SelectedIndexChanged(object sender, EventArgs e)
+        {
 
         }
     }

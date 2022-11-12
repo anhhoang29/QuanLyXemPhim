@@ -52,9 +52,10 @@ namespace QuanLyXemPhim.frmAdminUserControl
             // 
             // btnDeleteAccount
             // 
-            this.btnDeleteAccount.Location = new System.Drawing.Point(562, 215);
+            this.btnDeleteAccount.Location = new System.Drawing.Point(500, 172);
+            this.btnDeleteAccount.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnDeleteAccount.Name = "btnDeleteAccount";
-            this.btnDeleteAccount.Size = new System.Drawing.Size(102, 40);
+            this.btnDeleteAccount.Size = new System.Drawing.Size(91, 32);
             this.btnDeleteAccount.TabIndex = 25;
             this.btnDeleteAccount.Text = "Xóa";
             this.btnDeleteAccount.UseVisualStyleBackColor = true;
@@ -62,9 +63,10 @@ namespace QuanLyXemPhim.frmAdminUserControl
             // 
             // btnUpdateAccount
             // 
-            this.btnUpdateAccount.Location = new System.Drawing.Point(415, 215);
+            this.btnUpdateAccount.Location = new System.Drawing.Point(369, 172);
+            this.btnUpdateAccount.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnUpdateAccount.Name = "btnUpdateAccount";
-            this.btnUpdateAccount.Size = new System.Drawing.Size(102, 40);
+            this.btnUpdateAccount.Size = new System.Drawing.Size(91, 32);
             this.btnUpdateAccount.TabIndex = 26;
             this.btnUpdateAccount.Text = "Sửa";
             this.btnUpdateAccount.UseVisualStyleBackColor = true;
@@ -72,9 +74,10 @@ namespace QuanLyXemPhim.frmAdminUserControl
             // 
             // btnInsertAccount
             // 
-            this.btnInsertAccount.Location = new System.Drawing.Point(244, 215);
+            this.btnInsertAccount.Location = new System.Drawing.Point(217, 172);
+            this.btnInsertAccount.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnInsertAccount.Name = "btnInsertAccount";
-            this.btnInsertAccount.Size = new System.Drawing.Size(102, 40);
+            this.btnInsertAccount.Size = new System.Drawing.Size(91, 32);
             this.btnInsertAccount.TabIndex = 27;
             this.btnInsertAccount.Text = "Thêm";
             this.btnInsertAccount.UseVisualStyleBackColor = true;
@@ -93,9 +96,11 @@ namespace QuanLyXemPhim.frmAdminUserControl
             this.grpAccount.Controls.Add(this.lblAccountType);
             this.grpAccount.Controls.Add(this.lblStaffID_Account);
             this.grpAccount.Font = new System.Drawing.Font("Times New Roman", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.grpAccount.Location = new System.Drawing.Point(180, 3);
+            this.grpAccount.Location = new System.Drawing.Point(160, 2);
+            this.grpAccount.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.grpAccount.Name = "grpAccount";
-            this.grpAccount.Size = new System.Drawing.Size(680, 206);
+            this.grpAccount.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.grpAccount.Size = new System.Drawing.Size(604, 165);
             this.grpAccount.TabIndex = 22;
             this.grpAccount.TabStop = false;
             this.grpAccount.Text = "Thông tin tài khoản";
@@ -104,9 +109,10 @@ namespace QuanLyXemPhim.frmAdminUserControl
             // 
             this.Show_MK.AutoSize = true;
             this.Show_MK.Font = new System.Drawing.Font("Times New Roman", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Show_MK.Location = new System.Drawing.Point(509, 166);
+            this.Show_MK.Location = new System.Drawing.Point(452, 133);
+            this.Show_MK.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Show_MK.Name = "Show_MK";
-            this.Show_MK.Size = new System.Drawing.Size(112, 25);
+            this.Show_MK.Size = new System.Drawing.Size(93, 22);
             this.Show_MK.TabIndex = 7;
             this.Show_MK.Text = "Mật Khẩu";
             this.Show_MK.UseMnemonic = false;
@@ -116,25 +122,28 @@ namespace QuanLyXemPhim.frmAdminUserControl
             // txt_Pass
             // 
             this.txt_Pass.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_Pass.Location = new System.Drawing.Point(490, 104);
+            this.txt_Pass.Location = new System.Drawing.Point(436, 83);
+            this.txt_Pass.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txt_Pass.Multiline = true;
             this.txt_Pass.Name = "txt_Pass";
             this.txt_Pass.PasswordChar = '*';
-            this.txt_Pass.Size = new System.Drawing.Size(164, 41);
+            this.txt_Pass.Size = new System.Drawing.Size(146, 34);
             this.txt_Pass.TabIndex = 8;
             // 
             // txt_idNV
             // 
             this.txt_idNV.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_idNV.Location = new System.Drawing.Point(154, 104);
+            this.txt_idNV.Location = new System.Drawing.Point(137, 83);
+            this.txt_idNV.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txt_idNV.Name = "txt_idNV";
-            this.txt_idNV.Size = new System.Drawing.Size(164, 35);
+            this.txt_idNV.Size = new System.Drawing.Size(146, 30);
             this.txt_idNV.TabIndex = 7;
             // 
             // nudAccountType
             // 
             this.nudAccountType.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nudAccountType.Location = new System.Drawing.Point(490, 34);
+            this.nudAccountType.Location = new System.Drawing.Point(436, 27);
+            this.nudAccountType.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.nudAccountType.Maximum = new decimal(new int[] {
             2,
             0,
@@ -146,7 +155,7 @@ namespace QuanLyXemPhim.frmAdminUserControl
             0,
             0});
             this.nudAccountType.Name = "nudAccountType";
-            this.nudAccountType.Size = new System.Drawing.Size(159, 35);
+            this.nudAccountType.Size = new System.Drawing.Size(141, 30);
             this.nudAccountType.TabIndex = 6;
             this.toolTipAccountType.SetToolTip(this.nudAccountType, "1 : Quản lý\r\n2 : Bán vé");
             this.nudAccountType.Value = new decimal(new int[] {
@@ -159,27 +168,28 @@ namespace QuanLyXemPhim.frmAdminUserControl
             // 
             this.lblUsername.AutoSize = true;
             this.lblUsername.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUsername.Location = new System.Drawing.Point(25, 43);
+            this.lblUsername.Location = new System.Drawing.Point(22, 34);
             this.lblUsername.Name = "lblUsername";
-            this.lblUsername.Size = new System.Drawing.Size(123, 26);
+            this.lblUsername.Size = new System.Drawing.Size(102, 23);
             this.lblUsername.TabIndex = 4;
             this.lblUsername.Text = "Username:\r\n";
             // 
             // txtUsername
             // 
             this.txtUsername.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUsername.Location = new System.Drawing.Point(154, 40);
+            this.txtUsername.Location = new System.Drawing.Point(137, 32);
+            this.txtUsername.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtUsername.Name = "txtUsername";
-            this.txtUsername.Size = new System.Drawing.Size(164, 35);
+            this.txtUsername.Size = new System.Drawing.Size(146, 30);
             this.txtUsername.TabIndex = 2;
             // 
             // lblStaffName_Account
             // 
             this.lblStaffName_Account.AutoSize = true;
             this.lblStaffName_Account.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblStaffName_Account.Location = new System.Drawing.Point(366, 110);
+            this.lblStaffName_Account.Location = new System.Drawing.Point(325, 88);
             this.lblStaffName_Account.Name = "lblStaffName_Account";
-            this.lblStaffName_Account.Size = new System.Drawing.Size(118, 26);
+            this.lblStaffName_Account.Size = new System.Drawing.Size(97, 23);
             this.lblStaffName_Account.TabIndex = 4;
             this.lblStaffName_Account.Text = "Password:\r\n";
             // 
@@ -187,9 +197,9 @@ namespace QuanLyXemPhim.frmAdminUserControl
             // 
             this.lblAccountType.AutoSize = true;
             this.lblAccountType.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAccountType.Location = new System.Drawing.Point(366, 43);
+            this.lblAccountType.Location = new System.Drawing.Point(325, 34);
             this.lblAccountType.Name = "lblAccountType";
-            this.lblAccountType.Size = new System.Drawing.Size(113, 26);
+            this.lblAccountType.Size = new System.Drawing.Size(92, 23);
             this.lblAccountType.TabIndex = 4;
             this.lblAccountType.Text = "Loại TK: ";
             // 
@@ -197,9 +207,9 @@ namespace QuanLyXemPhim.frmAdminUserControl
             // 
             this.lblStaffID_Account.AutoSize = true;
             this.lblStaffID_Account.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblStaffID_Account.Location = new System.Drawing.Point(34, 107);
+            this.lblStaffID_Account.Location = new System.Drawing.Point(30, 86);
             this.lblStaffID_Account.Name = "lblStaffID_Account";
-            this.lblStaffID_Account.Size = new System.Drawing.Size(93, 26);
+            this.lblStaffID_Account.Size = new System.Drawing.Size(76, 23);
             this.lblStaffID_Account.TabIndex = 4;
             this.lblStaffID_Account.Text = "Mã NV:";
             // 
@@ -209,25 +219,26 @@ namespace QuanLyXemPhim.frmAdminUserControl
             this.dtgvAccount.AllowUserToDeleteRows = false;
             this.dtgvAccount.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dtgvAccount.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtgvAccount.Location = new System.Drawing.Point(200, 263);
-            this.dtgvAccount.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.dtgvAccount.Location = new System.Drawing.Point(178, 210);
+            this.dtgvAccount.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dtgvAccount.Name = "dtgvAccount";
             this.dtgvAccount.ReadOnly = true;
             this.dtgvAccount.RowHeadersWidth = 62;
-            this.dtgvAccount.Size = new System.Drawing.Size(1088, 477);
+            this.dtgvAccount.Size = new System.Drawing.Size(967, 382);
             this.dtgvAccount.TabIndex = 21;
             // 
             // AccountUC
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.btnDeleteAccount);
             this.Controls.Add(this.btnUpdateAccount);
             this.Controls.Add(this.btnInsertAccount);
             this.Controls.Add(this.grpAccount);
             this.Controls.Add(this.dtgvAccount);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "AccountUC";
-            this.Size = new System.Drawing.Size(1575, 812);
+            this.Size = new System.Drawing.Size(1400, 650);
             this.grpAccount.ResumeLayout(false);
             this.grpAccount.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudAccountType)).EndInit();

@@ -33,7 +33,6 @@ namespace QuanLyXemPhim.frmAdminUserControl
             this.SidePanel = new System.Windows.Forms.Panel();
             this.btnTicketsUC = new System.Windows.Forms.Button();
             this.btnShowTimesUC = new System.Windows.Forms.Button();
-            this.btnFormatMovieUC = new System.Windows.Forms.Button();
             this.btnMovieUC = new System.Windows.Forms.Button();
             this.btnGenreUC = new System.Windows.Forms.Button();
             this.btnCinema = new System.Windows.Forms.Button();
@@ -47,7 +46,6 @@ namespace QuanLyXemPhim.frmAdminUserControl
             this.panel1.Controls.Add(this.SidePanel);
             this.panel1.Controls.Add(this.btnTicketsUC);
             this.panel1.Controls.Add(this.btnShowTimesUC);
-            this.panel1.Controls.Add(this.btnFormatMovieUC);
             this.panel1.Controls.Add(this.btnMovieUC);
             this.panel1.Controls.Add(this.btnGenreUC);
             this.panel1.Controls.Add(this.btnCinema);
@@ -75,7 +73,7 @@ namespace QuanLyXemPhim.frmAdminUserControl
             this.btnTicketsUC.ForeColor = System.Drawing.Color.White;
             this.btnTicketsUC.Image = global::QuanLyXemPhim.Properties.Resources.Untitled_2_0008_Layer;
             this.btnTicketsUC.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnTicketsUC.Location = new System.Drawing.Point(15, 470);
+            this.btnTicketsUC.Location = new System.Drawing.Point(15, 396);
             this.btnTicketsUC.Margin = new System.Windows.Forms.Padding(4);
             this.btnTicketsUC.Name = "btnTicketsUC";
             this.btnTicketsUC.Size = new System.Drawing.Size(263, 66);
@@ -93,33 +91,15 @@ namespace QuanLyXemPhim.frmAdminUserControl
             this.btnShowTimesUC.ForeColor = System.Drawing.Color.White;
             this.btnShowTimesUC.Image = global::QuanLyXemPhim.Properties.Resources.Untitled_2_0002_Layer_7;
             this.btnShowTimesUC.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnShowTimesUC.Location = new System.Drawing.Point(15, 404);
+            this.btnShowTimesUC.Location = new System.Drawing.Point(15, 334);
             this.btnShowTimesUC.Margin = new System.Windows.Forms.Padding(4);
             this.btnShowTimesUC.Name = "btnShowTimesUC";
             this.btnShowTimesUC.Size = new System.Drawing.Size(263, 66);
             this.btnShowTimesUC.TabIndex = 7;
-            this.btnShowTimesUC.Text = "      Lịch Chiếu";
+            this.btnShowTimesUC.Text = "      Ca Chiếu";
             this.btnShowTimesUC.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnShowTimesUC.UseVisualStyleBackColor = true;
             this.btnShowTimesUC.Click += new System.EventHandler(this.btnShowTimesUC_Click);
-            // 
-            // btnFormatMovieUC
-            // 
-            this.btnFormatMovieUC.FlatAppearance.BorderSize = 0;
-            this.btnFormatMovieUC.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnFormatMovieUC.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnFormatMovieUC.ForeColor = System.Drawing.Color.White;
-            this.btnFormatMovieUC.Image = global::QuanLyXemPhim.Properties.Resources.Untitled_2_0004_Layer_5;
-            this.btnFormatMovieUC.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnFormatMovieUC.Location = new System.Drawing.Point(15, 337);
-            this.btnFormatMovieUC.Margin = new System.Windows.Forms.Padding(4);
-            this.btnFormatMovieUC.Name = "btnFormatMovieUC";
-            this.btnFormatMovieUC.Size = new System.Drawing.Size(263, 66);
-            this.btnFormatMovieUC.TabIndex = 8;
-            this.btnFormatMovieUC.Text = "      Định Dạng";
-            this.btnFormatMovieUC.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnFormatMovieUC.UseVisualStyleBackColor = true;
-            this.btnFormatMovieUC.Click += new System.EventHandler(this.btnFormatMovieUC_Click);
             // 
             // btnMovieUC
             // 
@@ -202,7 +182,6 @@ namespace QuanLyXemPhim.frmAdminUserControl
         private System.Windows.Forms.Panel SidePanel;
         private System.Windows.Forms.Button btnTicketsUC;
         private System.Windows.Forms.Button btnShowTimesUC;
-        private System.Windows.Forms.Button btnFormatMovieUC;
         private System.Windows.Forms.Button btnMovieUC;
         private System.Windows.Forms.Button btnGenreUC;
         private System.Windows.Forms.Button btnCinema;

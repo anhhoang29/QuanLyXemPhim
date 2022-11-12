@@ -63,18 +63,18 @@ namespace DAO
         public int suaDanhSachPhim(string MaPhim, string TenPhim, string MoTa, double ThoiLuong,
             DateTime NgayBatDau, DateTime NgayKetThuc, string QuocGia, string DienVien, int NamSX, int GioiHanTuoi)
         {
-           try
-           {
+            try
+            {
                 string query = @"USP_suaDanhSachPhim @MaPhim , @TenPhim , @MoTa , @ThoiLuong , @NgayKhoiChieu ,
-                        @NgayKetThuc , @QuocGia , @DaoDien , @NamSX , @GioiHanTuoi ";
+                         @NgayKetThuc , @QuocGia , @DaoDien , @NamSX , @GioiHanTuoi ";
                 int kq = DataProvider.Instance.ExecuteNonQuery(query, new object[] {MaPhim, TenPhim,MoTa, ThoiLuong,
-                        NgayBatDau, NgayKetThuc, QuocGia, DienVien,NamSX, GioiHanTuoi });
+                         NgayBatDau, NgayKetThuc, QuocGia, DienVien,NamSX, GioiHanTuoi });
                 return kq;
-           }
-           catch
-           {
+            }
+            catch
+            {
                 return 0;
-           }
+            }
         }
         public int themDanhSachPhim(string MaPhim, string TenPhim, string MoTa, double ThoiLuong,
             DateTime NgayBatDau, DateTime NgayKetThuc, string QuocGia, string DienVien,int NamSX, int GioiHanTuoi)

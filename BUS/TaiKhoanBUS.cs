@@ -61,7 +61,7 @@ namespace BUS
 
         public void hienThiTaiKhoan(BindingSource accountList)
         {
-            throw new NotImplementedException();
+            accountList.DataSource = TaiKhoanDAO.Instance.hienThiTaiKhoan();
         }
 
         public void xoaDanhSachTaiKhoan(string idNV)

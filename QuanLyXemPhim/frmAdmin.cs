@@ -46,8 +46,9 @@ namespace QuanLyXemPhim
 
         private void btnAccountUC_Click(object sender, EventArgs e)
         {
-            AccountUC accountUC = new AccountUC();
             pnAdmin.Controls.Clear();
+            AccountUC accountUC = new AccountUC();
+            accountUC.Dock = DockStyle.Fill;
             pnAdmin.Controls.Add(accountUC);
         }
 

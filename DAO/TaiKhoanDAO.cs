@@ -25,16 +25,18 @@ namespace DAO
             DataTable table = DataProvider.Instance.ExecuteQuery(query);
             foreach (DataRow row in table.Rows)
             {
-                TaiKhoan taikhoan = new TaiKhoan(row);
+               TaiKhoan taikhoan = new TaiKhoan(row);
                 danhSachTaiKhoan.Add(taikhoan);
             }
             return danhSachTaiKhoan;
+            //DataTable data = DataProvider.Instance.ExecuteQuery(query);
+            //return new TaiKhoan(table.Rows[0]);
 
         }
 
-        public TaiKhoan handleLogin(string userName, string password)
+        public TaiKhoan xuLyDangNhap(string userName, string password)
         {
-            string query = @"USP_DangNhap @userName , @pass ";
+            string query = @"USP_dangNhap @userName , @pass ";
             DataTable table = DataProvider.Instance.ExecuteQuery(query, new object[] { userName, password });
             if (table.Rows.Count > 0)
             {

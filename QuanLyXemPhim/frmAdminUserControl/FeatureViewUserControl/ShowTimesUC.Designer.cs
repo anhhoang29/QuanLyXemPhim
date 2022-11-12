@@ -43,6 +43,8 @@ namespace QuanLyXemPhim.frmAdminUserControl.FeatureViewUserControl
             this.dtmShowtimeDate = new System.Windows.Forms.DateTimePicker();
             this.label5 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.label9 = new System.Windows.Forms.Label();
+            this.txtMovieName_Showtime = new System.Windows.Forms.TextBox();
             this.cboMovieName_Showtime = new System.Windows.Forms.ComboBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dateTimetimes = new System.Windows.Forms.DateTimePicker();
@@ -54,13 +56,10 @@ namespace QuanLyXemPhim.frmAdminUserControl.FeatureViewUserControl
             this.dtgvShowtime = new System.Windows.Forms.DataGridView();
             this.btnSearchShowtime = new System.Windows.Forms.Button();
             this.txtSearchShowtime = new System.Windows.Forms.TextBox();
-            this.btnShowShowtime = new System.Windows.Forms.Button();
             this.btnUpdateShowtime = new System.Windows.Forms.Button();
             this.btnDeleteShowtime = new System.Windows.Forms.Button();
             this.btnInsertShowtime = new System.Windows.Forms.Button();
             this.panel54 = new System.Windows.Forms.Panel();
-            this.txtMovieName_Showtime = new System.Windows.Forms.TextBox();
-            this.label9 = new System.Windows.Forms.Label();
             this.panel2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -204,6 +203,25 @@ namespace QuanLyXemPhim.frmAdminUserControl.FeatureViewUserControl
             this.panel2.Size = new System.Drawing.Size(421, 575);
             this.panel2.TabIndex = 0;
             // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(16, 86);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(83, 23);
+            this.label9.TabIndex = 32;
+            this.label9.Text = "Mã phim";
+            // 
+            // txtMovieName_Showtime
+            // 
+            this.txtMovieName_Showtime.Location = new System.Drawing.Point(167, 126);
+            this.txtMovieName_Showtime.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtMovieName_Showtime.Name = "txtMovieName_Showtime";
+            this.txtMovieName_Showtime.ReadOnly = true;
+            this.txtMovieName_Showtime.Size = new System.Drawing.Size(216, 22);
+            this.txtMovieName_Showtime.TabIndex = 31;
+            // 
             // cboMovieName_Showtime
             // 
             this.cboMovieName_Showtime.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -334,16 +352,6 @@ namespace QuanLyXemPhim.frmAdminUserControl.FeatureViewUserControl
             this.txtSearchShowtime.TabIndex = 6;
             this.txtSearchShowtime.Text = "Tìm theo tên phim...";
             // 
-            // btnShowShowtime
-            // 
-            this.btnShowShowtime.Location = new System.Drawing.Point(328, 4);
-            this.btnShowShowtime.Margin = new System.Windows.Forms.Padding(4);
-            this.btnShowShowtime.Name = "btnShowShowtime";
-            this.btnShowShowtime.Size = new System.Drawing.Size(100, 57);
-            this.btnShowShowtime.TabIndex = 3;
-            this.btnShowShowtime.Text = "Xem";
-            this.btnShowShowtime.UseVisualStyleBackColor = true;
-            // 
             // btnUpdateShowtime
             // 
             this.btnUpdateShowtime.Location = new System.Drawing.Point(220, 4);
@@ -381,7 +389,6 @@ namespace QuanLyXemPhim.frmAdminUserControl.FeatureViewUserControl
             // 
             this.panel54.Controls.Add(this.btnSearchShowtime);
             this.panel54.Controls.Add(this.txtSearchShowtime);
-            this.panel54.Controls.Add(this.btnShowShowtime);
             this.panel54.Controls.Add(this.btnUpdateShowtime);
             this.panel54.Controls.Add(this.btnDeleteShowtime);
             this.panel54.Controls.Add(this.btnInsertShowtime);
@@ -391,25 +398,6 @@ namespace QuanLyXemPhim.frmAdminUserControl.FeatureViewUserControl
             this.panel54.Name = "panel54";
             this.panel54.Size = new System.Drawing.Size(1271, 64);
             this.panel54.TabIndex = 12;
-            // 
-            // txtMovieName_Showtime
-            // 
-            this.txtMovieName_Showtime.Location = new System.Drawing.Point(167, 126);
-            this.txtMovieName_Showtime.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtMovieName_Showtime.Name = "txtMovieName_Showtime";
-            this.txtMovieName_Showtime.ReadOnly = true;
-            this.txtMovieName_Showtime.Size = new System.Drawing.Size(216, 22);
-            this.txtMovieName_Showtime.TabIndex = 31;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(16, 86);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(83, 23);
-            this.label9.TabIndex = 32;
-            this.label9.Text = "Mã phim";
             // 
             // ShowTimesUC
             // 
@@ -454,7 +442,6 @@ namespace QuanLyXemPhim.frmAdminUserControl.FeatureViewUserControl
         private System.Windows.Forms.DataGridView dtgvShowtime;
         private System.Windows.Forms.Button btnSearchShowtime;
         private System.Windows.Forms.TextBox txtSearchShowtime;
-        private System.Windows.Forms.Button btnShowShowtime;
         private System.Windows.Forms.Button btnUpdateShowtime;
         private System.Windows.Forms.Button btnDeleteShowtime;
         private System.Windows.Forms.Button btnInsertShowtime;

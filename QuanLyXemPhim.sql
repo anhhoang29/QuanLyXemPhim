@@ -515,7 +515,7 @@ GO
 
 
 --Store sua danh sach phim
-CREATE PROC USP_suaDanhSachPhim @MaPhim VARCHAR(50), @TenPhim NVARCHAR(100), @MoTa NVARCHAR(1000), @ThoiLuong FLOAT, @NgayKhoiChieu DATE,
+ALTER PROC USP_suaDanhSachPhim @MaPhim VARCHAR(50), @TenPhim NVARCHAR(100), @MoTa NVARCHAR(1000), @ThoiLuong FLOAT, @NgayKhoiChieu DATE,
 @NgayKetThuc DATE, @QuocGia NVARCHAR(50), @DaoDien NVARCHAR(100), @NamSX int, @GioiHanTuoi INT
 AS
 BEGIN
@@ -861,7 +861,7 @@ BEGIN
 	DECLARE @result INT = 0, @i INT = 0, @SoHangGhe INT, @SoGheMotHang INT, @j INT = 0, @MaCaChieu VARCHAR(50)
 	SELECT @SoHangGhe = dbo.PhongChieu.SoHangGhe FROM dbo.PhongChieu, inserted 
 	SELECT @SoGheMotHang = dbo.PhongChieu.SoGheMotHang FROM dbo.PhongChieu, inserted 
-	SELECT @MaCaChieu = dbo.CaChieu.MaCaChieu  FROM dbo.CaChieu, inserted
+	SELECT @MaCaChieu = MaCaChieu  FROM inserted
 	WHILE @i < @SoHangGhe
 	BEGIN
 		DECLARE @tempt INT = 0;
