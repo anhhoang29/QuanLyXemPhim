@@ -29,8 +29,6 @@ namespace QuanLyXemPhim.frmAdminUserControl.FeatureViewUserControl
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnUpLoadPictureFilm = new System.Windows.Forms.Button();
-            this.picFilm = new System.Windows.Forms.PictureBox();
             this.clbMovieGenre = new System.Windows.Forms.CheckedListBox();
             this.dtmMovieEnd = new System.Windows.Forms.DateTimePicker();
             this.dtmMovieStart = new System.Windows.Forms.DateTimePicker();
@@ -39,6 +37,8 @@ namespace QuanLyXemPhim.frmAdminUserControl.FeatureViewUserControl
             this.txtMovieCountry = new System.Windows.Forms.TextBox();
             this.dtgvMovie = new System.Windows.Forms.DataGridView();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.nmr_NamSX = new System.Windows.Forms.NumericUpDown();
+            this.label1 = new System.Windows.Forms.Label();
             this.txtMovieLength = new System.Windows.Forms.TextBox();
             this.lblMovieEndDate = new System.Windows.Forms.Label();
             this.lblMovieStartDate = new System.Windows.Forms.Label();
@@ -58,39 +58,18 @@ namespace QuanLyXemPhim.frmAdminUserControl.FeatureViewUserControl
             this.btnAddMovie = new System.Windows.Forms.Button();
             this.panel47 = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
-            ((System.ComponentModel.ISupportInitialize)(this.picFilm)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvMovie)).BeginInit();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nmr_NamSX)).BeginInit();
             this.panel47.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // btnUpLoadPictureFilm
-            // 
-            this.btnUpLoadPictureFilm.Location = new System.Drawing.Point(1094, 289);
-            this.btnUpLoadPictureFilm.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnUpLoadPictureFilm.Name = "btnUpLoadPictureFilm";
-            this.btnUpLoadPictureFilm.Size = new System.Drawing.Size(143, 51);
-            this.btnUpLoadPictureFilm.TabIndex = 56;
-            this.btnUpLoadPictureFilm.Text = "Chọn hình ảnh";
-            this.btnUpLoadPictureFilm.UseVisualStyleBackColor = true;
-            // 
-            // picFilm
-            // 
-            this.picFilm.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.picFilm.Location = new System.Drawing.Point(1061, 2);
-            this.picFilm.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.picFilm.Name = "picFilm";
-            this.picFilm.Size = new System.Drawing.Size(209, 271);
-            this.picFilm.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.picFilm.TabIndex = 55;
-            this.picFilm.TabStop = false;
             // 
             // clbMovieGenre
             // 
             this.clbMovieGenre.CheckOnClick = true;
             this.clbMovieGenre.FormattingEnabled = true;
-            this.clbMovieGenre.Location = new System.Drawing.Point(17, 189);
+            this.clbMovieGenre.Location = new System.Drawing.Point(18, 188);
             this.clbMovieGenre.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.clbMovieGenre.MultiColumn = true;
             this.clbMovieGenre.Name = "clbMovieGenre";
@@ -158,8 +137,8 @@ namespace QuanLyXemPhim.frmAdminUserControl.FeatureViewUserControl
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.btnUpLoadPictureFilm);
-            this.panel2.Controls.Add(this.picFilm);
+            this.panel2.Controls.Add(this.nmr_NamSX);
+            this.panel2.Controls.Add(this.label1);
             this.panel2.Controls.Add(this.clbMovieGenre);
             this.panel2.Controls.Add(this.dtmMovieEnd);
             this.panel2.Controls.Add(this.dtmMovieStart);
@@ -186,6 +165,38 @@ namespace QuanLyXemPhim.frmAdminUserControl.FeatureViewUserControl
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1430, 348);
             this.panel2.TabIndex = 0;
+            // 
+            // nmr_NamSX
+            // 
+            this.nmr_NamSX.Location = new System.Drawing.Point(763, 308);
+            this.nmr_NamSX.Maximum = new decimal(new int[] {
+            2030,
+            0,
+            0,
+            0});
+            this.nmr_NamSX.Minimum = new decimal(new int[] {
+            2000,
+            0,
+            0,
+            0});
+            this.nmr_NamSX.Name = "nmr_NamSX";
+            this.nmr_NamSX.Size = new System.Drawing.Size(226, 26);
+            this.nmr_NamSX.TabIndex = 58;
+            this.nmr_NamSX.Value = new decimal(new int[] {
+            2000,
+            0,
+            0,
+            0});
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(567, 308);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(118, 32);
+            this.label1.TabIndex = 57;
+            this.label1.Text = "Năm SX";
             // 
             // txtMovieLength
             // 
@@ -385,10 +396,10 @@ namespace QuanLyXemPhim.frmAdminUserControl.FeatureViewUserControl
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "MovieUC";
             this.Size = new System.Drawing.Size(1430, 799);
-            ((System.ComponentModel.ISupportInitialize)(this.picFilm)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvMovie)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nmr_NamSX)).EndInit();
             this.panel47.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -396,9 +407,6 @@ namespace QuanLyXemPhim.frmAdminUserControl.FeatureViewUserControl
         }
 
         #endregion
-
-        private System.Windows.Forms.Button btnUpLoadPictureFilm;
-        private System.Windows.Forms.PictureBox picFilm;
         private System.Windows.Forms.CheckedListBox clbMovieGenre;
         private System.Windows.Forms.DateTimePicker dtmMovieEnd;
         private System.Windows.Forms.DateTimePicker dtmMovieStart;
@@ -426,5 +434,7 @@ namespace QuanLyXemPhim.frmAdminUserControl.FeatureViewUserControl
         private System.Windows.Forms.Button btnAddMovie;
         private System.Windows.Forms.Panel panel47;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.NumericUpDown nmr_NamSX;
+        private System.Windows.Forms.Label label1;
     }
 }

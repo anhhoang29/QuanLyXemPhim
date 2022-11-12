@@ -32,10 +32,11 @@ namespace QuanLyXemPhim.frmAdminUserControl.FeatureViewUserControl
             DateTime NgayKetThuc = dtmMovieEnd.Value;
             string QuocGia = txtMovieCountry.Text;
             string DienVien = txtMovieActor.Text;
+            int NamSX = Convert.ToInt32(nmr_NamSX.Value);
             int GioiHanTuoi = Convert.ToInt32(txtMovieYearLimit.Text);
 
             PhimBUS.Instance.themDanhSachPhim(MaPhim, TenPhim, MoTa, ThoiLuong, NgayBatDau, NgayKetThuc,
-                QuocGia, DienVien, GioiHanTuoi);
+                QuocGia, DienVien, NamSX,GioiHanTuoi);
             PhimBUS.Instance.hienThiPhim(movieList);
         }
 
@@ -68,10 +69,11 @@ namespace QuanLyXemPhim.frmAdminUserControl.FeatureViewUserControl
             DateTime NgayKetThuc = dtmMovieEnd.Value;
             string QuocGia = txtMovieCountry.Text;
             string DienVien = txtMovieActor.Text;
+            int NamSX = Convert.ToInt32(nmr_NamSX.Value);
             int GioiHanTuoi = Convert.ToInt32(txtMovieYearLimit.Text);
 
             PhimBUS.Instance.suaDanhSachPhim(MaPhim, TenPhim, MoTa, ThoiLuong, NgayBatDau, NgayKetThuc,
-                QuocGia, DienVien, GioiHanTuoi);
+                QuocGia, DienVien,NamSX, GioiHanTuoi);
             PhimBUS.Instance.hienThiPhim(movieList);
         }
 
