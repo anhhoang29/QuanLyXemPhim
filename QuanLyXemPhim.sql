@@ -5,6 +5,9 @@ GO
 USE QuanLyXemPhim
 GO 
 
+--DROP DATABASE QuanLyXemPhim
+
+
 --========================================================TẠO BẢNG ==============================================================
 CREATE TABLE NhanVien
 (
@@ -19,7 +22,7 @@ GO
 
 CREATE TABLE TaiKhoan
 (
-	UserName NVARCHAR(100) NOT NULL,
+	UserName NVARCHAR(100) UNIQUE NOT NULL,
 	Pass VARCHAR(1000) NOT NULL,
 	LoaiTK INT NOT NULL DEFAULT 2, -- 1:admin || 2:staff
 	idNV VARCHAR(50) NOT NULL,
@@ -107,7 +110,6 @@ CREATE TABLE KhachHang(
 	Diachi NVARCHAR(100),
 	NamSinh INT NOT NULL,
 	SoDienThoai VARCHAR (50),
-	CMND INT NOT NULL UNIQUE,
 	DiemTichLuy INT DEFAULT 0
 )
 GO
@@ -182,6 +184,7 @@ INSERT TaiKhoan (UserName, Pass,LoaiTK, idNV) VALUES (N'NV07',N'123456',2,N'NV07
 GO
 INSERT TaiKhoan (UserName, Pass,LoaiTK, idNV) VALUES (N'NV08',N'123456',2,N'NV08')
 GO
+
 
 --- insert thể loại phim
 INSERT TheLoai(MaLoaiPhim,TenTheLoai) VALUES (N'T01', N'Hành Động')
@@ -312,35 +315,35 @@ VALUES ('MCC0005',CAST(N'2022-11-22T08:50:00.000' AS DateTime),CAST(N'2022-11-27
 GO
 
 --- insert khách hàng
-INSERT KhachHang (TenKhachHang, Diachi, NamSinh, SoDienThoai, CMND,DiemTichLuy)
-VALUES (N'Đỗ Dương Thái Tuấn',N'Thủ Đức',2002,'0912999988',752020123,0)
+INSERT KhachHang (TenKhachHang, Diachi, NamSinh, SoDienThoai, DiemTichLuy)
+VALUES (N'Đỗ Dương Thái Tuấn',N'Thủ Đức',2002,'0912999988',0)
 GO
-INSERT KhachHang (TenKhachHang, Diachi, NamSinh, SoDienThoai, CMND,DiemTichLuy)
-VALUES (N'Trần Chí Mỹ',N'Thủ Đức',2002,'0912922988',752020122,0)
+INSERT KhachHang (TenKhachHang, Diachi, NamSinh, SoDienThoai, DiemTichLuy)
+VALUES (N'Trần Chí Mỹ',N'Thủ Đức',2002,'0912922988',0)
 GO
-INSERT KhachHang (TenKhachHang, Diachi, NamSinh, SoDienThoai, CMND,DiemTichLuy)
-VALUES (N'Nguyễn Minh Quốc',N'Quận 1',1995,'0987635456',752083128,5)
+INSERT KhachHang (TenKhachHang, Diachi, NamSinh, SoDienThoai, DiemTichLuy)
+VALUES (N'Nguyễn Minh Quốc',N'Quận 1',1995,'0987635456',5)
 GO
-INSERT KhachHang (TenKhachHang, Diachi, NamSinh, SoDienThoai, CMND,DiemTichLuy)
-VALUES (N'Trần Minh Quân',N'Quận Bình Thạnh',2000,'0983456789',752022345,12)
+INSERT KhachHang (TenKhachHang, Diachi, NamSinh, SoDienThoai, DiemTichLuy)
+VALUES (N'Trần Minh Quân',N'Quận Bình Thạnh',2000,'0983456789',12)
 GO
-INSERT KhachHang (TenKhachHang, Diachi, NamSinh, SoDienThoai, CMND,DiemTichLuy)
-VALUES (N'Trần Văn Trường',N'Quận Tân Bình',1999,'0934567823',752034567,10)
+INSERT KhachHang (TenKhachHang, Diachi, NamSinh, SoDienThoai,DiemTichLuy)
+VALUES (N'Trần Văn Trường',N'Quận Tân Bình',1999,'0934567823',10)
 GO
-INSERT KhachHang (TenKhachHang, Diachi, NamSinh, SoDienThoai, CMND,DiemTichLuy)
-VALUES (N'Trần Vân Anh',N'Huyện Cần Giờ',1995,'09345672346',752023434,5)
+INSERT KhachHang (TenKhachHang, Diachi, NamSinh, SoDienThoai, DiemTichLuy)
+VALUES (N'Trần Vân Anh',N'Huyện Cần Giờ',1995,'09345672346',5)
 GO
-INSERT KhachHang (TenKhachHang, Diachi, NamSinh, SoDienThoai, CMND,DiemTichLuy)
-VALUES (N'Trần Thị Lan',N'Huyện Bình Chánh',2009,'09944567846',734312345,5)
+INSERT KhachHang (TenKhachHang, Diachi, NamSinh, SoDienThoai, DiemTichLuy)
+VALUES (N'Trần Thị Lan',N'Huyện Bình Chánh',2009,'09944567846',5)
 GO
-INSERT KhachHang (TenKhachHang, Diachi, NamSinh, SoDienThoai, CMND,DiemTichLuy)
-VALUES (N'Trần Minh Long',N'Quảng Ngãi',2003,'04567892345',023435678,20)
+INSERT KhachHang (TenKhachHang, Diachi, NamSinh, SoDienThoai, DiemTichLuy)
+VALUES (N'Trần Minh Long',N'Quảng Ngãi',2003,'04567892345',20)
 GO
-INSERT KhachHang (TenKhachHang, Diachi, NamSinh, SoDienThoai, CMND,DiemTichLuy)
-VALUES (N'Trần Minh Hướng',N'Quảng Nam',1999,'09454324535',234356708,5)
+INSERT KhachHang (TenKhachHang, Diachi, NamSinh, SoDienThoai,DiemTichLuy)
+VALUES (N'Trần Minh Hướng',N'Quảng Nam',1999,'09454324535',5)
 GO
-INSERT KhachHang (TenKhachHang, Diachi, NamSinh, SoDienThoai, CMND,DiemTichLuy)
-VALUES (N'Trần Thị Minh Phương',N'Thái Nguyên',1999,'34567898054',752035690,10)
+INSERT KhachHang (TenKhachHang, Diachi, NamSinh, SoDienThoai, DiemTichLuy)
+VALUES (N'Trần Thị Minh Phương',N'Thái Nguyên',1999,'34567898054',10)
 GO
 
 -- insert cho ngoi
@@ -433,35 +436,6 @@ END
 GO
 
 
---Store thêm tài khoản
-CREATE PROC USP_themDanhSachTaiKhoan @UserName NVARCHAR(100), @Pass NVARCHAR(1000), @LoaiTK INT, @idNV VARCHAR(50)
-AS
-BEGIN
-	INSERT TaiKhoan (UserName, Pass,LoaiTK, idNV) VALUES (@UserName, @Pass , @LoaiTK, @idNV)
-END
-GO
-
-
-
---Store sửa tài khoản
-CREATE PROC USP_suaDanhSachTaiKhoan @UserName NVARCHAR(100), @Pass NVARCHAR(1000), @LoaiTK INT, @idNV VARCHAR(50)
-AS
-BEGIN
-	UPDATE TaiKhoan SET UserName = @UserName, Pass = @Pass , LoaiTK = @LoaiTK WHERE idNV = @idNV
-END
-GO
-
-
-
---Store xóa tài khoản
-CREATE PROC USP_xoaDanhSachTaiKhoan @idNV VARCHAR(50)
-AS
-BEGIN
-	DELETE TaiKhoan WHERE idNV = @idNV
-END
-GO
-
-
 
 -----------STORE PHÒNG CHIẾU
 --Store lấy danh sách phòng chiếu
@@ -515,11 +489,11 @@ GO
 
 
 --Store sua danh sach phim
-ALTER PROC USP_suaDanhSachPhim @MaPhim VARCHAR(50), @TenPhim NVARCHAR(100), @MoTa NVARCHAR(1000), @ThoiLuong FLOAT, @NgayKhoiChieu DATE,
+CREATE PROC USP_suaDanhSachPhim @MaPhim VARCHAR(50), @TenPhim NVARCHAR(100), @MoTa NVARCHAR(1000), @ThoiLuong FLOAT, @NgayKhoiChieu DATE,
 @NgayKetThuc DATE, @QuocGia NVARCHAR(50), @DaoDien NVARCHAR(100), @NamSX int, @GioiHanTuoi INT
 AS
 BEGIN
-	UPDATE Phim SET TenPhim = @TenPhim, MoTa = @MoTa, ThoiLuong = @ThoiLuong, NgayKhoiChieu = @NgayKhoiChieu, NgayKetThuc = @NgayKetThuc, @NamSX = NamSX WHERE MaPhim = @MaPhim
+	UPDATE Phim SET TenPhim = @TenPhim, MoTa = @MoTa, ThoiLuong = @ThoiLuong, NgayKhoiChieu = @NgayKhoiChieu, NgayKetThuc = @NgayKetThuc, @NamSX = NamSX, QuocGia = @QuocGia WHERE MaPhim = @MaPhim
 END
 GO
 --Store xoa danh sach phim
@@ -538,42 +512,6 @@ CREATE PROC USP_hienDanhSachPhim
 AS
 BEGIN
 	SELECT * FROM Phim
-END
-GO
-
-
---Store thêm phim 
-CREATE PROC USP_themDanhSachPhim @MaPhim VARCHAR(50), @TenPhim NVARCHAR(100), @MoTa NVARCHAR(1000), @ThoiLuong FLOAT, @NgayKhoiChieu DATE,
-@NgayKetThuc DATE, @QuocGia NVARCHAR(50), @DaoDien NVARCHAR(100), @NamSX INT, @GioiHanTuoi INT
-AS
-BEGIN
-	INSERT Phim (MaPhim, TenPhim, MoTa, ThoiLuong, NgayKhoiChieu, NgayKetThuc,QuocGia, DaoDien, NamSX, GioiHanTuoi) 
-VALUES (@MaPhim, @TenPhim, @MoTa, @ThoiLuong, @NgayKhoiChieu , @NgayKetThuc, @QuocGia, @DaoDien, @NamSX, @GioiHanTuoi)
-END
-GO
-
-
-
---Store sửa phim
-
-CREATE PROC USP_suaDanhSachPhim @MaPhim VARCHAR(50), @TenPhim NVARCHAR(100), @MoTa NVARCHAR(1000), @ThoiLuong FLOAT, @NgayKhoiChieu DATE,
-@NgayKetThuc DATE, @QuocGia NVARCHAR(50), @DaoDien NVARCHAR(100), @GioiHanTuoi INT
-AS
-BEGIN
-	UPDATE Phim SET TenPhim = @TenPhim, MoTa = @MoTa, ThoiLuong = @ThoiLuong, NgayKhoiChieu = @NgayKhoiChieu, NgayKetThuc = @NgayKetThuc WHERE MaPhim = @MaPhim
-END
-GO
-
-
-
---Store xóa phim 
-CREATE PROC USP_xoaDanhSachPhimTuCaChieu @MaPhim varchar(50)
-AS
-BEGIN 
-	DELETE FROM PhanLoaiPhim WHERE idPhim = @MaPhim
-	DELETE FROM CaChieu WHERE MaPhim = @MaPhim
-	DELETE FROM Phim WHERE MaPhim = @MaPhim
-
 END
 GO
 
@@ -706,31 +644,14 @@ GO
 
 -----------STORE KHÁCH HÀNG
 ----Store lấy ra danh sách tất cả khách hàng
-CREATE PROCEDURE SP_layTatCaKhachHang
+CREATE PROCEDURE SP_layTatCaKhachHang @MaKH INT, @TenKhachHang NVARCHAR(50), @DiaChi NVARCHAR(50), @NamSinh INT,
+@SoDienThoai VARCHAR(50),  @DiemTichLuy INT
 AS
 BEGIN
-	INSERT INTO KhachHang(MaKH, TenKhachHang, Diachi, NamSinh, SoDienThoai, CMND, DiemTichLuy)
-	VALUES(@MaKH,  @TenKhachHang, @DiaChi, @NamSinh, @SoDienThoai, @CMND, @DiemTichLuy)
+	INSERT INTO KhachHang(MaKH, TenKhachHang, Diachi, NamSinh, SoDienThoai,  DiemTichLuy)
+	VALUES(@MaKH,  @TenKhachHang, @DiaChi, @NamSinh, @SoDienThoai,  @DiemTichLuy)
 END
 GO
-
-
-
---store  add cho ngoi 
-create proc usp_add_chongoi @Id int, @Hang char(1), @
-
-
-
---STORE update khách hàng
-CREATE PROC USP_Update_Khach_Hang @MaKH INT, @TenKhachHang NVARCHAR(50), @DiaChi NVARCHAR(50), @NamSinh INT,
-@SoDienThoai VARCHAR(50), @CMND INT, @DiemTichLuy INT
-AS
-BEGIN
-	UPDATE KhachHang SET TenKhachHang = @TenKhachHang, Diachi = @DiaChi, NamSinh = @NamSinh, SoDienThoai = @SoDienThoai, CMND = @CMND, DiemTichLuy = @DiemTichLuy
-	WHERE MaKH = @MaKH
-END
-GO
-
 
 ----Store thêm khách hàng
 CREATE PROCEDURE USP_themKhachHang @TenKhachHang nvarchar(50), @DiaChi nvarchar(100), @NamSinh int, @SoDienThoai varchar(50), @Diem int
@@ -899,7 +820,7 @@ GO
 
 
 ----Trigger tạo tài khoản phân quyền ở Db khi admin thêm mới tài khoản vào bảng tài khoản
-CREATE TRIGGER UTG_taoTaiKhoanPhanQuyen ON TaiKhoan FOR INSERT
+CREATE TRIGGER UTG_taoTaiKhoanPhanQuyen ON TaiKhoan AFTER INSERT
 AS
 BEGIN
 	DECLARE @username VARCHAR(100);
@@ -910,29 +831,28 @@ BEGIN
 	DECLARE @addUserToRole VARCHAR(200);
 
 	SELECT @username = UserName, @pass = Pass, @loaiTK = LoaiTK FROM inserted
+	
+	IF @loaiTK = 2
+	BEGIN
+		SET @createLogin ='CREATE LOGIN '+ @username +' WITH PASSWORD = '+ @pass;
+		EXEC (@createLogin)
+		SET @createUser = 'USE QuanLyXemPhim CREATE USER ' + @username + ' FOR LOGIN ' + @username ;
+		EXEC (@createUser)
+		SET @addUserToRole = 'sp_addrolemember Staff,' + @username;
+		EXEC (@addUserToRole)
+		--EXEC sp_addrolemember 'Staff', [@username];
+	END
+
 	IF @loaiTK = 1
 	BEGIN
-		IF @loaiTK = 1
-		BEGIN
-			SET @createLogin ='CREATE LOGIN '+ @username +' WITH PASSWORD ='''+ @pass +'''';
-			EXEC (@createLogin)
-			SET @createUser = 'USE QuanLyXemPhim CREATE USER ' + @username + ' FOR LOGIN ' + @username ;
-			EXEC (@createUser)
-			SET @addUserToRole = 'sp_addrolemember Staff,' + @username;
-			EXEC (@addUserToRole)
-			EXEC sp_addrolemember 'Staff', [@username];
-		END
-		ELSE
-		BEGIN
-			SET @createLogin ='CREATE LOGIN '+ @username +' WITH PASSWORD ='''+ @pass +'''';
-			EXEC (@createLogin)
-			SET @createUser = 'USE QuanLyXemPhim CREATE USER ' + @username + ' FOR LOGIN ' + @username ;
-			EXEC (@createUser)
-			SET @addUserToRole = 'sp_addrolemember Staff,' + @username;
-			EXEC (@addUserToRole)
-			EXEC SP_ADDSRVROLEMEMBER [admin],'SYSADMIN'
-			EXEC sp_addrolemember 'Manager', [@username];
-		END
+		SET @createLogin ='CREATE LOGIN '+ @username +' WITH PASSWORD = '+ @pass ;
+		EXEC (@createLogin)
+		SET @createUser = 'USE QuanLyXemPhim CREATE USER ' + @username + ' FOR LOGIN ' + @username ;
+		EXEC (@createUser)
+		SET @addUserToRole = 'sp_addrolemember Manager,' + @username;
+		EXEC (@addUserToRole)
+		EXEC SP_ADDSRVROLEMEMBER [admin],'SYSADMIN'
+		--EXEC sp_addrolemember 'Manager', [@username];
 	END
 END
 GO

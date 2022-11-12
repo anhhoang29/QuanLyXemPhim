@@ -24,20 +24,28 @@ namespace BUS
         }
         public void themDanhSachTaiKhoan(string UserName, string Pass, int LoaiTK, string idNV)
         {
-            try
+            //try
+            //{
+            //    if (TaiKhoanDAO.Instance.themDanhSachTaiKhoan(UserName, Pass, LoaiTK, idNV) > 0)
+            //    {
+            //        MessageBox.Show("Thêm thành công", "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+            //    }
+            //    else
+            //    {
+            //        MessageBox.Show("Thêm thất bại", "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+            //    }
+            //}
+            //catch
+            //{
+            //    MessageBox.Show("Error", "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
+            //}
+            if (TaiKhoanDAO.Instance.themDanhSachTaiKhoan(UserName, Pass, LoaiTK, idNV) > 0)
             {
-                if (TaiKhoanDAO.Instance.themDanhSachTaiKhoan(UserName, Pass, LoaiTK, idNV) > 0)
-                {
-                    MessageBox.Show("Thêm thành công", "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
-                }
-                else
-                {
-                    MessageBox.Show("Thêm thất bại", "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
-                }
+                MessageBox.Show("Thêm thành công", "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
             }
-            catch
+            else
             {
-                MessageBox.Show("Error", "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
+                MessageBox.Show("Thêm thất bại", "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
             }
         }
         public void suaDanhSachTaiKhoan(string UserName, string Pass, int LoaiTK, string idNV)

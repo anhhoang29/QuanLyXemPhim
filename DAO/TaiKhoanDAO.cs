@@ -47,17 +47,21 @@ namespace DAO
         }
         public int themDanhSachTaiKhoan(string UserName, string Pass, int LoaiTK, string idNV)
         {
-            try
-            {
-                string query = @"USP_themDanhSachTaiKhoan @UserName , @Pass , @LoaiTK , @idNV ";
-                //USP_Add_Account @UserName , @Pass , @LoaiTK , @idNV
-                int kq = DataProvider.Instance.ExecuteNonQuery(query, new object[] { UserName, Pass, LoaiTK, idNV });
-                return kq;
-            }
-            catch
-            {
-                return 0;
-            }
+            //try
+            //{
+            //    string query = @"USP_themDanhSachTaiKhoan @UserName , @Pass , @LoaiTK , @idNV ";
+            //    //USP_Add_Account @UserName , @Pass , @LoaiTK , @idNV
+            //    int kq = DataProvider.Instance.ExecuteNonQuery(query, new object[] { UserName, Pass, LoaiTK, idNV });
+            //    return kq;
+            //}
+            //catch
+            //{
+            //    return 0;
+            //}
+            string query = @"USP_themDanhSachTaiKhoan @UserName , @Pass , @LoaiTK , @idNV ";
+            //USP_Add_Account @UserName , @Pass , @LoaiTK , @idNV
+            int kq = DataProvider.Instance.ExecuteNonQuery(query, new object[] { UserName, Pass, LoaiTK, idNV });
+            return kq;
         }
         public int suaDanhSachTaiKhoan(string UserName, string Pass, int LoaiTK, string idNV)
         {
