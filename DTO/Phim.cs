@@ -18,6 +18,7 @@ namespace DTO
         private string quocGia;
         private string daoDien;
         private int gioiHanTuoi;
+        private int namSX;
 
         public string MaPhim { get => maPhim; set => maPhim = value; }
         public string TenPhim { get => tenPhim; set => tenPhim = value; }
@@ -28,6 +29,7 @@ namespace DTO
         public string QuocGia { get => quocGia; set => quocGia = value; }
         public string DaoDien { get => daoDien; set => daoDien = value; }
         public int GioiHanTuoi { get => gioiHanTuoi; set => gioiHanTuoi = value; }
+        public int NamSX { get => namSX; set => namSX = value; }
 
         public Phim() { }
 
@@ -42,6 +44,7 @@ namespace DTO
             QuocGia = row["QuocGia"].ToString();
             DaoDien = row["DaoDien"].ToString();
             GioiHanTuoi = (int)row["GioiHanTuoi"];
+            NamSX = (int)row["NamSX"];
         }
     }
 }

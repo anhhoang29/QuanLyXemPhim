@@ -54,8 +54,6 @@ namespace QuanLyXemPhim.frmAdminUserControl.FeatureViewUserControl
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.dtgvShowtime = new System.Windows.Forms.DataGridView();
-            this.btnSearchShowtime = new System.Windows.Forms.Button();
-            this.txtSearchShowtime = new System.Windows.Forms.TextBox();
             this.btnUpdateShowtime = new System.Windows.Forms.Button();
             this.btnDeleteShowtime = new System.Windows.Forms.Button();
             this.btnInsertShowtime = new System.Windows.Forms.Button();
@@ -332,26 +330,6 @@ namespace QuanLyXemPhim.frmAdminUserControl.FeatureViewUserControl
             this.dtgvShowtime.TabIndex = 1;
             this.dtgvShowtime.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgvShowtime_CellContentClick);
             // 
-            // btnSearchShowtime
-            // 
-            this.btnSearchShowtime.Image = global::QuanLyXemPhim.Properties.Resources.search_icon;
-            this.btnSearchShowtime.Location = new System.Drawing.Point(967, 30);
-            this.btnSearchShowtime.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnSearchShowtime.Name = "btnSearchShowtime";
-            this.btnSearchShowtime.Size = new System.Drawing.Size(27, 27);
-            this.btnSearchShowtime.TabIndex = 7;
-            this.btnSearchShowtime.UseVisualStyleBackColor = true;
-            // 
-            // txtSearchShowtime
-            // 
-            this.txtSearchShowtime.Location = new System.Drawing.Point(627, 30);
-            this.txtSearchShowtime.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtSearchShowtime.Multiline = true;
-            this.txtSearchShowtime.Name = "txtSearchShowtime";
-            this.txtSearchShowtime.Size = new System.Drawing.Size(335, 27);
-            this.txtSearchShowtime.TabIndex = 6;
-            this.txtSearchShowtime.Text = "Tìm theo tên phim...";
-            // 
             // btnUpdateShowtime
             // 
             this.btnUpdateShowtime.Location = new System.Drawing.Point(220, 4);
@@ -387,8 +365,6 @@ namespace QuanLyXemPhim.frmAdminUserControl.FeatureViewUserControl
             // 
             // panel54
             // 
-            this.panel54.Controls.Add(this.btnSearchShowtime);
-            this.panel54.Controls.Add(this.txtSearchShowtime);
             this.panel54.Controls.Add(this.btnUpdateShowtime);
             this.panel54.Controls.Add(this.btnDeleteShowtime);
             this.panel54.Controls.Add(this.btnInsertShowtime);
@@ -417,7 +393,6 @@ namespace QuanLyXemPhim.frmAdminUserControl.FeatureViewUserControl
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dtgvShowtime)).EndInit();
             this.panel54.ResumeLayout(false);
-            this.panel54.PerformLayout();
             this.ResumeLayout(false);
 
 		}
@@ -440,8 +415,6 @@ namespace QuanLyXemPhim.frmAdminUserControl.FeatureViewUserControl
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.DataGridView dtgvShowtime;
-        private System.Windows.Forms.Button btnSearchShowtime;
-        private System.Windows.Forms.TextBox txtSearchShowtime;
         private System.Windows.Forms.Button btnUpdateShowtime;
         private System.Windows.Forms.Button btnDeleteShowtime;
         private System.Windows.Forms.Button btnInsertShowtime;

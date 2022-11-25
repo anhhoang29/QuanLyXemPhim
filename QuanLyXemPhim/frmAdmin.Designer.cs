@@ -37,7 +37,8 @@ namespace QuanLyXemPhim
             this.btnCustomerUC = new System.Windows.Forms.Button();
             this.btnStaffUC = new System.Windows.Forms.Button();
             this.btnDataUC = new System.Windows.Forms.Button();
-            this.btnRevenueUC = new System.Windows.Forms.Button();
+            //this.btnRevenueUC = new System.Windows.Forms.Button();
+            this.btnThongke = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             this.SuspendLayout();
@@ -66,17 +67,18 @@ namespace QuanLyXemPhim
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.Black;
+            this.panel3.Controls.Add(this.btnThongke);
             this.panel3.Controls.Add(this.btnAccountUC);
             this.panel3.Controls.Add(this.btnCustomerUC);
             this.panel3.Controls.Add(this.btnStaffUC);
             this.panel3.Controls.Add(this.btnDataUC);
-            this.panel3.Controls.Add(this.btnRevenueUC);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel3.Location = new System.Drawing.Point(0, 0);
             this.panel3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(1832, 117);
             this.panel3.TabIndex = 1;
+            this.panel3.Paint += new System.Windows.Forms.PaintEventHandler(this.panel3_Paint);
             // 
             // btnAccountUC
             // 
@@ -89,7 +91,7 @@ namespace QuanLyXemPhim
             this.btnAccountUC.ForeColor = System.Drawing.SystemColors.Control;
             this.btnAccountUC.Image = ((System.Drawing.Image)(resources.GetObject("btnAccountUC.Image")));
             this.btnAccountUC.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.btnAccountUC.Location = new System.Drawing.Point(791, 18);
+            this.btnAccountUC.Location = new System.Drawing.Point(574, 18);
             this.btnAccountUC.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnAccountUC.Name = "btnAccountUC";
             this.btnAccountUC.Size = new System.Drawing.Size(155, 79);
@@ -110,7 +112,7 @@ namespace QuanLyXemPhim
             this.btnCustomerUC.ForeColor = System.Drawing.SystemColors.Control;
             this.btnCustomerUC.Image = global::QuanLyXemPhim.Properties.Resources.people_2_512;
             this.btnCustomerUC.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.btnCustomerUC.Location = new System.Drawing.Point(612, 18);
+            this.btnCustomerUC.Location = new System.Drawing.Point(402, 18);
             this.btnCustomerUC.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnCustomerUC.Name = "btnCustomerUC";
             this.btnCustomerUC.Size = new System.Drawing.Size(155, 79);
@@ -131,7 +133,7 @@ namespace QuanLyXemPhim
             this.btnStaffUC.ForeColor = System.Drawing.SystemColors.Control;
             this.btnStaffUC.Image = ((System.Drawing.Image)(resources.GetObject("btnStaffUC.Image")));
             this.btnStaffUC.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.btnStaffUC.Location = new System.Drawing.Point(426, 18);
+            this.btnStaffUC.Location = new System.Drawing.Point(226, 18);
             this.btnStaffUC.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnStaffUC.Name = "btnStaffUC";
             this.btnStaffUC.Size = new System.Drawing.Size(155, 79);
@@ -152,7 +154,7 @@ namespace QuanLyXemPhim
             this.btnDataUC.ForeColor = System.Drawing.SystemColors.Control;
             this.btnDataUC.Image = global::QuanLyXemPhim.Properties.Resources.openfolder_4896;
             this.btnDataUC.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.btnDataUC.Location = new System.Drawing.Point(242, 18);
+            this.btnDataUC.Location = new System.Drawing.Point(47, 18);
             this.btnDataUC.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnDataUC.Name = "btnDataUC";
             this.btnDataUC.Size = new System.Drawing.Size(155, 79);
@@ -164,24 +166,26 @@ namespace QuanLyXemPhim
             // 
             // btnRevenueUC
             // 
-            this.btnRevenueUC.BackColor = System.Drawing.Color.DarkViolet;
-            this.btnRevenueUC.FlatAppearance.CheckedBackColor = System.Drawing.Color.Black;
-            this.btnRevenueUC.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Black;
-            this.btnRevenueUC.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Black;
-            this.btnRevenueUC.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRevenueUC.Font = new System.Drawing.Font("Century Gothic", 11.25F);
-            this.btnRevenueUC.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnRevenueUC.Image = ((System.Drawing.Image)(resources.GetObject("btnRevenueUC.Image")));
-            this.btnRevenueUC.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.btnRevenueUC.Location = new System.Drawing.Point(54, 18);
-            this.btnRevenueUC.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnRevenueUC.Name = "btnRevenueUC";
-            this.btnRevenueUC.Size = new System.Drawing.Size(155, 79);
-            this.btnRevenueUC.TabIndex = 0;
-            this.btnRevenueUC.Text = "Doanh Thu";
-            this.btnRevenueUC.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
-            this.btnRevenueUC.UseVisualStyleBackColor = false;
-            this.btnRevenueUC.Click += new System.EventHandler(this.btnRevenueUC_Click);
+            // 
+            // btnThongke
+            // 
+            this.btnThongke.BackColor = System.Drawing.Color.DarkViolet;
+            this.btnThongke.FlatAppearance.CheckedBackColor = System.Drawing.Color.Black;
+            this.btnThongke.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Black;
+            this.btnThongke.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Black;
+            this.btnThongke.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnThongke.Font = new System.Drawing.Font("Century Gothic", 11.25F);
+            this.btnThongke.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnThongke.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.btnThongke.Location = new System.Drawing.Point(751, 18);
+            this.btnThongke.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnThongke.Name = "btnThongke";
+            this.btnThongke.Size = new System.Drawing.Size(155, 79);
+            this.btnThongke.TabIndex = 1;
+            this.btnThongke.Text = "Doanh Thu";
+            this.btnThongke.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
+            this.btnThongke.UseVisualStyleBackColor = false;
+            this.btnThongke.Click += new System.EventHandler(this.button1_Click);
             // 
             // frmAdmin
             // 
@@ -207,7 +211,8 @@ namespace QuanLyXemPhim
         private System.Windows.Forms.Button btnCustomerUC;
         private System.Windows.Forms.Button btnStaffUC;
         private System.Windows.Forms.Button btnDataUC;
-        private System.Windows.Forms.Button btnRevenueUC;
+        //private System.Windows.Forms.Button btnRevenueUC;
         private System.Windows.Forms.Panel pnAdmin;
+        private System.Windows.Forms.Button btnThongke;
     }
 }

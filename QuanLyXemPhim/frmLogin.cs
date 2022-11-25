@@ -28,14 +28,11 @@ namespace QuanLyXemPhim
             TaiKhoan taiKhoan = TaiKhoanBUS.Instance.xuLyDangNhap(userName, password);
             if (taiKhoan != null)
             {
+
                 frmDashboard dashboard = new frmDashboard(taiKhoan);
                 dashboard.ShowDialog();
                 txtUsername.Clear();
                 txtPassword.Clear();
-            }
-            else
-            {
-                MessageBox.Show("Đăng nhập thất bại", "Thông báo", MessageBoxButtons.OKCancel);
             }
         }
         private void frmLogin_FormClosing(object sender, FormClosingEventArgs e)

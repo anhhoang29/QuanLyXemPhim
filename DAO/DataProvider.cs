@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 using System.Runtime.CompilerServices;
+using System.Windows.Forms;
 
 namespace DAO
 {
@@ -35,24 +36,31 @@ namespace DAO
             DataTable data = new DataTable();
             using (SqlConnection connection = new SqlConnection(connectionStr))
             {
-                connection.Open();
-                SqlCommand cmd = new SqlCommand(query, connection);
-                if (parameter != null)
+                try
                 {
-                    string[] listPara = query.Split(' ');
-                    int i = 0;
-                    foreach (string item in listPara)
+                    connection.Open();
+                    SqlCommand cmd = new SqlCommand(query, connection);
+                    if (parameter != null)
                     {
-                        if (item.Contains("@"))
+                        string[] listPara = query.Split(' ');
+                        int i = 0;
+                        foreach (string item in listPara)
                         {
-                            cmd.Parameters.AddWithValue(item, parameter[i]);
-                            i++;
+                            if (item.Contains("@"))
+                            {
+                                cmd.Parameters.AddWithValue(item, parameter[i]);
+                                i++;
+                            }
                         }
                     }
+                    SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                    adapter.Fill(data);
+                    connection.Close();
                 }
-                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
-                adapter.Fill(data);
-                connection.Close();
+                catch
+                {
+                    MessageBox.Show("Error", "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
+                }
             }
             return data;
         }
@@ -64,23 +72,31 @@ namespace DAO
             int data = 0;
             using (SqlConnection connection = new SqlConnection(connectionStr))
             {
-                connection.Open();
-                SqlCommand cmd = new SqlCommand(query, connection);
-                if (parameter != null)
+                try
                 {
-                    string[] listPara = query.Split(' ');
-                    int i = 0;
-                    foreach (string item in listPara)
+                    connection.Open();
+                    SqlCommand cmd = new SqlCommand(query, connection);
+                    if (parameter != null)
                     {
-                        if (item.Contains('@'))
+                        string[] listPara = query.Split(' ');
+                        int i = 0;
+                        foreach (string item in listPara)
                         {
-                            cmd.Parameters.AddWithValue(item, parameter[i]);
-                            i++;
+                            if (item.Contains('@'))
+                            {
+                                cmd.Parameters.AddWithValue(item, parameter[i]);
+                                i++;
+                            }
                         }
                     }
+                    data = cmd.ExecuteNonQuery();
+                    connection.Close();
                 }
-                data = cmd.ExecuteNonQuery();
-                connection.Close();
+                catch (Exception ex)
+                {
+                    //MessageBox.Show("ERROR", "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
+                    MessageBox.Show(ex.Message);
+                }
             }
             return data;
         }
@@ -92,84 +108,32 @@ namespace DAO
             object data = 0;
             using (SqlConnection connection = new SqlConnection(connectionStr))
             {
-                connection.Open();
-                SqlCommand cmd = new SqlCommand(query, connection);
-                if (parameter != null)
+                try 
                 {
-                    string[] listPara = query.Split(' ');
-                    int i = 0;
-                    foreach (string item in listPara)
+                    connection.Open();
+                    SqlCommand cmd = new SqlCommand(query, connection);
+                    if (parameter != null)
                     {
-                        if (item.Contains('@'))
+                        string[] listPara = query.Split(' ');
+                        int i = 0;
+                        foreach (string item in listPara)
                         {
-                            cmd.Parameters.AddWithValue(item, parameter[i]);
-                            i++;
+                            if (item.Contains('@'))
+                            {
+                                cmd.Parameters.AddWithValue(item, parameter[i]);
+                                i++;
+                            }
                         }
                     }
+                    data = cmd.ExecuteScalar();
+                    connection.Close();
                 }
-                data = cmd.ExecuteScalar();
-                connection.Close();
+                catch
+                {
+                    MessageBox.Show("ERROR", "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
+                }
             }
             return data;
-        }
-
-        public DataTable UserExecuteReader(string query, object[] parameters = null)
-        {
-            DBSQLServerUtils con = new DBSQLServerUtils();
-            string connectionStr = con.conString().ToString();
-            DataTable dataResult = new DataTable();
-            using (var conn = new SqlConnection(connectionStr))
-            {
-                conn.Open();
-                using (var cmd = new SqlCommand(query, conn))
-                {
-                    if (parameters != null)
-                    {
-                        string[] listPara = query.Split(' ');
-                        int i = 0;
-                        foreach (string item in listPara)
-                        {
-                            if (item.Contains('@'))
-                            {
-                                cmd.Parameters.AddWithValue(item, parameters[i]);
-                                i++;
-                            }
-                        }
-                    }
-
-                    SqlDataReader reader = cmd.ExecuteReader();
-                    dataResult.Load(reader);
-                    return dataResult;
-                }
-            }
-        }
-
-        public void UserExecuteNonQuery(String query, object[] parameters = null)
-        {
-            using (var conn = new SqlConnection(connectionStr))
-            {
-                conn.Open();
-                using (var cmd = new SqlCommand(query, conn))
-                {
-                    //cmd.CommandType = CommandType.StoredProcedure;
-                    if (parameters != null)
-                    {
-                        string[] listPara = query.Split(' ');
-                        int i = 0;
-                        foreach (string item in listPara)
-                        {
-                            if (item.Contains('@'))
-                            {
-                                Console.WriteLine(item, parameters[i]);
-                                cmd.Parameters.AddWithValue(item, parameters[i]);
-                                i++;
-                            }
-                        }
-                    }
-                    cmd.ExecuteNonQuery();
-
-                }
-            }
         }
 
     }

@@ -25,14 +25,14 @@ namespace BUS
             return VeDAO.Instance.hienthiVe(maCaChieu);
         }
 
-        public Boolean updateListTicket(List<String> maVe)
+        public Boolean updateListTicket(List<Ve> maVe)
         {
             return VeDAO.Instance.updateListTicketDAO(maVe);
         }
 
-        public float getPriceOfTicketBUS(int maVe)
+        public float getPriceOfTicketBUS(string maCaChieu)
         {
-            return VeDAO.Instance.getPriceOfTicketDAO(maVe);
+            return VeDAO.Instance.getPriceOfTicketDAO(maCaChieu);
         }
     }
 }

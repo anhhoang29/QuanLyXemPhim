@@ -29,7 +29,7 @@ namespace DTO
 
         public CaChieu(DataRow row)
         {
-            MaCaChieu = row["MaCaChieu"].ToString();
+            this.MaCaChieu = row["MaCaChieu"].ToString();
             ThoiGianChieu = (DateTime)row["ThoiGianChieu"];
             ThoiGianKetThuc = (DateTime)row["ThoiGianKetThuc"];
             MaPhong = row["MaPhong"].ToString();
@@ -38,7 +38,7 @@ namespace DTO
                 this.GiaVe = 0;
             else
                 this.GiaVe = float.Parse(row["GiaVe"].ToString());
-            TrangThai = (int)row["TrangThai"];
+            this.TrangThai = (int)row["TrangThai"];
         }
     }
 }

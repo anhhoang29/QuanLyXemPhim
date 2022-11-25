@@ -42,15 +42,15 @@ namespace DAO
             return DataProvider.Instance.ExecuteNonQuery(query, new object[] { MaCaChieu });
         }
 
-        public bool updateListTicketDAO(List<String> maVe)
+        public bool updateListTicketDAO(List<Ve> maVe)
         {
 
-            string query = "USP_capNhatTrangThaiVe @maVe ";
+            string query = "USP_capNhatTrangThaiVe @maVe , @TienBanVe ,  @LoaiVe ";
             try
             {
                 for (int i = 0; i < maVe.Count; i++)
                 {
-                    DataProvider.Instance.UserExecuteNonQuery(query, new object[] { Int32.Parse(maVe[i]) });
+                    DataProvider.Instance.ExecuteNonQuery(query, new object[] { maVe[i].Id, maVe[i].TienBanVe, maVe[i].LoaiVe });
                 }
                 return true;
             }
@@ -58,22 +58,34 @@ namespace DAO
             {
                 return false;
             }
-           
+
 
         }
 
-        public float getPriceOfTicketDAO(int maVe)
+        public float getPriceOfTicketDAO(string maCaChieu)
         {
             string query = "Select dbo.FUNC_layGiaVe( @Id ) ";
             try
             {
-                return Convert.ToSingle(DataProvider.Instance.ExecuteScalar(query, new object[] { maVe }));
+                return Convert.ToSingle(DataProvider.Instance.ExecuteScalar(query, new object[] { maCaChieu }));
             }
             catch
             {
-               return -1;
+                return -1;
             }
 
+        }
+        public List<Ve> layTrangThaiVeDaBan(string maCaChieu)
+        {
+            List<Ve> listTicket = new List<Ve>();
+            string query = @"select * from Ve where MaCaChieu = '" + maCaChieu + "' AND TrangThai = 1";
+            DataTable data = DataProvider.Instance.ExecuteQuery(query);
+            foreach (DataRow row in data.Rows)
+            {
+                Ve ticket = new Ve(row);
+                listTicket.Add(ticket);
+            }
+            return listTicket;
         }
     }
 }

@@ -118,6 +118,16 @@ namespace DAO
             }
             return MovieList;
         }
-
+        public static Phim layMaPhim(string id)
+        {
+            Phim movie = null;
+            DataTable data = DataProvider.Instance.ExecuteQuery("SELECT * FROM dbo.Phim WHERE MaPhim = '" + id + "'");
+            foreach (DataRow item in data.Rows)
+            {
+                movie = new Phim(item);
+                return movie;
+            }
+            return movie;
+        }
     }
 }

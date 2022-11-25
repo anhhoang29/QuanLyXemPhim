@@ -22,7 +22,7 @@ namespace DAO
 
         public DataTable ReadAllCustomer()
         {
-            String query = "dbo.SP_layTatCaKhachHang";
+            String query = @"USP_layTatCaKhachHang";
             DataTable dt = DataProvider.Instance.ExecuteQuery(query, new object[] { });
             return dt;
         }
@@ -33,7 +33,7 @@ namespace DAO
             String query = "dbo.USP_themKhachHang @TenKhachHang ,  @DiaChi , @NamSinh , @SoDienThoai ,  @Diem ";
             try
             {
-                DataProvider.Instance.UserExecuteNonQuery(query, new object[] { name, address, birth, phoneNumber, point });
+                DataProvider.Instance.ExecuteNonQuery(query, new object[] { name, address, birth, phoneNumber, point });
                 return true;
             }
             catch
@@ -47,7 +47,7 @@ namespace DAO
         {
             String query = "dbo.USP_xoaKhachHang @CustomerId ";
             
-                DataProvider.Instance.UserExecuteNonQuery(query, new object[] { CustomerID });
+                DataProvider.Instance.ExecuteNonQuery(query, new object[] { CustomerID });
                 return true;
            
         }
@@ -57,7 +57,7 @@ namespace DAO
             String query = "USP_capNhatKhachHang @CusId , @name , @address , @birth , @phone , @point ";
             try
             {
-                DataProvider.Instance.UserExecuteNonQuery(query, new object[] {id, name, address, birth, phone, point });
+                DataProvider.Instance.ExecuteNonQuery(query, new object[] {id, name, address, birth, phone, point });
                 return true;
             }
             catch

@@ -73,5 +73,17 @@ namespace DAO
                 return 0;
             }
         }
+        //// hien thi the loai boi phim id
+        public static List<TheLoai> layDanhSachTheLoaiBoiPhimID(string MaPhim)
+        {
+            List<TheLoai> theloaiList = new List<TheLoai>();
+            DataTable data = DataProvider.Instance.ExecuteQuery("EXEC USP_layTheLoaiBoiPhim @MaPhim", new object[] { MaPhim });
+            foreach (DataRow item in data.Rows)
+            {
+                TheLoai genre = new TheLoai(item);
+                theloaiList.Add(genre);
+            }
+            return theloaiList;
+        }
     }
 }

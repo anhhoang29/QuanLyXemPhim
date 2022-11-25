@@ -40,14 +40,14 @@ namespace QuanLyXemPhim.frmAdminUserControl
         private void btnAddCustomer_Click_1(object sender, EventArgs e)
         {
 
-            if (txtCusName.Text == "" || txtCusBirth.Text == "" || txtCusPhone.Text=="" || txtAddress.Text == "")
+            if (txtCusName.Text == "" || txtCusPhone.Text=="" || txtAddress.Text == "")
             {
                 MessageBox.Show("Vui lòng nhập đầy đủ thông tin", "Thông báo", MessageBoxButtons.OKCancel);
                 return;
             }
             
             String name = txtCusName.Text;
-            int birth = Int32.Parse(txtCusBirth.Text);
+            int birth = Convert.ToInt32(numericUpDownNamSinh.Value);
             String phoneNumber = txtCusPhone.Text;
             int point = (int)nudPoint.Value;
             String address = txtAddress.Text;
@@ -68,7 +68,7 @@ namespace QuanLyXemPhim.frmAdminUserControl
         {
             txtCusName.Clear();
             txtAddress.Clear();
-            txtCusBirth.Clear();
+          
             txtCusPhone.Clear();
             nudPoint.Value = 0;
             txtCusId.Clear();
@@ -81,7 +81,7 @@ namespace QuanLyXemPhim.frmAdminUserControl
                 txtCusId.Text = row.Cells[0].Value.ToString();
                 txtCusName.Text = row.Cells[1].Value.ToString();
                 txtAddress.Text = row.Cells[2].Value.ToString();
-                txtCusBirth.Text = row.Cells[3].Value.ToString();
+                numericUpDownNamSinh.Text = row.Cells[3].Value.ToString();
                 txtCusPhone.Text = row.Cells[4].Value.ToString();
                 nudPoint.Value = (int)row.Cells[5].Value;
             }
@@ -125,7 +125,7 @@ namespace QuanLyXemPhim.frmAdminUserControl
 
         private void btnUpdateCustomer_Click(object sender, EventArgs e)
         {
-            if (txtCusName.Text == "" || txtCusBirth.Text == "" || txtCusPhone.Text == "" || txtAddress.Text == "")
+            if (txtCusName.Text == "" || txtCusPhone.Text == "" || txtAddress.Text == "")
             {
                 MessageBox.Show("Vui lòng cung cấp đầy đủ thông tin", "Thông báo", MessageBoxButtons.OKCancel);
                 return;
@@ -134,7 +134,7 @@ namespace QuanLyXemPhim.frmAdminUserControl
             int id = Int32.Parse(txtCusId.Text);
             String name = txtCusName.Text;
             String address = txtAddress.Text;
-            int birth = Int32.Parse(txtCusBirth.Text);
+            int birth = Convert.ToInt32(numericUpDownNamSinh.Value);
             String phoneNumber = txtCusPhone.Text;
             int point = (int)nudPoint.Value;
 

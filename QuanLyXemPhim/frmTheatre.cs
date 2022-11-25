@@ -16,11 +16,11 @@ namespace QuanLyXemPhim
     public partial class frmTheatre : Form
     {
         private string maCaChieu;
-        private static List<String> maVe = new List<string>();
+        private static List<Ve> maVe = new List<Ve>();
         private static float totalPrice = 0;
         private static float finalPrice = 0;
         private static int bonus = 0;
-        
+
 
         public frmTheatre(string maCaChieu)
         {
@@ -28,7 +28,7 @@ namespace QuanLyXemPhim
             this.maCaChieu = maCaChieu;
             hienThiDanhSachChoNgoiTheoMaCaChieu(this.maCaChieu);
         }
-        
+
         private void chkCustomer_CheckedChanged(object sender, EventArgs e)
         {
             frmCustomer frmCustomer = new frmCustomer(this);
@@ -39,8 +39,8 @@ namespace QuanLyXemPhim
         {
             int count = 0;
             List<Ve> danhSachVe = VeBUS.Instance.hienthiVe(maCaChieu);
-            
-            if(danhSachVe != null)
+
+            if (danhSachVe != null)
             {
                 foreach (Ve ve in danhSachVe)
                 {
@@ -58,6 +58,7 @@ namespace QuanLyXemPhim
                     }
                     else
                     {
+                        btn.Enabled = false;
                         btn.BackColor = Color.Gray;
                         btn.ForeColor = Color.White;
                     }
@@ -67,41 +68,76 @@ namespace QuanLyXemPhim
                 }
             }
         }
-        
+
         private void btn_Click(object sender, EventArgs e)
         {
             Button btn = (sender as Button);
-            String id = (btn.Tag as Ve).Id.ToString();
+            Ve ve = (btn.Tag as Ve);
+
+
+            if (ve.LoaiVe != 0)
+            {
+                ve.LoaiVe = 0;
+            }
+            else
+            {
+                if (rdoAdult.Checked)
+                {
+                    ve.LoaiVe = 1;
+                    ve.TienBanVe = 1 * getSingleTicketPrice(this.maCaChieu);
+                }
+                else if (rdoChild.Checked)
+                {
+                    ve.LoaiVe = 2;
+                    ve.TienBanVe = 0.5f * getSingleTicketPrice(this.maCaChieu);
+                }
+                else if (rdoStudent.Checked)
+                {
+                    ve.LoaiVe = 3;
+                    ve.TienBanVe = 0.75f * getSingleTicketPrice(this.maCaChieu);
+                }
+                else if (rdoFree.Checked)
+                {
+                    ve.LoaiVe = 4;
+                    ve.TienBanVe = 0 * getSingleTicketPrice(this.maCaChieu);
+                }
+
+            }
+
+
+
+
+
             if (btn.BackColor == Color.Yellow)
             {
                 btn.BackColor = Color.LightGoldenrodYellow;
-                maVe.Remove(id);
-                totalPrice -= getSingleTicketPrice(Convert.ToInt32(id));
+                maVe.Remove(ve);
+                totalPrice -= ve.TienBanVe;
                 bonus--;
             }
             else
             {
                 btn.BackColor = Color.Yellow;
-                maVe.Add(id);
-                totalPrice += getSingleTicketPrice(Convert.ToInt32(id));
+                maVe.Add(ve);
+                totalPrice += ve.TienBanVe;
                 bonus++;
             }
 
             txtTotal.Text = totalPrice.ToString() + " VNĐ";
             finalPrice = totalPrice;
             txtPayment.Text = finalPrice.ToString() + " VNĐ";
-            txtPlusPoint.Text = bonus.ToString();
-                
+            numBonusPoint.Value = bonus;
+
         }
 
-       
 
-        // lấy giá của một vế
-        private float getSingleTicketPrice(int maVe)
+
+        // lấy giá của một vé theo ca chiếu
+        private float getSingleTicketPrice(string maCaChieu)
         {
-            return VeBUS.Instance.getPriceOfTicketBUS(maVe);
+            return VeBUS.Instance.getPriceOfTicketBUS(maCaChieu);
         }
-      
+
         // thanh toán
         private void btnPayment_Click(object sender, EventArgs e)
         {
@@ -112,12 +148,13 @@ namespace QuanLyXemPhim
                 MessageBox.Show("Vui lòng chọn vé");
                 return;
             }
+
             if (VeBUS.Instance.updateListTicket(maVe))
             {
                 MessageBox.Show("Đặt vé thành công");
                 if (txtCustomerName.Text != "" || txtCustomerName.Text != null)
                 {
-                    updatePoint(frmCustomer.phoneNumber.Trim(), Int32.Parse(txtPlusPoint.Text));
+                    updatePoint(frmCustomer.phoneNumber.Trim(), Convert.ToInt32(numBonusPoint.Value));
                 }
             }
             else
@@ -140,7 +177,7 @@ namespace QuanLyXemPhim
             {
                 CustomerBUS.Instance.rollbackPoint(Int32.Parse(txtPoint.Text), frmCustomer.phoneNumber);
             }
-            
+
             flpSeat.Controls.Clear();
             hienThiDanhSachChoNgoiTheoMaCaChieu(this.maCaChieu);
             maVe.Clear();
@@ -155,13 +192,13 @@ namespace QuanLyXemPhim
             txtTotal.ResetText();
             txtCustomerName.ResetText();
             txtPoint.ResetText();
-            txtPlusPoint.ResetText();
+            numBonusPoint.Value = numBonusPoint.Minimum;
             txtDiscount.ResetText();
             txtPayment.ResetText();
             btnUsePoint.Enabled = true;
         }
 
-       
+
         public void loadDataCustomer()
         {
             if (frmCustomer.phoneNumber != "")
@@ -186,9 +223,9 @@ namespace QuanLyXemPhim
             maVe.Clear();
         }
 
-        private void updatePoint (string phoneNumber, int bonus)
+        private void updatePoint(string phoneNumber, int bonus)
         {
-            
+
             if (!CustomerBUS.Instance.updatePointBUS(phoneNumber, bonus))
             {
                 MessageBox.Show("Cập nhật điểm không thành công");
@@ -197,34 +234,31 @@ namespace QuanLyXemPhim
 
         private void btnUsePoint_Click(object sender, EventArgs e)
         {
-           if (txtPoint.Text == "" || txtPoint.Text == null)
+            if (txtPoint.Text == "" || txtPoint.Text == null)
             {
                 MessageBox.Show("Vui lòng điền thông tin khách hàng");
                 return;
             }
 
-           if (maVe.Count == 0)
-            {
-                MessageBox.Show("Vui lòng chọn vé");
-                return;
-            }
 
-           if (CustomerBUS.Instance.usePointBUS(frmCustomer.phoneNumber))
+            if (CustomerBUS.Instance.usePointBUS(frmCustomer.phoneNumber))
             {
-                int percent = Convert.ToInt32(txtPoint.Text);
-                float discountAmount = totalPrice * ((float)percent / 100);
-                finalPrice = totalPrice - discountAmount;
-
-                txtDiscount.Text = discountAmount.ToString() + " VNĐ";
-                //txtPoint.Text = "0";
-                txtPayment.Text = finalPrice.ToString() + " VNĐ";
-                btnUsePoint.Enabled = false;
+                MessageBox.Show("Sử dụng vé thành công, nhân viên tiến hành đổi vé");
             }
             else
             {
                 Debug.WriteLine("result is false");
             }
         }
+
+        private void groupBox2_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label15_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
-               

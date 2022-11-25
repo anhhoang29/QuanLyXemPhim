@@ -73,6 +73,7 @@ namespace QuanLyXemPhim.frmAdminUserControl.FeatureViewUserControl
             float ticketPrice = float.Parse(txtTicketPrice_Showtime.Text);
             CaChieuBUS.Instance.themCaChieu(maCaChieu, time, time2, maPhongChieu, maPhim, ticketPrice);
             CaChieuBUS.Instance.GetCaChieu(showtimeList);
+            //LoadCaChieu();
         }
 
         private void btnDeleteShowtime_Click(object sender, EventArgs e)

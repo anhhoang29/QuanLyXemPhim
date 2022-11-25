@@ -60,5 +60,10 @@ namespace QuanLyXemPhim
             string tenPhim = cboFilmName.Text;
             CaChieu_PhimBUS.Instance.hienThiDanhSachCaChieuTheoTenPhim(dtv_CaChieu,tenPhim);
         }
+
+        private void dtv_CaChieu_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

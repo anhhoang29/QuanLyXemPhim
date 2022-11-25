@@ -56,5 +56,19 @@ namespace QuanLyXemPhim
         {
 
         }
+
+        private void panel3_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Text = "Doanh Thu";
+            pnAdmin.Controls.Clear();
+            RevenueUC revenueUc = new RevenueUC();
+            revenueUc.Dock = DockStyle.Fill;
+            pnAdmin.Controls.Add(revenueUc);
+        }
     }
 }

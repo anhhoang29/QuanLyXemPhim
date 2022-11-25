@@ -20,7 +20,8 @@ namespace BUS
         }
         public TaiKhoan xuLyDangNhap(string userName, string password)
         {
-            return TaiKhoanDAO.Instance.xuLyDangNhap(userName, password);
+            return (TaiKhoanDAO.Instance.xuLyDangNhap(userName, password));
+              
         }
         public void themDanhSachTaiKhoan(string UserName, string Pass, int LoaiTK, string idNV)
         {

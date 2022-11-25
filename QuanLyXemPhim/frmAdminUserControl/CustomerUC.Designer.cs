@@ -43,7 +43,6 @@ namespace QuanLyXemPhim.frmAdminUserControl
             this.txtCusPhone = new System.Windows.Forms.TextBox();
             this.lblCusPhone = new System.Windows.Forms.Label();
             this.lblCusPoint = new System.Windows.Forms.Label();
-            this.txtCusBirth = new System.Windows.Forms.TextBox();
             this.lblCusName = new System.Windows.Forms.Label();
             this.dtgvCustomer = new System.Windows.Forms.DataGridView();
             this.MaKH = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -52,9 +51,13 @@ namespace QuanLyXemPhim.frmAdminUserControl
             this.NamSinh = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SoDienThoai = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DiemTichLuy = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.numericUpDownNamSinh = new System.Windows.Forms.NumericUpDown();
+            this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
             this.grpCustomer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudPoint)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvCustomer)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownNamSinh)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
             this.SuspendLayout();
             // 
             // btnDeleteCustomer
@@ -93,6 +96,7 @@ namespace QuanLyXemPhim.frmAdminUserControl
             // grpCustomer
             // 
             this.grpCustomer.BackColor = System.Drawing.Color.Transparent;
+            this.grpCustomer.Controls.Add(this.numericUpDownNamSinh);
             this.grpCustomer.Controls.Add(this.lblCusId);
             this.grpCustomer.Controls.Add(this.txtCusId);
             this.grpCustomer.Controls.Add(this.txtAddress);
@@ -103,7 +107,6 @@ namespace QuanLyXemPhim.frmAdminUserControl
             this.grpCustomer.Controls.Add(this.txtCusPhone);
             this.grpCustomer.Controls.Add(this.lblCusPhone);
             this.grpCustomer.Controls.Add(this.lblCusPoint);
-            this.grpCustomer.Controls.Add(this.txtCusBirth);
             this.grpCustomer.Controls.Add(this.lblCusName);
             this.grpCustomer.Font = new System.Drawing.Font("Times New Roman", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grpCustomer.Location = new System.Drawing.Point(208, 30);
@@ -217,15 +220,6 @@ namespace QuanLyXemPhim.frmAdminUserControl
             this.lblCusPoint.TabIndex = 4;
             this.lblCusPoint.Text = "Điểm tích lũy:";
             // 
-            // txtCusBirth
-            // 
-            this.txtCusBirth.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCusBirth.Location = new System.Drawing.Point(167, 83);
-            this.txtCusBirth.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtCusBirth.Name = "txtCusBirth";
-            this.txtCusBirth.Size = new System.Drawing.Size(191, 30);
-            this.txtCusBirth.TabIndex = 2;
-            // 
             // lblCusName
             // 
             this.lblCusName.AutoSize = true;
@@ -308,10 +302,30 @@ namespace QuanLyXemPhim.frmAdminUserControl
             this.DiemTichLuy.Name = "DiemTichLuy";
             this.DiemTichLuy.ReadOnly = true;
             // 
+            // numericUpDownNamSinh
+            // 
+            this.numericUpDownNamSinh.Location = new System.Drawing.Point(167, 88);
+            this.numericUpDownNamSinh.Maximum = new decimal(new int[] {
+            2022,
+            0,
+            0,
+            0});
+            this.numericUpDownNamSinh.Name = "numericUpDownNamSinh";
+            this.numericUpDownNamSinh.Size = new System.Drawing.Size(191, 30);
+            this.numericUpDownNamSinh.TabIndex = 10;
+            // 
+            // numericUpDown2
+            // 
+            this.numericUpDown2.Location = new System.Drawing.Point(575, 344);
+            this.numericUpDown2.Name = "numericUpDown2";
+            this.numericUpDown2.Size = new System.Drawing.Size(8, 22);
+            this.numericUpDown2.TabIndex = 20;
+            // 
             // CustomerUC
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.numericUpDown2);
             this.Controls.Add(this.btnDeleteCustomer);
             this.Controls.Add(this.btnUpdateCustomer);
             this.Controls.Add(this.btnAddCustomer);
@@ -324,6 +338,8 @@ namespace QuanLyXemPhim.frmAdminUserControl
             this.grpCustomer.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudPoint)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvCustomer)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownNamSinh)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
             this.ResumeLayout(false);
 
 		}
@@ -339,7 +355,6 @@ namespace QuanLyXemPhim.frmAdminUserControl
 		private System.Windows.Forms.TextBox txtCusPhone;
 		private System.Windows.Forms.Label lblCusPhone;
 		private System.Windows.Forms.Label lblCusPoint;
-		private System.Windows.Forms.TextBox txtCusBirth;
 		private System.Windows.Forms.Label lblCusName;
 		private System.Windows.Forms.DataGridView dtgvCustomer;
         private System.Windows.Forms.Label lblAddress;
@@ -352,5 +367,7 @@ namespace QuanLyXemPhim.frmAdminUserControl
         private System.Windows.Forms.DataGridViewTextBoxColumn NamSinh;
         private System.Windows.Forms.DataGridViewTextBoxColumn SoDienThoai;
         private System.Windows.Forms.DataGridViewTextBoxColumn DiemTichLuy;
+        private System.Windows.Forms.NumericUpDown numericUpDownNamSinh;
+        private System.Windows.Forms.NumericUpDown numericUpDown2;
     }
 }

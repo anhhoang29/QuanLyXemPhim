@@ -139,7 +139,7 @@ namespace QuanLyXemPhim
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.Silver;
+            this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.ClientSize = new System.Drawing.Size(701, 373);
             this.Controls.Add(this.txtAddress);
             this.Controls.Add(this.Re_Thoat);

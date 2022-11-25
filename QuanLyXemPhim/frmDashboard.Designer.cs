@@ -30,7 +30,6 @@
         {
             this.panel1 = new System.Windows.Forms.Panel();
             this.labelX = new System.Windows.Forms.Label();
-            this.btnChangePassword = new System.Windows.Forms.Button();
             this.lblAccountInfo = new System.Windows.Forms.Label();
             this.btnAdmin = new System.Windows.Forms.Button();
             this.btnSeller = new System.Windows.Forms.Button();
@@ -61,16 +60,6 @@
             this.labelX.TabIndex = 0;
             this.labelX.Text = "Welcome!";
             this.labelX.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // btnChangePassword
-            // 
-            this.btnChangePassword.AutoSize = true;
-            this.btnChangePassword.Location = new System.Drawing.Point(12, 374);
-            this.btnChangePassword.Name = "btnChangePassword";
-            this.btnChangePassword.Size = new System.Drawing.Size(163, 35);
-            this.btnChangePassword.TabIndex = 8;
-            this.btnChangePassword.Text = "Reset Password";
-            this.btnChangePassword.UseVisualStyleBackColor = true;
             // 
             // lblAccountInfo
             // 
@@ -111,7 +100,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(456, 444);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.btnChangePassword);
             this.Controls.Add(this.lblAccountInfo);
             this.Controls.Add(this.btnAdmin);
             this.Controls.Add(this.btnSeller);
@@ -128,7 +116,6 @@
 
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label labelX;
-        private System.Windows.Forms.Button btnChangePassword;
         private System.Windows.Forms.Label lblAccountInfo;
         private System.Windows.Forms.Button btnAdmin;
         private System.Windows.Forms.Button btnSeller;

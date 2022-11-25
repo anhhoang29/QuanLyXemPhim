@@ -34,7 +34,7 @@ namespace QuanLyXemPhim.frmAdminUserControl.FeatureViewUserControl
             DateTime NgayKetThuc = dtmMovieEnd.Value;
             string QuocGia = txtMovieCountry.Text;
             string DienVien = txtMovieActor.Text;
-            int NamSX = Convert.ToInt32(nmr_NamSX.Value);
+            int NamSX = Convert.ToInt32(numericUpDownPhim.Value);
             int GioiHanTuoi = Convert.ToInt32(txtMovieYearLimit.Text);
 
             PhimBUS.Instance.themDanhSachPhim(MaPhim, TenPhim, MoTa, ThoiLuong, NgayBatDau, NgayKetThuc,
@@ -53,12 +53,41 @@ namespace QuanLyXemPhim.frmAdminUserControl.FeatureViewUserControl
             txtMovieCountry.DataBindings.Add(new Binding("Text", dtgvMovie.DataSource, "QuocGia", true, DataSourceUpdateMode.Never));
             txtMovieActor.DataBindings.Add(new Binding("Text", dtgvMovie.DataSource, "DaoDien", true, DataSourceUpdateMode.Never));
             txtMovieYearLimit.DataBindings.Add(new Binding("Text", dtgvMovie.DataSource, "GioiHanTuoi", true, DataSourceUpdateMode.Never));
+            numericUpDownPhim.DataBindings.Add(new Binding("Text", dtgvMovie.DataSource, "NamSX", true, DataSourceUpdateMode.Never));
+            // them the loai vao checklist
+            LoadGenreIntoCheckedList(clbMovieGenre);
         }
         
         public void hienThiDanhSachPhim()
         {
             PhimBUS.Instance.hienThiPhim(movieList);
             bindingMovie();
+        }
+        private void txtMovieID_TextChanged(object sender, EventArgs e)
+        //Use to binding the CheckedListBox the loai phim
+        {
+            for (int i = 0; i < clbMovieGenre.Items.Count; i++)
+            {
+                clbMovieGenre.SetItemChecked(i, false);
+                //Uncheck all CheckBox first
+            }
+            List<TheLoai> listGenreOfMovie = TheLoaiDAO.layDanhSachTheLoaiBoiPhimID(txtMovieID.Text);
+            for (int i = 0; i < clbMovieGenre.Items.Count; i++)
+            {
+                TheLoai theLoai = (TheLoai)clbMovieGenre.Items[i];
+                foreach (TheLoai item in listGenreOfMovie)
+                {
+                    if (theLoai.MaLoaiPhim == item.MaLoaiPhim)
+                    {
+                        clbMovieGenre.SetItemChecked(i, true);
+                        break;
+                    }
+                }
+            }
+            Phim movie = PhimDAO.layMaPhim(txtMovieID.Text);
+            if (movie == null)
+                return;
+
         }
 
         private void btnUpdateMovie_Click(object sender, EventArgs e)
@@ -71,7 +100,7 @@ namespace QuanLyXemPhim.frmAdminUserControl.FeatureViewUserControl
             DateTime NgayKetThuc = dtmMovieEnd.Value;
             string QuocGia = txtMovieCountry.Text;
             string DienVien = txtMovieActor.Text;
-            int NamSX = Convert.ToInt32(nmr_NamSX.Value);
+            int NamSX = Convert.ToInt32(numericUpDownPhim.Value);
             int GioiHanTuoi = Convert.ToInt32(txtMovieYearLimit.Text);
 
             PhimBUS.Instance.suaDanhSachPhim(MaPhim, TenPhim, MoTa, ThoiLuong, NgayBatDau, NgayKetThuc,
@@ -95,6 +124,11 @@ namespace QuanLyXemPhim.frmAdminUserControl.FeatureViewUserControl
         }
 
         private void clbMovieGenre_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void numericUpDown1_ValueChanged(object sender, EventArgs e)
         {
 
         }

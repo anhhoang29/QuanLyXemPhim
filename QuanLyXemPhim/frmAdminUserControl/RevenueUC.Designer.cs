@@ -35,7 +35,6 @@ namespace QuanLyXemPhim.frmAdminUserControl
             this.lblDenNgay = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.dtgvRevenue = new System.Windows.Forms.DataGridView();
-            this.btnReportRevenue = new System.Windows.Forms.Button();
             this.btnShowRevenue = new System.Windows.Forms.Button();
             this.cboSelectMovie = new System.Windows.Forms.ComboBox();
             this.dtmToDate = new System.Windows.Forms.DateTimePicker();
@@ -78,7 +77,7 @@ namespace QuanLyXemPhim.frmAdminUserControl
             this.lblDenNgay.AutoSize = true;
             this.lblDenNgay.Location = new System.Drawing.Point(450, 70);
             this.lblDenNgay.Name = "lblDenNgay";
-            this.lblDenNgay.Size = new System.Drawing.Size(73, 17);
+            this.lblDenNgay.Size = new System.Drawing.Size(67, 16);
             this.lblDenNgay.TabIndex = 36;
             this.lblDenNgay.Text = "Đến ngày:";
             // 
@@ -87,7 +86,7 @@ namespace QuanLyXemPhim.frmAdminUserControl
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(196, 70);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(64, 17);
+            this.label1.Size = new System.Drawing.Size(59, 16);
             this.label1.TabIndex = 35;
             this.label1.Text = "Từ ngày:";
             // 
@@ -100,19 +99,9 @@ namespace QuanLyXemPhim.frmAdminUserControl
             this.dtgvRevenue.Location = new System.Drawing.Point(200, 122);
             this.dtgvRevenue.Name = "dtgvRevenue";
             this.dtgvRevenue.ReadOnly = true;
+            this.dtgvRevenue.RowHeadersWidth = 51;
             this.dtgvRevenue.Size = new System.Drawing.Size(1033, 421);
             this.dtgvRevenue.TabIndex = 34;
-            // 
-            // btnReportRevenue
-            // 
-            this.btnReportRevenue.AutoSize = true;
-            this.btnReportRevenue.Location = new System.Drawing.Point(793, 65);
-            this.btnReportRevenue.Name = "btnReportRevenue";
-            this.btnReportRevenue.Size = new System.Drawing.Size(92, 32);
-            this.btnReportRevenue.TabIndex = 32;
-            this.btnReportRevenue.Text = "Báo Cáo";
-            this.btnReportRevenue.UseVisualStyleBackColor = true;
-            this.btnReportRevenue.Click += new System.EventHandler(this.btnReportRevenue_Click);
             // 
             // btnShowRevenue
             // 
@@ -162,7 +151,6 @@ namespace QuanLyXemPhim.frmAdminUserControl
             this.Controls.Add(this.lblDenNgay);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dtgvRevenue);
-            this.Controls.Add(this.btnReportRevenue);
             this.Controls.Add(this.btnShowRevenue);
             this.Controls.Add(this.cboSelectMovie);
             this.Controls.Add(this.dtmToDate);
@@ -183,7 +171,6 @@ namespace QuanLyXemPhim.frmAdminUserControl
         private System.Windows.Forms.Label lblDenNgay;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView dtgvRevenue;
-        private System.Windows.Forms.Button btnReportRevenue;
         private System.Windows.Forms.Button btnShowRevenue;
         private System.Windows.Forms.ComboBox cboSelectMovie;
         private System.Windows.Forms.DateTimePicker dtmToDate;

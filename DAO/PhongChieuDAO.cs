@@ -74,7 +74,7 @@ namespace DAO
         }
         public static PhongChieu GetPhongChieuByName ()
         {
-            string query = @"USP_Show_Phong_Chieu";
+            string query = @"USP_layDanhSachPhongChieu";
             DataTable data = DataProvider.Instance.ExecuteQuery(query);
             return new PhongChieu(data.Rows[0]);
         }

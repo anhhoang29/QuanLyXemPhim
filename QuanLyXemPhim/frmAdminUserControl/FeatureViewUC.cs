@@ -41,12 +41,7 @@ namespace QuanLyXemPhim.frmAdminUserControl
             pnData.Controls.Add(movieUC);
         }
 
-        private void btnFormatMovieUC_Click(object sender, EventArgs e)
-        {
-            FormatMovieUC formatMovieUC = new FormatMovieUC();
-            pnData.Controls.Clear();
-            pnData.Controls.Add(formatMovieUC);
-        }
+
 
         private void btnShowTimesUC_Click(object sender, EventArgs e)
         {

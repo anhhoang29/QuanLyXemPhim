@@ -44,10 +44,15 @@ namespace QuanLyXemPhim
             this.panel5 = new System.Windows.Forms.Panel();
             this.panel7 = new System.Windows.Forms.Panel();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.grpTicketType = new System.Windows.Forms.GroupBox();
+            this.rdoStudent = new System.Windows.Forms.RadioButton();
+            this.rdoAdult = new System.Windows.Forms.RadioButton();
+            this.rdoChild = new System.Windows.Forms.RadioButton();
             this.pnCustomer = new System.Windows.Forms.Panel();
+            this.btnUsePoint = new System.Windows.Forms.Button();
+            this.numBonusPoint = new System.Windows.Forms.NumericUpDown();
             this.txtCustomerName = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.txtPlusPoint = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.lblCustomerName = new System.Windows.Forms.Label();
             this.txtPoint = new System.Windows.Forms.Label();
@@ -63,14 +68,16 @@ namespace QuanLyXemPhim
             this.label9 = new System.Windows.Forms.Label();
             this.txtDiscount = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.btnUsePoint = new System.Windows.Forms.Button();
+            this.rdoFree = new System.Windows.Forms.RadioButton();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel7.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            this.grpTicketType.SuspendLayout();
             this.pnCustomer.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numBonusPoint)).BeginInit();
             this.pnlPayment.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -216,29 +223,77 @@ namespace QuanLyXemPhim
             this.panel7.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel7.Location = new System.Drawing.Point(0, 0);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(765, 200);
+            this.panel7.Size = new System.Drawing.Size(843, 200);
             this.panel7.TabIndex = 17;
             // 
             // groupBox2
             // 
             this.groupBox2.BackColor = System.Drawing.Color.Black;
-            this.groupBox2.Controls.Add(this.btnUsePoint);
+            this.groupBox2.Controls.Add(this.grpTicketType);
             this.groupBox2.Controls.Add(this.pnCustomer);
             this.groupBox2.Controls.Add(this.chkCustomer);
-            this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox2.ForeColor = System.Drawing.Color.White;
             this.groupBox2.Location = new System.Drawing.Point(0, 0);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(763, 198);
+            this.groupBox2.Size = new System.Drawing.Size(853, 198);
             this.groupBox2.TabIndex = 18;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Thành Viên:";
+            this.groupBox2.Enter += new System.EventHandler(this.groupBox2_Enter);
+            // 
+            // grpTicketType
+            // 
+            this.grpTicketType.BackColor = System.Drawing.Color.Black;
+            this.grpTicketType.Controls.Add(this.rdoFree);
+            this.grpTicketType.Controls.Add(this.rdoStudent);
+            this.grpTicketType.Controls.Add(this.rdoAdult);
+            this.grpTicketType.Controls.Add(this.rdoChild);
+            this.grpTicketType.ForeColor = System.Drawing.Color.White;
+            this.grpTicketType.Location = new System.Drawing.Point(498, 0);
+            this.grpTicketType.Name = "grpTicketType";
+            this.grpTicketType.Size = new System.Drawing.Size(351, 200);
+            this.grpTicketType.TabIndex = 19;
+            this.grpTicketType.TabStop = false;
+            this.grpTicketType.Text = "Loại vé";
+            // 
+            // rdoStudent
+            // 
+            this.rdoStudent.AutoSize = true;
+            this.rdoStudent.Location = new System.Drawing.Point(48, 114);
+            this.rdoStudent.Name = "rdoStudent";
+            this.rdoStudent.Size = new System.Drawing.Size(118, 29);
+            this.rdoStudent.TabIndex = 8;
+            this.rdoStudent.Text = "Sinh Viên";
+            this.rdoStudent.UseVisualStyleBackColor = true;
+            // 
+            // rdoAdult
+            // 
+            this.rdoAdult.AutoSize = true;
+            this.rdoAdult.Checked = true;
+            this.rdoAdult.Location = new System.Drawing.Point(48, 41);
+            this.rdoAdult.Name = "rdoAdult";
+            this.rdoAdult.Size = new System.Drawing.Size(122, 29);
+            this.rdoAdult.TabIndex = 7;
+            this.rdoAdult.TabStop = true;
+            this.rdoAdult.Text = "Người Lớn";
+            this.rdoAdult.UseVisualStyleBackColor = true;
+            // 
+            // rdoChild
+            // 
+            this.rdoChild.AutoSize = true;
+            this.rdoChild.Location = new System.Drawing.Point(48, 77);
+            this.rdoChild.Name = "rdoChild";
+            this.rdoChild.Size = new System.Drawing.Size(219, 29);
+            this.rdoChild.TabIndex = 6;
+            this.rdoChild.Text = "Trẻ Em (Dưới 12 tuổi)";
+            this.rdoChild.UseVisualStyleBackColor = true;
             // 
             // pnCustomer
             // 
+            this.pnCustomer.Controls.Add(this.btnUsePoint);
+            this.pnCustomer.Controls.Add(this.numBonusPoint);
             this.pnCustomer.Controls.Add(this.txtCustomerName);
             this.pnCustomer.Controls.Add(this.label7);
-            this.pnCustomer.Controls.Add(this.txtPlusPoint);
             this.pnCustomer.Controls.Add(this.label4);
             this.pnCustomer.Controls.Add(this.lblCustomerName);
             this.pnCustomer.Controls.Add(this.txtPoint);
@@ -247,6 +302,31 @@ namespace QuanLyXemPhim
             this.pnCustomer.Name = "pnCustomer";
             this.pnCustomer.Size = new System.Drawing.Size(486, 136);
             this.pnCustomer.TabIndex = 16;
+            // 
+            // btnUsePoint
+            // 
+            this.btnUsePoint.BackColor = System.Drawing.Color.Lime;
+            this.btnUsePoint.ForeColor = System.Drawing.Color.Black;
+            this.btnUsePoint.Location = new System.Drawing.Point(316, 95);
+            this.btnUsePoint.Name = "btnUsePoint";
+            this.btnUsePoint.Size = new System.Drawing.Size(117, 42);
+            this.btnUsePoint.TabIndex = 17;
+            this.btnUsePoint.Text = "Sử dụng";
+            this.btnUsePoint.UseVisualStyleBackColor = false;
+            this.btnUsePoint.Click += new System.EventHandler(this.btnUsePoint_Click);
+            // 
+            // numBonusPoint
+            // 
+            this.numBonusPoint.Location = new System.Drawing.Point(203, 99);
+            this.numBonusPoint.Name = "numBonusPoint";
+            this.numBonusPoint.Size = new System.Drawing.Size(107, 30);
+            this.numBonusPoint.TabIndex = 27;
+            this.numBonusPoint.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.numBonusPoint.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
             // txtCustomerName
             // 
@@ -264,29 +344,16 @@ namespace QuanLyXemPhim
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(3, 18);
+            this.label7.Location = new System.Drawing.Point(9, 18);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(167, 25);
             this.label7.TabIndex = 25;
             this.label7.Text = "Tên Khách Hàng:";
             // 
-            // txtPlusPoint
-            // 
-            this.txtPlusPoint.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtPlusPoint.BackColor = System.Drawing.Color.White;
-            this.txtPlusPoint.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.txtPlusPoint.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPlusPoint.ForeColor = System.Drawing.Color.Red;
-            this.txtPlusPoint.Location = new System.Drawing.Point(203, 96);
-            this.txtPlusPoint.Name = "txtPlusPoint";
-            this.txtPlusPoint.Size = new System.Drawing.Size(230, 30);
-            this.txtPlusPoint.TabIndex = 21;
-            this.txtPlusPoint.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(-2, 106);
+            this.label4.Location = new System.Drawing.Point(4, 101);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(172, 25);
             this.label4.TabIndex = 20;
@@ -315,7 +382,7 @@ namespace QuanLyXemPhim
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(27, 63);
+            this.label11.Location = new System.Drawing.Point(33, 57);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(143, 25);
             this.label11.TabIndex = 16;
@@ -324,7 +391,7 @@ namespace QuanLyXemPhim
             // chkCustomer
             // 
             this.chkCustomer.AutoSize = true;
-            this.chkCustomer.Location = new System.Drawing.Point(6, 24);
+            this.chkCustomer.Location = new System.Drawing.Point(3, 24);
             this.chkCustomer.Name = "chkCustomer";
             this.chkCustomer.Size = new System.Drawing.Size(250, 29);
             this.chkCustomer.TabIndex = 0;
@@ -346,9 +413,9 @@ namespace QuanLyXemPhim
             this.pnlPayment.Controls.Add(this.txtDiscount);
             this.pnlPayment.Dock = System.Windows.Forms.DockStyle.Right;
             this.pnlPayment.ForeColor = System.Drawing.Color.White;
-            this.pnlPayment.Location = new System.Drawing.Point(765, 0);
+            this.pnlPayment.Location = new System.Drawing.Point(843, 0);
             this.pnlPayment.Name = "pnlPayment";
-            this.pnlPayment.Size = new System.Drawing.Size(498, 200);
+            this.pnlPayment.Size = new System.Drawing.Size(420, 200);
             this.pnlPayment.TabIndex = 14;
             // 
             // btnCancel
@@ -370,7 +437,7 @@ namespace QuanLyXemPhim
             this.txtTotal.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.txtTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTotal.ForeColor = System.Drawing.Color.Red;
-            this.txtTotal.Location = new System.Drawing.Point(232, 9);
+            this.txtTotal.Location = new System.Drawing.Point(154, 9);
             this.txtTotal.Name = "txtTotal";
             this.txtTotal.Size = new System.Drawing.Size(254, 30);
             this.txtTotal.TabIndex = 9;
@@ -405,7 +472,7 @@ namespace QuanLyXemPhim
             this.txtPayment.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.txtPayment.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPayment.ForeColor = System.Drawing.Color.Red;
-            this.txtPayment.Location = new System.Drawing.Point(232, 93);
+            this.txtPayment.Location = new System.Drawing.Point(154, 93);
             this.txtPayment.Name = "txtPayment";
             this.txtPayment.Size = new System.Drawing.Size(254, 30);
             this.txtPayment.TabIndex = 10;
@@ -438,7 +505,7 @@ namespace QuanLyXemPhim
             this.txtDiscount.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.txtDiscount.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDiscount.ForeColor = System.Drawing.Color.Red;
-            this.txtDiscount.Location = new System.Drawing.Point(232, 51);
+            this.txtDiscount.Location = new System.Drawing.Point(154, 51);
             this.txtDiscount.Name = "txtDiscount";
             this.txtDiscount.Size = new System.Drawing.Size(254, 30);
             this.txtDiscount.TabIndex = 10;
@@ -454,17 +521,15 @@ namespace QuanLyXemPhim
             this.label10.TabIndex = 8;
             this.label10.Text = "<= LỐI VÀO";
             // 
-            // btnUsePoint
+            // rdoFree
             // 
-            this.btnUsePoint.BackColor = System.Drawing.Color.Lime;
-            this.btnUsePoint.ForeColor = System.Drawing.Color.Black;
-            this.btnUsePoint.Location = new System.Drawing.Point(550, 95);
-            this.btnUsePoint.Name = "btnUsePoint";
-            this.btnUsePoint.Size = new System.Drawing.Size(145, 52);
-            this.btnUsePoint.TabIndex = 17;
-            this.btnUsePoint.Text = "Sử dụng điểm";
-            this.btnUsePoint.UseVisualStyleBackColor = false;
-            this.btnUsePoint.Click += new System.EventHandler(this.btnUsePoint_Click);
+            this.rdoFree.AutoSize = true;
+            this.rdoFree.Location = new System.Drawing.Point(48, 151);
+            this.rdoFree.Name = "rdoFree";
+            this.rdoFree.Size = new System.Drawing.Size(136, 29);
+            this.rdoFree.TabIndex = 9;
+            this.rdoFree.Text = "Vé miễn phí";
+            this.rdoFree.UseVisualStyleBackColor = true;
             // 
             // frmTheatre
             // 
@@ -494,8 +559,11 @@ namespace QuanLyXemPhim
             this.panel7.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            this.grpTicketType.ResumeLayout(false);
+            this.grpTicketType.PerformLayout();
             this.pnCustomer.ResumeLayout(false);
             this.pnCustomer.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numBonusPoint)).EndInit();
             this.pnlPayment.ResumeLayout(false);
             this.pnlPayment.PerformLayout();
             this.ResumeLayout(false);
@@ -524,21 +592,26 @@ namespace QuanLyXemPhim
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Button btnPayment;
-        private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.Label txtPayment;
         private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.CheckBox chkCustomer;
         private System.Windows.Forms.Panel pnCustomer;
+        private System.Windows.Forms.Button btnUsePoint;
+        private System.Windows.Forms.NumericUpDown numBonusPoint;
+        private System.Windows.Forms.Label txtCustomerName;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label lblCustomerName;
         private System.Windows.Forms.Label txtPoint;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Label txtPlusPoint;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label txtCustomerName;
-        private System.Windows.Forms.Button btnUsePoint;
+        private System.Windows.Forms.CheckBox chkCustomer;
+        private System.Windows.Forms.GroupBox grpTicketType;
+        private System.Windows.Forms.RadioButton rdoStudent;
+        private System.Windows.Forms.RadioButton rdoAdult;
+        private System.Windows.Forms.RadioButton rdoChild;
+        private System.Windows.Forms.RadioButton rdoFree;
     }
 }
